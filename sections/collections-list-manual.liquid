@@ -1,0 +1,671 @@
+<!-- collections-list-manual.liquid -->
+{{ 'hdt-collections-list.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+assign current_width = settings.page_width | append: 'px'
+assign current_width_tb = '100vw'
+assign current_width_mb = '100vw' 
+
+if section.settings.section_fullwidth
+  if section.settings.boxed_fullwidth
+    assign current_width = '100vw - 80px'
+    assign current_width_tb = '100vw - 40px'
+    assign current_width_mb = '100vw - 10px'
+  else
+    assign current_width = '100vw'
+  endif
+endif
+-%}
+{%style%}
+#{{section.id}} {--masonry-grid-row-height:{{section.settings.row_height}}px;--masonry-grid-row-height-tb:{{section.settings.row_height_tb}}px;--masonry-grid-row-height-mb:{{section.settings.row_height_mb}}px;--space-items:{{section.settings.space_items}}px;--space-items-tb:{{section.settings.space_items_tb}}px;--space-items-mb:{{section.settings.space_items_mb}}px}#{{section.id}} .hdt-masonry-collections{grid:auto-flow dense var(--masonry-grid-row-height-mb)/repeat(var(--cols),minmax(0,1fr));gap:var(--space-items-mb)}#{{section.id}} .hdt-masonry-collection__item{grid-area:span var(--item-row-span-mb)/span var(--item-column-span-mb);height:100%;container-type:inline-size}@media screen and (min-width:768px){#{{section.id}} .hdt-masonry-collections{grid:auto-flow dense var(--masonry-grid-row-height-tb)/repeat(var(--cols),minmax(0,1fr));gap:var(--space-items-tb)}#{{section.id}} .hdt-masonry-collection__item{grid-area:span var(--item-row-span-tb)/span var(--item-column-span-tb)}}@media screen and (min-width:1150px){#{{section.id}} .hdt-masonry-collections{grid:auto-flow dense var(--masonry-grid-row-height)/repeat(var(--cols),minmax(0,1fr));gap:var(--space-items)}#{{section.id}} .hdt-masonry-collection__item{grid-area:span var(--item-row-span)/span var(--item-column-span)}}{%if section.settings.boxed_fullwidth%}#{{section.id}} .hdt-container-full{padding-inline-start:15px;padding-inline-end:15px}@media(min-width:768px){#{{section.id}} .hdt-container-full{padding-inline-start:30px;padding-inline-end:30px}}@media(min-width:1150px){#{{section.id}} .hdt-container-full{padding-inline-start:40px;padding-inline-end:40px}}{%endif%}{%-if section.settings.content_padding>30-%}#{{section.id}} .hdt-masonry-collections{--content-pd:15px}@media(min-width:768px){#{{section.id}} .hdt-masonry-collections{--content-pd:30px}}@media(min-width:1150px){#{{section.id}} .hdt-masonry-collections{--content-pd:{{section.settings.content_padding}}px}}{%-elsif section.settings.content_padding>15-%}#{{section.id}} .hdt-masonry-collections{--content-pd:15px}@media(min-width:768px){#{{section.id}} .hdt-masonry-collections{--content-pd:{{section.settings.content_padding}}px}}{%-else-%}#{{section.id}} .hdt-masonry-collections{--content-pd:{{section.settings.content_padding}}px}{%-endif-%}
+{%endstyle%}
+<div id="{{ section.id }}" class="hdt-section-spacing hdt-s-gradient hdt-relative" style="--section-pt: {{ section.settings.padding_top }}px; --section-pb: {{ section.settings.padding_bottom }}px; --section-prate:{{ section.settings.padding_rate }};" color-scheme="{{ section.settings.color_scheme }}">
+  <div class="hdt-container{%- if section.settings.section_fullwidth -%}-full{% endif %}">
+    {%- if section.settings.section_background != blank -%}
+      {%- assign se_bg = section.settings.section_background -%}
+      {{ se_bg | image_url: width: se_bg.width | image_tag: width: se_bg.width, height: se_bg.height, widths:'300,400,500,600,700,800,900,1000,1200,1400,1600,1800,1900,2000,2200,2400,2600,2800,3000,3200,3400,3600', class: 'hdt-absolute hdt-top-0 hdt-left-0 hdt-w-ful hdt-h-full hdt-object-cover', loading: 'lazy', style:'z-index: 0' }}
+    {%- endif -%}
+    {%- render 'section-top-head' -%}
+    <div class="hdt-masonry-collections hdt-text-uppercase-{{ section.settings.text_transform }} hdt-row-grid lg:hdt-grid-cols-12 md:hdt-grid-cols-12 hdt-grid-cols-2">
+      {%- for block in section.blocks -%}
+        <div class="hdt-masonry-collection__item" style="--item-column-span: {{ block.settings.column_width }}; --item-row-span: {{ block.settings.row_count }};--item-column-span-tb: {{ block.settings.tb_column_width }}; --item-row-span-tb: {{ block.settings.tb_row_count }};--item-column-span-mb: {{ block.settings.mb_column_width }}; --item-row-span-mb: {{ block.settings.mb_row_count }}" hdt-reveal="slide-in" timeline> 
+          {%- capture current -%}{%- cycle 1, 2, 3, 4 -%}{%- endcapture -%}
+          {%- render 'collection_manual_item', block: block, collection: collections[block.settings.collection], current: current, current_width: current_width, current_width_tb: current_width_tb, current_width_mb: current_width_mb -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.collection_list.name_manual",
+  "tag": "section",
+  "class": "hdt-section hdt-collections-list hdt-collections-list-manual",
+  "disabled_on": {
+    "groups": [
+      "*"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.section_heading_options"
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "t:sections.title.settings.heading_align.label",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.title.settings.heading_align.options_1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.title.settings.heading_align.options_2.label"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "sec_heading",
+      "label": "t:sections.all.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:sections.all.heading.heading_tag.label",
+      "default": "h3",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading.heading_tag.options_2.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading.heading_tag.options_3.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading.heading_tag.options_4.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading.heading_tag.options_5.label"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.all.heading.heading_tag.options_6.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "text-lg",
+          "label": "t:sections.all.heading.heading_size.options.small"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading.heading_size.options.medium"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading.heading_size.options.large"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading.heading_size.options.extralarge"
+        }
+      ],
+      "label": "t:sections.all.heading.heading_size.label",
+      "default": "h4"
+    },
+    {
+      "type": "richtext",
+      "id": "sec_subheading",
+      "label": "t:sections.all.sub_heading.label"
+    },
+    {
+      "type": "select",
+      "id": "subheading_size",
+      "label": "t:sections.gallery.settings.sub_heading.options.subheading_size",
+      "options": [
+        {
+          "value": "base",
+          "label": "t:sections.all.sub_heading.subheading_size.options.base"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.sub_heading.subheading_size.options.default"
+        },
+        {
+          "value": "xl",
+          "label": "t:sections.all.sub_heading.subheading_size.options.medium"
+        },
+        {
+          "value": "2xl",
+          "label": "t:sections.all.sub_heading.subheading_size.options.large"
+        },
+        {
+          "value": "10xl",
+          "label": "t:sections.all.sub_heading.subheading_size.options.extralarge"
+        }
+      ],
+      "default": "lg"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_reverse",
+      "label": "t:sections.gallery.settings.heading_reverse",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "btn_heading_collection",
+      "label": "t:sections.all.btn_heading",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "heading_gap",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.heading_gap",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "sec_heading_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.sec_heading_spacing",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "t:sections.collection_list.options_collection"
+    },
+    {
+      "type": "select",
+      "id": "collection_des",
+      "label": "t:sections.collection_list.settings.collection_des",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "10",
+          "label": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "content_size",
+      "options": [
+        {
+          "value": "base",
+          "label": "t:sections.collection_list.settings.content_size.option_1.label"
+        },
+        {
+          "value": "xl",
+          "label": "t:sections.collection_list.settings.content_size.option_2.label"
+        },
+        {
+          "value": "4xl",
+          "label": "t:sections.collection_list.settings.content_size.option_3.label"
+        },
+        {
+          "value": "10xl",
+          "label": "t:sections.collection_list.settings.content_size.option_4.label"
+        }
+      ],
+      "label": "t:sections.collection_list.settings.content_size.label",
+      "default": "xl"
+    },
+    {
+      "type": "select",
+      "id": "content_weight",
+      "options": [
+        {
+          "value": "normal",
+          "label": "t:sections.collection_list.settings.content_weight.option_1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.collection_list.settings.content_weight.option_2.label"
+        },
+        {
+          "value": "semibold",
+          "label": "t:sections.collection_list.settings.content_weight.option_3.label"
+        },
+        {
+          "value": "bold",
+          "label": "t:sections.collection_list.settings.content_weight.option_4.label"
+        }
+      ],
+      "label": "t:sections.collection_list.settings.content_weight.label",
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "id": "text_transform",
+      "label": "t:sections.collection_list.settings.text_transform",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "t:sections.collection_list.settings.content_position.label",
+      "info": "t:sections.collection_list.settings.content_position.info",
+      "options": [
+        {
+          "value": "center",
+          "label": "t:sections.collection_list.settings.content_position.option_1.label"
+        },
+        {
+          "value": "end-center",
+          "label": "t:sections.collection_list.settings.content_position.option_2.label"
+        },
+        {
+          "value": "end-start",
+          "label": "t:sections.collection_list.settings.content_position.option_3.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.collection_list.settings.content_position.option_4.label"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "label": "t:sections.collection_list.settings.content_padding.label",
+      "info": "t:sections.collection_list.settings.content_padding.info",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "t:sections.collection_list.options_layout"
+    },
+    {
+      "type": "range",
+      "id": "row_height",
+      "label": "t:sections.collection_list.settings.row_height",
+      "min": 100,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 390
+    },
+    {
+      "type": "range",
+      "id": "row_height_tb",
+      "label": "t:sections.collection_list.settings.row_height_tb",
+      "min": 100,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 390
+    },
+    {
+      "type": "range",
+      "id": "row_height_mb",
+      "label": "t:sections.collection_list.settings.row_height_mb",
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "default": 250
+    },
+    {
+      "type": "select",
+      "id": "space_items",
+      "label": "t:sections.all.space_items.desktop",
+      "default": "30",
+      "options": [
+        {
+          "value": "0",
+          "label": "0"
+        },
+        {
+          "value": "5",
+          "label": "5px"
+        },
+        {
+          "value": "10",
+          "label": "10px"
+        },
+        {
+          "value": "15",
+          "label": "15px"
+        },
+        {
+          "value": "20",
+          "label": "20px"
+        },
+        {
+          "value": "30",
+          "label": "30px"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "space_items_tb",
+      "label": "t:sections.all.space_items.tablet",
+      "default": "15",
+      "options": [
+        {
+          "value": "0",
+          "label": "0"
+        },
+        {
+          "value": "5",
+          "label": "5px"
+        },
+        {
+          "value": "10",
+          "label": "10px"
+        },
+        {
+          "value": "15",
+          "label": "15px"
+        },
+        {
+          "value": "20",
+          "label": "20px"
+        },
+        {
+          "value": "30",
+          "label": "30px"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "space_items_mb",
+      "label": "t:sections.all.space_items.mobile",
+      "default": "15",
+      "options": [
+        {
+          "value": "0",
+          "label": "0"
+        },
+        {
+          "value": "5",
+          "label": "5px"
+        },
+        {
+          "value": "10",
+          "label": "10px"
+        },
+        {
+          "value": "15",
+          "label": "15px"
+        },
+        {
+          "value": "20",
+          "label": "20px"
+        },
+        {
+          "value": "30",
+          "label": "30px"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_fullwidth",
+      "label": "t:sections.all.section_fullwidth",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "boxed_fullwidth",
+      "label": "t:sections.banner.settings.boxed.label",
+      "info": "t:sections.banner.settings.boxed.info",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "section_background",
+      "label": "t:sections.all.bg_img"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 75
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "t:sections.collection_list.blocks.collection_item",
+      "settings": [
+        {
+          "id": "collection",
+          "type": "collection",
+          "label": "t:sections.collection_list.blocks.collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.collection_list.blocks.image",
+          "info": "t:sections.collection_list.blocks.image_info"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.collection_list.blocks.title",
+          "info": "t:sections.collection_list.blocks.title_info",
+          "default": "Collection name"
+        },
+        {
+          "type": "url",
+          "id": "collection_link",
+          "label": "t:sections.collection_list.blocks.link",
+          "info": "t:sections.collection_list.blocks.link_info"
+        },
+        {
+          "type": "select",
+          "id": "column_width",
+          "label": "t:sections.collection_list.blocks.column_width",
+          "options": [
+            {
+              "value": "3",
+              "label": "25%"
+            },
+            {
+              "value": "4",
+              "label": "33%"
+            },
+            {
+              "value": "6",
+              "label": "50%"
+            },
+            {
+              "value": "8",
+              "label": "67%"
+            },
+            {
+              "value": "12",
+              "label": "100%"
+            }
+          ],
+          "default": "6"
+        },
+        {
+          "type": "range",
+          "id": "row_count",
+          "label": "t:sections.collection_list.blocks.row_count",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "default": 1
+        },
+        {
+          "type": "select",
+          "id": "tb_column_width",
+          "label": "t:sections.collection_list.blocks.column_width_tb",
+          "options": [
+            {
+              "value": "3",
+              "label": "25%"
+            },
+            {
+              "value": "4",
+              "label": "33%"
+            },
+            {
+              "value": "6",
+              "label": "50%"
+            },
+            {
+              "value": "8",
+              "label": "67%"
+            },
+            {
+              "value": "12",
+              "label": "100%"
+            }
+          ],
+          "default": "6"
+        },
+        {
+          "type": "range",
+          "id": "tb_row_count",
+          "label": "t:sections.collection_list.blocks.row_count_tb",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "default": 1
+        },
+        {
+          "type": "select",
+          "id": "mb_column_width",
+          "label": "t:sections.collection_list.blocks.column_width_mb",
+          "options": [
+            {
+              "value": "1",
+              "label": "50%"
+            },
+            {
+              "value": "2",
+              "label": "100%"
+            }
+          ],
+          "default": "1"
+        },
+        {
+          "type": "range",
+          "id": "mb_row_count",
+          "label": "t:sections.collection_list.blocks.row_count_mb",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "default": 1
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collection_list.name_manual",
+      "blocks": [
+        {
+          "type": "collection_item",
+          "settings": {
+            "column_width": "4",
+            "row_count": 2,
+            "mb_column_width": "2",
+            "mb_row_count": 1
+          }
+        },
+        {
+          "type": "collection_item",
+          "settings": {
+            "column_width": "4",
+            "row_count": 1,
+            "mb_column_width": "1",
+            "mb_row_count": 1
+          }
+        },
+        {
+          "type": "collection_item",
+          "settings": {
+            "column_width": "4",
+            "row_count": 2,
+            "mb_column_width": "1",
+            "mb_row_count": 1
+          }
+        },
+        {
+          "type": "collection_item",
+          "settings": {
+            "column_width": "4",
+            "row_count": 1,
+            "mb_column_width": "1",
+            "mb_row_count": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

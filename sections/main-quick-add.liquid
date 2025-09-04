@@ -1,0 +1,523 @@
+{%- if template == 'product.only_config' and request.design_mode == false -%}
+  <hdt-lazy-modal id="hdt-quick-add-modal" section-id="{{ section.id }}" role="region" aria-live="polite" class="hdt-quick-add-modal hdt-modal" aria-modal="true" effect="slide" hidden></hdt-lazy-modal>
+{%- else -%}
+  {%- liquid
+    assign block_variant_picker = section.blocks | where: 'type', 'variant_picker' | first
+    assign update_url = false
+    assign un_no_pick = true
+    if block_variant_picker.settings.pick_mode == 'no' and product.variants.size > 1
+      assign selected_variant = product.selected_variant
+      unless selected_variant
+        assign un_no_pick = false
+      endunless
+    elsif block_variant_picker.settings.pick_mode == 'first' and block_variant_picker.settings.hide_sold_out == false
+      assign selected_variant = product.selected_variant | default: product.variants.first
+    else
+      assign selected_variant = product.selected_or_first_available_variant
+    endif
+    assign product_form_id = 'product-form-' | append: section.id | append: product.id
+    if section.settings.show_first_media
+      assign image = product.featured_media.preview_image
+    else
+      assign image = selected_variant.featured_image | default: product.featured_image
+    endif
+  -%}
+  {%- if template == 'product.only_config' %}<hdt-lazy-modal un-detect id="hdt-quick-add-modal" section-id="{{ section.id }}" role="region" aria-live="polite" class="hdt-quick-add-modal hdt-modal" aria-modal="true" effect="slide" hidden>{% endif -%}
+  <h3 slot="header"></h3>
+  <div class="hdt-main-product-quick-add hdt-s-gradient" color-scheme="{{ section.settings.color_scheme }}">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+
+          {%- when 'variant_info' -%}
+            <div class="hdt-product-info__item hdt-quick-add-infos hdt-flex hdt-align-center" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+              {%- if image != blank -%}
+                <hdt-variant-preview-img form="{{ product_form_id }}" class="hdt-quick-add-pr-img">
+                  {{ image | image_url: width: 160 | image_tag: loading: 'lazy', sizes: '(max-width: 767px) 60px, 80px', widths: '60,80,120,160', data-widths: '[60,80,120,160]' }}
+                </hdt-variant-preview-img>
+              {%- endif -%}
+              <div class="hdt-quick-add-info hdt-flex hdt-flex-col">
+                <a class="hdt-quick-add-info-title hdt-block hdt-s-text" href="{{ product.url }}"><h1 class="hdt-font-normal">{{ product.title | escape }}</h1></a>
+                <div class="hdt-product__price">
+                  {%- render 'price', product: product, use_variant: true, form_id: product_form_id, show_badges: true, only_show_sale: true, show_volume_note: false, un_no_pick: un_no_pick -%}
+                </div>
+              </div>
+            </div>
+
+            {%- when 'quantity_selector' -%}
+              {%- liquid
+                unless product.available
+                  continue
+                endunless
+              -%}
+              <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+              {%- render 'product-qty-selector', block: block, selected_variant: selected_variant, product_form_id: product_form_id, product: product -%}
+              </div>
+
+          {%- when 'variant_picker' -%}
+            <div class="hdt-product-info__item hdt-product__variant-picker" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'variant-picker', product: product, block: block, product_form_id: product_form_id, update_url: update_url, selected_variant: selected_variant, un_no_pick: un_no_pick -%}</div>
+
+          {%- when 'buy_buttons' -%}
+            {%- assign has_form_atc = true -%}
+            <div class="hdt-product-info__item hdt-product__buy-button" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'buy-buttons', product: product, block: block, product_form_id: product_form_id, use_variant: true, selected_variant: selected_variant, un_no_pick: un_no_pick -%}</div>
+            
+          {%- when 'tax' -%}
+            {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
+              <div class="hdt-product__policies hdt-rte hdt-s-text" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                {%- if cart.taxes_included -%}
+                  {{ 'products.product.include_taxes' | t }}
+                {%- endif -%}
+                {%- if shop.shipping_policy.body != blank -%}
+                  {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- when 'line_item_property' -%}
+            <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'line-item-properties', form_id: product_form_id, block: block -%}</div>
+
+          {%- when 'incoming_mess' -%}
+            <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'incoming-mess', product: product, block: block, product_form_id: product_form_id, selected_variant: selected_variant -%}</div>
+
+          {%- endcase -%}
+      {%- endfor -%}
+  </div>
+
+  {%- if has_form_atc != true and product != empty -%}
+    {%- form 'product', product, id: product_form_id, hidden: '' -%}<input type="hidden" name="id" value="{{ selected_variant.id }}" disabled>{%- endform -%}
+  {%- endif -%}
+
+  {%- if template == 'product.only_config' -%}
+  </hdt-lazy-modal>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      if (!Shopify.designMode) return;
+      document.addEventListener("shopify:section:select", (event) => {
+        const modal = event.target.querySelector('#hdt-quick-add-modal');
+        if (modal) modal.hidden = false
+      });
+      document.addEventListener("shopify:section:deselect", (event) => {
+        const modal = event.target.querySelector('#hdt-quick-add-modal');
+        if (modal) modal.hidden = true
+      });
+    });
+  </script>
+  {%- endif -%}
+{%- endif -%}
+
+
+{% schema %}
+{
+  "name": "t:sections.main-quick-add.name",
+  "tag": "section",
+  "class": "hdt-main-section hdt-main-section--quick-add hdt-quick-add-modal",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_first_media",
+      "default": false,
+      "label": "t:sections.main-product.settings.show_first_media.label",
+      "info": "t:sections.main-product.settings.show_first_media.info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "variant_info",
+      "name": "t:sections.main-quick-add.blocks.variant_info.name",
+      "limit": 1
+    },
+    {
+      "type": "variant_picker",
+      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "pick_mode",
+          "options": [
+            {
+              "value": "no",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.pick_mode.options__1.label"
+            },
+            {
+              "value": "first",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.pick_mode.options__2.label"
+            },
+            {
+              "value": "first_available",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.pick_mode.options__3.label"
+            }
+          ],
+          "default": "first_available",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.pick_mode.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_sold_out",
+          "default": false,
+          "label": "t:sections.main-product.blocks.variant_picker.settings.hide_sold_out.label",
+          "info": "t:sections.main-product.blocks.variant_picker.settings.hide_sold_out.info"
+        },
+        {
+          "type": "select",
+          "id": "color_picker_type",
+          "options": [
+            {
+              "value": "block",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_picker_type.options__1.label"
+            },
+            {
+              "value": "block_with_color",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_picker_type.options__2.label"
+            },
+            {
+              "value": "color",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_picker_type.options__3.label"
+            },
+            {
+              "value": "color_rounded",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_picker_type.options__4.label"
+            },
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_picker_type.options__5.label"
+            },
+            {
+              "value": "dropdown_with_color",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_picker_type.options__6.label"
+            },
+            {
+              "value": "image",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_picker_type.options__7.label"
+            },
+            {
+              "value": "image_rounded",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_picker_type.options__8.label"
+            }
+          ],
+          "default": "block",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.color_picker_type.label"
+        },
+        {
+          "type": "select",
+          "id": "color_size",
+          "options": [
+            {
+              "value": "small",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_size.options__1.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_size.options__2.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.color_size.options__3.label"
+            }
+          ],
+          "label": "t:sections.main-product.blocks.variant_picker.settings.color_size.label",
+          "info": "t:sections.main-product.blocks.variant_picker.settings.color_size.info",
+          "default": "small"
+        },
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "block",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "block",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.main-product.blocks.variant_picker.settings.header_size_chart.content",
+          "info": "t:sections.main-product.blocks.variant_picker.settings.header_size_chart.info"
+        },
+        {
+          "type": "select",
+          "id": "size_chart_source",
+          "options": [
+            {
+              "value": "page",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.size_chart_source.options__1.label"
+            },
+            {
+              "value": "image",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.size_chart_source.options__2.label"
+            }
+          ],
+          "default": "page",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.size_chart_source.label"
+        },
+        {
+          "type": "page",
+          "id": "size_chart_page",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.size_chart_page.label",
+          "info": "t:sections.main-product.blocks.variant_picker.settings.size_chart_page.info"
+        },
+        {
+          "type": "image_picker",
+          "id": "size_chart_image",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.size_chart_image.label"
+        }
+      ]
+    },
+    {
+      "type": "quantity_selector",
+      "name": "t:sections.main-product.blocks.quantity_selector.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.quantity_selector.settings.info.content"
+        }
+      ]
+    },
+    {
+      "type": "buy_buttons",
+      "name": "t:sections.main-product.blocks.buy_buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_gift_card_recipient",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
+          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_price_variant",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_price_variant.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_wishlist",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_wishlist.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_compare",
+          "default": false,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_compare.label"
+        }
+      ]
+    },
+    {
+      "type": "tax",
+      "name": "t:sections.main-product.blocks.tax.name",
+      "limit": 1
+    },
+    {
+      "type": "line_item_property",
+      "name": "t:sections.main-product.blocks.line_item_property.name",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.line_item_property.settings.paragraph"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.main-product.blocks.line_item_property.settings.property_type.label",
+          "default": "Your label"
+        },
+        {
+          "type": "select",
+          "id": "property_type",
+          "options": [
+            {
+              "value": "text",
+              "label": "t:sections.main-product.blocks.line_item_property.settings.property_type.options__1.label"
+            },
+            {
+              "value": "checkbox",
+              "label": "t:sections.main-product.blocks.line_item_property.settings.property_type.options__2.label"
+            },
+            {
+              "value": "options",
+              "label": "t:sections.main-product.blocks.line_item_property.settings.property_type.options__3.label"
+            }
+          ],
+          "default": "text",
+          "label": "t:sections.main-product.blocks.line_item_property.settings.property_type.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_required",
+          "label": "t:sections.main-product.blocks.line_item_property.settings.use_required.label",
+          "info": "t:sections.main-product.blocks.line_item_property.settings.use_required.info",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_at_ck_cart",
+          "label": "t:sections.main-product.blocks.line_item_property.settings.show_at_ck_cart.label",
+          "info": "t:sections.main-product.blocks.line_item_property.settings.show_at_ck_cart.info",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "t:sections.main-product.blocks.line_item_property.settings.header__1.content",
+          "info": "t:sections.main-product.blocks.line_item_property.settings.header__1.info"
+        },
+        {
+          "type": "select",
+          "id": "type_text",
+          "options": [
+            {
+              "value": "short",
+              "label": "t:sections.main-product.blocks.line_item_property.settings.type_text.options__1.label"
+            },
+            {
+              "value": "long",
+              "label": "t:sections.main-product.blocks.line_item_property.settings.type_text.options__2.label"
+            }
+          ],
+          "default": "short",
+          "label": "t:sections.main-product.blocks.line_item_property.settings.type_text.label"
+        },
+        {
+          "type": "number",
+          "id": "max_characters",
+          "label": "t:sections.main-product.blocks.line_item_property.settings.max_characters.label"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.main-product.blocks.line_item_property.settings.header__2.content",
+          "info": "t:sections.main-product.blocks.line_item_property.settings.header__2.info"
+        },
+        {
+          "type": "text",
+          "id": "ck_value",
+          "default": "Yes",
+          "label": "t:sections.main-product.blocks.line_item_property.settings.ck_value.label",
+          "info": "t:sections.main-product.blocks.line_item_property.settings.ck_value.info"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.main-product.blocks.line_item_property.settings.header__3.content",
+          "info": "t:sections.main-product.blocks.line_item_property.settings.header__3.info"
+        },
+        {
+          "type": "select",
+          "id": "type_options",
+          "options": [
+            {
+              "value": "select",
+              "label": "t:sections.main-product.blocks.line_item_property.settings.type_options.options__1.label"
+            },
+            {
+              "value": "radio",
+              "label": "t:sections.main-product.blocks.line_item_property.settings.type_options.options__2.label"
+            }
+          ],
+          "default": "select",
+          "label": "t:sections.main-product.blocks.line_item_property.settings.type_options.label"
+        },
+        {
+          "type": "textarea",
+          "id": "options",
+          "default": "option1\noption2",
+          "label": "t:sections.main-product.blocks.line_item_property.settings.options.label",
+          "info": "t:sections.main-product.blocks.line_item_property.settings.options.info"
+        }
+      ]
+    },
+    {
+      "type": "incoming_mess",
+      "name": "t:sections.main-product.blocks.incoming_mess.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.incoming_mess.settings.paragraph.content"
+        },
+        {
+          "type": "select",
+          "id": "date",
+          "label": "t:sections.main-product.blocks.incoming_mess.settings.date.label",
+          "info": "t:sections.main-product.blocks.incoming_mess.settings.date.info",
+          "default": "%d\/%m\/%Y",
+          "options": [
+            {
+              "value": "%B %d, %Y",
+              "label": "April 09, 1994 - MMM dd, yyyy"
+            },
+            {
+              "value": "%d\/%m\/%y",
+              "label": "09\/04\/94 - dd\/MM\/yy"
+            },
+            {
+              "value": "%d\/%m\/%Y",
+              "label": "09\/04\/1994 - dd\/MM\/yyyy"
+            },
+            {
+              "value": "%e\/%m\/%Y",
+              "label": "9\/04\/1994 - d\/MM\/yyyy"
+            },
+            {
+              "value": "%b %y",
+              "label": "Apr 94 - MMM yy"
+            },
+            {
+              "value": "%b %d",
+              "label": "Apr 09 - MMM dd"
+            },
+            {
+              "value": "%m\/%d\/%Y",
+              "label": "04\/09\/1994 - MM\/dd\/yyyy"
+            },
+            {
+              "value": "%A %d\/%m\/%Y",
+              "label": "Tuesday 09\/04\/1994 - aa dd\/MM\/yyyy"
+            },
+            {
+              "value": "%a %d\/%m\/%Y",
+              "label": "Tue 09\/04\/1994 - a dd\/MM\/yyyy"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "variant_info"
+      },
+      {
+        "type": "variant_picker"
+      },
+      {
+        "type": "buy_buttons"
+      }
+    ]
+  }
+}
+{% endschema %}

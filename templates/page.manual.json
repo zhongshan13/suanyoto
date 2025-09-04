@@ -1,0 +1,132 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "heading": {
+      "type": "main-heading",
+      "blocks": {
+        "5ecb9555-19e4-433b-8817-1ccaa3a41384": {
+          "type": "1",
+          "settings": {
+            "heading": "User Manual",
+            "heading_size": "h3"
+          }
+        }
+      },
+      "block_order": [
+        "5ecb9555-19e4-433b-8817-1ccaa3a41384"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/4545343.webp",
+        "color_scheme": "",
+        "spacing_hd": 0,
+        "padding_top": 80,
+        "padding_bottom": 86,
+        "padding_rate": 75
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_rate": 75
+      }
+    },
+    "feature_columns_cgCk4N": {
+      "type": "feature_columns",
+      "blocks": {
+        "item_QEtWNA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/istockphoto-1298834280-612x612.jpg",
+            "subtitle": "",
+            "title": "Installation Guide for Tesla Model 3/Y S11 Dashboard Display (Pre-2024 Models)",
+            "text": "",
+            "btn_label": "View Installation Guide",
+            "btn_link": "https://cdn.shopify.com/s/files/1/0695/5335/6963/files/Installation_Guide_for_Tesla_Model_3Y_S11_Dashboard_Display_Pre-2024_Models.pdf?v=1750401957",
+            "target": false,
+            "btn_style": "solid",
+            "btn_fw": "normal",
+            "btn_icon": "none"
+          }
+        },
+        "item_3NhUiF": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/istockphoto-1298834280-612x612.jpg",
+            "subtitle": "",
+            "title": "Installation Guide for S11 Dashboard Display – Tesla Model 3/Y (2024+)",
+            "text": "",
+            "btn_label": "View Installation Guide",
+            "btn_link": "https://cdn.shopify.com/s/files/1/0695/5335/6963/files/Installation_Guide_for_S11_Dashboard_Display_Tesla_Model_3Y_2024.pdf?v=1750403308",
+            "target": false,
+            "btn_style": "solid",
+            "btn_fw": "normal",
+            "btn_icon": "none"
+          }
+        },
+        "item_jVPQj4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/istockphoto-1298834280-612x612.jpg",
+            "subtitle": "",
+            "title": "User Manual – S11 Dashboard Display",
+            "text": "",
+            "btn_label": "View Installation Guide",
+            "btn_link": "https://cdn.shopify.com/s/files/1/0695/5335/6963/files/User_Manual_S11_Dashboard_Display.pdf?v=1750403493",
+            "target": false,
+            "btn_style": "solid",
+            "btn_fw": "normal",
+            "btn_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "item_QEtWNA",
+        "item_3NhUiF",
+        "item_jVPQj4"
+      ],
+      "name": "t:sections.feature_columns.name",
+      "settings": {
+        "sec_heading": "",
+        "heading_align": "start",
+        "heading_tag": "h3",
+        "heading_size": "h5",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "heading_gap": 29,
+        "sec_heading_spacing": 30,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "1",
+        "image_ratio": "adapt_image",
+        "image_size": true,
+        "navUI": false,
+        "nav_des": "default",
+        "nav_pos": "middle_in",
+        "dotUI": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main",
+    "feature_columns_cgCk4N"
+  ]
+}

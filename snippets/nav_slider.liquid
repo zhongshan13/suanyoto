@@ -1,0 +1,27 @@
+{%- assign navUI = navUI | default: section.settings.navUI -%}
+{%- assign section_id = section_id | default: section.id -%}
+{%- if navUI -%}
+  {%- if ontop -%}
+    <button aria-controls="Slider-{{ section_id }}" aria-label="Previous slide" class="hdt-slider__button hdt-inline-flex hdt-align-center hdt-justify-center hdt-slider__button--prev" type="button" disabled name="previous">
+      {%- if nav_des != "simple" -%}
+        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
+      {%- else -%}
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M5.25 11.25L6.475 9.98125L3.36875 6.875H14V5.125H3.36875L6.475 2.01875L5.25 0.75L0 6L5.25 11.25Z" fill="currentColor"/></svg>
+      {%- endif -%}
+    </button>
+    <button aria-controls="Slider-{{ section_id }}" aria-label="Next slide" class="hdt-slider__button hdt-inline-flex hdt-align-center hdt-justify-center hdt-slider__button--next" type="button" disabled name="next">
+      {%- if nav_des != "simple" -%}
+        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
+      {%- else -%}
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M8.75 11.25L7.525 9.98125L10.6312 6.875H0V5.125H10.6312L7.525 2.01875L8.75 0.75L14 6L8.75 11.25Z" fill="currentColor"/></svg>
+      {%- endif -%}
+    </button>
+  {%- else -%}
+    <button class="hdt-slider__button hdt-slider-nav hdt-inline-flex hdt-align-center hdt-justify-center hdt-slider__button--prev hdt-absolute" type="button" aria-controls="Slider-{{ section_id }}" name="previous" aria-label="Previous slide">
+      <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
+    </button>
+    <button class="hdt-slider__button hdt-slider-nav hdt-inline-flex hdt-align-center hdt-justify-center hdt-slider__button--next hdt-absolute" type="button" aria-controls="Slider-{{ section_id }}" name="next" aria-label="Next slide">
+      <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
+    </button>
+  {%- endif -%}
+{%- endif -%}

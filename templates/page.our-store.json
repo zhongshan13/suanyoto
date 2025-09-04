@@ -1,0 +1,251 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "heading": {
+      "type": "main-heading",
+      "blocks": {
+        "5ecb9555-19e4-433b-8817-1ccaa3a41384": {
+          "type": "1",
+          "settings": {
+            "heading": "",
+            "heading_size": "h4"
+          }
+        }
+      },
+      "block_order": [
+        "5ecb9555-19e4-433b-8817-1ccaa3a41384"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/z4683181570507_46fb10fa21da971ae2af71e75431028c.png",
+        "color_scheme": "",
+        "spacing_hd": 0,
+        "padding_top": 80,
+        "padding_bottom": 86
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "e4249715-7649-4062-a380-b9ea4c584a3a": {
+      "type": "our-store",
+      "blocks": {
+        "05eba7b1-b3a9-4151-b0a2-1060c5653f93": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ecomus Paris"
+          }
+        },
+        "5d2b131b-4660-4b75-92d7-10dc041cda26": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Address</strong></p><p>66 Mott St, New York, New York, Zip Code: 10006, AS</p>"
+          }
+        },
+        "b9bae3c3-6309-46ab-968f-1b9d8e7b4777": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Phone</strong></p><p>(623) 934-2400</p>"
+          }
+        },
+        "1618b9b8-c6b6-47c6-8196-ff653df01d9b": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Email</strong></p><p>EComposer@example.com</p>"
+          }
+        },
+        "9b58a58a-282e-4a74-b3bc-5951c0137778": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Open Time</strong></p><p>Our store has re-opened for shopping, </p><p>exchange Every day 11am to 7pm</p>"
+          }
+        },
+        "ddf92bfe-e675-46ab-92e6-4db45b01c655": {
+          "type": "socials",
+          "settings": {
+            "socials_style": "simple",
+            "socials_size": "large"
+          }
+        },
+        "0d575ee0-2e12-4061-9dd2-40a549ea20f8": {
+          "type": "button",
+          "settings": {
+            "btn_label": "Get Directions",
+            "btn_link": "shopify://pages/contact-2",
+            "btn_style": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "05eba7b1-b3a9-4151-b0a2-1060c5653f93",
+        "5d2b131b-4660-4b75-92d7-10dc041cda26",
+        "b9bae3c3-6309-46ab-968f-1b9d8e7b4777",
+        "1618b9b8-c6b6-47c6-8196-ff653df01d9b",
+        "9b58a58a-282e-4a74-b3bc-5951c0137778",
+        "ddf92bfe-e675-46ab-92e6-4db45b01c655",
+        "0d575ee0-2e12-4061-9dd2-40a549ea20f8"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ourstore.png",
+        "image_ratio": "adapt_image",
+        "image_size": "cover",
+        "image_pos": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 122,
+        "padding_bottom": 52
+      }
+    },
+    "fe6dc56d-575a-4d3a-9c38-85e7dd67475a": {
+      "type": "our-store",
+      "blocks": {
+        "9068748c-9a3f-43b8-b656-806fa42919b9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ecomus London"
+          }
+        },
+        "fba1f9f1-dc90-4b21-b851-c0a2d762548d": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Address</strong></p><p>66 Mott St, New York, New York, Zip Code: 10006, AS</p>"
+          }
+        },
+        "e93df256-40b8-462b-9818-bf2a2254e155": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Phone</strong></p><p>(623) 934-2400</p>"
+          }
+        },
+        "2ca9af5e-c119-4645-a8ef-e23d154f0eb8": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Email</strong></p><p>EComposer@example.com</p>"
+          }
+        },
+        "c6c9365e-c18e-4bba-b4b0-9b07cbd381f7": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Open Time</strong></p><p>Our store has re-opened for shopping, </p><p>exchange Every day 11am to 7pm</p>"
+          }
+        },
+        "9c24b0a2-06ac-4f8c-a6fb-3f901d6e892c": {
+          "type": "socials",
+          "settings": {
+            "socials_style": "simple",
+            "socials_size": "large"
+          }
+        },
+        "fadc87f2-9af4-4ec5-9047-1982fb244a4d": {
+          "type": "button",
+          "settings": {
+            "btn_label": "Get Directions",
+            "btn_link": "shopify://pages/contact-1",
+            "btn_style": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "9068748c-9a3f-43b8-b656-806fa42919b9",
+        "fba1f9f1-dc90-4b21-b851-c0a2d762548d",
+        "e93df256-40b8-462b-9818-bf2a2254e155",
+        "2ca9af5e-c119-4645-a8ef-e23d154f0eb8",
+        "c6c9365e-c18e-4bba-b4b0-9b07cbd381f7",
+        "9c24b0a2-06ac-4f8c-a6fb-3f901d6e892c",
+        "fadc87f2-9af4-4ec5-9047-1982fb244a4d"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ourstore2.png",
+        "image_ratio": "adapt_image",
+        "image_size": "cover",
+        "image_pos": true,
+        "color_scheme": "scheme-2",
+        "padding_top": 52,
+        "padding_bottom": 56
+      }
+    },
+    "9f464306-87fb-4254-8d96-2f844862b1bc": {
+      "type": "our-store",
+      "blocks": {
+        "d61b8cd5-8388-40b0-8406-57fafe0ef6dd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ecomus Dubai"
+          }
+        },
+        "c8735bc8-99c5-43d1-ab99-f23d11471e2f": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Address</strong></p><p>66 Mott St, New York, New York, Zip Code: 10006, AS</p>"
+          }
+        },
+        "176f4f06-4139-443c-a6a2-207e529186e1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Phone</strong></p><p>(623) 934-2400</p>"
+          }
+        },
+        "c9b3e52a-d5a5-46d9-ba68-82789cf2858b": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Email</strong></p><p>EComposer@example.com</p>"
+          }
+        },
+        "4dab9f5e-50ca-4041-a320-ab8b44cd488f": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Open Time</strong></p><p>Our store has re-opened for shopping, </p><p>exchange Every day 11am to 7pm</p>"
+          }
+        },
+        "62971b09-fba0-4659-a1b3-2430933a6c98": {
+          "type": "socials",
+          "settings": {
+            "socials_style": "simple",
+            "socials_size": "large"
+          }
+        },
+        "d80d1f76-6374-4959-b808-cd40d588ce5c": {
+          "type": "button",
+          "settings": {
+            "btn_label": "Get Directions",
+            "btn_link": "shopify://pages/contact-2",
+            "btn_style": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "d61b8cd5-8388-40b0-8406-57fafe0ef6dd",
+        "c8735bc8-99c5-43d1-ab99-f23d11471e2f",
+        "176f4f06-4139-443c-a6a2-207e529186e1",
+        "c9b3e52a-d5a5-46d9-ba68-82789cf2858b",
+        "4dab9f5e-50ca-4041-a320-ab8b44cd488f",
+        "62971b09-fba0-4659-a1b3-2430933a6c98",
+        "d80d1f76-6374-4959-b808-cd40d588ce5c"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ourstore3.png",
+        "image_ratio": "adapt_image",
+        "image_size": "cover",
+        "image_pos": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 56,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main",
+    "e4249715-7649-4062-a380-b9ea4c584a3a",
+    "fe6dc56d-575a-4d3a-9c38-85e7dd67475a",
+    "9f464306-87fb-4254-8d96-2f844862b1bc"
+  ]
+}

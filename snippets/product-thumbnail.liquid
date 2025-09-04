@@ -1,0 +1,14 @@
+{%- liquid 
+  assign media_type    = media.media_type
+  assign image         = media.preview_image
+  assign img_alt       = image.alt
+  assign img_alt = img_alt | escape
+   -%}
+{%- if media_type == 'image' -%}
+<div data-product-single-media-wrapper data-main-slide class="hdt-slider__slide hdt-product__media-item {{ isMediaHidden }}{% if variant_images contains media.src %} t4s-product__media-item--variant{% endif %}" data-media-id="{{ media.id }}" data-nt-media-id="{{ se_id }}-{{ media.id }}" data-media-type="{{ media.media_type }}" data-grname="{{ grname | escape }}" data-grpvl="{{ grpvl | escape }}">
+  <div data-hdt-gallery--open class="hdt-ratio hdt-product__media{{ class_pswp_disable }}" style="--aspect-ratioapt:{{ image.aspect_ratio }};--mw-media:{{ image.width }}px">
+    {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height, widths: '288, 576, 750, 1100, 1500', sizes: '(min-width: 1500px) 1500px, (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)' }}
+  </div>
+</div>
+{%- else -%}
+{%- endif -%}

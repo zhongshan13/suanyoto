@@ -1,0 +1,210 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "heading": {
+      "type": "main-heading",
+      "blocks": {
+        "5ecb9555-19e4-433b-8817-1ccaa3a41384": {
+          "type": "1",
+          "settings": {
+            "heading": "Book a Service",
+            "heading_size": "h4"
+          }
+        }
+      },
+      "block_order": [
+        "5ecb9555-19e4-433b-8817-1ccaa3a41384"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/4545343.webp",
+        "color_scheme": "",
+        "spacing_hd": 0,
+        "padding_top": 80,
+        "padding_bottom": 86,
+        "padding_rate": 75
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_rate": 75
+      }
+    },
+    "top_heading_4JAXD8": {
+      "type": "top-heading",
+      "blocks": {
+        "heading_Na8RNU": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_fs": "h4"
+          }
+        },
+        "sub_heading_HnjMEh": {
+          "type": "sub_heading",
+          "settings": {
+            "sub_heading": "<br>\nFor many years, Saunyoto has been devoted to the customization and upgrading of Electric Vehicles, with a special expertise in Tesla models.\nOur mission is simple: to help every EV owner create a vehicle that is not only functional, but also uniquely personal.\n<br>\n<br>\nAt our Santa Ana installation center, we combine professional knowledge, trained technicians, and high-quality components to ensure that every project is completed with precision and care. We take the time to carefully understand your requirements, discuss the options available, and provide tailored solutions for your car.\n<br>\n<br>\nWhether you are looking for a professional installation, exploring combo package discounts, or simply want to learn more about our customization services, the Saunyoto team is here to support you. We treat every customer’s vehicle as our own and strive to deliver results that exceed expectations.\n<br>\n<br>\n<b>Customer Service - Pre-Sales | Inquiry I Business Affairs | Installation point | Tracking Order Service I Order Refund I Product Return:</b>\n<br>\n<br>\nWorking Hours (UTC+8)\n<br>\n9:00AM - 6:30PM (Monday to Saturday)\n<br>\nsupport@saunyoto.com\n<br>\n<br>\n<b>\nAddress:\n</b>\n<br>\n<br>\nSaunyoto Tech\n<br>\n44655 S Grimmer Blvd.\n<br>\nFremont, CA 94538\nUSA\n<br>\n<br>\n<b>\nOffice Hours (PST):\n</b>\n<br>\n<br>\nMonday-Saturday 9:00AM-6:30PM\n<br>\nPlease leave a message at other times.\n<br>\n<br>\n<b>\nInstallation (Professional Trained by Saunyoto) - For quote and estimate:\n</b>\n<br>\n<br>\n9:00AM - 6:30PM (Monday to Friday) \n<br>\n3480 W Warner Ave (Ste. N),  Santa Ana, CA 92704 USA\n<br>\n+ 1 (628) 304-9655 (Tel, WhatsApp, Facetime)\n<br>\n<br>\n<b>\nTechnical Support - After-Sales Technology |Installation & Troubleshooting:\n</b>\n<br>\n<br>\nWorking Hours (UTC+8)\n<br>\n9:00AM - 6:30PM (Monday to Saturday)\n<br>\n+ 1 (628) 304-9655 or (text via\n'WhatsApp' order number and pictures/video of the issue)\n<br>\nPlease allow 24-48 hours for Technical Support inquiries to be response.",
+            "sub_heading_fs": "base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Na8RNU",
+        "sub_heading_HnjMEh"
+      ],
+      "settings": {
+        "spacing_item": 30,
+        "alignment": "left",
+        "alignment_mb": "left",
+        "fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "padding_rate": 75
+      }
+    },
+    "4c7802be-2c9d-4177-ac7f-fa5aaa9d9e9e": {
+      "type": "form_contact-with-text",
+      "blocks": {
+        "5de1751e-cd5c-426a-a203-c9b35a45262f": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Visit Our Store"
+          }
+        },
+        "2df28d7b-099f-47ed-86f4-85cd62c91eff": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p><strong>Address</strong></p><p>66 Mott St, New York, New York, Zip Code: 10006, AS</p>"
+          }
+        },
+        "568490b0-65b7-47fa-a348-41c08177abff": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p><strong>Phone</strong></p><p>(623) 934-2400</p>"
+          }
+        },
+        "8e05fb1c-5303-4879-a0cc-0ca953b314b6": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p><strong>Email</strong></p><p>EComposer@example.com</p>"
+          }
+        },
+        "7887c8b2-255d-4e75-9f24-4ebbe0a9dc14": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p><strong>Open Time</strong></p><p>Our store has re-opened for shopping, </p><p>exchange Every day 11am to 7pm</p>"
+          }
+        },
+        "d6a7c3b7-0737-4c13-a011-7aab813cf9c3": {
+          "type": "socials",
+          "disabled": true,
+          "settings": {
+            "socials_style": "simple",
+            "socials_size": "large"
+          }
+        }
+      },
+      "block_order": [
+        "5de1751e-cd5c-426a-a203-c9b35a45262f",
+        "2df28d7b-099f-47ed-86f4-85cd62c91eff",
+        "568490b0-65b7-47fa-a348-41c08177abff",
+        "8e05fb1c-5303-4879-a0cc-0ca953b314b6",
+        "7887c8b2-255d-4e75-9f24-4ebbe0a9dc14",
+        "d6a7c3b7-0737-4c13-a011-7aab813cf9c3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-67a7ca9f-3333-4245-b79f-2e9849d7e615",
+        "heading": "Install Services",
+        "sub_heading": "<br>",
+        "btn_full": false,
+        "padding_top": 76,
+        "padding_bottom": 84,
+        "padding_rate": 75
+      }
+    },
+    "25dc1801-3eb3-4e03-8592-6d9f8d9f6dda": {
+      "type": "map-with-text",
+      "blocks": {
+        "5de1751e-cd5c-426a-a203-c9b35a45262f": {
+          "type": "heading",
+          "settings": {
+            "heading": "Visit Our Store"
+          }
+        },
+        "2df28d7b-099f-47ed-86f4-85cd62c91eff": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Address</strong></p><p>44655 S Grimmer Blvd.<br/>Fremont, CA 94538</p>"
+          }
+        },
+        "568490b0-65b7-47fa-a348-41c08177abff": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Phone</strong></p><p>+1 (213) 352-6415</p>"
+          }
+        },
+        "8e05fb1c-5303-4879-a0cc-0ca953b314b6": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Email</strong></p><p>support@saunyoto.com</p>"
+          }
+        },
+        "7887c8b2-255d-4e75-9f24-4ebbe0a9dc14": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Open Time</strong></p><p>Our store is now open for purchases and installation services, </p><p>exchange Every day 11am to 7pm</p>"
+          }
+        },
+        "d6a7c3b7-0737-4c13-a011-7aab813cf9c3": {
+          "type": "socials",
+          "settings": {
+            "socials_style": "simple",
+            "socials_size": "large"
+          }
+        }
+      },
+      "block_order": [
+        "5de1751e-cd5c-426a-a203-c9b35a45262f",
+        "2df28d7b-099f-47ed-86f4-85cd62c91eff",
+        "568490b0-65b7-47fa-a348-41c08177abff",
+        "8e05fb1c-5303-4879-a0cc-0ca953b314b6",
+        "7887c8b2-255d-4e75-9f24-4ebbe0a9dc14",
+        "d6a7c3b7-0737-4c13-a011-7aab813cf9c3"
+      ],
+      "settings": {
+        "full_width": false,
+        "color_scheme": "scheme-2",
+        "map": "<div class=\"mapouter\">\n  <div class=\"gmap_canvas\">\n    <iframe \n      class=\"gmap_iframe\" \n      width=\"100%\" \n      height=\"500\" \n      frameborder=\"0\" \n      scrolling=\"no\" \n      marginheight=\"0\" \n      marginwidth=\"0\" \n      src=\"https://maps.google.com/maps?q=44655%20S%20Grimmer%20Blvd%2C%20Fremont%2C%20CA%2094538&t=roadmap&z=15&ie=UTF8&iwloc=&output=embed\">\n    </iframe>\n  </div>\n</div>\n\n<style>\n.mapouter {\n  position: relative;\n  text-align: right;\n  width: 100%;\n  height: 500px;\n}\n.gmap_canvas {\n  overflow: hidden;\n  background: none !important;\n  width: 100%;\n  height: 500px;\n}\n.gmap_iframe {\n  height: 500px !important;\n}\n</style>",
+        "padding_top": 20,
+        "padding_bottom": 62,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main",
+    "top_heading_4JAXD8",
+    "4c7802be-2c9d-4177-ac7f-fa5aaa9d9e9e",
+    "25dc1801-3eb3-4e03-8592-6d9f8d9f6dda"
+  ]
+}

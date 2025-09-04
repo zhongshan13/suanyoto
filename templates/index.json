@@ -1,0 +1,1050 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "c28ddbdb-d0df-4b86-9b0a-674df42ecc5c": {
+      "type": "slideshow",
+      "blocks": {
+        "ff3322db-1a15-4df5-8aac-00cc6eba20ba": {
+          "type": "slide_label",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/F9_OFF1.jpg",
+            "image_mb": "shopify://shop_images/F9_OFF2.jpg",
+            "url": "shopify://products/f9-pro-tesla-screen",
+            "banner_target": false,
+            "color_scheme": "scheme-7421d028-053c-4901-aa66-836c33f11566",
+            "sub_heading": "",
+            "sub_heading_fs": "base",
+            "sub_heading_fw": "bold",
+            "sub_heading_bg": true,
+            "heading": "",
+            "heading_fs": "h1",
+            "heading_fw": "normal",
+            "btn_label": "",
+            "btn_link": "",
+            "target": false,
+            "btn_size": "base",
+            "btn_style": "solid",
+            "btn_fw": "medium",
+            "btn_icon": "1",
+            "btn2_label": "",
+            "btn2_link": "",
+            "target2": true,
+            "btn2_size": "base",
+            "btn2_style": "solid",
+            "btn2_fw": "medium",
+            "btn2_icon": "1",
+            "content_bg": false,
+            "content_position": "center",
+            "alignment": "center",
+            "hide_subtext_mb": false,
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          }
+        },
+        "5e54dcdf-571c-4925-8a68-113b9669e429": {
+          "type": "slide_label",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/S11_OFF1.jpg",
+            "image_mb": "shopify://shop_images/S11_OFF2.jpg",
+            "url": "shopify://products/products-s11-model-3-y-dashboard",
+            "banner_target": false,
+            "color_scheme": "scheme-7421d028-053c-4901-aa66-836c33f11566",
+            "sub_heading": "",
+            "sub_heading_fs": "base",
+            "sub_heading_fw": "bold",
+            "sub_heading_bg": true,
+            "heading": "",
+            "heading_fs": "h1",
+            "heading_fw": "normal",
+            "btn_label": "",
+            "btn_link": "",
+            "target": false,
+            "btn_size": "base",
+            "btn_style": "solid",
+            "btn_fw": "medium",
+            "btn_icon": "1",
+            "btn2_label": "",
+            "btn2_link": "",
+            "target2": true,
+            "btn2_size": "base",
+            "btn2_style": "solid",
+            "btn2_fw": "medium",
+            "btn2_icon": "1",
+            "content_bg": false,
+            "content_position": "center",
+            "alignment": "center",
+            "hide_subtext_mb": false,
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          }
+        },
+        "f9c358af-fd75-4020-9ffc-ceb457ecde45": {
+          "type": "slide_label",
+          "settings": {
+            "image": "shopify://shop_images/bannner_b5a4c30b-9256-40f4-9f75-9ab3188e6e0e.jpg",
+            "url": "",
+            "banner_target": false,
+            "color_scheme": "scheme-7421d028-053c-4901-aa66-836c33f11566",
+            "sub_heading": "LABOR DAY SALE 20% OFF",
+            "sub_heading_fs": "h3",
+            "sub_heading_fw": "bold",
+            "sub_heading_bg": true,
+            "heading": "Use Code SAUNYOTO",
+            "heading_fs": "h3",
+            "heading_fw": "normal",
+            "btn_label": "",
+            "btn_link": "",
+            "target": true,
+            "btn_size": "base",
+            "btn_style": "solid",
+            "btn_fw": "medium",
+            "btn_icon": "1",
+            "btn2_label": "Get 20% OFF",
+            "btn2_link": "shopify://collections/all-products",
+            "target2": false,
+            "btn2_size": "lg",
+            "btn2_style": "solid",
+            "btn2_fw": "medium",
+            "btn2_icon": "1",
+            "content_bg": false,
+            "content_position": "end-start",
+            "alignment": "left",
+            "hide_subtext_mb": false,
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          }
+        }
+      },
+      "block_order": [
+        "ff3322db-1a15-4df5-8aac-00cc6eba20ba",
+        "5e54dcdf-571c-4925-8a68-113b9669e429",
+        "f9c358af-fd75-4020-9ffc-ceb457ecde45"
+      ],
+      "custom_css": [
+        "@media (min-width: 1150px) {.slide-item_label .hdt-btn {--hdt-btn-size: var(--text-xl); }}"
+      ],
+      "settings": {
+        "full_width": true,
+        "item_round": "rounded",
+        "image_height": "adapt_image_first",
+        "fixed_height": 800,
+        "image_height_mb": "adapt_image_first",
+        "fixed_height_mb": 350,
+        "color_scheme": "scheme-7421d028-053c-4901-aa66-836c33f11566",
+        "loop": true,
+        "auto_play": 4,
+        "pause_hover": false,
+        "navUI": false,
+        "dotUI": true,
+        "dot_style": "outline",
+        "dot_direction": "horizontal",
+        "dot_align": "center",
+        "dot_space": 56,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_rate": 50
+      }
+    },
+    "marquee_3TPdin": {
+      "type": "marquee",
+      "blocks": {
+        "item_Dc7iP6": {
+          "type": "item",
+          "settings": {
+            "text": "<p>💐 Celebrate Mother’s Day in Style — Enjoy 20% OFF Sitewide! Treat Mom (or Yourself) to Something Special 🚗💝</p>",
+            "icon_svg": "none",
+            "custom_svg": "",
+            "icon_width": 20,
+            "icon_width_mb": 20
+          }
+        }
+      },
+      "block_order": [
+        "item_Dc7iP6"
+      ],
+      "disabled": true,
+      "settings": {
+        "space_item": 30,
+        "speed": 0.3,
+        "direction": "rtl",
+        "marquee_pause_when_hover": false,
+        "text_fs": "h5",
+        "text_fw": "normal",
+        "text_uppercase": false,
+        "adding_border": true,
+        "icon_position_between": true,
+        "color_scheme": "scheme-65faa486-b471-4bf0-ba5e-6fc9b45a3e9c",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_rate": 75
+      }
+    },
+    "9d8d7c31-c9ad-4ce4-8d83-2f575de0c40b": {
+      "type": "collections-list",
+      "blocks": {
+        "template--21348104077632__9d8d7c31-c9ad-4ce4-8d83-2f575de0c40b-collection_item-1": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/20250418-165446.jpg",
+            "title": "Model 3",
+            "collection_link": "shopify://collections/model-3"
+          }
+        },
+        "7b33b4d1-4857-4798-8e43-6ac3fa698b86": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/20250418-170942.jpg",
+            "title": "Model 3 Highland",
+            "collection_link": "shopify://collections/model-3-highland"
+          }
+        },
+        "template--21348104077632__9d8d7c31-c9ad-4ce4-8d83-2f575de0c40b-collection_item-2": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/20250418-165500.jpg",
+            "title": "Model Y",
+            "collection_link": "shopify://collections/model-y"
+          }
+        },
+        "collection_item_LrYQdT": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/20250418-170936.jpg",
+            "title": "Model Y Juniper",
+            "collection_link": "shopify://collections/model-y-juniper"
+          }
+        },
+        "template--21348104077632__9d8d7c31-c9ad-4ce4-8d83-2f575de0c40b-collection_item-3": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/20250418-165506.jpg",
+            "title": "Cybertruck",
+            "collection_link": "shopify://collections/cybertruck"
+          }
+        },
+        "6e3ca7e6-55ec-4a7e-a0bf-2cf2a0e7f1b2": {
+          "type": "view_all",
+          "settings": {
+            "title": "Discovery  all new items",
+            "item_link": "shopify://collections/all-products"
+          }
+        }
+      },
+      "block_order": [
+        "template--21348104077632__9d8d7c31-c9ad-4ce4-8d83-2f575de0c40b-collection_item-1",
+        "7b33b4d1-4857-4798-8e43-6ac3fa698b86",
+        "template--21348104077632__9d8d7c31-c9ad-4ce4-8d83-2f575de0c40b-collection_item-2",
+        "collection_item_LrYQdT",
+        "template--21348104077632__9d8d7c31-c9ad-4ce4-8d83-2f575de0c40b-collection_item-3",
+        "6e3ca7e6-55ec-4a7e-a0bf-2cf2a0e7f1b2"
+      ],
+      "custom_css": [
+        ".hdt-collections-list .hdt-section-head .hdt-slider__button {width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;}",
+        ".hdt-collections-list .hdt-section-head .hdt-slider__button svg {width: 5px; height: 7px;}",
+        ".hdt-sec-heading {letter-spacing: 0.8px; font-weight: var(--font-bold);}"
+      ],
+      "settings": {
+        "heading_align": "start",
+        "sec_heading": "View Best Sellers By Model",
+        "heading_tag": "h6",
+        "heading_size": "h5",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "btn_heading_collection": false,
+        "heading_gap": 18,
+        "sec_heading_spacing": 25,
+        "collection_list": [],
+        "collection_des": "1",
+        "content_size": "xl",
+        "content_weight": "medium",
+        "text_transform": false,
+        "content_position": "end-center",
+        "content_padding": 20,
+        "image_ratio": "asos",
+        "image_size": true,
+        "col_dk": "5",
+        "col_tb": "2",
+        "col_mb": "2",
+        "space_items": "x",
+        "half_item": false,
+        "navUI": true,
+        "nav_des": "default",
+        "nav_pos": "ontop_left",
+        "dotUI": false,
+        "dots_pos": "default",
+        "section_fullwidth": false,
+        "boxed_fullwidth": false,
+        "boxed_content": false,
+        "color_scheme": "scheme-2e91b3de-e084-4d07-8c0d-57b80f28390f",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_rate": 75
+      }
+    },
+    "27c1f394-ab78-46cf-91a3-cbfbdbc66003": {
+      "type": "featured-collection-carousel",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "Best Sellers",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "btn_heading": false,
+        "nav_heading": "disable",
+        "heading_gap": 18,
+        "sec_heading_spacing": 54,
+        "collection": "best-sellers",
+        "product_list": [],
+        "product_des": "1",
+        "image_ratio": "adapt_image",
+        "image_size": true,
+        "show_vendor": false,
+        "pr_border": "in_image",
+        "products_count": 8,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "1",
+        "half_item": false,
+        "navUI": true,
+        "nav_des": "outline",
+        "nav_pos": "middle_out",
+        "dotUI": false,
+        "pagination_type": "none",
+        "paginate_pos": "center",
+        "dis_pagination": 30,
+        "btn_label": "View all",
+        "btn_style": "solid",
+        "btn_fw": "normal",
+        "section_fullwidth": false,
+        "boxed_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 67,
+        "padding_rate": 75
+      }
+    },
+    "price_tables_eheEji": {
+      "type": "price_tables",
+      "blocks": {
+        "package_Ed7Ce4": {
+          "type": "package",
+          "settings": {
+            "color_scheme": "scheme-0ca8a091-1d2d-434e-b200-a3686d956bf1",
+            "product": "products-s11-model-3-y-dashboard",
+            "show_vendor": true,
+            "label_cl": "#ff3232",
+            "content": "OS: Linux\nResolution: 1920×535, 1000 nits\nCPU & Memory: Dual-core + 8GB ROM\nControls: Touchscreen & steering wheel buttons\nUpdates: OTA firmware support",
+            "btn_label": "Buy now",
+            "target": false,
+            "btn_size": "base",
+            "btn_style": "solid",
+            "btn_fw": "semibold",
+            "btn_icon": "none"
+          }
+        },
+        "package_fhQJaa": {
+          "type": "package",
+          "settings": {
+            "color_scheme": "scheme-2e91b3de-e084-4d07-8c0d-57b80f28390f",
+            "product": "center-console-multi-function-control-button-for-tesla-model-3-y-saunyoto",
+            "show_vendor": true,
+            "label_cl": "#ff3232",
+            "content": "Display Resolution: 128×128\nInput Voltage: DC 5V\nOperating Current: 200mA\nBlind-touch design for safer driving\n3-in-1 knob for temp, airflow, and lighting control",
+            "btn_label": "Buy now",
+            "target": false,
+            "btn_size": "base",
+            "btn_style": "solid",
+            "btn_fw": "semibold",
+            "btn_icon": "none"
+          }
+        },
+        "package_eQFH7V": {
+          "type": "package",
+          "settings": {
+            "color_scheme": "scheme-0ca8a091-1d2d-434e-b200-a3686d956bf1",
+            "product": "f9-pro-tesla-screen",
+            "show_vendor": true,
+            "label_cl": "#ff3232",
+            "content": "Linux OS\n8.9\" HD Display\nOTA Firmware Updates\nWireless CarPlay / Android Auto\nEnhanced Safety Alerts",
+            "btn_label": "Buy now",
+            "target": false,
+            "btn_size": "base",
+            "btn_style": "solid",
+            "btn_fw": "semibold",
+            "btn_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "package_Ed7Ce4",
+        "package_fhQJaa",
+        "package_eQFH7V"
+      ],
+      "settings": {
+        "top_heading": "Best Sellers",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "top_description": "",
+        "sec_heading_spacing": 30,
+        "enable_icon_check": true,
+        "content_pos": "start",
+        "image_ratio": "adapt_image",
+        "image_size": true,
+        "col_dk": "3",
+        "col_tb": "3",
+        "col_mb": "1",
+        "navUI": false,
+        "dotUI": false,
+        "section_fullwidth": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 60,
+        "padding_bottom": 50,
+        "padding_rate": 75
+      }
+    },
+    "f59d72a2-9e8a-4d05-9991-8d522f22327c": {
+      "type": "collections-list-manual",
+      "blocks": {
+        "template--20958100226352__f59d72a2-9e8a-4d05-9991-8d522f22327c-collection_item-1": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "title": "Model 3 Physical Button",
+            "collection_link": "shopify://collections/physical-button",
+            "column_width": "4",
+            "row_count": 2,
+            "tb_column_width": "4",
+            "tb_row_count": 2,
+            "mb_column_width": "1",
+            "mb_row_count": 2
+          }
+        },
+        "template--20958100226352__f59d72a2-9e8a-4d05-9991-8d522f22327c-collection_item-2": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "fashion-accessories",
+            "title": "Instrument Cluster Display",
+            "collection_link": "shopify://collections/model-y-instrument-cluster-display",
+            "column_width": "4",
+            "row_count": 1,
+            "tb_column_width": "4",
+            "tb_row_count": 1,
+            "mb_column_width": "1",
+            "mb_row_count": 1
+          }
+        },
+        "template--20958100226352__f59d72a2-9e8a-4d05-9991-8d522f22327c-collection_item-4": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "mens-fashion",
+            "title": "Digital Rearview Mirror",
+            "collection_link": "shopify://collections/digital-rearview-mirror",
+            "column_width": "4",
+            "row_count": 2,
+            "tb_column_width": "4",
+            "tb_row_count": 2,
+            "mb_column_width": "1",
+            "mb_row_count": 2
+          }
+        },
+        "template--20958100226352__f59d72a2-9e8a-4d05-9991-8d522f22327c-collection_item-3": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "mens-fashion",
+            "title": "Rear Entertainment Scree",
+            "collection_link": "shopify://collections/model-y-rear-entertainment-scree",
+            "column_width": "4",
+            "row_count": 1,
+            "tb_column_width": "4",
+            "tb_row_count": 1,
+            "mb_column_width": "1",
+            "mb_row_count": 1
+          }
+        }
+      },
+      "block_order": [
+        "template--20958100226352__f59d72a2-9e8a-4d05-9991-8d522f22327c-collection_item-1",
+        "template--20958100226352__f59d72a2-9e8a-4d05-9991-8d522f22327c-collection_item-2",
+        "template--20958100226352__f59d72a2-9e8a-4d05-9991-8d522f22327c-collection_item-4",
+        "template--20958100226352__f59d72a2-9e8a-4d05-9991-8d522f22327c-collection_item-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "Top Series",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "btn_heading_collection": false,
+        "heading_gap": 18,
+        "sec_heading_spacing": 30,
+        "collection_des": "1",
+        "content_size": "xl",
+        "content_weight": "medium",
+        "text_transform": false,
+        "content_position": "end-center",
+        "content_padding": 35,
+        "row_height": 390,
+        "row_height_tb": 320,
+        "row_height_mb": 200,
+        "space_items": "30",
+        "space_items_tb": "15",
+        "space_items_mb": "15",
+        "section_fullwidth": false,
+        "boxed_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 30,
+        "padding_bottom": 70,
+        "padding_rate": 75
+      }
+    },
+    "d2ea422e-e747-4384-8c12-5ad26c1c52f9": {
+      "type": "featured-collection-carousel",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "Trending Now",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "btn_heading": false,
+        "nav_heading": "disable",
+        "heading_gap": 18,
+        "sec_heading_spacing": 50,
+        "collection": "",
+        "product_list": [
+          "trouble-iphone-case",
+          "femme-fatale-iphone-case",
+          "cherrybomb-iphone-case",
+          "emerald-pool-elegant-iphone-case",
+          "almond-latte-cute-iphone-case",
+          "full-glam-beige-iphone-case"
+        ],
+        "product_des": "1",
+        "image_ratio": "adapt_image",
+        "image_size": true,
+        "show_vendor": false,
+        "pr_border": "in_image",
+        "products_count": 8,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "half_item": false,
+        "navUI": true,
+        "nav_des": "outline",
+        "nav_pos": "middle_out",
+        "dotUI": false,
+        "pagination_type": "none",
+        "paginate_pos": "center",
+        "dis_pagination": 30,
+        "btn_label": "View all",
+        "btn_style": "solid",
+        "btn_fw": "normal",
+        "section_fullwidth": false,
+        "boxed_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 67,
+        "padding_rate": 75
+      }
+    },
+    "c3197910-7654-4ce9-a40a-dff34d0996e5": {
+      "type": "image-with-text",
+      "blocks": {
+        "7731dd49-8e1d-4951-9f6c-0ec37be577c0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Saunyoto Design Philosophy",
+            "heading_fs": "h3"
+          }
+        },
+        "c2b62ec4-a76e-4f30-aa1e-9526b36c9699": {
+          "type": "sub_heading",
+          "settings": {
+            "sub_heading": "At Saunyoto, we don’t just design accessories — we solve real problems for real Tesla owners. Whether it’s improving screen visibility, simplifying controls, or enhancing your daily drive, every product is born from first-hand experience.\n<br>\n<br>\nWe talk to Tesla drivers, weekend road trippers, and everyday commuters — and we build with them in mind. Behind every product is a commitment to smarter driving, easier control, and a better experience on the road.",
+            "sub_fs": "lg"
+          }
+        },
+        "e220f9a6-dd7c-473b-9fbe-e3284ab4026b": {
+          "type": "button",
+          "settings": {
+            "btn_label": "About Saunyoto",
+            "btn_link": "shopify://pages/about-us",
+            "target": false,
+            "btn_size": "base",
+            "btn_style": "outline",
+            "btn_fw": "semibold",
+            "btn_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "7731dd49-8e1d-4951-9f6c-0ec37be577c0",
+        "c2b62ec4-a76e-4f30-aa1e-9526b36c9699",
+        "e220f9a6-dd7c-473b-9fbe-e3284ab4026b"
+      ],
+      "custom_css": [
+        ".hdt-img_group .hdt-media {border-top-right-radius: 0; border-bottom-right-radius: 0;}",
+        "@media (max-width: 767px) {.hdt-img_group .hdt-media {border-bottom-left-radius: 0; border-bottom-right-radius: 0; }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/A_Balanced_Comparison_Based_on_Real_Driver_Experiences.jpg",
+        "style_image": "1",
+        "image_effect": "zoom-in",
+        "color_scheme": "scheme-2e91b3de-e084-4d07-8c0d-57b80f28390f",
+        "full_width": false,
+        "boxed_fullwidth": false,
+        "image_last": false,
+        "content_position": "center-start",
+        "alignment": "left",
+        "content_pl": 63,
+        "image_last_mb": false,
+        "content_position_mb": "center",
+        "alignment_mb": "center",
+        "padding_top": 30,
+        "padding_bottom": 75,
+        "padding_rate": 75
+      }
+    },
+    "video_2_QQpxqy": {
+      "type": "video-2",
+      "settings": {
+        "external_video_url": "<iframe width=\"1905\" height=\"600\" src=\"https://www.youtube.com/embed/4ajHZM-_kN4\" title=\"Model 3/Y Digital Instrument Cluster Function Demonstration\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen loading=\"lazy\">\n</iframe>",
+        "video_ratio": "adapt_video",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "padding_rate": 75
+      }
+    },
+    "testimonials_nLxTWW": {
+      "type": "testimonials",
+      "blocks": {
+        "quote_MjDe7K": {
+          "type": "quote",
+          "settings": {
+            "heading": "",
+            "content": "<p><br/>I like that they are thinking of a wider screen.<br/><br/></p><p></p><p></p><p></p><p></p><p></p>",
+            "author": "Brent K.",
+            "pos": "",
+            "enable_verify": false,
+            "product": "",
+            "rating": 5
+          }
+        },
+        "quote_MUtXkN": {
+          "type": "quote",
+          "settings": {
+            "heading": "",
+            "content": "<p>Its really not functional to see a road on the aftermarket display if it isnt showing the other cars around you. But this one is improved over the various previous versions if these type of displays visually with the interface.</p>",
+            "author": "Derek Riley",
+            "pos": "",
+            "enable_verify": false,
+            "product": "",
+            "rating": 5
+          }
+        },
+        "quote_PAJQCc": {
+          "type": "quote",
+          "settings": {
+            "heading": "",
+            "content": "<p>I live in the Middle East, where temperatures range from 40 to 50 degrees Celsius. Airflow from the air conditioner is very important to me.</p>",
+            "author": "Sultan Ahmed",
+            "pos": "",
+            "enable_verify": false,
+            "product": "",
+            "rating": 5
+          }
+        },
+        "quote_wmfQXt": {
+          "type": "quote",
+          "settings": {
+            "heading": "",
+            "content": "<p>This screen transforms the driving experience. Linux system runs smoothly, UI is clean, and real-time sync with car data is accurate. I’m a tech guy and appreciate the attention to detail. OTA updates are a big plus.<br/></p>",
+            "author": "Jessica M.",
+            "pos": "",
+            "enable_verify": false,
+            "product": "",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "quote_MjDe7K",
+        "quote_MUtXkN",
+        "quote_PAJQCc",
+        "quote_wmfQXt"
+      ],
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "heading_gap": 18,
+        "sec_heading_spacing": 30,
+        "image_ratio": "adapt_image",
+        "content_align": "start",
+        "testimonial_des": "2",
+        "col_dk": "4",
+        "col_tb": "2",
+        "col_mb": "1",
+        "navUI": false,
+        "nav_pos": "middle_out",
+        "nav_des": "default",
+        "dotUI": false,
+        "dis_dot": 30,
+        "color_scheme": "",
+        "pr_rating": "#ff7b54",
+        "section_fullwidth": false,
+        "padding_top": 30,
+        "padding_bottom": 70,
+        "padding_rate": 75
+      }
+    },
+    "0545ef51-82ea-4247-a5f4-abf55d23b13c": {
+      "type": "testinonial-with-image",
+      "blocks": {
+        "template--21348104077632__0545ef51-82ea-4247-a5f4-abf55d23b13c-quote-1": {
+          "type": "quote",
+          "settings": {
+            "heading": "OUR CUSTOMERS' RAVE REVIEWS",
+            "content": "<p>\"I have been shopping with this web fashion site for over a year now and I can confidently say it is the best online fashion site out there. The shipping is always fast and the customer service team is friendly and helpful. I highly recommend this site to anyone looking for affordable clothing.\"</p>",
+            "author": "Robert smith",
+            "product": "3-in-1-wireless-charger-with-official-magsafe-charging-15w",
+            "rating": 5
+          }
+        },
+        "7931479c-fc73-4869-9885-4c08b8b4a1ee": {
+          "type": "quote",
+          "settings": {
+            "heading": "BEST ONLINE FASHION SITE",
+            "content": "<p>\"I have been shopping with this web fashion site for over a year now and I can confidently say it is the best online fashion site out there. The shipping is always fast and the customer service team is friendly and helpful. I highly recommend this site to anyone looking for affordable clothing.\"</p>",
+            "author": "Jesicca  A",
+            "product": "3-in-1-wireless-charger-with-official-magsafe-charging-15w",
+            "rating": 5
+          }
+        },
+        "c992a91b-21b6-4bcb-9664-ff3ba9f2cc6b": {
+          "type": "quote",
+          "settings": {
+            "heading": "GREAT SELECTION AND QUALITY",
+            "content": "<p>\"I have been shopping with this web fashion site for over a year now and I can confidently say it is the best online fashion site out there. The shipping is always fast and the customer service team is friendly and helpful. I highly recommend this site to anyone looking for affordable clothing.\"</p>",
+            "author": "Robert smith",
+            "product": "almond-latte-cute-iphone-case",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "template--21348104077632__0545ef51-82ea-4247-a5f4-abf55d23b13c-quote-1",
+        "7931479c-fc73-4869-9885-4c08b8b4a1ee",
+        "c992a91b-21b6-4bcb-9664-ff3ba9f2cc6b"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (max-width: 767px) {.hdt-section .hdt-section-spacing {padding-top: calc(var(--section-pt) * 0.4); }}"
+      ],
+      "settings": {
+        "dri_img_first": false,
+        "image_width": "two_img",
+        "font_size_content": "hdt-text-2xl",
+        "navUI": true,
+        "nav_pos": "middle_in",
+        "nav_des": "outline",
+        "dotUI": false,
+        "color_scheme": "scheme-f7d24f70-a894-4d32-8154-25607c658d3d",
+        "pr_rating": "#67c08f",
+        "section_fullwidth": false,
+        "padding_top": 126,
+        "padding_bottom": 102,
+        "padding_rate": 75
+      }
+    },
+    "dcb35f37-9d4e-46fb-98bb-f9f9a3b53424": {
+      "type": "image-gallery-manual",
+      "blocks": {
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-1": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "https://youtu.be/9F0imlRJt9A",
+            "product_item": ""
+          }
+        },
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-2": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-3": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-4": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-5": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-6": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-7": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-1",
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-2",
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-3",
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-4",
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-5",
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-6",
+        "template--21348104077632__dcb35f37-9d4e-46fb-98bb-f9f9a3b53424-gallery_item-7"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "The Amazing Things Our Users Are Up To",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "heading_gap": 18,
+        "sec_heading_spacing": 53,
+        "image_ratio": "square",
+        "image_size": true,
+        "row_height": 280,
+        "row_height_tb": 230,
+        "row_height_mb": 180,
+        "spacing_items": 10,
+        "section_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 75,
+        "padding_bottom": 68,
+        "padding_rate": 75
+      }
+    },
+    "0c71126f-9adb-4a4d-aecd-e0c2b5f9ff18": {
+      "type": "image-with-text",
+      "blocks": {
+        "49a2f224-1d23-4697-ab5a-940bcdf9eb0f": {
+          "type": "heading",
+          "settings": {
+            "heading": "Installation Service",
+            "heading_fs": "h4"
+          }
+        },
+        "98344d74-7684-447a-9b8e-9ed13bf9f788": {
+          "type": "sub_heading",
+          "settings": {
+            "sub_heading": "Professional Installation Now Available in Southern California\n<p>Located in <strong>Santa Ana (3480 W Warner Ave, Ste. N)</strong>, our trained technicians offer expert installation for all Saunyoto Tesla accessories — from dashboard displays to center console kits.</p>\n<p>📅 Book an appointment and get a clean, factory-style installation done right the first time.</p>\n<a href=\"https://wa.me/12133526415\" class=\"btn btn-primary\">Schedule via WhatsApp</a>",
+            "sub_fs": "lg"
+          }
+        },
+        "97b6532d-af26-45f8-8db3-e87bbbbea6a3": {
+          "type": "button",
+          "settings": {
+            "btn_label": "Installation Services",
+            "btn_link": "shopify://pages/install-services",
+            "target": false,
+            "btn_size": "base",
+            "btn_style": "outline",
+            "btn_fw": "semibold",
+            "btn_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "49a2f224-1d23-4697-ab5a-940bcdf9eb0f",
+        "98344d74-7684-447a-9b8e-9ed13bf9f788",
+        "97b6532d-af26-45f8-8db3-e87bbbbea6a3"
+      ],
+      "custom_css": [
+        "@media (min-width: 768px) {.hdt-img_group .hdt-media {border-top-right-radius: 0; border-bottom-right-radius: 0; }}",
+        "@media (min-width: 1150px) {.hdt-content_wrap {padding-bottom: 6rem; } .hdt-img_group .hdt-media {border-top-left-radius: 0; border-bottom-left-radius: 0; }}",
+        "@media (max-width: 767px) {.hdt-img_group .hdt-media {border-bottom-left-radius: 0; border-bottom-right-radius: 0; }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/pexels-vladimirsrajber-17345653_0c504449-7d4f-4009-bca7-1677d6711d29.jpg",
+        "style_image": "1",
+        "image_effect": "zoom-in",
+        "color_scheme": "scheme-2e91b3de-e084-4d07-8c0d-57b80f28390f",
+        "full_width": false,
+        "boxed_fullwidth": false,
+        "image_last": true,
+        "content_position": "center-start",
+        "alignment": "left",
+        "content_pl": 93,
+        "image_last_mb": false,
+        "content_position_mb": "center",
+        "alignment_mb": "center",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "padding_rate": 75
+      }
+    },
+    "cef9818d-d174-4a85-935f-31cd9035f495": {
+      "type": "icon-box",
+      "blocks": {
+        "item_jUcb3G": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "box",
+            "custom_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"\" width=\"29\" height=\"30\" viewbox=\"0 0 29 30\"><path d=\"M14.2504 30L0 22.8814V7.01669L14.2504 0L28.5009 7.01273V22.8814L14.2504 30ZM2.64633 21.246L14.2504 27.0388L25.8546 21.242V8.66276L14.2504 2.95069L2.64633 8.66276V21.246ZM15.5736 28.5207H12.9273V15.0152L0.739716 9.02798L1.90671 6.64627L15.5736 13.3666V28.5207ZM15.5736 28.5207H12.9273V13.3665L26.5942 6.6515L27.7612 9.03321L15.5736 15.0152V28.5207ZM14.2504 15.6596L0.739716 9.02798L1.90671 6.64627L14.2504 12.717L26.5942 6.65292L27.7612 9.03457L14.2504 15.6596Z\"></path></svg>",
+            "icon_width": 40,
+            "icon_width_mb": 30,
+            "link": "",
+            "open_link": false,
+            "title": "<b>Free Shipping</b>",
+            "content": "<p>Free U.S. Shipping</p>",
+            "adding_border": false
+          }
+        },
+        "template--20958100226352__cef9818d-d174-4a85-935f-31cd9035f495-item-1": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "wave",
+            "custom_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"\" width=\"30\" height=\"22\" viewbox=\"0 0 30 22\"><path d=\"M0 0H29.4643V22H0V0ZM27.5 1.9643H1.9643V20.0357H27.5V1.9643ZM0 4.97617H29.4643V11.9167H0V4.97617ZM27.5 6.94047H1.9643V9.95238H27.5V6.94047Z\"></path></svg>",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "<b>100% Payment Secure</b>",
+            "content": "<p>Safe & encrypted multiple payment method</p>",
+            "adding_border": false
+          }
+        },
+        "template--20958100226352__cef9818d-d174-4a85-935f-31cd9035f495-item-2": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "plants",
+            "custom_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"\" width=\"29\" height=\"18\" viewbox=\"0 0 29 18\"><path d=\"M25.5 1.5V7.5H5.745L11.115 2.115L9 0L0 9L9 18L11.115 15.885L5.745 10.5H28.5V1.5H25.5Z\"></path></svg>",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "<b>Easy Return Policy</b>",
+            "content": "<p>30-day money-back guarantee</p>",
+            "adding_border": false
+          }
+        },
+        "template--20958100226352__cef9818d-d174-4a85-935f-31cd9035f495-item-3": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "smile",
+            "custom_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"\" width=\"30\" height=\"30\" viewbox=\"0 0 30 30\"><path d=\"M27.5 10H26.82C25.862 4.334 20.934 0 15 0C9.066 0 4.137 4.334 3.18 10H2.5C1.83712 10.0005 1.20154 10.2641 0.732818 10.7328C0.264092 11.2015 0.000529668 11.8371 0 12.5V17.5C0 18.879 1.121 20 2.5 20H4C4.26522 20 4.51957 19.8946 4.70711 19.7071C4.89464 19.5196 5 19.2652 5 19V12C5 6.486 9.486 2 15 2C20.514 2 25 6.486 25 12V18C25 23.514 20.514 28 15 28C14.7348 28 14.4804 28.1054 14.2929 28.2929C14.1054 28.4804 14 28.7348 14 29C14 29.2652 14.1054 29.5196 14.2929 29.7071C14.4804 29.8946 14.7348 30 15 30C20.935 30 25.863 25.666 26.82 20H27.5C28.879 20 30 18.879 30 17.5V12.5C30 11.121 28.879 10 27.5 10ZM2 17.5V12.5C2 12.229 2.229 12 2.5 12H3V18H2.5C2.36788 17.9984 2.2416 17.9453 2.14817 17.8518C2.05474 17.7584 2.00156 17.6321 2 17.5ZM28 17.5C28 17.771 27.771 18 27.5 18H27V12H27.5C27.771 12 28 12.229 28 12.5V17.5ZM23 17V12C23 7.589 19.411 4 15 4C10.589 4 7 7.589 7 12V17C7 21.411 10.589 25 15 25C19.411 25 23 21.411 23 17ZM9 17V12C9 8.691 11.691 6 15 6C18.309 6 21 8.691 21 12V17C21 20.309 18.309 23 15 23C11.691 23 9 20.309 9 17Z\"></path></svg>",
+            "icon_width": 40,
+            "icon_width_mb": 30,
+            "link": "",
+            "open_link": false,
+            "title": "<b>24 / 7 Service Online</b>",
+            "content": "<p>We're here if you need us.</p>",
+            "adding_border": false
+          }
+        }
+      },
+      "block_order": [
+        "item_jUcb3G",
+        "template--20958100226352__cef9818d-d174-4a85-935f-31cd9035f495-item-1",
+        "template--20958100226352__cef9818d-d174-4a85-935f-31cd9035f495-item-2",
+        "template--20958100226352__cef9818d-d174-4a85-935f-31cd9035f495-item-3"
+      ],
+      "settings": {
+        "heading_align": "hdt-align-center",
+        "sec_heading": "",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "hdt-text-base",
+        "heading_reverse": false,
+        "heading_gap": 29,
+        "sec_heading_spacing": 30,
+        "icon_pos_center": true,
+        "icon_pos_center_mb": true,
+        "icon_circle": true,
+        "space_icon_heading": "medium",
+        "size_heading": "medium",
+        "heading_uppercase": false,
+        "space_heading_content": "small",
+        "col_dk": "4",
+        "col_tb": "2",
+        "col_mb": "1",
+        "carousel_mobile": true,
+        "border_style": "1",
+        "fullwidth": true,
+        "boxed_fullwidth": false,
+        "color_scheme": "scheme-5f0c00d1-cc08-4fa7-a0b8-824d48a66f6f",
+        "padding_top": 50,
+        "padding_bottom": 70,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "c28ddbdb-d0df-4b86-9b0a-674df42ecc5c",
+    "marquee_3TPdin",
+    "9d8d7c31-c9ad-4ce4-8d83-2f575de0c40b",
+    "27c1f394-ab78-46cf-91a3-cbfbdbc66003",
+    "price_tables_eheEji",
+    "f59d72a2-9e8a-4d05-9991-8d522f22327c",
+    "d2ea422e-e747-4384-8c12-5ad26c1c52f9",
+    "c3197910-7654-4ce9-a40a-dff34d0996e5",
+    "video_2_QQpxqy",
+    "testimonials_nLxTWW",
+    "0545ef51-82ea-4247-a5f4-abf55d23b13c",
+    "dcb35f37-9d4e-46fb-98bb-f9f9a3b53424",
+    "0c71126f-9adb-4a4d-aecd-e0c2b5f9ff18",
+    "cef9818d-d174-4a85-935f-31cd9035f495"
+  ]
+}

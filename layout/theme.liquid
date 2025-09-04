@@ -1,0 +1,134 @@
+<!doctype html>
+  {%- liquid
+    assign iso_code  = request.locale.iso_code
+    assign config_rtl  = settings.right_to_left | default: 'enable-with-list'
+    assign is_rtl = false
+    assign dir = 'ltr'
+    if config_rtl == 'enable-with-list'
+      assign iso_code_ck = iso_code | split: '-' | first | append: ';' | prepend: ';'
+      assign lis_rtl = ';ae;ar;arc;bqi;ckb;dv;fa;glk;ha;he;kwh;ks;ku;mzn;nqo;pnb;ps;sd;ug;ur;yi;'
+      if lis_rtl contains iso_code_ck
+        assign is_rtl = true
+        assign dir = 'rtl'
+      endif
+    elsif config_rtl == 'enable'
+      assign is_rtl = true
+      assign dir = 'rtl'
+    endif
+  -%}
+<html class="no-js hdt-pr-img__effect-{{ settings.effect_secondary_image }} hdt-badge__shape-{{ settings.badge_shape }} dir--{{ dir }}{% if request.design_mode %} shopify-design-mode{% endif %}{% if settings.minimal_products %} hdt-minimal-products{% endif %}{% if settings.hidden_badges %} hdt-hidden-pr-badges{% endif %}{% if settings.hidden_quickview %} hdt-hidden-products-quickview{% endif %}{% if settings.hidden_wishlist %} hdt-hidden-products-wishlist{% endif %}{% if settings.hidden_compare %} hdt-hidden-products-compare{% endif %}{% if settings.uppercase_title %} hdt-pr-uppercase_title{% endif %}" lang="{{ request.locale.iso_code }}" dir="{{ dir }}">
+  <head>
+    {%- unless template == 'product.only_config' and request.design_mode == false -%}
+
+      <!-- Google Tag Manager -->
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id=GTM-P2DJXHSL'+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P2DJXHSL');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Lucky Orange Tracking Code Start -->
+<script async defer src="https://tools.luckyorange.com/core/lo.js?site-id=d9a070d2"></script>
+<!-- Lucky Orange Tracking Code End -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+      {{ 'ante.css' | asset_url | stylesheet_tag }}
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 48, height: 48 }}">
+    {%- endif -%}
+    {%- if settings.library_font == "shopify" -%}
+      {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+       <link rel="dns-prefetch" href="https://fonts.shopifycdn.com">
+      {%- endunless -%}
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; {{ 'general.meta.tag' | t }} "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t }} {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+    
+    {%- if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+
+    {%- liquid
+      render 'social-meta-tags'
+      render 'css-variables', is_rtl: is_rtl
+      echo 'theme.css' | asset_url | stylesheet_tag
+      if request.page_type == "policy"
+      echo 'hdt-policy.css' | asset_url | stylesheet_tag
+      endif
+      render 'js-head'
+    -%}
+    {{ content_for_header }}
+    {%- endunless -%}
+<meta name="msvalidate.01" content="C2ACB1C7FFB67E841CA1754822202D17" />    
+<meta name="google-site-verification" content="t1ULsMMs3jzquzEPYmlQtu-4adfBPojKCnh_KbUMnvk" />
+    <meta name="facebook-domain-verification" content="ayuoj4r84x5i0pel4qb35ydk7zujn2" />
+  </head>
+  <body class="hdt-page-type-{{ request.page_type }}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-{{ template.name }}">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2DJXHSL"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  {%- render 'js-variables' -%}
+
+  {%- unless template == 'product.only_config' and request.design_mode == false -%}
+
+    {%- if request.page_type == "index" or request.page_type == "policy" -%}
+      <h1 class="hdt-hidden">{{ page_title | default: shop.name }}</h1>
+    {%- endif -%}
+
+    {%- render 's-dom-temp' -%}
+    <a class="skip-to-content-link button sr-only" href="#MainContent">{{ 'accessibility.skip_to_text' | t }}</a>
+    {%- sections 'header-group' -%}
+
+  {%- endunless -%}
+
+  <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    {%- if request.page_type == "policy" -%}
+      {%- section 'main-heading' -%}
+    {%- endif -%}
+    {{ content_for_layout }}
+  </main>
+    
+    {%- unless template == 'product.only_config' and request.design_mode == false -%}
+    {%- sections 'footer-group' -%}
+
+    {%- liquid
+      sections 'system-group'
+      if settings.enable_compare_popup
+        render 'compare-offcanvas'
+      endif
+      # theme-check-disable NestedSnippet
+      render 'system-bottom'
+      # theme-check-enable NestedSnippet
+      render 'structured-data'
+    -%}
+    {%- endunless -%}
+  </body>
+  <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+  <script src="{{- 'ante.js' | asset_url -}}" defer></script>
+<script>
+  window.renderBadge = function() {
+    var ratingBadgeContainer = document.createElement("div");
+    document.body.appendChild(ratingBadgeContainer);
+    window.gapi.load('ratingbadge', function() {
+      window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 5587302715});
+    });
+  }
+</script>
+  
+</html>

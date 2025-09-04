@@ -1,0 +1,609 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breacrumb": {
+      "type": "brc-nav-product",
+      "settings": {
+        "back_next_pr": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "padding_rate": 75
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "3a222052-35a9-4684-a336-6a32a56eb638": {
+          "type": "title",
+          "settings": {}
+        },
+        "83296f29-170d-4d7b-9291-c9b59bb98b32": {
+          "type": "badges",
+          "disabled": true,
+          "settings": {
+            "special": "",
+            "min": 10,
+            "max": 64,
+            "content": "Selling fast! [count] people have  this in their carts.",
+            "icon_svg": "flash",
+            "ani": "hdt-ani-flash"
+          }
+        },
+        "edac686e-a845-4ed7-9b50-51639a11cf56": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_liquid_aHdikr": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "Description\nModel: H61D3(9.8FT); H61D5(16.4FT) ; \n\nAdd a vibrant touch to any room with the Govee Neon Rope Light 2. Shape recognition technology allows for easy customization, while upgraded clips make bending and creating your desired shape easy. Illuminate your space with this versatile and dynamic lighting option.\n\nImproved RGBIC Lighting Effects: Supports shrinking or expanding the lighting in all directions, making more fun lighting effects possible"
+          }
+        },
+        "1248e930-5734-45b4-a1d6-a814910fdb63": {
+          "type": "variant_picker",
+          "settings": {
+            "pick_mode": "first_available",
+            "enable_historystate": true,
+            "hide_sold_out": false,
+            "color_picker_type": "color_rounded",
+            "color_size": "small",
+            "picker_type": "block",
+            "size_chart_source": "page",
+            "size_chart_page": "size-chart",
+            "title": "Variant picker"
+          }
+        },
+        "4fd6bfca-d3a3-432c-8392-a2d3cab423c4": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "ad820e37-dee5-41f3-9692-bf46d9664103": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "show_price_variant": true,
+            "show_wishlist": true,
+            "show_compare": true
+          }
+        },
+        "8253e974-5acb-4076-9230-03b0f804dcdf": {
+          "type": "back_instock",
+          "disabled": true,
+          "settings": {
+            "only_show_soldout": true
+          }
+        },
+        "113b254d-cc79-43fc-9ed9-4670522082c9": {
+          "type": "extra_link",
+          "disabled": true,
+          "settings": {
+            "show_cp_cl": true,
+            "show_ask": true,
+            "show_phone": true,
+            "show_delivery": true,
+            "page_delivery": "return-policy",
+            "show_share_btn": true
+          }
+        },
+        "9586d18a-306e-45c8-813c-3c4b0cc99315": {
+          "type": "delivery_return",
+          "settings": {
+            "icon_delivery": "ship",
+            "content_devivery": "<p>Estimate delivery times:<strong> 7-20 days</strong> (International)<br/><strong>4-8 days</strong> (United States).</p>",
+            "icon_return": "return_order",
+            "content_return": "<p>Return within <strong>30 days</strong> of purchase. Duties & taxes are non-refundable.</p>"
+          }
+        },
+        "e2b976ce-0ce6-460a-bc64-cea3ec87cb4b": {
+          "type": "img_trust",
+          "settings": {
+            "show_icon": true,
+            "mess": "Guarantee Safe Checkout",
+            "source": "2",
+            "wimg": 350,
+            "svg": "visa,paypal,discover,master,american_express,apple_pay,google_pay,facebook_pay,shopify_pay",
+            "height": 30
+          }
+        }
+      },
+      "block_order": [
+        "3a222052-35a9-4684-a336-6a32a56eb638",
+        "83296f29-170d-4d7b-9291-c9b59bb98b32",
+        "edac686e-a845-4ed7-9b50-51639a11cf56",
+        "custom_liquid_aHdikr",
+        "1248e930-5734-45b4-a1d6-a814910fdb63",
+        "4fd6bfca-d3a3-432c-8392-a2d3cab423c4",
+        "ad820e37-dee5-41f3-9692-bf46d9664103",
+        "8253e974-5acb-4076-9230-03b0f804dcdf",
+        "113b254d-cc79-43fc-9ed9-4670522082c9",
+        "9586d18a-306e-45c8-813c-3c4b0cc99315",
+        "e2b976ce-0ce6-460a-bc64-cea3ec87cb4b"
+      ],
+      "settings": {
+        "space_content_media": true,
+        "media_width": 50,
+        "desktop_media_layout": "thumbnail_left",
+        "desktop_media_position": "left",
+        "mobile_media_layout": "thumbnails",
+        "show_first_media": false,
+        "use_select_varaint_change_media": true,
+        "enable_media_autoplay": true,
+        "enable_video_looping": true,
+        "enable_thumb_efect": true,
+        "image_ratio": "adapt_image",
+        "image_size": true,
+        "image_zoom": "zoom",
+        "image_zoom_type": "external",
+        "zoom_level": 2,
+        "max_zoom_lightbox": 3,
+        "tabs_design": "tab",
+        "enable_first_tab": false,
+        "sticky_atc": true,
+        "navUI": true,
+        "nav_des": "default",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_rate": 50
+      }
+    },
+    "tabs": {
+      "type": "main-product-tabs",
+      "blocks": {
+        "76effdab-2914-4a34-a303-417cde99ff0a": {
+          "type": "tab_des",
+          "settings": {
+            "title": "Description"
+          }
+        },
+        "tab_liquid_fWAtUC": {
+          "type": "tab_liquid",
+          "settings": {
+            "title": "Specification",
+            "custom_liquid": "<div class=\"product-specs\">\n  <ul class=\"spec-list\">\n    <li><strong>Firmware Upgrade:</strong> OTA wireless updates supported</li>\n    <li><strong>Standby Power Consumption:</strong> Less than 3mA</li>\n    <li><strong>Input Voltage:</strong> DC 9V–16V / 3A</li>\n    <li><strong>Control Method:</strong> Touch-sensitive with haptic feedback</li>\n    <li><strong>Ambient Lighting Sync:</strong> Syncs with original vehicle lighting</li>\n    <li><strong>Charging Power:</strong> Type-C output up to 20W</li>\n  </ul>\n</div>\n\n<style>\n.product-specs {\n  padding: 20px;\n  background-color: #f9f9f9;\n  border-radius: 12px;\n  font-family: \"Helvetica Neue\", sans-serif;\n  max-width: 600px; /* Limits width to avoid text stretching */\n  margin: 0 auto; /* Centering the block */\n}\n\n.spec-list {\n  list-style: none;\n  padding-left: 0;\n  margin: 0;\n}\n\n.spec-list li {\n  padding: 16px 0; /* Increased padding for better spacing */\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  border-bottom: 1px solid #ddd; /* Separates each item visually */\n  line-height: 1.8; /* Increased line-height for better readability */\n}\n\n.spec-list li:last-child {\n  border-bottom: none; /* Removes the border for the last item */\n}\n\n.spec-list li strong {\n  color: #333;\n  font-weight: bold;\n  width: 40%; /* Makes the label area consistent */\n  margin-right: 10px; /* Adds space between label and description */\n}\n\n.spec-list li span {\n  color: #555;\n  width: 60%; /* Ensures description text aligns with the label */\n}\n\n@media (max-width: 600px) {\n  .spec-list li {\n    font-size: 14px; /* Adjust font size for smaller screens */\n    padding: 12px 0; /* Increased padding for better mobile readability */\n    line-height: 1.6; /* Adjust line-height for mobile */\n  }\n\n  .spec-list li strong {\n    width: 35%; /* Adjust label width on small screens */\n    margin-right: 8px; /* Adjust spacing between label and description */\n  }\n\n  .spec-list li span {\n    width: 65%; /* Adjust text width */\n  }\n}\n</style>",
+            "content_richtext": ""
+          }
+        },
+        "9866bb5f-03b7-4dc7-9387-4be849a0cbf1": {
+          "type": "tab_add",
+          "settings": {
+            "title": "Additional Information"
+          }
+        },
+        "d0839947-6bc5-42cc-85f7-9e94ce6b3e6c": {
+          "type": "tab_html",
+          "settings": {
+            "title": "Return Policies",
+            "content": "",
+            "page": "privacy-policy"
+          }
+        },
+        "1bc528a7-9da8-48ec-96da-8e48c0e52faf": {
+          "type": "tab_html",
+          "settings": {
+            "title": "Custom tab",
+            "content": "",
+            "page": "wash-care"
+          }
+        }
+      },
+      "block_order": [
+        "76effdab-2914-4a34-a303-417cde99ff0a",
+        "tab_liquid_fWAtUC",
+        "9866bb5f-03b7-4dc7-9387-4be849a0cbf1",
+        "d0839947-6bc5-42cc-85f7-9e94ce6b3e6c",
+        "1bc528a7-9da8-48ec-96da-8e48c0e52faf"
+      ],
+      "settings": {
+        "tabs_design": "accordion",
+        "enable_first_tab": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "padding_rate": 50
+      }
+    },
+    "sidebar": {
+      "type": "sidebar-product",
+      "blocks": {
+        "93375155-f1f0-4598-8fc0-9adcbad23dff": {
+          "type": "iconbox",
+          "settings": {
+            "widget_heading": "Shipping & Delivery",
+            "image_size": false,
+            "icon_svg1": "box",
+            "custom_svg1": "",
+            "iconbox_content1": "Free shipping_Free shipping for all US orders",
+            "link_item1": "",
+            "icon_svg2": "support",
+            "custom_svg2": "",
+            "iconbox_content2": "Premium Support_Support 24 hours a day",
+            "link_item2": "",
+            "icon_svg3": "return",
+            "custom_svg3": "",
+            "iconbox_content3": "30 Days Return_ You have 30 days to return",
+            "link_item3": "",
+            "icon_svg4": "payment",
+            "custom_svg4": "",
+            "iconbox_content4": "",
+            "link_item4": ""
+          }
+        },
+        "4bbef404-afc5-4e3e-90cf-4f07d8a58f71": {
+          "type": "featured_products",
+          "settings": {
+            "widget_heading": "Sale products",
+            "collection": "womens-fashion",
+            "product_list": [],
+            "products_count": 3,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "76c4580d-5d01-4485-b53a-98caea9f4605": {
+          "type": "gallery",
+          "settings": {
+            "widget_heading": "Gallery",
+            "link1": "",
+            "link2": "",
+            "link3": "",
+            "link4": "",
+            "link5": "",
+            "link6": "",
+            "open_link": "_blank"
+          }
+        },
+        "5d4020bf-1c84-4908-9a3d-f9d20d6b2025": {
+          "type": "social",
+          "settings": {
+            "widget_heading": "Follow us",
+            "socials_style": "outline",
+            "socials_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "93375155-f1f0-4598-8fc0-9adcbad23dff",
+        "4bbef404-afc5-4e3e-90cf-4f07d8a58f71",
+        "76c4580d-5d01-4485-b53a-98caea9f4605",
+        "5d4020bf-1c84-4908-9a3d-f9d20d6b2025"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "space": 60
+      }
+    },
+    "175516595016d2ebca": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_bbbkny": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_bbbkny"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "People Also Bought",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "heading_gap": 18,
+        "sec_heading_spacing": 50,
+        "limit": 10,
+        "product_des": "1",
+        "image_ratio": "custom-pr",
+        "image_size": true,
+        "show_vendor": false,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "navUI": true,
+        "nav_des": "default",
+        "nav_pos": "middle_in",
+        "dotUI": false,
+        "section_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 72,
+        "padding_rate": 75
+      }
+    },
+    "recently": {
+      "type": "recently-products",
+      "disabled": true,
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "Recently Viewed",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "heading_gap": 18,
+        "sec_heading_spacing": 50,
+        "limit": 10,
+        "product_des": "1",
+        "image_ratio": "custom-pr",
+        "image_size": true,
+        "show_vendor": false,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "navUI": true,
+        "nav_des": "default",
+        "nav_pos": "middle_in",
+        "dotUI": false,
+        "section_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_rate": 75
+      }
+    },
+    "accordion_x9NmKR": {
+      "type": "accordion",
+      "blocks": {
+        "title_ENUeTx": {
+          "type": "title",
+          "settings": {
+            "title": "Frequently Asked Questions"
+          }
+        },
+        "accordion_item_TfWy6R": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q1: Where should I adjust the colour of the ambient lighting?",
+            "content": "A1:It can be adjusted on the main screen.",
+            "content_richtext": ""
+          }
+        },
+        "accordion_item_LMGepa": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q2: Will this charger fit my Tesla Model 3 Highland (2024+)?",
+            "content": "Yes. This wireless charger is specifically designed for the 2024+ Tesla Model 3 Highland. It fits perfectly into the center console and integrates seamlessly with your vehicle’s OEM look and feel.",
+            "content_richtext": ""
+          }
+        },
+        "accordion_item_zGjpMF": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q3: Can I charge multiple devices at the same time?Absolutely. The charger includes:",
+            "content": "A Qi wireless charging pad for your smartphone\n<br>\n<br>\nTwo fast-charging Type‑C ports (20W each)\n<br>\nYou can charge up to three devices simultaneously — wirelessly and via cable.",
+            "content_richtext": ""
+          }
+        },
+        "accordion_item_dzDtJX": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q4: Does the ambient lighting sync with my Tesla’s system?",
+            "content": "Yes. The built-in ambient LED lights are laser-etched and fully synchronized with your Tesla’s original lighting controls. You can enjoy multiple lighting modes (e.g., turn signals, hazard lights, AC adjustment) for a premium, responsive experience.",
+            "content_richtext": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_ENUeTx",
+        "accordion_item_TfWy6R",
+        "accordion_item_LMGepa",
+        "accordion_item_zGjpMF",
+        "accordion_item_dzDtJX"
+      ],
+      "settings": {
+        "accordion_position": "start",
+        "accordion_icon": "1",
+        "open_first": false,
+        "enable_link_list": false,
+        "section_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 17,
+        "padding_bottom": 70,
+        "padding_rate": 75
+      }
+    },
+    "tabs_collections_carousel_4gE3Uw": {
+      "type": "tabs-collections-carousel",
+      "blocks": {
+        "tab_item_dg76pN": {
+          "type": "tab_item",
+          "settings": {
+            "title": "",
+            "collection": "model-3",
+            "product_list": []
+          }
+        },
+        "tab_item_wgG7yE": {
+          "type": "tab_item",
+          "settings": {
+            "title": "",
+            "collection": "",
+            "product_list": []
+          }
+        },
+        "tab_item_H6aTPB": {
+          "type": "tab_item",
+          "settings": {
+            "title": "",
+            "collection": "",
+            "product_list": []
+          }
+        }
+      },
+      "block_order": [
+        "tab_item_dg76pN",
+        "tab_item_wgG7yE",
+        "tab_item_H6aTPB"
+      ],
+      "settings": {
+        "tabs_heading": "Recommended for You",
+        "heading_size": "h4",
+        "heading_inline": false,
+        "tabs_head_spacing": 15,
+        "tabs_des": "underline",
+        "tab_item_size": "lg",
+        "tab_item_weight": "medium",
+        "text_transform": false,
+        "border_width": 2,
+        "spacing_items": 30,
+        "product_des": "1",
+        "image_ratio": "adapt_image",
+        "image_size": true,
+        "show_vendor": false,
+        "products_count": 8,
+        "col_dk": "4",
+        "col_tb": "2",
+        "col_mb": "1",
+        "navUI": false,
+        "nav_des": "default",
+        "nav_pos": "middle_in",
+        "dotUI": false,
+        "use_pagination": "none",
+        "paginate_pos": "center",
+        "dis_pagination": 30,
+        "btn_label": "",
+        "btn_style": "solid",
+        "btn_fw": "normal",
+        "section_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 52,
+        "padding_rate": 75
+      }
+    },
+    "icon_box_87TptV": {
+      "type": "icon-box",
+      "blocks": {
+        "item_NxrkHm": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "box",
+            "custom_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"\" width=\"29\" height=\"30\" viewbox=\"0 0 29 30\"><path d=\"M14.2504 30L0 22.8814V7.01669L14.2504 0L28.5009 7.01273V22.8814L14.2504 30ZM2.64633 21.246L14.2504 27.0388L25.8546 21.242V8.66276L14.2504 2.95069L2.64633 8.66276V21.246ZM15.5736 28.5207H12.9273V15.0152L0.739716 9.02798L1.90671 6.64627L15.5736 13.3666V28.5207ZM15.5736 28.5207H12.9273V13.3665L26.5942 6.6515L27.7612 9.03321L15.5736 15.0152V28.5207ZM14.2504 15.6596L0.739716 9.02798L1.90671 6.64627L14.2504 12.717L26.5942 6.65292L27.7612 9.03457L14.2504 15.6596Z\"></path></svg>",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "<b>Free Shipping</b>",
+            "content": "<p>You will love at great low prices</p>",
+            "adding_border": false
+          }
+        },
+        "item_NizGMy": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "wave",
+            "custom_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"\" width=\"30\" height=\"22\" viewbox=\"0 0 30 22\"><path d=\"M0 0H29.4643V22H0V0ZM27.5 1.9643H1.9643V20.0357H27.5V1.9643ZM0 4.97617H29.4643V11.9167H0V4.97617ZM27.5 6.94047H1.9643V9.95238H27.5V6.94047Z\"></path></svg>",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "<b>100% Payment Secure</b>",
+            "content": "<p>Safe & encrypted multiple payment method</p>",
+            "adding_border": false
+          }
+        },
+        "item_hjkgnp": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "plants",
+            "custom_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"\" width=\"29\" height=\"18\" viewbox=\"0 0 29 18\"><path d=\"M25.5 1.5V7.5H5.745L11.115 2.115L9 0L0 9L9 18L11.115 15.885L5.745 10.5H28.5V1.5H25.5Z\"></path></svg>",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "<b>Easy Return Policy</b>",
+            "content": "<p>30-day money-back guarantee</p>",
+            "adding_border": false
+          }
+        },
+        "item_7UmeyN": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "smile",
+            "custom_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"\" width=\"30\" height=\"30\" viewbox=\"0 0 30 30\"><path d=\"M27.5 10H26.82C25.862 4.334 20.934 0 15 0C9.066 0 4.137 4.334 3.18 10H2.5C1.83712 10.0005 1.20154 10.2641 0.732818 10.7328C0.264092 11.2015 0.000529668 11.8371 0 12.5V17.5C0 18.879 1.121 20 2.5 20H4C4.26522 20 4.51957 19.8946 4.70711 19.7071C4.89464 19.5196 5 19.2652 5 19V12C5 6.486 9.486 2 15 2C20.514 2 25 6.486 25 12V18C25 23.514 20.514 28 15 28C14.7348 28 14.4804 28.1054 14.2929 28.2929C14.1054 28.4804 14 28.7348 14 29C14 29.2652 14.1054 29.5196 14.2929 29.7071C14.4804 29.8946 14.7348 30 15 30C20.935 30 25.863 25.666 26.82 20H27.5C28.879 20 30 18.879 30 17.5V12.5C30 11.121 28.879 10 27.5 10ZM2 17.5V12.5C2 12.229 2.229 12 2.5 12H3V18H2.5C2.36788 17.9984 2.2416 17.9453 2.14817 17.8518C2.05474 17.7584 2.00156 17.6321 2 17.5ZM28 17.5C28 17.771 27.771 18 27.5 18H27V12H27.5C27.771 12 28 12.229 28 12.5V17.5ZM23 17V12C23 7.589 19.411 4 15 4C10.589 4 7 7.589 7 12V17C7 21.411 10.589 25 15 25C19.411 25 23 21.411 23 17ZM9 17V12C9 8.691 11.691 6 15 6C18.309 6 21 8.691 21 12V17C21 20.309 18.309 23 15 23C11.691 23 9 20.309 9 17Z\"></path></svg>",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "<b>24 / 7 Service Online</b>",
+            "content": "<p>We're here if you need us.</p>",
+            "adding_border": false
+          }
+        }
+      },
+      "block_order": [
+        "item_NxrkHm",
+        "item_NizGMy",
+        "item_hjkgnp",
+        "item_7UmeyN"
+      ],
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "base",
+        "heading_reverse": false,
+        "heading_gap": 40,
+        "sec_heading_spacing": 40,
+        "icon_pos_center": true,
+        "icon_pos_center_mb": true,
+        "icon_circle": true,
+        "space_icon_heading": "medium",
+        "size_heading": "medium",
+        "heading_uppercase": false,
+        "space_heading_content": "small",
+        "col_dk": "4",
+        "col_tb": "2",
+        "col_mb": "1",
+        "carousel_mobile": true,
+        "border_style": "1",
+        "fullwidth": true,
+        "boxed_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 70,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "breacrumb",
+    "main",
+    "tabs",
+    "sidebar",
+    "175516595016d2ebca",
+    "related",
+    "recently",
+    "accordion_x9NmKR",
+    "tabs_collections_carousel_4gE3Uw",
+    "icon_box_87TptV"
+  ]
+}

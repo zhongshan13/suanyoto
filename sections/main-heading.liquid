@@ -1,0 +1,152 @@
+<!-- sections/main-heading.liquid -->
+{%- liquid
+  assign page_type = request.page_type
+  if page_type contains 'customers'
+    assign page_type = 'customers'
+  endif
+-%}
+<div class="hdt-heading-template hdt-section-spacing hdt-s-gradient section-{{ section.id }} hdt-relative" color-scheme="{{ section.settings.color_scheme }}">
+  <div class="hdt-heading-banner hdt-full-width-link">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', width: section.settings.image.width, height: section.settings.image.height, sizes: "100vw", widths: '375,550,750,1100,1500,1780,1920,2000,3000,3840' }}
+    {%- endif -%}
+  </div>
+  <div class="hdt-heading-full-page">
+    {%- render 'heading_page' -%}
+  </div>
+</div>
+{%- style -%}#shopify-section-{{section.id}}{--section-pt:{{section.settings.padding_top}}px;--section-pb:{{section.settings.padding_bottom}}px;--section-prate:{{section.settings.padding_rate}}}.hdt-spacing_hd{gap:{{section.settings.spacing_hd}}px}.hdt-heading-template .hdt-heading-banner img{width:100%;height:100%;object-fit:cover;object-position:center}.hdt-heading-template .hdt-main-heading{z-index:2}.hdt-breadcrumb ul svg{margin:0 10px}{%- if section.settings.spacing_hd>=30 -%}@media(max-width:767px){.section-{{section.id}}.hdt-spacing_hd{gap:20px}}{%- endif -%}{%- endstyle -%}
+{% schema %}
+{
+  "name": "t:sections.heading-page.name",
+  "class": "hdt-section hdt-section-heading hdt-main-heading",
+  "tag":"section",
+  "disabled_on": {
+    "groups":[
+      "*"
+    ],
+    "templates": [
+      "index"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.heading-page.settings.header_options"
+    },
+    {
+      "type": "image_picker",
+      "label": "t:sections.heading-page.settings.background_heading",
+      "id": "image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "range",
+      "id": "spacing_hd",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.heading-page.settings.spacing_hd.label",
+      "default": 5,
+      "info": "t:sections.heading-page.settings.spacing_hd.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.heading-page.settings.header_padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 75
+    }
+  ],
+  "blocks": [
+    {
+      "type": "1",
+      "name": "Page heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.heading-page.settings.heading.label",
+          "default": "Page heading",
+          "info": "t:sections.heading-page.settings.heading.info"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "t:sections.all.heading_size.label",
+          "default": "h3",
+          "options": [
+            {
+              "value": "h4",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h3",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "2",
+      "name": "Breadcrumb",
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Heading",
+      "blocks": [
+        {
+          "type": "1"
+        },
+        {
+          "type": "2"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

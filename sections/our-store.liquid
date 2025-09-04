@@ -1,0 +1,400 @@
+<!-- section/our-store.liquid -->
+
+{%-liquid
+  if section.settings.image_ratio == 'adapt_image'
+    assign attr_img = ''
+  else
+    assign attr_img = 'data-'
+  endif 
+-%}
+{%- style -%}#shopify-section-{{section.id}}{--section-pt:{{section.settings.padding_top}}px;--section-pb:{{section.settings.padding_bottom}}px;--section-prate:{{section.settings.padding_rate}}}{%- endstyle -%}<style>.hdt-ourstore .hdt-title{margin-bottom:var(--spacing-1-4)}.hdt-ourstore .hdt-rte{color:rgb(var(--color-foreground2));margin-bottom:var(--spacing-1-6)}.hdt-ourstore .hdt-rte strong{font-weight:var(--font-semibold);color:rgb(var(--color-foreground))}.hdt-ourstore .hdt-socials{margin-top:var(--spacing-2)}.hdt-ourstore .hdt-btn{--hdt-pd-y:var(--spacing-1-4);--hdt-pd-x:var(--spacing-2-4);margin-top:var(--spacing-2)}.hdt-ourstore .hdt-ourstore_img img{transition:.35s linear}@media (min-width:768px){.hdt-ourstore .hdt-ourstore_content{padding-inline-start:var(--spacing-4);padding-inline-end:var(--spacing-2)}.hdt-ourstore .hdt-title{margin-bottom:var(--spacing-2-4)}.hdt-ourstore :is(.hdt-subtext,.hdt-rte){margin-bottom:var(--spacing-2-2)}.hdt-ourstore .hdt-socials{margin-top:var(--spacing-3-8)}.hdt-ourstore .hdt-btn{margin-top:var(--spacing-3-2)}}@media (min-width:1150px){.hdt-ourstore .hdt-ourstore_content{padding-inline-start:calc(var(--spacing-10) + var(--spacing-2-4));padding-inline-end:var(--spacing-4)}.hdt-ourstore .hdt-ourstore_content:not(.md\:hdt-order-first){padding-inline-start:9.3rem}}@media (-moz-touch-enabled:0),(hover:hover) and (min-width:1150px){.hdt-ourstore .hdt-ourstore_img:hover img{transform:scale(1.1)}}</style>
+{%- capture sizes -%}
+(min-width: 768px) calc({{ settings.page_width }}px / 2), (min-width: 768px) calc((100vw - 60px) / 2), calc(100vw - 30px)
+{%- endcapture -%}
+<div class="hdt-section-inner hdt-s-gradient hdt-section-spacing" color-scheme="{{ section.settings.color_scheme }}" hdt-reveal="fade-in">
+  <div class="hdt-container hdt-ratio--{{ section.settings.image_ratio }}">
+    {%- if section.blocks.size > 0 -%}
+      <div class="hdt-row-grid hdt-grid-cols-1 md:hdt-grid-cols-2">
+        <div class="hdt-ourstore_img hdt-oh hdt-ratio" {{ attr_img }}style="--aspect-ratioapt: {{ section.settings.image.aspect_ratio | default: 1.7777 }}">
+          {%- if section.settings.image != blank -%}
+            {{ section.settings.image | image_url: width: 705 | image_tag: loading: 'lazy', width: section.settings.image.width, height: section.settings.image.height, class: '', sizes: sizes, widths: '375,550,750,1000,1200,1500,1800' }}
+          {%- else -%}
+          {{ 'hero-apparel-1' | placeholder_svg_tag: 'hdt-placeholder-svg' }}
+          {%- endif -%}
+        </div>
+        <div class="hdt-ourstore_content {% if section.settings.image_pos %}md:hdt-order-first{% endif %}">
+          <div class="hdt-ourstore_inner">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'heading' -%}
+                  {%- if block.settings.heading != blank -%}
+                    <h3 class="hdt-title hdt-h5 hdt-s-text" hdt-reveal="slide-in" timeline>{{ block.settings.heading }}</h3>
+                  {%- endif -%}
+                {% when 'text' %}
+                  {%- if block.settings.text != blank -%}
+                    <div class="hdt-rte" hdt-reveal="slide-in" timeline>
+                      {{ block.settings.text }}
+                    </div>
+                  {%- endif -%}
+                {% when 'socials' %}
+                  <div class="hdt-socials" hdt-reveal="slide-in" timeline>
+                    {%- render 'social_sharing', socials_style: block.settings.socials_style, socials_size: block.settings.socials_size -%} 
+                  </div>
+                {% when 'button' %}
+                  {%- if block.settings.btn_label != blank -%}
+                    <a hdt-reveal="slide-in" timeline {% if block.settings.btn_link == blank %}
+                      role="link" disabled="true"
+                      {% else %}
+                        href="{{ block.settings.btn_link }}" 
+                      {% endif %} target="{% if block.settings.target %}_blank{% else %}_self{% endif %}"
+                      class="hdt-btn hdt-text-{{ block.settings.btn_size }} hdt-oh hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-btn-{{ block.settings.btn_style }} hdt-font-{{ block.settings.btn_fw }}"><span>{{ block.settings.btn_label }}</span>
+                    {%- if block.settings.btn_icon == "1" -%}
+                      <svg class="hdt-icon hdt-icon-1" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 64 64" fill="currentColor"><path d="M12,56.43,36.48,32,12,7.52,19.53,0,51.61,32,19.53,64Z"/></svg>
+                    {%- elsif block.settings.btn_icon == "2" -%}
+                      <svg class="hdt-icon hdt-icon-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"  viewBox="0 0 64 64" fill="currentColor"><path d="M6.89,64,0,57.11,47.26,9.85H4.92V0H64V59.08H54.15V16.74Z"/></svg>
+                    {%- else -%}
+                    {%- endif -%}
+                    </a>
+                  {%- endif -%}
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    {%- else -%}
+      <div class="hdt-row-grid hdt-grid-cols-1 md:hdt-grid-cols-2">
+        <div class="hdt-ourstore_img hdt-oh">
+          {{ 'hero-apparel-1' | placeholder_svg_tag: 'hdt-placeholder-svg' }}
+        </div>
+        <div class="hdt-ourstore_content">
+          <div class="hdt-ourstore_inner">
+            <p class="hdt-title hdt-text-10xl hdt-s-text">Ecomus Paris</p>
+            <p class="hdt-text hdt-s-text hdt-font-semibold">Address</p>
+            <p class="hdt-subtext hdt-s-text2">66 Mott St, New York, New York, Zip code: 10006, AS</p>
+            <p class="hdt-text hdt-s-text hdt-font-semibold">Phone</p>
+            <p class="hdt-subtext hdt-s-text2">(623) 934-2400</p>
+            <p class="hdt-text hdt-s-text hdt-font-semibold">Email</p>
+            <p class="hdt-subtext hdt-s-text2">EComposer@example.com</p>
+            <p class="hdt-text hdt-s-text hdt-font-semibold">Open Time</p>
+            <p class="hdt-subtext hdt-s-text2">Our store has re-opened for shopping, exchange<br> Every day 11am to 7pm</p>
+            <div class="hdt-socials hdt-flex">
+              {%- render 'social_sharing', socials_style: 'simple', socials_size: 'medium' -%} 
+            </div>
+            <a href="/" class="hdt-btn hdt-btn-outline hdt-inline-flex hdt-justify-center hdt-align-center hdt-relative hdt-font-semibold ">
+              <span>Get Directions</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.our-store.name",
+  "tag": "section",
+  "class": "hdt-ourstore hdt-section",
+  "disabled_on": {
+    "groups": [
+      "*"
+    ]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.our-store.settings.image"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "t:sections.all.images.ratio.label",
+      "options": [
+        {
+          "value": "square",
+          "label": "t:sections.all.images.ratio.square.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.images.ratio.portrait.label"
+        },
+        {
+          "value": "asos",
+          "label": "t:sections.all.images.ratio.asos.label"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.images.ratio.landscape.label"
+        },
+        {
+          "value": "adapt_image",
+          "label": "t:sections.all.images.ratio.adapt_image.label"
+        }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "select",
+      "id": "image_size",
+      "label": "t:sections.all.images.size.label",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:sections.all.images.size.cover"
+        },
+        {
+          "value": "contain",
+          "label": "t:sections.all.images.size.contain"
+        }
+      ],
+      "default": "cover",
+      "info": "t:sections.all.images.size.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_pos",
+      "label": "t:sections.our-store.settings.image_pos",
+      "default": false,
+      "info": "Work on desktop"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.our-store.settings.color"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 75
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.our-store.blocks.settings.heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.our-store.blocks.settings.heading",
+          "default": "Ecomus"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.our-store.blocks.settings.text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.our-store.blocks.settings.text",
+          "default": "<p><strong>Address</strong></p><p>66 Mott St, New York, New York, Zip Code: 10006, AS</p>"
+        }
+      ]
+    },
+    {
+      "type": "socials",
+      "name": "t:sections.our-store.blocks.settings.socials",
+      "settings": [
+        {
+          "type": "select",
+          "id": "socials_style",
+          "label": "t:settings_schema.social-media.settings.social_style.label",
+          "default": "default",
+          "options": [
+            {
+              "value": "default",
+              "label": "t:settings_schema.social-media.settings.social_style.options__1.label"
+            },
+            {
+              "value": "outline",
+              "label": "t:settings_schema.social-media.settings.social_style.options__2.label"
+            },
+            {
+              "value": "simple",
+              "label": "t:settings_schema.social-media.settings.social_style.options__3.label"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "socials_size",
+          "label": "t:settings_schema.social-media.settings.social_size.label",
+          "default": "medium",
+          "options": [
+            {
+              "value": "small",
+              "label": "t:settings_schema.social-media.settings.social_size.options__1.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:settings_schema.social-media.settings.social_size.options__2.label"
+            },
+            {
+              "value": "large",
+              "label": "t:settings_schema.social-media.settings.social_size.options__3.label"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.our-store.blocks.settings.button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "t:sections.all.button.settings.text.label",
+          "default": "Shop now",
+          "info": "t:sections.all.button.settings.text.info"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "t:sections.all.button.settings.url.label",
+          "info": "If blank, use link of product"
+        },
+        {
+          "type": "checkbox",
+          "id": "target",
+          "label": "t:sections.all.button.settings.target.label",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "btn_size",
+          "label": "t:sections.all.button.settings.font_size.label",
+          "options": [
+            {
+              "value": "xs",
+              "label": "t:sections.all.button.settings.font_size.options.xs"
+            },
+            {
+              "value": "sm",
+              "label": "t:sections.all.button.settings.font_size.options.sm"
+            },
+            {
+              "value": "base",
+              "label": "t:sections.all.button.settings.font_size.options.base"
+            },
+            {
+              "value": "lg",
+              "label": "t:sections.all.button.settings.font_size.options.lg"
+            },
+            {
+              "value": "xl",
+              "label": "t:sections.all.button.settings.font_size.options.xl"
+            }
+          ],
+          "default": "base"
+        },
+        {
+          "type": "select",
+          "id": "btn_style",
+          "label": "t:sections.all.button.settings.style.label",
+          "options": [
+            {
+              "value": "solid",
+              "label": "t:sections.all.button.settings.style.options.option_1"
+            },
+            {
+              "value": "outline",
+              "label": "t:sections.all.button.settings.style.options.option_2"
+            },
+            {
+              "value": "outline-2",
+              "label": "t:sections.all.button.settings.style.options.option_3"
+            },
+            {
+              "value": "link",
+              "label": "t:sections.all.button.settings.style.options.option_4"
+            }
+          ],
+          "default": "solid"
+        },
+        {
+          "type": "select",
+          "id": "btn_fw",
+          "label": "t:sections.all.button.settings.font_weight.label",
+          "options": [
+            {
+              "value": "normal",
+              "label": "t:sections.all.button.settings.font_weight.options.option_1"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.all.button.settings.font_weight.options.option_2"
+            },
+            {
+              "value": "semibold",
+              "label": "t:sections.all.button.settings.font_weight.options.option_3"
+            },
+            {
+              "value": "bold",
+              "label": "t:sections.all.button.settings.font_weight.options.option_4"
+            }
+          ],
+          "default": "normal"
+        },
+        {
+          "type": "select",
+          "id": "btn_icon",
+          "label": "t:sections.all.button.settings.icon.label",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.all.button.settings.icon.options.option_0"
+            },
+            {
+              "value": "1",
+              "label": "t:sections.all.button.settings.icon.options.option_1"
+            },
+            {
+              "value": "2",
+              "label": "t:sections.all.button.settings.icon.options.option_2"
+            }
+          ],
+          "default": "1"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.our-store.name"
+    }
+  ]
+}
+{% endschema %}

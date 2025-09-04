@@ -1,0 +1,165 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div#hdt-page-product-config",
+  "sections": {
+    "main-quick-view": {
+      "type": "main-quick-view",
+      "blocks": {
+        "2a1b9de8-6f67-469b-9fcd-1732d99b2d8f": {
+          "type": "title",
+          "settings": {}
+        },
+        "37e199c6-32c5-4e99-95f8-0b3d4d45df0b": {
+          "type": "badges",
+          "settings": {
+            "special": "BEST SELLER",
+            "min": 10,
+            "max": 80,
+            "content": "Selling fast! [count] people have this in their carts.",
+            "icon_svg": "flash",
+            "ani": "hdt-ani-flash"
+          }
+        },
+        "e9fb6308-d262-4013-842a-c90a7cfe5bc1": {
+          "type": "price",
+          "settings": {}
+        },
+        "16dbcaa2-f606-425f-b09e-aa5e9be5cdfe": {
+          "type": "description",
+          "settings": {
+            "des": "2",
+            "short_des": "<p>Nunc arcu faucibus a et lorem eu a mauris adipiscing conubia ac aptent ligula facilisis a auctor habitant parturient a a.Interdum fermentum.</p>",
+            "length": 31
+          }
+        },
+        "16b07df2-47eb-4d10-b69e-8e4219ca778e": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out": false,
+            "color_picker_type": "color_rounded",
+            "color_size": "small",
+            "picker_type": "block",
+            "size_chart_source": "page",
+            "size_chart_page": "size-chart"
+          }
+        },
+        "8c67f7ea-0445-4087-8883-e60bc1c16043": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "c1cc7cb8-85b9-48d6-852c-123c223e8f18": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "3ae948ef-18dd-48a7-82a2-5252bc077077": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "show_price_variant": true,
+            "show_wishlist": true,
+            "show_compare": true
+          }
+        },
+        "870464d2-e831-4a56-a463-a71114ecf562": {
+          "type": "view_products_details",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "2a1b9de8-6f67-469b-9fcd-1732d99b2d8f",
+        "37e199c6-32c5-4e99-95f8-0b3d4d45df0b",
+        "e9fb6308-d262-4013-842a-c90a7cfe5bc1",
+        "16dbcaa2-f606-425f-b09e-aa5e9be5cdfe",
+        "16b07df2-47eb-4d10-b69e-8e4219ca778e",
+        "8c67f7ea-0445-4087-8883-e60bc1c16043",
+        "c1cc7cb8-85b9-48d6-852c-123c223e8f18",
+        "3ae948ef-18dd-48a7-82a2-5252bc077077",
+        "870464d2-e831-4a56-a463-a71114ecf562"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "media_width": 50,
+        "desktop_media_position": "left",
+        "enable_media_autoplay": false,
+        "enable_video_looping": false,
+        "navUI": true,
+        "nav_des": "default"
+      }
+    },
+    "main-quick-add": {
+      "type": "main-quick-add",
+      "blocks": {
+        "main-quick-add-0": {
+          "type": "variant_info",
+          "settings": {}
+        },
+        "main-quick-add-1": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out": false,
+            "color_picker_type": "color_rounded",
+            "color_size": "small",
+            "picker_type": "block",
+            "size_chart_source": "page",
+            "size_chart_page": ""
+          }
+        },
+        "f30b31c7-4374-4097-bafb-77a57bdb51a3": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "main-quick-add-2": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "show_price_variant": true,
+            "show_wishlist": true,
+            "show_compare": true
+          }
+        }
+      },
+      "block_order": [
+        "main-quick-add-0",
+        "main-quick-add-1",
+        "f30b31c7-4374-4097-bafb-77a57bdb51a3",
+        "main-quick-add-2"
+      ],
+      "settings": {
+        "color_scheme": ""
+      }
+    },
+    "product-group-media": {
+      "type": "product-group-media",
+      "settings": {
+        "product": "sweetheart-neckline-top"
+      }
+    },
+    "color-swatch": {
+      "type": "color-swatch",
+      "settings": {
+        "name": "white brown",
+        "color": "#FFFFFF",
+        "color2": "#977945",
+        "color3": "rgba(0,0,0,0)",
+        "color4": "rgba(0,0,0,0)",
+        "code": "black:#000000\nWhite:#FFFFFF\ngrey:#ccc\nlight grey:#d3d3d3\ndark grey:#808080\nblue:#a8bcd4\nlight blue:#add8e6\ndark blue:#00008b\nmarble blue:#84e4e0\nwarm tan:#ece5b6\ngreen:#e1eb78\nlight green:#caffd6\ndark green:#006400\ncream:#FFFDD0\nbrown:#977945\nlight brown:#c55252\nred:#f63400\nred black:#f63400;#000000\nyellow:#dcdb79\nlight yellow:#ffffe0\ngolden yellow:#ffdf00\nnavy:#001f3f\npink:#fcc6de\nlight pink:#ffb6c1\norange:#ffa500\nlight orange:#f5c873\nlight purple:#d966d9\npurple:#7e0b80\nkaki:#b1907f\nviolet:violet\npastel brown:#b1907f\nbeige:#c8ad7f\ntaupe:#483c32\nwhite striped:#FFFFFF;#000000\ndark beige:#9f8c76\ncopper:#b87333\nsilver white:#dadbdd\nblue black:#1555d4;#000000\nblue white:#FFFFFF;#1555d4\n\bgreen black:#000000;#83b735\nyellow black:#000000;#d5e52e\nwhite pink:#FFFFFF;#fcc6de\nwhite brown:#FFFFFF;#977945"
+      }
+    }
+  },
+  "order": [
+    "main-quick-view",
+    "main-quick-add",
+    "product-group-media",
+    "color-swatch"
+  ]
+}

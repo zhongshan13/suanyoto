@@ -1,0 +1,281 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.name_group.system",
+  "type": "custom.system",
+  "sections": {
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "blocks": {
+        "ca4a9586-08fd-471b-a5a7-11e1ffc068a4": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "88e6ef7a-281c-45e7-b62c-b556ebd6f705": {
+          "type": "tax",
+          "settings": {}
+        },
+        "f932f430-a2c4-4a2f-a3d6-d2f099407d44": {
+          "type": "line",
+          "settings": {}
+        },
+        "76bae518-3d87-4731-a9d4-2e41544da57b": {
+          "type": "agree",
+          "settings": {
+            "content": "I agree with the <a href=\"/policies/terms-of-service\" title=\"Terms of Service\"><strong>terms and conditions</strong></a>"
+          }
+        },
+        "54f7a627-75c8-4b50-8c43-45e4be386afb": {
+          "type": "bnt_cart_checkout",
+          "settings": {
+            "enable_btn_cart": true,
+            "btn_style_cart": "outline",
+            "btn_fw_cart": "semibold",
+            "btn_icon_cart": "none",
+            "enable_btn_checkout": true,
+            "btn_style_checkout": "solid",
+            "btn_fw_checkout": "semibold",
+            "btn_icon_checkout": "none"
+          }
+        }
+      },
+      "block_order": [
+        "ca4a9586-08fd-471b-a5a7-11e1ffc068a4",
+        "88e6ef7a-281c-45e7-b62c-b556ebd6f705",
+        "f932f430-a2c4-4a2f-a3d6-d2f099407d44",
+        "76bae518-3d87-4731-a9d4-2e41544da57b",
+        "54f7a627-75c8-4b50-8c43-45e4be386afb"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_free_shipping_bar": true,
+        "show_cart_note": true,
+        "show_gift_wrap": true,
+        "show_shipping_estimator": true,
+        "heading": "Customers also bought",
+        "product_list": [
+          "relaxed-fit-jersey-shirt",
+          "relaxed-fit-jersey-t-shirt-1",
+          "boxy-t-shirt",
+          "alice-mini-dusty-rose",
+          "alfredo-glass-vase"
+        ],
+        "replaces_products_selected": true
+      }
+    },
+    "toolbar-mobile": {
+      "type": "toolbar-mobile",
+      "blocks": {
+        "7992c70e-320b-4406-9d5a-ca387c85cfa8": {
+          "type": "shop",
+          "settings": {
+            "title": "Shop",
+            "collection_list": [],
+            "menu_categories": "simple-navigation-bar",
+            "link": ""
+          }
+        },
+        "56750290-ad59-44cd-957d-573b93c0ee9a": {
+          "type": "filter",
+          "settings": {
+            "title": "Filter"
+          }
+        },
+        "9c72122c-4857-4a94-afa1-848041035065": {
+          "type": "search",
+          "settings": {
+            "title": "Search"
+          }
+        },
+        "278a2b3b-9b25-4e46-bfeb-c2515ac171fd": {
+          "type": "account",
+          "settings": {
+            "title": "Account"
+          }
+        },
+        "d7521907-d76e-490e-accf-d0e6504fc515": {
+          "type": "wishlist",
+          "settings": {
+            "title": "Wishlist"
+          }
+        },
+        "45c18f86-eb94-46bf-a2fb-83315d49e16a": {
+          "type": "cart",
+          "settings": {
+            "title": "Cart"
+          }
+        }
+      },
+      "block_order": [
+        "7992c70e-320b-4406-9d5a-ca387c85cfa8",
+        "56750290-ad59-44cd-957d-573b93c0ee9a",
+        "9c72122c-4857-4a94-afa1-848041035065",
+        "278a2b3b-9b25-4e46-bfeb-c2515ac171fd",
+        "d7521907-d76e-490e-accf-d0e6504fc515",
+        "45c18f86-eb94-46bf-a2fb-83315d49e16a"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_txt": true
+      }
+    },
+    "065b2487-37b3-4771-810e-b88870b5b74f": {
+      "type": "back_top",
+      "settings": {
+        "enable_hidden_mobile": false,
+        "backtop_des": "1",
+        "enable_progress_bar": true,
+        "border_cl": "#f5f5f5",
+        "border_cl_active": "#000000"
+      }
+    },
+    "ae721dda-d94a-4267-887e-55888f578a11": {
+      "type": "cookies",
+      "disabled": true,
+      "settings": {
+        "show": "1",
+        "hor-ver-layout": "hor",
+        "text": "This website uses cookies to enhance user experience and to analyze performance and traffic on our website. We also share information about your use of our site with our social media, advertising and analytics partners.",
+        "accept": "Accept Cookies",
+        "decline": "Decline",
+        "more": "More info",
+        "links": ""
+      }
+    },
+    "exit_popup_MMerM4": {
+      "type": "exit-popup",
+      "blocks": {
+        "text_YfqBUn": {
+          "type": "text",
+          "settings": {
+            "text": "<b>Thanks for stopping by!</b>",
+            "text_size": "h5",
+            "mgb": 16
+          }
+        },
+        "text_Kh7ijP": {
+          "type": "text",
+          "settings": {
+            "text": "We’re excited to have you with us! As a warm welcome, here’s an exclusive 20% discount just for you.Use code MD521 at checkout and save big on your first purchase.But hurry — this offer won’t last forever!",
+            "text_size": "base",
+            "mgb": 26
+          }
+        },
+        "discount_Mepk4X": {
+          "type": "discount",
+          "settings": {
+            "discount": "Saunyoto"
+          }
+        },
+        "button_EpYa6c": {
+          "type": "button",
+          "settings": {
+            "btn_label": "Grap the discount",
+            "btn_link": "shopify://collections",
+            "target": true,
+            "btn_size": "base",
+            "btn_style": "solid",
+            "btn_fw": "semibold",
+            "btn_icon": "none"
+          }
+        },
+        "text_CGRdhi": {
+          "type": "text",
+          "settings": {
+            "text": "Join the Saunyoto community and enjoy a smarter, more stylish ride.",
+            "text_size": "base",
+            "mgb": 20
+          }
+        }
+      },
+      "block_order": [
+        "text_YfqBUn",
+        "text_Kh7ijP",
+        "discount_Mepk4X",
+        "button_EpYa6c",
+        "text_CGRdhi"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2e91b3de-e084-4d07-8c0d-57b80f28390f",
+        "heading": "Recommended Products",
+        "image": "shopify://shop_images/arthur-hinton-GZalPMlPGks-unsplash.jpg",
+        "collections": "frontpage",
+        "product_list": [],
+        "limit": 5,
+        "image_ratio": "adapt_image",
+        "after": "move_cursor",
+        "time_delay": 2,
+        "day_next": 7,
+        "index": true,
+        "product": false,
+        "collection": false,
+        "article": false,
+        "blog": false,
+        "cart": false,
+        "page": false
+      }
+    },
+    "newsletter_modal_ABLPMN": {
+      "type": "newsletter-modal",
+      "blocks": {
+        "text_hmQdF3": {
+          "type": "text",
+          "settings": {
+            "text": "Don’t miss out"
+          }
+        },
+        "sub_text_qAiwY3": {
+          "type": "sub_text",
+          "settings": {
+            "sub_text": "Be the first one to get the new product at early<br class=\"hdt-hidden md:hdt-block\"> bird prices."
+          }
+        },
+        "newsletter_nkW79Q": {
+          "type": "newsletter",
+          "settings": {
+            "button_lb": "Keep me updated",
+            "btn_fw": "normal",
+            "agree_form": false,
+            "content": "I agree with the terms and conditions"
+          }
+        },
+        "popup_button_UL6gM3": {
+          "type": "popup_button",
+          "settings": {
+            "button_label": "Not interested"
+          }
+        }
+      },
+      "block_order": [
+        "text_hmQdF3",
+        "sub_text_qAiwY3",
+        "newsletter_nkW79Q",
+        "popup_button_UL6gM3"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "direction": "ver",
+        "after": "scroll",
+        "time_delay": 3,
+        "scroll_delay": 600,
+        "day_next": 7
+      }
+    }
+  },
+  "order": [
+    "cart-drawer",
+    "toolbar-mobile",
+    "065b2487-37b3-4771-810e-b88870b5b74f",
+    "ae721dda-d94a-4267-887e-55888f578a11",
+    "exit_popup_MMerM4",
+    "newsletter_modal_ABLPMN"
+  ]
+}

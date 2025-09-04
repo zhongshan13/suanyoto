@@ -1,0 +1,108 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "sections--20958099472688__8b1cf2b6-9e6b-4ace-85e5-e52ad96e7b43-social-1": {
+          "type": "social",
+          "settings": {
+            "border-column": false,
+            "heading_sm": "Saunyoto",
+            "link_img": "",
+            "image_w": 136,
+            "html_content": "<p>Address: 1208 Hilltop Dr. <br/>Rock Springs, WY 82901<br/><br/></p><p>Email: support@saunyoto.com</p><p>Phone / WhatsApp: (213) 352-6415<br/><br/></p>",
+            "adding_border": false,
+            "btn_label": "",
+            "btn_link": "shopify://pages/contact",
+            "btn_fw": "semibold",
+            "enable_social": true,
+            "socials_style": "outline",
+            "socials_size": "medium",
+            "padding_inner": "",
+            "custom_w_dk": "25"
+          }
+        },
+        "sections--20958099472688__8b1cf2b6-9e6b-4ace-85e5-e52ad96e7b43-menu-1": {
+          "type": "menu",
+          "settings": {
+            "border-column": false,
+            "heading_menu": "Our Policy",
+            "menu": "footer",
+            "padding_inner": "",
+            "custom_w_dk": "25"
+          }
+        },
+        "sections--20958099472688__8b1cf2b6-9e6b-4ace-85e5-e52ad96e7b43-menu-2": {
+          "type": "menu",
+          "settings": {
+            "border-column": false,
+            "heading_menu": "Support",
+            "menu": "footer-support",
+            "padding_inner": "",
+            "custom_w_dk": "25"
+          }
+        },
+        "sections--20958099472688__8b1cf2b6-9e6b-4ace-85e5-e52ad96e7b43-newsletter-1": {
+          "type": "newsletter",
+          "settings": {
+            "border-column": false,
+            "heading_newsletter": "Sign Up for Email",
+            "text_newsletter": "<p>Sign up to get first dibs on new arrivals, sales, exclusive content, events and more!</p>",
+            "button_lb": "Subscribe",
+            "show_icon": true,
+            "btn_fw": "semibold",
+            "agree_form": false,
+            "content": "I agree with the terms and conditions",
+            "padding_inner": "",
+            "custom_w_dk": "25"
+          }
+        }
+      },
+      "block_order": [
+        "sections--20958099472688__8b1cf2b6-9e6b-4ace-85e5-e52ad96e7b43-social-1",
+        "sections--20958099472688__8b1cf2b6-9e6b-4ace-85e5-e52ad96e7b43-menu-1",
+        "sections--20958099472688__8b1cf2b6-9e6b-4ace-85e5-e52ad96e7b43-menu-2",
+        "sections--20958099472688__8b1cf2b6-9e6b-4ace-85e5-e52ad96e7b43-newsletter-1"
+      ],
+      "settings": {
+        "collapse": true,
+        "border-f": "bottom",
+        "border-ps_main": "container",
+        "heading_fs": "hdt-text-xl",
+        "text_weight": "hdt-font-medium",
+        "spacing_bt_heading": 30,
+        "text_size": "hdt-text-base",
+        "padding-t-main": 82,
+        "padding-bt-main": 60,
+        "text_copR": "Tesla, Model 3, Model Y are trademarks or registered trademarks of their respective holders.\nAny references to these trademarks do not imply any affiliation or endorsement.\n<br>\n<br>\n© [year] <span class=\"\">Saunyoto</span>\n<br>",
+        "svg": "visa,paypal,discover,master,american_express,apple_pay,google_pay,facebook_pay,shopify_pay",
+        "height": 30,
+        "width-image_list": 200,
+        "enable_follow_on_shop": true,
+        "show_currency": true,
+        "show_language": true,
+        "show_policy": false,
+        "section_fullwidth": false,
+        "color_scheme": "scheme-67a7ca9f-3333-4245-b79f-2e9849d7e615",
+        "spacing_top": 40,
+        "padding_top": 0,
+        "padding_bottom": 22,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

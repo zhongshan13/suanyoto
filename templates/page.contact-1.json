@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "heading": {
+      "type": "main-heading",
+      "blocks": {
+        "5ecb9555-19e4-433b-8817-1ccaa3a41384": {
+          "type": "1",
+          "settings": {
+            "heading": "Contact Us",
+            "heading_size": "h4"
+          }
+        }
+      },
+      "block_order": [
+        "5ecb9555-19e4-433b-8817-1ccaa3a41384"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/4545343.webp",
+        "color_scheme": "",
+        "spacing_hd": 0,
+        "padding_top": 80,
+        "padding_bottom": 86,
+        "padding_rate": 75
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_rate": 75
+      }
+    },
+    "25dc1801-3eb3-4e03-8592-6d9f8d9f6dda": {
+      "type": "map-with-text",
+      "settings": {
+        "full_width": true,
+        "color_scheme": "",
+        "map": "<div class=\"mapouter\">\n  <div class=\"gmap_canvas\">\n    <iframe \n      class=\"gmap_iframe\" \n      width=\"100%\" \n      height=\"500\" \n      frameborder=\"0\" \n      scrolling=\"no\" \n      marginheight=\"0\" \n      marginwidth=\"0\" \n      src=\"https://maps.google.com/maps?q=1208%20Hilltop%20Dr%2C%20Rock%20Springs%2C%20WY%2082901&t=roadmap&z=15&ie=UTF8&iwloc=&output=embed\">\n    </iframe>\n  </div>\n</div>\n\n<style>\n.mapouter {\n  position: relative;\n  text-align: right;\n  width: 100%;\n  height: 500px;\n}\n.gmap_canvas {\n  overflow: hidden;\n  background: none !important;\n  width: 100%;\n  height: 500px;\n}\n.gmap_iframe {\n  height: 500px !important;\n}\n</style>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_rate": 75
+      }
+    },
+    "4c7802be-2c9d-4177-ac7f-fa5aaa9d9e9e": {
+      "type": "form_contact-with-text",
+      "blocks": {
+        "2df28d7b-099f-47ed-86f4-85cd62c91eff": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Address</strong></p><p>1208 Hilltop Dr.<br/>Rock Springs, WY 82901<br/></p>"
+          }
+        },
+        "568490b0-65b7-47fa-a348-41c08177abff": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Phone</strong></p><p>(213) 352-6415</p>"
+          }
+        },
+        "8e05fb1c-5303-4879-a0cc-0ca953b314b6": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Email</strong></p><p>support@saunyoto.com</p>"
+          }
+        },
+        "7887c8b2-255d-4e75-9f24-4ebbe0a9dc14": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Open Time</strong></p><p>Our store is now open for purchases and installation services, </p><p>exchange Every day 11am to 7pm</p>"
+          }
+        },
+        "text_MeiFmz": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Address</strong></p><p>66 Mott St, New York, New York, Zip Code: 10006, AS</p>"
+          }
+        },
+        "d6a7c3b7-0737-4c13-a011-7aab813cf9c3": {
+          "type": "socials",
+          "settings": {
+            "socials_style": "simple",
+            "socials_size": "large"
+          }
+        }
+      },
+      "block_order": [
+        "2df28d7b-099f-47ed-86f4-85cd62c91eff",
+        "568490b0-65b7-47fa-a348-41c08177abff",
+        "8e05fb1c-5303-4879-a0cc-0ca953b314b6",
+        "7887c8b2-255d-4e75-9f24-4ebbe0a9dc14",
+        "text_MeiFmz",
+        "d6a7c3b7-0737-4c13-a011-7aab813cf9c3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Get in Touch",
+        "sub_heading": "We're always happy to hear from you.\n<br>\nWhether you're a customer with a question about your order, or a brand or maker interested in partnering with us — feel free to reach out!\nOur team is here to help and we typically respond within 24 hours.\n<br>\n<br>\nFor Customers\nHave a question about a product, your order, or anything else?\nJust send us a message — we're here to help make your experience smooth and enjoyable.\n<br>\n<br>\nFor Brands & Creators\nIf you're building amazing products and think we’d be a good fit to collaborate, we’d love to hear from you. We're always open to discovering unique products and passionate creators.",
+        "btn_full": true,
+        "padding_top": 67,
+        "padding_bottom": 96,
+        "padding_rate": 75
+      }
+    },
+    "custom_liquid_Um4yrm": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_fullwidth": false,
+        "custom_liquid": "<div style=\"text-align: center; padding: 20px;\">\n  <h3 style=\"margin-bottom: 10px;\">Join Our Discord Community</h3>\n  <p style=\"font-size: 14px; color: #555;\">\n    Get product updates, ask questions, and connect with other Tesla owners.  \n    Scan the QR code below or <a href=\"https://discord.gg/shRnstWYS2\" target=\"_blank\" style=\"color: #007aff;\">click here to join</a>.\n  </p>\n  <div style=\"display: flex; justify-content: center; margin-top: 15px;\">\n    <img src=\"{{ 'img_v3_02ne_aa4f41a4-118e-4ead-97d0-b1b12e25a8cg.jpg' | file_url }}\" alt=\"Join our Discord server\" style=\"width: 140px; height: auto;\" />\n  </div>\n</div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main",
+    "25dc1801-3eb3-4e03-8592-6d9f8d9f6dda",
+    "4c7802be-2c9d-4177-ac7f-fa5aaa9d9e9e",
+    "custom_liquid_Um4yrm"
+  ]
+}

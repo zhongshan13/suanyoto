@@ -1,0 +1,128 @@
+{%- liquid
+  assign subheading_weight = subheading_weight | default: section.settings.subheading_weight | default: "normal" 
+  assign subheading_size = subheading_size | default: section.settings.subheading_size | default: "lg" 
+  assign heading_gap = heading_gap | default: section.settings.heading_gap | default: 18
+  assign nav_pos = nav_pos | default: section.settings.nav_pos
+  assign nav_des = section.settings.nav_des
+  assign navUI = section.settings.navUI
+  if navUI and nav_pos == "ontop_left"
+    assign nav_position = "ontop_left"
+  elsif navUI and nav_pos == "ontop_right"
+    assign nav_position = "ontop_right"
+  else
+    assign nav_position = "in_content"
+  endif
+  if section.settings.dotUI and section.settings.dots_pos == "ontop"
+    assign dots_pos = "ontop"
+  else
+    assign dots_pos = "in_content"
+  endif
+  assign nav_heading = section.settings.nav_heading | default: "disable"
+  if nav_heading != "disable" 
+    assign navUI = true
+    if section.settings.btn_heading == false
+      assign nav_position = "ontop_right"
+      assign nav_des = nav_heading
+    endif
+  endif
+-%}
+{% if section.settings.sec_heading != blank or section.settings.sec_subheading != blank or nav_position == "ontop_left" or nav_position == "ontop_right" or dots_pos == "ontop" %}
+  <div class="hdt-section-head hdt-relative hdt-flex md:hdt-align-center hdt-justify-{{ section.settings.heading_align }} hdt-nav_{{ nav_position }} hdt-top-dots_{{ dots_pos }} hdt-slider__dots_outline" style="--heading-gap: {{heading_gap}}px;">
+    {%- if nav_position == "ontop_left" -%}
+      <div class="hdt-top-nav hdt-flex hdt-align-center hdt-justify-start hdt-left-0 hdt-top-0 hdt-bottom-0 hdt-nav-btns-{{ nav_des }}">
+        {%- render 'nav_slider', ontop: true, nav_des: nav_des, navUI: navUI -%}
+      </div> 
+    {%- endif -%}
+    {% if section.settings.sec_heading != blank or section.settings.sec_subheading != blank %} 
+      <div class="hdt-section-main-heading {% if section.settings.heading_reverse %}hdt-heading-reverse {% endif %}hdt-flex hdt-flex-col hdt-justify-center hdt-align-{{ section.settings.heading_align }} hdt-text-{{ section.settings.heading_align }} {% if section.settings.btn_heading or section.settings.btn_heading_collection %} hdt-heading-has-btn{% endif %}">
+        {% if section.settings.sec_heading != blank %}
+          <{{ section.settings.heading_tag }} class="hdt-sec-heading hdt-{{ section.settings.heading_size }} hdt-flex hdt-align-center" hdt-reveal="slide-in" timeline>
+            <span>{{ section.settings.sec_heading }}</span>
+            {% if section.settings.btn_heading_collection %}
+              <a class="hdt-btn hdt-btn-link hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-text-base hdt-font-semibold" href="{{ routes.collections_url }}">
+                <span class="hdt-relative">{{ 'sections.collection_list.view_all_categories' | t }}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <path d="M0.861539 8L0 7.13846L5.90769 1.23077H0.615385V0H8V7.38462H6.76923V2.09231L0.861539 8Z" fill="currentColor"/>
+                </svg>
+              </a>
+            {% endif %}
+          </{{ section.settings.heading_tag }}>
+        {% endif %}
+        {% if section.settings.sec_subheading != blank %}
+          <div class="hdt-sec-subheading hdt-text-{{ subheading_size }} hdt-font-{{ subheading_weight }}" hdt-reveal="slide-in" timeline>{{ section.settings.sec_subheading }}</div>
+        {% endif %}
+        {% if section.settings.btn_heading %}
+          <div class="hdt-heading-viewall hdt-nav-btns-{{ nav_heading }} hdt-inline-flex hdt-align-center hdt-justify-center" hdt-reveal="slide-in" timeline>
+            {% if nav_heading != "disable" %}
+              <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-inline-flex hdt-align-center hdt-justify-center hdt-slider__button--prev" type="button" disabled name="previous">
+                {%- if nav_heading == "simple" -%}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                    <path d="M5.00016 10L6.16683 8.79167L3.2085 5.83333H13.3335V4.16667H3.2085L6.16683 1.20833L5.00016 0L0.000164032 5L5.00016 10Z" fill="currentColor"/>
+                  </svg>
+                {%- else -%}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="8" viewBox="0 0 5 8" fill="none">
+                    <path d="M4 3.49691e-07L3.49691e-07 4L4 8L4.71 7.29L1.42 4L4.71 0.71L4 3.49691e-07Z" fill="currentColor"/>
+                  </svg>
+                {%- endif -%}
+              </button>
+            {% endif %}
+            <a class="hdt-btn hdt-btn-link hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-text-sm hdt-font-semibold" href="{{ collection.url | default: routes.all_products_collection_url }}">
+              <span class="hdt-relative">{{ 'general.pagination.view_all' | t }}</span>
+            </a>
+            {% if nav_heading != "disable" %}
+              <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-inline-flex hdt-align-center hdt-justify-center hdt-slider__button--next" type="button" disabled name="next">
+                {%- if nav_heading == "simple" -%}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                    <path d="M8.33333 10L7.16667 8.79167L10.125 5.83333H0V4.16667H10.125L7.16667 1.20833L8.33333 0L13.3333 5L8.33333 10Z" fill="currentColor"/>
+                  </svg>
+                {%- else -%}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="8" viewBox="0 0 5 8" fill="none">
+                    <path d="M0.999999 3.49691e-07L5 4L1 8L0.29 7.29L3.58 4L0.289999 0.71L0.999999 3.49691e-07Z" fill="currentColor"/>
+                  </svg>
+                {%- endif -%}
+              </button>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>  
+    {% endif %}
+    {%- if nav_position == "ontop_right" -%}
+      <div class="hdt-top-nav hdt-flex hdt-align-center hdt-justify-end hdt-right-0 hdt-top-0 hdt-bottom-0 hdt-top-nav_{{ nav_des }} hdt-nav-btns-{{ nav_des }}">
+        {%- render 'nav_slider', ontop: true, nav_des: nav_des, navUI: navUI -%}
+      </div>
+    {%- endif -%}
+    {%- if dots_pos == "ontop" -%} 
+      <div hdt-slider-dots class="hdt-slider__dots hdt-absolute hdt-flex hdt-align-center hdt-justify-center hdt-right-0 hdt-top-0 hdt-bottom-0 no-js-hidden" aria-controls="Slider-{{ section.id }}"></div>
+    {%- endif -%}
+  </div>
+{% endif %}
+{%- style -%}
+{% if section.settings.sec_heading_spacing>50 %}
+  #{{section.id}} .hdt-section-head{
+    --section-head-spacing:30px;
+  }
+  @media(min-width:768px){
+    #{{section.id}} .hdt-section-head{
+      --section-head-spacing:50px;
+    }
+  }
+  @media(min-width:1150px){
+    #{{section.id}} .hdt-section-head{
+      --section-head-spacing:{{section.settings.sec_heading_spacing}}px;
+      }
+  }
+{% elsif section.settings.sec_heading_spacing>30 %}
+  #{{section.id}} .hdt-section-head{
+    --section-head-spacing:30px;
+  }
+  @media(min-width:768px){
+    #{{section.id}} .hdt-section-head{
+      --section-head-spacing: {{section.settings.sec_heading_spacing}}px;
+    }
+  }
+{% else %}
+  #{{section.id}} .hdt-section-head{
+    --section-head-spacing:{{section.settings.sec_heading_spacing}}px;
+  }
+{% endif %}
+{%- endstyle -%}

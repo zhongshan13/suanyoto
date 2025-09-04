@@ -1,0 +1,108 @@
+{%- if section.settings.main_menu != blank -%}
+	{%- liquid
+		assign badge_new = 'general.theme_settings.badge_new' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+		assign badge_hot = 'general.theme_settings.badge_hot' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+		assign badge_sale = 'general.theme_settings.badge_sale' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+	-%}
+	<nav class="hdt-navigation hdt-text-{{ section.settings.menu_position }} hdt-menu-uppercase-{{ section.settings.text_transform }} hdt-nav-arrow_{{ section.settings.dropdown_arrow }}">
+		<ul id="hdt-nav-ul" class="hdt-nav__ul hdt-inline-flex hdt-align-center">
+			{%- for link in section.settings.main_menu.links -%}
+				{%- liquid
+	      	assign li_class = ""
+	      	assign mega_menu = false
+	      	assign arr_title = link.title | split: '['
+	      	assign arr_label = arr_title[1] | split: ','
+					if section.blocks.size > 0
+	        	for block in section.blocks
+						  assign mega_position = ''
+	          	if block.settings.title != blank and block.settings.title == arr_title[0]
+	            	assign index = forloop.index0
+	            	assign li_class = "hdt-has-children"
+	            	assign mega_menu = true
+	            	assign mega_width = block.settings.mega_width
+	            	assign mega_custom_width = block.settings.mega_custom_width
+	            	assign mega_position = block.settings.mega_position | default: mega_position
+	            	assign block = block
+	            	break
+	          	endif
+	        	endfor
+					endif
+					if link.links != blank
+          	assign li_class = "hdt-has-children"
+        	endif
+				-%}
+
+	      <li class="hdt-menu-item hdt-flex hdt-justify-center hdt-flex-col {{ li_class }}">
+					{%- if li_class != "" -%}
+						<hdt-header-menu class="hdt-contents" opened-able-click event="{{ section.settings.open_event }}" position="{{ mega_position }}" {{ block.shopify_attributes }}>
+						<details {% if mega_menu and mega_width == "full" %} not-need-calc {% elsif mega_menu and mega_width == "custom" %} style="--mega-width: {{ mega_custom_width }}px;" {% endif %}>
+	            <summary data-url="{{ link.url }}" class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-{{ section.settings.menu_size }} hdt-font-{{ section.settings.menu_weight }}{% if link.current and section.settings.active_link %} hdt-menu-link--active{% endif %}" aria-expanded="false">
+		            <span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
+		              <span class="hdt-block hdt-line-clamp">{{ arr_title[0] }}</span>
+		              {%- if arr_label.size > 0 -%}
+		                <span class="hdt_label_menu hdt-absolute hdt-inline-flex hdt-align-center hdt-justify-center hdt-text-xs hdt-font-medium">
+		                  {%- for label in arr_label limit: 2 -%}
+		                    {%- liquid
+													assign label_text = label | remove: 'label_' | remove: ','  | remove: ']' | strip
+													assign label_text_dow = label_text | downcase
+													if badge_new contains label_text_dow
+														assign class_name_label = 'new'
+													elsif badge_hot contains label_text_dow
+														assign class_name_label = 'hot'
+													elsif badge_sale contains label_text_dow
+														assign class_name_label = 'sale'
+													else
+														assign class_name_label = label_text | handleize
+													endif -%}
+		                    <span class="hdt_label_{{ class_name_label }} hdt-flex hdt-align-center hdt-justify-center">{{ label_text }}</span>
+		                  {%- endfor -%}
+		                </span>
+		              {%- endif -%}
+		            </span>
+
+	            	{%- if li_class != "" and section.settings.dropdown_arrow -%}
+									<svg class="hdt-menu-item-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7" fill="none"><path d="M10 1.24243L5 6.24243L-2.18557e-07 1.24243L0.8875 0.354932L5 4.46743L9.1125 0.354931L10 1.24243Z" fill="currentColor"/></svg>
+								{%- endif -%}
+	            </summary>
+	              {%- liquid
+									if mega_menu
+										render 'mega_menu_blocks', link: link, block: section.blocks[index]
+									else
+										render 'sub_menu_blocks', link: link
+									endif
+								-%}
+	          </details>
+						</hdt-header-menu>
+					{%- else -%}
+						<a id="hdt-menu-{{ link.handle }}" href="{{ link.url }}" class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-{{ section.settings.menu_size }} hdt-font-{{ section.settings.menu_weight }}{% if link.current and section.settings.active_link %} hdt-menu-link--active{% endif %}" {% if link.current %} aria-current="page" {% endif %}>
+	            <span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
+	              <span class="hdt-block hdt-line-clamp">{{ arr_title[0] }}</span>
+	              {%- if arr_label.size > 0 -%}
+	                <span class="hdt_label_menu hdt-absolute hdt-inline-flex hdt-align-center hdt-justify-center hdt-text-xs hdt-font-medium">
+	                  {%- for label in arr_label limit: 2 -%}
+	                    {%- liquid
+												assign label_text = label | remove: 'label_' | remove: ','  | remove: ']' | strip
+												assign label_text_dow = label_text | downcase
+												if badge_new contains label_text_dow
+													assign class_name_label = 'new'
+												elsif badge_hot contains label_text_dow
+													assign class_name_label = 'hot'
+												elsif badge_sale contains label_text_dow
+													assign class_name_label = 'sale'
+												else
+													assign class_name_label = label_text | handleize
+												endif -%}
+	                    <span class="hdt_label_{{ class_name_label }} hdt-flex hdt-align-center hdt-justify-center">{{ label_text }}</span>
+	                  {% endfor %}
+	                </span>
+	              {%- endif -%}
+	            </span>
+						</a>
+					{%- endif -%}
+	      </li>
+	    {%- endfor -%}
+		</ul>
+	</nav>
+{%- else -%}
+	<p class="hdt-text-{{ section.settings.menu_position }} hdt-menu-uppercase-{{ section.settings.text_transform }}">{{ 'sections.header.menu_empty' | t }}</p>
+{%- endif -%}

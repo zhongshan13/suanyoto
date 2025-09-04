@@ -1,0 +1,284 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breacrumb": {
+      "type": "brc-nav-product",
+      "settings": {
+        "back_next_pr": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "padding_rate": 75
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "3a222052-35a9-4684-a336-6a32a56eb638": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "83296f29-170d-4d7b-9291-c9b59bb98b32": {
+          "type": "badges",
+          "settings": {
+            "special": "",
+            "min": 10,
+            "max": 64,
+            "content": "Selling fast! [count] people have this in their carts.",
+            "icon_svg": "flash",
+            "ani": "hdt-ani-flash"
+          }
+        },
+        "edac686e-a845-4ed7-9b50-51639a11cf56": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "699d63d0-b857-4b21-9e61-9cfacc232e56": {
+          "type": "live_view",
+          "settings": {
+            "min": 10,
+            "max": 40,
+            "time": 10,
+            "content": "[count] People are viewing this right now"
+          }
+        },
+        "d1c8d030-e7b5-4c90-b03a-12ada38b02cc": {
+          "type": "countdown_timer",
+          "settings": {
+            "content": "HURRY UP! SALE ENDS IN:",
+            "icon_svg": "clock",
+            "ani": "hdt-ani-tada"
+          }
+        },
+        "1248e930-5734-45b4-a1d6-a814910fdb63": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out": false,
+            "color_picker_type": "color_rounded",
+            "color_size": "small",
+            "picker_type": "block",
+            "size_chart_source": "page",
+            "size_chart_page": "size-chart"
+          }
+        },
+        "4fd6bfca-d3a3-432c-8392-a2d3cab423c4": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "ad820e37-dee5-41f3-9692-bf46d9664103": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "show_price_variant": true,
+            "show_wishlist": true,
+            "show_compare": true
+          }
+        },
+        "c82992ea-b4e4-449e-81f4-95e1440436fd": {
+          "type": "pickup_availability",
+          "settings": {
+          }
+        },
+        "113b254d-cc79-43fc-9ed9-4670522082c9": {
+          "type": "extra_link",
+          "settings": {
+            "show_cp_cl": true,
+            "show_ask": true,
+            "show_phone": true,
+            "show_delivery": true,
+            "page_delivery": "shipping-delivery",
+            "show_share_btn": true
+          }
+        },
+        "9586d18a-306e-45c8-813c-3c4b0cc99315": {
+          "type": "delivery_return",
+          "settings": {
+            "icon_delivery": "ship",
+            "content_devivery": "<p>Estimate delivery times:<strong> 12-26 days<\/strong> (International),<strong> 3-6 days<\/strong> (United States).<\/p>",
+            "icon_return": "return_order",
+            "content_return": "<p>Return within <strong>30 days<\/strong> of purchase. Duties & taxes are non-refundable.<\/p>"
+          }
+        },
+        "e2b976ce-0ce6-460a-bc64-cea3ec87cb4b": {
+          "type": "img_trust",
+          "settings": {
+            "show_icon": true,
+            "mess": "Guarantee Safe Checkout",
+            "source": "2",
+            "wimg": 350,
+            "svg": "visa,paypal,master,american_express,amazon_payments",
+            "height": 30
+          }
+        },
+        "32df62fa-8ca2-4bd8-8d18-7065d8ebfc6c": {
+          "type": "bundle_product",
+          "settings": {
+            "bundle_prs_inner": false,
+            "product_list": [
+              "ribbed-tank-top",
+              "oversized-motif-t-shirt",
+              "oversized-printed-t-shirt"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "3a222052-35a9-4684-a336-6a32a56eb638",
+        "83296f29-170d-4d7b-9291-c9b59bb98b32",
+        "edac686e-a845-4ed7-9b50-51639a11cf56",
+        "699d63d0-b857-4b21-9e61-9cfacc232e56",
+        "d1c8d030-e7b5-4c90-b03a-12ada38b02cc",
+        "1248e930-5734-45b4-a1d6-a814910fdb63",
+        "4fd6bfca-d3a3-432c-8392-a2d3cab423c4",
+        "ad820e37-dee5-41f3-9692-bf46d9664103",
+        "c82992ea-b4e4-449e-81f4-95e1440436fd",
+        "113b254d-cc79-43fc-9ed9-4670522082c9",
+        "9586d18a-306e-45c8-813c-3c4b0cc99315",
+        "e2b976ce-0ce6-460a-bc64-cea3ec87cb4b",
+        "32df62fa-8ca2-4bd8-8d18-7065d8ebfc6c"
+      ],
+      "settings": {
+        "space_content_media": true,
+        "media_width": 50,
+        "desktop_media_layout": "thumbnail_left",
+        "desktop_media_position": "left",
+        "mobile_media_layout": "thumbnails",
+        "enable_media_autoplay": true,
+        "enable_video_looping": true,
+        "image_zoom": "zoom",
+        "image_zoom_type": "external",
+        "zoom_level": 2,
+        "max_zoom_lightbox": 3,
+        "sticky_atc": true,
+        "navUI": true,
+        "nav_des": "default",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_rate": 49
+      }
+    },
+    "tabs": {
+      "type": "main-product-tabs",
+      "blocks": {
+        "76effdab-2914-4a34-a303-417cde99ff0a": {
+          "type": "tab_des",
+          "settings": {
+            "title": "Description"
+          }
+        },
+        "9866bb5f-03b7-4dc7-9387-4be849a0cbf1": {
+          "type": "tab_add",
+          "settings": {
+            "title": "Additional Information"
+          }
+        },
+        "d0839947-6bc5-42cc-85f7-9e94ce6b3e6c": {
+          "type": "tab_html",
+          "settings": {
+            "title": "Return Policies",
+            "content": "",
+            "page": "privacy-policy"
+          }
+        },
+        "1bc528a7-9da8-48ec-96da-8e48c0e52faf": {
+          "type": "tab_html",
+          "settings": {
+            "title": "Custom tab",
+            "content": "",
+            "page": "wash-care"
+          }
+        }
+      },
+      "block_order": [
+        "76effdab-2914-4a34-a303-417cde99ff0a",
+        "9866bb5f-03b7-4dc7-9387-4be849a0cbf1",
+        "d0839947-6bc5-42cc-85f7-9e94ce6b3e6c",
+        "1bc528a7-9da8-48ec-96da-8e48c0e52faf"
+      ],
+      "settings": {
+        "tabs_design": "tab",
+        "enable_first_tab": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "padding_rate": 50
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "People Also Bought",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "sec_heading_spacing": 50,
+        "limit": 10,
+        "product_des": "1",
+        "image_ratio": "custom-pr",
+        "image_size": true,
+        "show_vendor": false,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "navUI": true,
+        "nav_des": "default",
+        "nav_pos": "middle_in",
+        "dotUI": false,
+        "section_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 72,
+        "padding_rate": 75
+      }
+    },
+    "recently": {
+      "type": "recently-products",
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "Recently Viewed",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "sec_heading_spacing": 50,
+        "limit": 10,
+        "product_des": "1",
+        "image_ratio": "custom-pr",
+        "image_size": true,
+        "show_vendor": false,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "navUI": true,
+        "nav_des": "default",
+        "nav_pos": "middle_in",
+        "dotUI": false,
+        "section_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 100,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "breacrumb",
+    "main",
+    "tabs",
+    "related",
+    "recently"
+  ]
+}

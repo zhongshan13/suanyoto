@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "404": {
+      "type": "404",
+      "blocks": {
+        "9fdaefad-b4dc-4a80-a95e-92efb9e74116": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Vector_35e75aba-3f04-40fa-893f-0722f824f729.svg"
+          }
+        },
+        "c5eb8048-9277-41d6-b6e9-83db962699af": {
+          "type": "text",
+          "settings": {
+            "text": "Oops...That link is broken."
+          }
+        },
+        "554b7eb3-d776-4c04-a2a5-7ef17b25b636": {
+          "type": "text_2",
+          "settings": {
+            "text": "Sorry for the inconvenience. Go to our homepage to check out our latest collections."
+          }
+        },
+        "5611ba58-0c87-4562-afea-37211f32af1c": {
+          "type": "button",
+          "settings": {
+            "btn_label": "Shop now",
+            "btn_link": "",
+            "target": false,
+            "btn_size": "base",
+            "btn_style": "solid",
+            "btn_fw": "normal",
+            "btn_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "9fdaefad-b4dc-4a80-a95e-92efb9e74116",
+        "c5eb8048-9277-41d6-b6e9-83db962699af",
+        "554b7eb3-d776-4c04-a2a5-7ef17b25b636",
+        "5611ba58-0c87-4562-afea-37211f32af1c"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 100,
+        "padding_bottom": 75,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "404"
+  ]
+}

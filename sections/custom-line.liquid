@@ -1,0 +1,150 @@
+<!-- sections/custom-line.liquid -->
+{%- style -%}#{{section.id}} .hdt-custom-line{width:{{section.settings.line_width}}%;border-style:{{section.settings.line_style}};border-top-width:{{section.settings.line_height}}px;border-color:{{section.settings.line_cl}}}{%- endstyle -%}
+<div id="{{ section.id }}" class="hdt-section-spacing hdt-s-gradient" style="--section-pt: {{ section.settings.padding_top }}px; --section-pb: {{ section.settings.padding_bottom }}px; --section-prate:{{ section.settings.padding_rate }};">
+  <div class="hdt-container{%- if section.settings.section_fullwidth -%}-full{% endif %} hdt-flex hdt-justify-{{ section.settings.line_pos }}">
+    <div class="hdt-custom-line"></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom line",
+  "tag": "section",
+  "class": "hdt-section hdt-line-section",
+  "disabled_on": {
+    "groups": [
+      "*"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "1. General options"
+    },
+    {
+      "type": "select",
+      "id": "line_style",
+      "label": "Line style",
+      "default": "solid",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Solid"
+        },
+        {
+          "value": "dotted",
+          "label": "Dotted"
+        },
+        {
+          "value": "dashed",
+          "label": "Dashed"
+        },
+        {
+          "value": "double",
+          "label": "Double"
+        },
+        {
+          "value": "groove",
+          "label": "Groove"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "line_width",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "label": "Line width",
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "min": 1,
+      "max": 15,
+      "step": 0.5,
+      "label": "Line height",
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "line_cl",
+      "label": "Line color",
+      "default": "#EBEBEB"
+    },
+    {
+      "type": "select",
+      "id": "line_pos",
+      "label": "Line position",
+      "default": "center",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_fullwidth",
+      "label": "t:sections.all.section_fullwidth",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 75
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom line",
+      "category": "Homepage"
+    }
+  ]
+}
+{% endschema %}

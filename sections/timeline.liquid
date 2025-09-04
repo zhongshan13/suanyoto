@@ -1,0 +1,233 @@
+<!-- Timeline.liquid -->
+{%- style -%}.hdt_timeline_content{padding-top:60px;padding-bottom:20px;text-align:center}.hdt_timeline_content .hdt_timeline_line{width:1px;border-right-width:1px;border-style:{{section.settings.line_style}};border-color:rgb(var(--color-line-border));height:100%;top:0;left:50%;transform:translateX(-50%);z-index:1}.hdt-timeline-item :where(.hdt-timeline-image,.hdt-timeline-content){max-width:490px;background-color:rgb(var(--color-background));z-index:2}.hdt-timeline-time{background-color:rgb(var(--color-button));color:rgb(var(--color-button-text));border-radius:var(--rounded-xs);padding:0 35px;line-height:36px;top:0;left:50%;transform:translateX(-50%);z-index:3}.hdt_timeline_content .hdt_timeline_line::before,.hdt_timeline_content .hdt_timeline_line::after{content:"";position:absolute;z-index:3;left:50%;transform:translateX(-50%);width:10px;height:10px;z-index:3;background-color:rgb(var(--color-line-border));border-radius:var(--rounded-full)}.hdt_timeline_content .hdt_timeline_line::before{top:0}.hdt_timeline_content .hdt_timeline_line::after{bottom:0}.hdt-timeline-item .hdt-timeline-inner{gap:30px;padding-top:80px;padding-bottom:80px;flex-direction:column}.hdt-timeline-item .hdt-timeline-label{margin-bottom:7px}.hdt-timeline-item .hdt-timeline-title{margin-bottom:10px}@media(min-width:768px){.hdt_timeline_content{padding-top:100px}.dir--ltr .hdt-timeline-content__end .hdt-timeline-content,.dir--rtl .hdt-timeline-content__start .hdt-timeline-content{text-align:left}.dir--ltr .hdt-timeline-content__start .hdt-timeline-content,.dir--rtl .hdt-timeline-content__end .hdt-timeline-content{text-align:right}.hdt-timeline-item .hdt-timeline-inner{gap:100px;flex-direction:row}.hdt-timeline-item .hdt-timeline-inner.hdt-timeline-content__end{flex-direction:row-reverse}.hdt-timeline-item::before{content:"";position:absolute;z-index:3;left:50%;transform:translateX(-50%);width:10px;height:10px;z-index:3;background-color:rgb(var(--color-line-border));border-radius:var(--rounded-full)}.hdt-timeline-item::before{width:10px;height:10px;background-color:rgb(var(--color-link));top:50%;transform:translate(-50%)}.hdt-timeline-item .hdt-timeline-inner::before,.hdt-timeline-item .hdt-timeline-inner::after{position:absolute;content:"";width:20px;background-color:rgb(var(--color-line-border));height:1px;z-index:3;top:calc(50% + 5px)}.hdt-timeline-item .hdt-timeline-inner::before{left:calc(50% + 20px);transform:translate(-50%)}.hdt-timeline-item .hdt-timeline-inner::after{right:calc(50% + 20px);transform:translate(50%)}.hdt-timeline-item :where(.hdt-timeline-image,.hdt-timeline-content){width:50%}}@media(min-width:1150px){.hdt_timeline_content{padding-top:130px;width:100%;max-width:{{section.settings.content_width}}px;margin-inline-start:auto;margin-inline-end:auto}.hdt-timeline-item .hdt-timeline-inner{gap:190px;padding-top:90px;padding-bottom:90px}.hdt-timeline-item .hdt-timeline-inner::before,.hdt-timeline-item .hdt-timeline-inner::after{width:40px}.hdt-timeline-item .hdt-timeline-inner::before{left:calc(50% + 35px)}.hdt-timeline-item .hdt-timeline-inner::after{right:calc(50% + 35px)}}{%- endstyle -%}
+<div id="{{ section.id }}" class="hdt-section-spacing hdt-s-gradient" style="--section-pt: {{ section.settings.padding_top }}px; --section-pb: {{ section.settings.padding_bottom }}px; --section-prate:{{ section.settings.padding_rate }};" color-scheme="{{ section.settings.color_scheme }}">
+  <div class="hdt-container{%- if section.settings.section_fullwidth -%}-full{% endif %} hdt-text-uppercase-{{ section.settings.text_transform }}">
+    <div class="hdt_timeline_content hdt-relative">
+      <span class="hdt_timeline_line hdt-absolute"></span>
+      {%- for block in section.blocks -%}
+        <div class="hdt-timeline-item hdt-relative">
+          <div class="hdt-timeline-inner hdt-relative hdt-timeline-content__{{ block.settings.content_position }} hdt-flex hdt-justify-between hdt-align-center">
+            {%- if block.settings.time != blank -%}
+              <span class="hdt-timeline-time hdt-text-2xl hdt-absolute hdt-inline-flex hdt-justify-center hdt-align-center">{{ block.settings.time }}</span>
+            {%- endif -%}
+            <div class="hdt-timeline-content hdt-relative">
+              {%- if block.settings.label -%}
+                <div class="hdt-timeline-label hdt-text-base hdt-s-text hdt-font-bold">{{ block.settings.label }}</div>
+              {%- endif -%}
+              {%- if block.settings.title -%}
+                <h4 class="hdt-timeline-title hdt-s-text">{{ block.settings.title }}</h4>
+              {%- endif -%}
+              {%- if block.settings.content -%}
+                <div class="hdt-timeline-description hdt-text-base hdt-s-text2 hdt-rte">{{ block.settings.content }}</div>
+              {%- endif -%}
+            </div>
+            <div class="hdt-timeline-image">
+              {%- if block.settings.image != blank -%}
+                {% assign image = block.settings.image %}
+                {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '' , sizes: sizes, widths: "160,320,360,400,600,800,1000,1200,1400,1440,1920,2000,2400,2800,3600" }}
+              {%- else -%}
+                {%- liquid
+                  capture current
+                    cycle 1, 2 , 3
+                  endcapture
+                -%}
+                {{ 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}  
+              {%- endif -%}
+            </div>
+          </div>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.timeline.name",
+  "tag": "section",
+  "class": "hdt-section hdt-timeline",
+  "disabled_on": {
+    "groups": [
+      "*"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.section_general_options"
+    },
+    {
+      "type": "number",
+      "id": "content_width",
+      "label": "t:sections.timeline.settings.content_width",
+      "default": 1170
+    },
+    {
+      "type": "select",
+      "id": "line_style",
+      "label": "t:sections.timeline.settings.line_style.label",
+      "options": [
+        {
+          "value": "solid",
+          "label": "t:sections.timeline.settings.line_style.solid"
+        },
+        {
+          "value": "dotted",
+          "label": "t:sections.timeline.settings.line_style.dotted"
+        },
+        {
+          "value": "dashed",
+          "label": "t:sections.timeline.settings.line_style.dashed"
+        }
+      ],
+      "default": "dotted"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_fullwidth",
+      "label": "t:sections.all.section_fullwidth",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 85
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 75
+    }
+  ],
+  "blocks": [
+    {
+      "type": "timeline_item",
+      "name": "t:sections.timeline.blocks.timeline_item.label",
+      "settings": [
+        {
+          "type": "text",
+          "id": "time",
+          "label": "t:sections.timeline.blocks.timeline_item.settings.time_label"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.timeline.blocks.timeline_item.settings.label"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.timeline.blocks.timeline_item.settings.title"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "t:sections.timeline.blocks.timeline_item.settings.content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.timeline.blocks.timeline_item.settings.image"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "t:sections.timeline.blocks.timeline_item.settings.content_position.label",
+          "options": [
+            {
+              "value": "start",
+              "label": "t:sections.timeline.blocks.timeline_item.settings.content_position.start"
+            },
+            {
+              "value": "end",
+              "label": "t:sections.timeline.blocks.timeline_item.settings.content_position.end"
+            }
+          ],
+          "default": "start"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.timeline.name",
+      "blocks": [
+        {
+          "type": "timeline_item",
+          "settings": {
+            "time": "1980",
+            "label": "PHASE 1",
+            "title": "Inception and Brand Establishment",
+            "content": "Inception, in the context of brand establishment, refers to the initial phase of creating and introducing a brand to the market. It involves laying down the foundational elements that will define the brand's identity, values, and positioning in the minds of consumers.",
+            "content_position": "end"
+          }
+        },
+        {
+          "type": "timeline_item",
+          "settings": {
+            "time": "2000",
+            "label": "PHASE 2",
+            "title": "Debut Collection and Market Entry",
+            "content": "Entering the market with a debut collection requires careful planning, creativity, and perseverance. By following these steps and staying true to your vision, you can increase your chances of success in the fashion industry.",
+            "content_position": "start"
+          }
+        },
+        {
+          "type": "timeline_item",
+          "settings": {
+            "time": "2010",
+            "label": "PHASE 3",
+            "title": "Growth and Recognition",
+            "content": "During the Growth and Recognition phase of a brand's journey, several key elements come into play to propel its expansion and solidify its position in the market. Here's an outline of what typically occurs during this phase",
+            "content_position": "end"
+          }
+        },
+        {
+          "type": "timeline_item",
+          "settings": {
+            "time": "2024",
+            "label": "PHASE 4",
+            "title": "Sustainable Initiatives",
+            "content": "Sustainable initiatives play a crucial role in the growth and development of a brand, especially in today's environmentally conscious and socially responsible market landscape. Here are some examples of sustainable initiatives that brands may undertake",
+            "content_position": "start"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

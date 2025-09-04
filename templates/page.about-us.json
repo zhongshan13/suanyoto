@@ -1,0 +1,485 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "section_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_rate": 75
+      }
+    },
+    "322c5629-7f71-4b6e-bb7c-fd009621a40d": {
+      "type": "hero-image",
+      "blocks": {
+        "template--21410527805744__322c5629-7f71-4b6e-bb7c-fd009621a40d-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "To make safe and innovative products accessible to<br class=\"hdt-hidden lg:hdt-block\">everyday people — just like us.",
+            "heading_fs": "h2",
+            "heading_fw": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "template--21410527805744__322c5629-7f71-4b6e-bb7c-fd009621a40d-heading-1"
+      ],
+      "custom_css": [
+        "@media (max-width: 767px) {.hdt-h2 {font-size: 2.4rem; }}"
+      ],
+      "settings": {
+        "image_height": "fixed",
+        "fixed_height": 860,
+        "image_height_mb": "fixed",
+        "fixed_height_mb": 350,
+        "image": "shopify://shop_images/af96d2172fdc02bd19d4cb4a5a334f4_9e9b73d0-2016-44ac-9034-736fb132e945.png",
+        "link_img": "",
+        "target": false,
+        "image_behavior": "ambient",
+        "use_overlay": false,
+        "use_bg_content": false,
+        "content_position": "center",
+        "content_align": "center",
+        "content_position_mb": "center",
+        "content_align_mb": "center",
+        "full_width": true,
+        "boxed_fullwidth": false,
+        "color_scheme": "scheme-67a7ca9f-3333-4245-b79f-2e9849d7e615",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_rate": 75
+      }
+    },
+    "d8fc1681-68ca-4252-93e0-ec64c9e6e014": {
+      "type": "top-heading",
+      "blocks": {
+        "bff4c518-e32c-48f8-8f3c-1ece1c77b4c5": {
+          "type": "heading",
+          "settings": {
+            "heading": "We are Saunyoto",
+            "heading_fs": "h4"
+          }
+        },
+        "78f43047-1028-4de8-ba24-f77fdc46646f": {
+          "type": "sub_heading",
+          "settings": {
+            "sub_heading": "At Saunyoto, we're more than just a tech company — we’re passionate innovators shaping the future of smart driving experiences. \n<br>\nWith a laser focus on the Tesla ecosystem, our goal is simple: to make your driving smarter, smoother, and more connected.",
+            "sub_heading_fs": "h6"
+          }
+        }
+      },
+      "block_order": [
+        "bff4c518-e32c-48f8-8f3c-1ece1c77b4c5",
+        "78f43047-1028-4de8-ba24-f77fdc46646f"
+      ],
+      "custom_css": [
+        "p {line-height: 1.5;}"
+      ],
+      "settings": {
+        "spacing_item": 33,
+        "alignment": "center",
+        "alignment_mb": "center",
+        "fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 64,
+        "padding_bottom": 69,
+        "padding_rate": 40
+      }
+    },
+    "6e9ed9a2-d37f-427d-af6f-6d4d53f2947b": {
+      "type": "custom-line",
+      "settings": {
+        "line_style": "solid",
+        "line_width": 100,
+        "line_height": 1,
+        "line_cl": "#ebebeb",
+        "line_pos": "center",
+        "section_fullwidth": false,
+        "padding_top": 0,
+        "padding_bottom": 3,
+        "padding_rate": 20
+      }
+    },
+    "bd32e121-64a7-4410-9db7-ba92286059ec": {
+      "type": "image-with-text",
+      "blocks": {
+        "d69de1c9-70c4-4b36-9fed-b87ceeb77765": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Mission",
+            "heading_fs": "h3"
+          }
+        },
+        "9ed111d8-5544-4fc9-b489-7f8a2f646045": {
+          "type": "sub_heading",
+          "settings": {
+            "sub_heading": "At Saunyoto, our mission is to empower both auto parts wholesalers and individual car enthusiasts by providing smart, high-quality vehicle products that are functional, affordable, and future-ready.\n<br>\n<br>\nWe believe that upgrading your ride shouldn’t be complicated or overpriced. That’s why our friendly and knowledgeable team is always here to offer helpful guidance, responsive service, and real solutions — so you can focus on enjoying the road ahead.",
+            "sub_fs": "base"
+          }
+        }
+      },
+      "block_order": [
+        "d69de1c9-70c4-4b36-9fed-b87ceeb77765",
+        "9ed111d8-5544-4fc9-b489-7f8a2f646045"
+      ],
+      "custom_css": [
+        "@media (min-width: 1150px) {.hdt-image-with_text * + .hdt-subheading {margin-top: var(--spacing-1-8); } .hdt-image-with_text .hdt-content_wrap {padding-top: 150px; } .hdt-heading.hdt-h4 {font-size: var(--text-10xl); }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/b1e1fb3275672929d3e5512fe8e2c46_c621e35b-f1ad-43e4-a97e-874767971b2b.png",
+        "style_image": "1",
+        "image_effect": "lunc",
+        "color_scheme": "scheme-4",
+        "full_width": false,
+        "boxed_fullwidth": false,
+        "image_last": false,
+        "content_position": "start-center",
+        "alignment": "left",
+        "content_pl": 15,
+        "image_last_mb": false,
+        "content_position_mb": "center",
+        "alignment_mb": "center",
+        "padding_top": 100,
+        "padding_bottom": 78,
+        "padding_rate": 35
+      }
+    },
+    "92907300-e2dd-450f-91df-8a2a70e85078": {
+      "type": "image-with-text",
+      "blocks": {
+        "2d310faa-f060-4155-ae9d-c99e333829ca": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Vision",
+            "heading_fs": "h3"
+          }
+        },
+        "4b21378d-56e3-4143-9758-1f20b5455cc9": {
+          "type": "sub_heading",
+          "settings": {
+            "sub_heading": "We strive to become a leading name in car exterior and smart accessory innovation, bringing customers the very best in:\n<br>\n<br>\nHardware: Dashboard displays, rear entertainment systems, docking stations, streaming devices, and more.\n<br>\n<br>\nSoftware: Android Auto/CarPlay systems, HUD interfaces, and advanced interactive features.\n<br>\n<br>\nCustomization: ODM/OEM development tailored to your specific requirements.\n<br>\n<br>\nWhether you're enhancing your Tesla for daily commutes or gearing up for your next off-road journey, Saunyoto blends technology and passion to elevate your experience behind the wheel.",
+            "sub_fs": "base"
+          }
+        }
+      },
+      "block_order": [
+        "2d310faa-f060-4155-ae9d-c99e333829ca",
+        "4b21378d-56e3-4143-9758-1f20b5455cc9"
+      ],
+      "custom_css": [
+        "@media (min-width: 1150px) {.hdt-image-with_text * + .hdt-subheading {margin-top: var(--spacing-1-8); } .hdt-image-with_text .hdt-content_wrap {padding-top: 130px; } .hdt-heading.hdt-h4 {font-size: var(--text-10xl); } .hdt-image-with_text .hdt-2_img .hdt-img_group .hdt-img_item:nth-child(2) {grid-row: 5 / 12; margin: 20px 0 0 40px; }}",
+        ".hdt-image-with_text .hdt-2_img .hdt-img_group .hdt-img_item:nth-child(2) {grid-column: 7/13;}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/224ae381c14c3dd28ac5f204278c0ec.png",
+        "first_image": "shopify://shop_images/06904ea5106d29e41920e943ff9fec6_d79affe6-1f7e-43ef-a0b6-8c61c539e7a9.png",
+        "style_image": "2",
+        "image_effect": "zoom-in",
+        "color_scheme": "scheme-2e91b3de-e084-4d07-8c0d-57b80f28390f",
+        "full_width": false,
+        "boxed_fullwidth": false,
+        "image_last": true,
+        "content_position": "center-end",
+        "alignment": "left",
+        "content_pl": 60,
+        "image_last_mb": false,
+        "content_position_mb": "center",
+        "alignment_mb": "center",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_rate": 20
+      }
+    },
+    "f7f3ac60-3246-4e11-b8db-6976b318321d": {
+      "type": "icon-box",
+      "blocks": {
+        "template--21410527805744__f7f3ac60-3246-4e11-b8db-6976b318321d-item-1": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "leaf2",
+            "custom_svg": "",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "Technological Leadership",
+            "content": "<p>Our 15+ member engineering team excels in industrial design, structural development, and software-hardware integration, supported by nearly 100 patented technologies.</p>",
+            "adding_border": false
+          }
+        },
+        "template--21410527805744__f7f3ac60-3246-4e11-b8db-6976b318321d-item-2": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "diamond",
+            "custom_svg": "",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "Precision Services",
+            "content": "<p>A team of over 40 professionals focuses on market research, R&D testing, and post-sales support to ensure every product is aligned with user needs.</p>",
+            "adding_border": false
+          }
+        },
+        "template--21410527805744__f7f3ac60-3246-4e11-b8db-6976b318321d-item-3": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "various_sizes",
+            "custom_svg": "",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "Global Compliance",
+            "content": "<p>Our products meet international quality standards with certifications including FCC, CE, and China 3C.</p>",
+            "adding_border": false
+          }
+        }
+      },
+      "block_order": [
+        "template--21410527805744__f7f3ac60-3246-4e11-b8db-6976b318321d-item-1",
+        "template--21410527805744__f7f3ac60-3246-4e11-b8db-6976b318321d-item-2",
+        "template--21410527805744__f7f3ac60-3246-4e11-b8db-6976b318321d-item-3"
+      ],
+      "custom_css": [
+        "@media (min-width: 1150px) {.hdt-icon-box__wrapper {padding-inline-start: 90px; padding-inline-end: 90px; } .hdt-sec-subheading {font-size: var(--text-2xl); } .hdt-icon-box__wrapper {--section-pt: 109px; --section-pb: 132px; }}",
+        ".hdt-container {--rounded: 1rem;}"
+      ],
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "Smart Cockpit Solutions",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "<p>Our talented stylists have put together outfits that are perfect for the season. </p><p>They've variety of ways to inspire your next fashion-forward look.</p>",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "heading_gap": 29,
+        "sec_heading_spacing": 74,
+        "icon_pos_center": true,
+        "icon_pos_center_mb": true,
+        "icon_circle": true,
+        "space_icon_heading": "small",
+        "size_heading": "large",
+        "heading_uppercase": false,
+        "space_heading_content": "large",
+        "col_dk": "3",
+        "col_tb": "2",
+        "col_mb": "1",
+        "carousel_mobile": true,
+        "border_style": "none",
+        "fullwidth": false,
+        "boxed_fullwidth": false,
+        "color_scheme": "scheme-5",
+        "padding_top": 60,
+        "padding_bottom": 100,
+        "padding_rate": 30
+      }
+    },
+    "055f73bd-4c9f-42b1-99be-8a45b6082359": {
+      "type": "testinonial-with-image",
+      "blocks": {
+        "template--21410527805744__055f73bd-4c9f-42b1-99be-8a45b6082359-quote-1": {
+          "type": "quote",
+          "settings": {
+            "heading": "Our customer’s reviews",
+            "content": "<p>Love love love! This product is so easy to use! I absolutely love the Alpha Arbutin product. It has made such a difference with my hyperpigmentation spots! I feel so much more confident without makeup on where as before I would never leave the house</p>",
+            "author": "Robert smith",
+            "product": "91-short-sleeve-shirt",
+            "rating": 5
+          }
+        },
+        "5110f6ce-bdad-4fec-a30b-1dfb01d31439": {
+          "type": "quote",
+          "settings": {
+            "heading": "Our customer’s reviews",
+            "content": "<p>I've ordered from a lot of places, a lot! and I must say that this place here has the best shipping experience ever. Thank you guys so much for this</p>",
+            "author": "Sandra",
+            "product": "91-short-sleeve-shirt",
+            "rating": 5
+          }
+        },
+        "35ea4b25-648d-4d18-9075-936a9214f091": {
+          "type": "quote",
+          "settings": {
+            "heading": "Our customer’s reviews",
+            "content": "<p>I love the incredibly diverse range of meals that Soulara offers! You can filter the list of meals by ingredients (e.g. no chilli or no nuts) and there's still heaps of options. I have been using Soulara throughout the past few years whenever life gets too busy to cook, and never get bored of the options!</p>",
+            "author": "Loretta",
+            "product": "91-short-sleeve-shirt",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "template--21410527805744__055f73bd-4c9f-42b1-99be-8a45b6082359-quote-1",
+        "5110f6ce-bdad-4fec-a30b-1dfb01d31439",
+        "35ea4b25-648d-4d18-9075-936a9214f091"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 1150px) {.hdt-testimonial-w-image .hdt-poropost-image {margin-bottom: var(--spacing-4); }}"
+      ],
+      "settings": {
+        "dri_img_first": false,
+        "image_width": "one_img_style2",
+        "font_size_content": "hdt-text-2xl",
+        "navUI": true,
+        "nav_pos": "middle_in",
+        "nav_des": "outline",
+        "dotUI": false,
+        "color_scheme": "scheme-2",
+        "pr_rating": "#ff7b54",
+        "section_fullwidth": false,
+        "padding_top": 110,
+        "padding_bottom": 124,
+        "padding_rate": 25
+      }
+    },
+    "6da3b683-3a88-416e-8665-c6985933cfaf": {
+      "type": "custom-line",
+      "settings": {
+        "line_style": "solid",
+        "line_width": 100,
+        "line_height": 1,
+        "line_cl": "#ebebeb",
+        "line_pos": "center",
+        "section_fullwidth": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_rate": 75
+      }
+    },
+    "008db59f-61d9-4717-ba18-6a7bb9c03927": {
+      "type": "image-gallery",
+      "blocks": {
+        "template--21410527805744__008db59f-61d9-4717-ba18-6a7bb9c03927-gallery_item-1": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "template--21410527805744__008db59f-61d9-4717-ba18-6a7bb9c03927-gallery_item-2": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "template--21410527805744__008db59f-61d9-4717-ba18-6a7bb9c03927-gallery_item-3": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "template--21410527805744__008db59f-61d9-4717-ba18-6a7bb9c03927-gallery_item-4": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "template--21410527805744__008db59f-61d9-4717-ba18-6a7bb9c03927-gallery_item-5": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "98713060-8687-4a69-8bf4-8fc9a179680a": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "f73f1a25-549c-46ff-83f2-edf1232f42de": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "0857e927-a067-4776-a483-57a7fb56f46a": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        },
+        "78cac12a-1667-4805-ad54-9cceefa3fa85": {
+          "type": "gallery_item",
+          "settings": {
+            "item_link": "",
+            "product_item": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21410527805744__008db59f-61d9-4717-ba18-6a7bb9c03927-gallery_item-1",
+        "template--21410527805744__008db59f-61d9-4717-ba18-6a7bb9c03927-gallery_item-2",
+        "template--21410527805744__008db59f-61d9-4717-ba18-6a7bb9c03927-gallery_item-3",
+        "template--21410527805744__008db59f-61d9-4717-ba18-6a7bb9c03927-gallery_item-4",
+        "template--21410527805744__008db59f-61d9-4717-ba18-6a7bb9c03927-gallery_item-5",
+        "98713060-8687-4a69-8bf4-8fc9a179680a",
+        "f73f1a25-549c-46ff-83f2-edf1232f42de",
+        "0857e927-a067-4776-a483-57a7fb56f46a",
+        "78cac12a-1667-4805-ad54-9cceefa3fa85"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".hdt-container {--rounded: 1rem;}"
+      ],
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "Saunyoto",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "<p>Connecting Intelligence, Elevating Journeys.</p>",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "heading_gap": 18,
+        "sec_heading_spacing": 61,
+        "image_ratio": "square",
+        "image_size": true,
+        "image_action": "go_link",
+        "col_dk": "5",
+        "col_tb": "2",
+        "col_mb": "1",
+        "spacing_items": 7,
+        "navUI": false,
+        "nav_des": "default",
+        "dotUI": false,
+        "dots_pos": "default",
+        "section_fullwidth": false,
+        "boxed_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 62,
+        "padding_bottom": 77,
+        "padding_rate": 35
+      }
+    }
+  },
+  "order": [
+    "main",
+    "322c5629-7f71-4b6e-bb7c-fd009621a40d",
+    "d8fc1681-68ca-4252-93e0-ec64c9e6e014",
+    "6e9ed9a2-d37f-427d-af6f-6d4d53f2947b",
+    "bd32e121-64a7-4410-9db7-ba92286059ec",
+    "92907300-e2dd-450f-91df-8a2a70e85078",
+    "f7f3ac60-3246-4e11-b8db-6976b318321d",
+    "055f73bd-4c9f-42b1-99be-8a45b6082359",
+    "6da3b683-3a88-416e-8665-c6985933cfaf",
+    "008db59f-61d9-4717-ba18-6a7bb9c03927"
+  ]
+}

@@ -1,0 +1,192 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "top": {
+      "type": "top-bar",
+      "blocks": {
+        "text_RT4wMQ": {
+          "type": "text",
+          "settings": {
+            "text1": "<strong>🚚 Free Shipping on All Orders — No Surprises at Checkout. </strong><a href=\"/collections/all\" title=\"All products\"><strong> Shop Now</strong></a>",
+            "text2": "",
+            "text3": "",
+            "adding_border": false,
+            "au_time": 3.5,
+            "pause_when_hover": false,
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "text_RT4wMQ"
+      ],
+      "settings": {
+        "color_scheme": "scheme-c88873bf-bc3d-4545-b1e7-8e78db278fad",
+        "show_line_separator": false,
+        "fullwidth": true
+      }
+    },
+    "announcement": {
+      "type": "announcement-bar",
+      "blocks": {
+        "db7caa1d-7e75-490d-9bea-bed040a66711": {
+          "type": "announcement",
+          "settings": {
+            "text": "🎆<strong>4th of July Celebration Starts Now! </strong>Red, white, and BIG savings."
+          }
+        },
+        "25c614ba-55fe-4cd1-92d3-b3ffb94a2170": {
+          "type": "announcement",
+          "settings": {
+            "text": "🔥 <strong>All Products 10% OFF Automatically </strong>Extra <strong>20% OFF</strong> with code: <strong>MD521</strong>"
+          }
+        },
+        "4933e3d3-d429-4eb7-9dc1-c2e5504bf546": {
+          "type": "announcement",
+          "settings": {
+            "text": "💥 Total Savings Up to 30% Limited time only — Don’t Miss Out!"
+          }
+        }
+      },
+      "block_order": [
+        "db7caa1d-7e75-490d-9bea-bed040a66711",
+        "25c614ba-55fe-4cd1-92d3-b3ffb94a2170",
+        "4933e3d3-d429-4eb7-9dc1-c2e5504bf546"
+      ],
+      "disabled": true,
+      "settings": {
+        "design": "marquee",
+        "color_scheme": "scheme-2e91b3de-e084-4d07-8c0d-57b80f28390f",
+        "show_close_btn": true,
+        "show_line_separator": false,
+        "adding_border": false,
+        "au_time": 3.5,
+        "slider_pause_when_hover": false,
+        "speed": 0.3,
+        "direction": "rtl",
+        "marquee_pause_when_hover": false
+      }
+    },
+    "684268e5-9439-42fb-ad8c-945669cf811a": {
+      "type": "header-menu-bottom",
+      "blocks": {
+        "html_jaXcAD": {
+          "type": "html",
+          "settings": {
+            "title": "Deal",
+            "html": "<div style=\"display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; padding: 20px 0;\">\n  <!-- Coupons1 -->\n  <div style=\"flex: 1 1 300px; max-width: 400px; text-align: center; cursor: pointer;\" onclick=\"window.location.href='https://saunyoto.com/pages/coupon-1'\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/Coupons1.png?v=1745224084\" alt=\"15% OFF Coupon\" style=\"width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s;\">\n  </div>\n\n  <!-- Coupons2 -->\n  <div style=\"flex: 1 1 300px; max-width: 400px; text-align: center; cursor: pointer;\" onclick=\"window.location.href='https://saunyoto.com/pages/coupon-2'\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/Coupons2.png?v=1745224085\" alt=\"30% OFF Coupon\" style=\"width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s;\">\n  </div>\n</div>",
+            "page": "",
+            "mega_menu_colors": "",
+            "mega_position": "default",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        },
+        "8f000a3c-c9eb-43f4-9a1a-8023ce42fa1e": {
+          "type": "html",
+          "settings": {
+            "title": "Home",
+            "html": "<style>\n  .mega-menu {\n    display: flex;\n    justify-content: space-between;\n    max-width: 1200px;\n    margin: auto;\n    padding: 40px 20px;\n    font-family: Helvetica, Arial, sans-serif;\n  }\n\n  .text-columns-container {\n    display: flex;\n    flex: 1;\n    min-width: 0;\n  }\n\n  .mega-menu-column {\n    flex: 1 1 25%;\n    min-width: 0;\n    padding-right: 20px;\n  }\n\n  .mega-menu-column h4 {\n    font-size: 13px;\n    font-weight: bold;\n    color: #222;\n    margin-bottom: 12px;\n    text-transform: uppercase;\n    font-family: Helvetica, Arial, sans-serif;\n  }\n\n  .mega-menu-column a {\n    display: block;\n    font-size: 13px;\n    color: #000;\n    text-decoration: none;\n    margin-bottom: 8px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    transition: color 0.2s ease;\n    font-family: Helvetica, Arial, sans-serif;\n    text-transform: none;\n  }\n\n  .mega-menu-column a:hover {\n    color: #868686;\n  }\n\n  .image-column {\n    display: flex;\n    gap: 30px;\n    margin-left: 30px;\n    align-items: flex-start;\n  }\n\n  .image-item a {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-decoration: none;\n    text-align: center;\n  }\n\n  .image-column img {\n    width: 250px;\n    height: 250px;\n    object-fit: cover;\n    border-radius: 8px;\n    box-shadow: 0 4px 12px rgba(0,0,0,0.1);\n    transition: transform 0.3s ease;\n    margin-bottom: 12px;\n  }\n\n  .image-column img:hover {\n    transform: scale(1.05);\n  }\n\n  .image-btn {\n    display: inline-block;\n    padding: 8px 24px;\n    background-color: white;\n    color: black;\n    border-radius: 25px;\n    font-size: 13px;\n    font-weight: 500;\n    border: 1px solid #ddd;\n    transition: all 0.3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n  }\n\n  .image-item a:hover .image-btn {\n    background-color: black;\n    color: white;\n    border-color: black;\n  }\n\n  @media screen and (max-width: 1024px) {\n    .image-column {\n      gap: 20px;\n    }\n\n    .image-column img {\n      width: 220px;\n      height: 220px;\n    }\n  }\n\n  @media screen and (max-width: 768px) {\n    .mega-menu {\n      flex-direction: column;\n    }\n\n    .text-columns-container {\n      flex-wrap: wrap;\n      margin-bottom: 30px;\n    }\n\n    .image-column {\n      margin-left: 0;\n      justify-content: center;\n      flex-wrap: wrap;\n      gap: 20px;\n    }\n\n    .image-item {\n      width: 100%;\n      max-width: 250px;\n    }\n\n    .image-column img {\n      width: 100%;\n      height: auto;\n      aspect-ratio: 1/1;\n    }\n  }\n</style>\n\n<div class=\"mega-menu\">\n  <!-- Text link columns -->\n  <div class=\"text-columns-container\">\n    <div class=\"mega-menu-column\">\n      <h4>Our Policy</h4>\n      <a href=\"https://www.saunyoto.com/pages/privacy-policy\">Privacy Policy</a>\n      <a href=\"https://www.saunyoto.com/pages/return-policy\">Return &amp; Refund Policy</a>\n      <a href=\"https://www.saunyoto.com/pages/shipping-policy\">Shipping Policy</a>\n      <a href=\"https://www.saunyoto.com/pages/terms-of-service\">Terms of Service</a>\n    </div>\n\n    <div class=\"mega-menu-column\">\n      <h4>About Us</h4>\n      <a href=\"https://www.saunyoto.com/pages/about-us\">About Saunyoto</a>\n      <a href=\"https://af.uppromote.com/cjakbb-ut/register\">Affiliate Program</a>\n      <a href=\"https://www.saunyoto.com/blogs/news\">News</a>\n    </div>\n\n    <div class=\"mega-menu-column\">\n      <h4>Support</h4>\n      <a href=\"https://www.saunyoto.com/pages/contact-us\">Contact Us</a>\n      <a href=\"https://www.saunyoto.com/pages/order-track\">Order Track</a>\n      <a href=\"https://www.saunyoto.com/pages/install-services\">Install Services</a>\n      <a href=\"https://www.saunyoto.com/pages/manual\">User Manual</a>\n    </div>\n  </div>\n\n  <!-- Image offer blocks -->\n  <div class=\"image-column\">\n    <div class=\"image-item\">\n      <a href=\"https://www.saunyoto.com/products/3-y\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/S11TouchScreenInstrumentClusterforModelYJuniperModel3HighlandModel3Y_3.jpg?v=1747362791\" alt=\"Coupon 1\">\n        <div class=\"image-btn\">Get Offer</div>\n      </a>\n    </div>\n\n    <div class=\"image-item\">\n      <a href=\"https://www.saunyoto.com/products/3-y\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/ChatGPT_Image_May_13_2025_04_02_48_PM.png?v=1747123405\" alt=\"Coupon 2\">\n        <div class=\"image-btn\">Get Offer</div>\n      </a>\n    </div>\n  </div>\n</div>",
+            "page": "demos-short",
+            "mega_menu_colors": "",
+            "mega_position": "center_on_screen",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        },
+        "d9229f50-8afa-4417-8bf2-eb9f560171a6": {
+          "type": "mega_shop",
+          "settings": {
+            "title": "Shop",
+            "collection_list": [
+              "model-3-highland"
+            ],
+            "image_ratio": "asos",
+            "image_size": false,
+            "col_dk": "default",
+            "endable_slider_layout": false,
+            "navUI": false,
+            "mega_menu_colors": "scheme-2",
+            "mega_position": "default",
+            "mega_width": "full",
+            "mega_custom_width": 940
+          }
+        },
+        "html_HTPQ8Q": {
+          "type": "html",
+          "settings": {
+            "title": "Products",
+            "html": "<div style=\"display: flex; gap: 20px; padding: 20px; justify-content: center; flex-wrap: wrap; font-family: Helvetica, Arial, sans-serif;\">\n  <!-- Product 1 -->\n  <div style=\"width: 320px; text-align: center;\">\n    <a href=\"https://www.saunyoto.com/products/s11-touch-screen-instrument-cluster-for-model-y-juniper-model-3-highland-model-3-y\" style=\"text-decoration: none; color: #000;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/S11TouchScreenInstrumentClusterforModelYJuniperModel3HighlandModel3Y_3.jpg?v=1747362791\" alt=\"S11 Touch Screen Instrument Cluster\" style=\"width: 100%; height: 200px; object-fit: cover; border-radius: 8px;\">\n      <div style=\"margin-top: 20px; font-weight: normal;\">Touch Screen Display - S11</div>\n    </a>\n  </div>\n\n  <!-- Product 2 -->\n  <div style=\"width: 320px; text-align: center;\">\n    <a href=\"https://www.saunyoto.com/products/center-console-multi-function-control-button-for-tesla-model-3-y?variant=45784046141603\" style=\"text-decoration: none; color: #000;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/Center_Console_Multi-Function_Control_Button_for_Tesla_Model_3Y.1.png?v=1747366046\" alt=\"Multifunction Console\" style=\"width: 100%; height: 200px; object-fit: cover; border-radius: 8px;\">\n      <div style=\"margin-top: 20px; font-weight: normal;\">Multifunction Console Upgrade</div>\n    </a>\n  </div>\n\n  <!-- Product 3 -->\n  <div style=\"width: 320px; text-align: center;\">\n    <a href=\"https://www.saunyoto.com/products/tesla-model-3-highland-wireless-charger?variant=45784056365219\" style=\"text-decoration: none; color: #000;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/TeslaModel3Highlandwirelesscharger.1_a0383ebc-a035-4f99-9343-06e35e5875cb.png?v=1747360919\" alt=\"Digital Instrument Cluster\" style=\"width: 100%; height:  200px; object-fit: cover; border-radius: 8px;\">\n      <div style=\"margin-top: 20px; font-weight: normal;\">Model 3/Y Highland Console Charger</div>\n    </a>\n  </div>\n\n  <!-- Product 4 -->\n  <div style=\"width: 320px; text-align: center;\">\n    <a href=\"https://www.saunyoto.com/products/console-dashboard-touch-screen-swiveling-mount-kit-for-model-3-y-3-highland-y-juniper\" style=\"text-decoration: none; color: #000;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/35a6a5ec-5155-4c0d-a308-f8aa24e723a0.png?v=1754633881\" alt=\"Multifunction Console\" style=\"width: 100%; height:  200px; object-fit: cover; border-radius: 8px;\">\n      <div style=\"margin-top: 20px; font-weight: normal;\">Swiveling Mount kit</div>\n    </a>\n  </div>\n\n  <!-- Product 5 -->\n  <div style=\"width: 320px; text-align: center;\">\n    <a href=\"https://www.saunyoto.com/products/tesla-model-3-y-rear-seat-android-touchscreen-8-86-backseat-entertainment-display\" style=\"text-decoration: none; color: #000;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/Tesla_IPS_HD_Touchscreen.png?v=1756431700\" alt=\"Multifunction Console\" style=\"width: 100%; height: 200px; object-fit: cover; border-radius: 8px;\">\n      <div style=\"margin-top: 20px; font-weight: normal;\">Backseat Entertainment Display</div>\n    </a>\n  </div>\n\n  <!-- Product 6 -->\n  <div style=\"width: 320px; text-align: center;\">\n    <a href=\"https://www.saunyoto.com/products/tesla-model-3-y-carplay-android-auto-8-9-touch-screen-display-upgrade-lhd-rhd-with-camera-f9-pro\" style=\"text-decoration: none; color: #000;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/f9-pro-tesla-touchscreen-display.png?v=1754381451\" alt=\"Multifunction Console\" style=\"width: 100%; height:  200px; object-fit: cover; border-radius: 8px;\">\n      <div style=\"margin-top: 20px; font-weight: normal;\">Touch Screen Display - F9 Pro</div>\n    </a>\n  </div>\n\n<!-- Product 7 -->\n  <div style=\"width: 320px; text-align: center;\">\n    <a href=\"https://www.saunyoto.com/products/tesla-model-3-y-dashboard-streamer-led-ambient-light-saunyoto\" style=\"text-decoration: none; color: #000;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0695/5335/6963/files/Saunyoto_BSD_Ambient_LED_Light_System_for_tesla_Model_3_Y_Highland_Juniper.jpg?v=1756374271\" style=\"width: 100%; height: 200px; object-fit: cover; border-radius: 8px;\">\n      <div style=\"margin-top: 20px; font-weight: normal;\">BSD Ambient interior Light - S2 </div>\n    </a>\n  </div>\n</div>",
+            "page": "",
+            "mega_menu_colors": "",
+            "mega_position": "default",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "html_jaXcAD",
+        "8f000a3c-c9eb-43f4-9a1a-8023ce42fa1e",
+        "d9229f50-8afa-4417-8bf2-eb9f560171a6",
+        "html_HTPQ8Q"
+      ],
+      "custom_css": [
+        ".hdt-main-header.hdt-s-gradient {max-width: var(--container-max-width-padding-lg); margin: 0 auto;}"
+      ],
+      "settings": {
+        "header_layout": "logo_center",
+        "header_fullwidth": true,
+        "logo": "shopify://shop_images/a82f4bcfcc127d2187d3408ca0e8176a.png",
+        "logo_width": 180,
+        "header_height": 68,
+        "header_colors": "scheme-c4883d1b-ef0d-432c-8b91-5440621a5983",
+        "enabled_user": true,
+        "enabled_compare": false,
+        "enabled_wishlist": true,
+        "search_only_product": true,
+        "header_bottom_height": 61,
+        "main_menu": "simple-navigation-bar",
+        "lazy_mn": true,
+        "menu_position": "center",
+        "menu_size": "lg",
+        "menu_weight": "medium",
+        "text_transform": false,
+        "dropdown_arrow": true,
+        "active_link": false,
+        "spacing_nav": 30,
+        "open_event": "hover",
+        "header_menu_colors": "scheme-1",
+        "header_categories": false,
+        "title_categories": "Browse All Categories",
+        "menu_categories": "",
+        "other_content": "",
+        "header_border": "top",
+        "header_height_mb": 60,
+        "logo_width_mb": 130,
+        "main_menu_mobile": "",
+        "lazy_mn_mb": true,
+        "only_click_icon": false,
+        "header_mobile_colors": "scheme-2",
+        "note_mobile": "<span class=\"hdt-inline-flex hdt-text-base hdt-font-medium\" style=\"color: rgb(var(--color-foreground));border-bottom: solid 1px rgb(var(--color-foreground));margin-bottom: 11px;\"><a href=\"https://demo-ecomus-global.myshopify.com/pages/contact-1\">Need help ?</a></span><span class=\"hdt-flex hdt-flex-col hdt-text-base hdt-font-normal\" style=\"line-height: 24px;\"><span>Address: 44655 S Grimmer Blvd.<br> Fremont, CA 94538 </span><span>Email: <b>support@saunyoto.com </b></span><span>Phone: <b>(628) 304-9655</b></span></span>",
+        "sticky_type": "on_scroll_up",
+        "sticky_glass": false
+      }
+    }
+  },
+  "order": [
+    "top",
+    "announcement",
+    "684268e5-9439-42fb-ad8c-945669cf811a"
+  ]
+}

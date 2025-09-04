@@ -1,0 +1,223 @@
+<!-- sections/icon_with_text.liquid -->
+{%- style -%}#shopify-section-{{section.id}}{--section-pt:{{section.settings.padding_top}}px;--section-pb:{{section.settings.padding_bottom}}px;--section-prate:{{section.settings.padding_rate}}}#{{section.id}} .hdt-col_image{max-width:122px}#{{section.id}} .hdt-gap{gap:2.5rem}#{{section.id}} .hdt-rte strong{font-weight:var(--font-semibold)}#{{section.id}} .hdt-rte :not(strong){font-weight:var(--font-normal)}#{{section.id}} .hdt-rte>*:not(:first-child){margin-top:5px}@media (max-width:767px){#{{section.id}} .hdt-gap{gap:2rem;flex-direction:column;text-align:center}}{%- endstyle -%}
+
+<div id="{{ section.id }}" class="hdt-s-gradient hdt-section-spacing" color-scheme="{{ section.settings.color_scheme }}">
+  <div class="hdt-container">
+    <div class="hdt-flex hdt-gap">
+      <div class="hdt-col hdt-custom-col-12 md:hdt-custom-col-8">
+        <div class="hdt-col-inner hdt-h-full hdt-flex hdt-align-center hdt-gap">
+          {%- if section.settings.image != blank -%}
+            <span class="hdt-col_image">
+              {{ section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', sizes: '120px', class: 'hdt-object-pos-mb', widths: '100,120,140,200,240,280' }}
+            </span>
+          {%- endif -%}
+          {%- if section.settings.text != blank -%}
+            <div class="hdt-rte hdt-s-text">
+              {{ section.settings.text }}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="hdt-col hdt-custom-col-12 md:hdt-custom-col-4">
+        <div class="hdt-col-inner hdt-h-full hdt-gap hdt-flex hdt-align-center hdt-justify-end">
+          {%- if section.settings.btn_label != blank -%}
+            <a {% if section.settings.btn_link == blank %}
+              role="link" disabled="true"
+              {% else %}
+                href="{{ section.settings.btn_link }}" 
+              {% endif %} target="{% if section.settings.target %}_blank{% else %}_self{% endif %}"
+              class="hdt-btn hdt-text-{{ section.settings.btn_size }} hdt-oh hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-btn-{{ section.settings.btn_style }} hdt-font-{{ section.settings.btn_fw }}"><span>{{ section.settings.btn_label }}</span>
+            {%- if section.settings.btn_icon == "1" -%}
+              <svg class="hdt-icon hdt-icon-1" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 64 64" fill="currentColor"><path d="M12,56.43,36.48,32,12,7.52,19.53,0,51.61,32,19.53,64Z"/></svg>
+            {%- elsif section.settings.btn_icon == "2" -%}
+              <svg class="hdt-icon hdt-icon-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"  viewBox="0 0 64 64" fill="currentColor"><path d="M6.89,64,0,57.11,47.26,9.85H4.92V0H64V59.08H54.15V16.74Z"/></svg>
+            {%- else -%}
+            {%- endif -%}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.icon_text.name",
+    "class": "hdt-icon-text",
+    "disabled_on": {
+      "groups": ["*"]
+    },
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "t:sections.icon_text.settings.image.label"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "t:sections.icon_text.settings.text.label",
+        "default": "<p>The4Studio</p>"
+      },
+      {
+        "type": "text",
+        "id": "btn_label",
+        "label": "t:sections.all.button.settings.text.label",
+        "default": "Shop now",
+        "info": "t:sections.all.button.settings.text.info"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "t:sections.all.button.settings.url.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "target",
+        "label": "t:sections.all.button.settings.target.label",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "btn_size",
+        "label": "t:sections.all.button.settings.font_size.label",
+        "options": [
+          {
+            "value": "xs",
+            "label": "t:sections.all.button.settings.font_size.options.xs"
+          },
+          {
+            "value": "sm",
+            "label": "t:sections.all.button.settings.font_size.options.sm"
+          },
+          {
+            "value": "base",
+            "label": "t:sections.all.button.settings.font_size.options.base"
+          },
+          {
+            "value": "lg",
+            "label": "t:sections.all.button.settings.font_size.options.lg"
+          },
+          {
+            "value": "xl",
+            "label": "t:sections.all.button.settings.font_size.options.xl"
+          }
+        ],
+        "default": "base"
+      },
+      {
+        "type": "select",
+        "id": "btn_style",
+        "label": "t:sections.all.button.settings.style.label",
+        "options": [
+          {
+            "value": "solid",
+            "label": "t:sections.all.button.settings.style.options.option_1"
+          },
+          {
+            "value": "outline",
+            "label": "t:sections.all.button.settings.style.options.option_2"
+          },
+          {
+            "value": "outline-2",
+            "label": "t:sections.all.button.settings.style.options.option_3"
+          },
+          {
+            "value": "link",
+            "label": "t:sections.all.button.settings.style.options.option_4"
+          }
+        ],
+        "default": "solid"
+      },
+      {
+        "type": "select",
+        "id": "btn_fw",
+        "label": "t:sections.all.button.settings.font_weight.label",
+        "options": [
+          {
+            "value": "normal",
+            "label": "t:sections.all.button.settings.font_weight.options.option_1"
+          },
+          {
+            "value": "medium",
+            "label": "t:sections.all.button.settings.font_weight.options.option_2"
+          },
+          {
+            "value": "semibold",
+            "label": "t:sections.all.button.settings.font_weight.options.option_3"
+          },
+          {
+            "value": "bold",
+            "label": "t:sections.all.button.settings.font_weight.options.option_4"
+          }
+        ],
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "btn_icon",
+        "label": "t:sections.all.button.settings.icon.label",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:sections.all.button.settings.icon.options.option_0"
+          },
+          {
+            "value": "1",
+            "label": "t:sections.all.button.settings.icon.options.option_1"
+          },
+          {
+            "value": "2",
+            "label": "t:sections.all.button.settings.icon.options.option_2"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_rate",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "t:sections.all.padding.padding_rate",
+        "default": 75
+      }
+    ],
+    "presets":[
+      {
+        "name": "t:sections.icon_text.name"
+      }
+    ]
+  }
+{% endschema %}

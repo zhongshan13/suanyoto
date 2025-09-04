@@ -1,0 +1,598 @@
+<!-- sections/lookbook-carousel.liquid -->
+{{ 'hdt-lookbook.css' | asset_url | stylesheet_tag }}
+{%- comment -%}{{ 'hdt-card-products.css' | asset_url | stylesheet_tag }}{%- endcomment -%}
+{%- liquid
+  if section.settings.image_ratio == 'adapt_image'
+    assign attr_img = ''
+  else
+    assign attr_img = 'data-'
+  endif 
+  assign widths = '400,600,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200'
+  assign sizes = '100vw'
+  if section.settings.item_show == '2'
+    assign sizes = '(min-width: 768px) 50vw, 100vw'
+  elsif section.settings.item_show == '22'
+    assign sizes = '(min-width: 768px) 75vw, 100vw'
+  endif
+
+-%}
+{%- style -%}#shopify-section-{{section.id}}{--section-pt:{{section.settings.padding_top}}px;--section-pb:{{section.settings.padding_bottom}}px;--section-prate:{{section.settings.padding_rate}}}{%- endstyle -%}
+<div id="{{ section.id }}" class="hdt-section-spacing hdt-s-gradient" color-scheme="{{ section.settings.color_scheme }}">
+  <div class="hdt-section-inner">
+    {%- render 'section-top-head' -%}
+    <hdt-slider id="lookbook-carousel-id-{{ section.id }}" class="hdt-slider hdt-slider__dots_on_content no-js-hidden hdt-container-full hdt-slides-1 {% if section.blocks.size > 1 %}md:hdt-slides-{{ section.settings.item_show }} {% endif %}{% if section.settings.item_show == '22' %}hdt-slide-spacing-10 lg:hdt-slide-spacing-30 {% endif %}hdt-ratio--{{ section.settings.image_ratio }} hdt-relative" config='{"navUI": {{ section.settings.navUI }}, "dotUI": true,"classNames": true }'>
+      <div class="hdt-slider__viewport">
+        <div class="hdt-slider__container">
+          {%- for block in section.blocks -%}
+            <div class="hdt-lookbook_item hdt-slider__slide" {{ block.shopify_attributes }}>
+              <div class="hdt-lookbook_inner hdt-relative">
+                <div class="hdt-image hdt-ratio" {{ attr_img }}style="--aspect-ratioapt: {{ block.settings.image.aspect_ratio | default: 1.7777 }}">
+                  {%- if block.settings.image != blank -%}
+                    {{ block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height, class: '', sizes: sizes, widths: widths }}
+                  {%- else -%}
+                    {{ 'blog-apparel-'| append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+                <div class="hdt-pin-group hdt-full-width-link">
+                  {%- liquid
+                    if block.settings.product != blank
+                      render 'pin-product', product: block.settings.product, block: block, index: 1, pos_top: block.settings.pos_top, pos_left: block.settings.pos_left, placement: section.settings.placement
+                    endif 
+                    if block.settings.product1 != blank
+                      render 'pin-product', product: block.settings.product1, block: block, index: 2, pos_top: block.settings.pos_top1, pos_left: block.settings.pos_left1, placement: section.settings.placement
+                    endif 
+                    if block.settings.product2 != blank
+                      render 'pin-product', product: block.settings.product2, block: block, index: 3, pos_top: block.settings.pos_top2, pos_left: block.settings.pos_left2, placement: section.settings.placement
+                    endif 
+                    if block.settings.product3 != blank
+                      render 'pin-product', product: block.settings.product3, block: block, index: 4, pos_top: block.settings.pos_top3, pos_left: block.settings.pos_left3, placement: section.settings.placement
+                    endif 
+                  -%}
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- if section.blocks.size > 1 -%}
+        {%- if section.settings.navigate_style == 'mixed' -%}
+          {%- if section.settings.navUI == true or section.settings.dotUI == true -%}
+            <div class="hdt-lookbook_nav hdt-nav_mixed hdt-inline-flex hdt-justify-center hdt-align-center hdt-absolute hdt-left-0 hdt-right-0">
+              <div class="hdt-lookbook_nav-wrap hdt-s-gradient hdt-inline-flex hdt-align-center">
+                {%- if section.settings.navUI == true -%}              
+                  <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slide_button previous" name="previous"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+                    <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z"/>
+                  </svg></button>
+                {%- endif -%}
+                {%- if section.settings.dotUI == true -%}
+                  <div aria-controls="lookbook-carousel-id-{{ section.id }}" hdt-slider-dots class="hdt-slider__dots hdt-inline-flex hdt-justify-center"></div>
+                {%- endif -%}
+                {%- if section.settings.navUI == true -%}
+                  <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slide_button next" name="next"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+                    <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z"/>
+                  </svg></button>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+        {%- elsif section.settings.navigate_style == 'normal' -%}
+          {%- if section.settings.navUI == true -%}
+            <div class="hdt-lookbook_nav2 hdt-hidden@mobile hdt-nav_normal hdt-pe-none hdt-flex hdt-justify-between hdt-align-center hdt-absolute hdt-left-0 hdt-right-0">
+              <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slider__button hdt-slider__button--prev hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center" name="previous">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+                  <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z"/>
+                </svg>
+              </button>
+              <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slider__button hdt-slider__button--next hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center" name="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+                  <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z"/>
+                </svg>
+              </button>
+            </div>
+          {%- endif -%}
+            <div aria-controls="lookbook-carousel-id-{{ section.id }}" hdt-slider-dots class="hdt-slider__dots {% if section.settings.dotUI == false %}md:hdt-hidden {% endif %}hdt-dot_normal hdt-inline-flex hdt-absolute hdt-left-0 hdt-right-0 hdt-justify-center"></div>
+        {%- endif -%}
+      {%- endif -%}
+    </hdt-slider>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.lookbook.name2",
+  "tag": "section",
+  "class": "hdt-section hdt-lookbook hdt-lookbook-slider",
+  "disabled_on": {
+    "groups": [
+      "*"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.section_heading_options"
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "t:sections.title.settings.heading_align.label",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.title.settings.heading_align.options_1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.title.settings.heading_align.options_2.label"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "sec_heading",
+      "label": "t:sections.all.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:sections.all.heading.heading_tag.label",
+      "default": "h3",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading.heading_tag.options_2.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading.heading_tag.options_3.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading.heading_tag.options_4.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading.heading_tag.options_5.label"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.all.heading.heading_tag.options_6.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "text-lg",
+          "label": "t:sections.all.heading.heading_size.options.small"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading.heading_size.options.medium"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading.heading_size.options.large"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading.heading_size.options.extralarge"
+        }
+      ],
+      "label": "t:sections.all.heading.heading_size.label",
+      "default": "h4"
+    },
+    {
+      "type": "richtext",
+      "id": "sec_subheading",
+      "label": "t:sections.all.sub_heading.label"
+    },
+    {
+      "type": "select",
+      "id": "subheading_size",
+      "label": "t:sections.gallery.settings.sub_heading.options.subheading_size",
+      "options": [
+        {
+          "value": "base",
+          "label": "t:sections.all.sub_heading.subheading_size.options.base"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.sub_heading.subheading_size.options.default"
+        },
+        {
+          "value": "xl",
+          "label": "t:sections.all.sub_heading.subheading_size.options.medium"
+        },
+        {
+          "value": "2xl",
+          "label": "t:sections.all.sub_heading.subheading_size.options.large"
+        },
+        {
+          "value": "10xl",
+          "label": "t:sections.all.sub_heading.subheading_size.options.extralarge"
+        }
+      ],
+      "default": "lg"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_reverse",
+      "label": "t:sections.gallery.settings.heading_reverse",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "heading_gap",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.heading_gap",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "sec_heading_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.sec_heading_spacing",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "t:sections.lookbook.general"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "t:sections.all.images.ratio.label",
+      "options": [
+        {
+          "value": "square",
+          "label": "t:sections.all.images.ratio.square.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.images.ratio.portrait.label"
+        },
+        {
+          "value": "asos",
+          "label": "t:sections.all.images.ratio.asos.label"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.images.ratio.landscape.label"
+        },
+        {
+          "value": "adapt_image",
+          "label": "t:sections.all.images.ratio.adapt_image.label"
+        }
+      ],
+      "default": "adapt_image"
+    },
+    {
+      "type": "select",
+      "id": "item_show",
+      "label": "t:sections.lookbook.settings.item_show.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "22",
+          "label": "1 (75% width)"
+        },
+        {
+          "value": "2",
+          "label": "2 (50% width)"
+        }
+      ],
+      "default": "1",
+      "info": "t:sections.lookbook.settings.item_show.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.lookbook.blocks.color"
+    },
+    {
+      "type": "select",
+      "id": "placement",
+      "label": "t:sections.lookbook.placement.label",
+      "options": [
+        {
+          "value": "top-start",
+          "label": "t:sections.all.placement.options.top-start"
+        },
+        {
+          "value": "top",
+          "label": "t:sections.all.placement.options.top"
+        },
+        {
+          "value": "top-end",
+          "label": "t:sections.all.placement.options.top-end"
+        },
+        {
+          "value": "bottom-start",
+          "label": "t:sections.all.placement.options.bottom-start"
+        },
+        {
+          "value": "bottom",
+          "label": "t:sections.all.placement.options.bottom"
+        },
+        {
+          "value": "bottom-end",
+          "label": "t:sections.all.placement.options.bottom-end"
+        },
+        {
+          "value": "left-start",
+          "label": "t:sections.all.placement.options.left-start"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.all.placement.options.left"
+        },
+        {
+          "value": "left-end",
+          "label": "t:sections.all.placement.options.left-end"
+        },
+        {
+          "value": "right-start",
+          "label": "t:sections.all.placement.options.right-start"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.placement.options.right"
+        },
+        {
+          "value": "right-end",
+          "label": "t:sections.all.placement.options.right-end"
+        }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.slider.label"
+    },
+    {
+      "type": "select",
+      "id": "navigate_style",
+      "label": "t:sections.lookbook.settings.navigate.label",
+      "options": [
+        {
+          "value": "mixed",
+          "label": "t:sections.lookbook.settings.navigate.options.mixed"
+        },
+        {
+          "value": "normal",
+          "label": "t:sections.lookbook.settings.navigate.options.normal"
+        }
+      ],
+      "default": "mixed"
+    },
+    {
+      "type": "checkbox",
+      "id": "navUI",
+      "label": "t:sections.all.slider.navUI",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "dotUI",
+      "label": "t:sections.all.slider.dotUI",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 75
+    }
+  ],
+  "blocks": [
+    {
+      "type": "lookbook_item",
+      "name": "t:sections.lookbook.blocks.label_2",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.lookbook.blocks.image"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.lookbook.blocks.pin.pin_1"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "t:sections.lookbook.blocks.product"
+        },
+        {
+          "type": "range",
+          "id": "pos_top",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.lookbook.blocks.pos_top",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "pos_left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.lookbook.blocks.pos_left",
+          "default": 50
+        },
+        {
+          "type": "header",
+          "content": "t:sections.lookbook.blocks.pin.pin_2"
+        },
+        {
+          "type": "product",
+          "id": "product1",
+          "label": "t:sections.lookbook.blocks.product"
+        },
+        {
+          "type": "range",
+          "id": "pos_top1",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.lookbook.blocks.pos_top",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "pos_left1",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.lookbook.blocks.pos_left",
+          "default": 50
+        },
+        {
+          "type": "header",
+          "content": "t:sections.lookbook.blocks.pin.pin_3"
+        },
+        {
+          "type": "product",
+          "id": "product2",
+          "label": "t:sections.lookbook.blocks.product"
+        },
+        {
+          "type": "range",
+          "id": "pos_top2",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.lookbook.blocks.pos_top",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "pos_left2",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.lookbook.blocks.pos_left",
+          "default": 50
+        },
+        {
+          "type": "header",
+          "content": "t:sections.lookbook.blocks.pin.pin_4"
+        },
+        {
+          "type": "product",
+          "id": "product3",
+          "label": "t:sections.lookbook.blocks.product"
+        },
+        {
+          "type": "range",
+          "id": "pos_top3",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.lookbook.blocks.pos_top",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "pos_left3",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.lookbook.blocks.pos_left",
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.lookbook.name2",
+      "blocks": [
+        {
+          "type": "lookbook_item",
+          "settings": {
+            "product": "",
+            "pos_top": 50,
+            "pos_left": 50,
+            "product1": "",
+            "pos_top1": 50,
+            "pos_left1": 50,
+            "product2": "",
+            "pos_top2": 50,
+            "pos_left2": 50,
+            "product3": "",
+            "pos_top3": 50,
+            "pos_left3": 50
+          }
+        },
+        {
+          "type": "lookbook_item",
+          "settings": {
+            "product": "",
+            "pos_top": 50,
+            "pos_left": 50,
+            "product1": "",
+            "pos_top1": 50,
+            "pos_left1": 50,
+            "product2": "",
+            "pos_top2": 50,
+            "pos_left2": 50,
+            "product3": "",
+            "pos_top3": 50,
+            "pos_left3": 50
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

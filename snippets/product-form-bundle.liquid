@@ -1,0 +1,172 @@
+{%- comment -%}
+  Renders product buy-buttons.
+  Accepts:
+  - product: {Object} product object.
+  - block: {Object} passing the block information.
+  - section_id: {String} id of section to which this snippet belongs.
+
+  Usage:
+  {%- render 'product-form-bundle', block: block, product: product, section_id: section.id -%}
+{%- endcomment -%}
+{%- liquid
+  assign selected_variant = product.selected_or_first_available_variant
+  assign bundle_form_id = 'bundle-form-' | append: section_id | append: '-' | append: block.id
+  assign complementary_products = product.metafields.shopify--discovery--product_recommendation.complementary_products.value | default: section.settings.product_list | default: block.settings.product_list
+  if complementary_products != blank
+  assign complementary_products_available = complementary_products | where: "available", true
+  endif
+  assign image_size = 166
+-%}
+
+{%- if complementary_products_available.size > 0 -%}
+{%- comment -%}
+  <div>
+    <div class="hdt-observe-bundle-item is-checked" id="observe-{{ block.id }}-{% increment index3 %}">
+      {{ selected_variant.image | default: product.featured_image | image_url: width: image_size | image_tag: srcset: nil, sizes: '80px', update-img: '' }}
+    </div>
+    {%- for item in complementary_products_available limit: 10 -%}
+      <div class="hdt-observe-bundle-item is-checked" id="observe-{{ block.id }}-{% increment index3 %}">
+        {%- liquid
+          assign v_image = item.variants.first.image | default: item.featured_image
+          if v_image != blank
+          echo v_image | image_url: width: image_size | image_tag: srcset: nil, sizes: '80px', update-img: ''
+          endif
+        -%}
+      </div>
+    {%- endfor %}
+  </div>
+{%- endcomment -%}
+  <div class="hdt-product__bundle-wrap">
+    <div class="hdt-bundle-products-title hdt-text-2xl hdt-font-medium">{{ 'products.product.fbt.title' | t }}</div>
+    <wrapp-hdt-pr-frm-bundle class="hdt-contents">
+      {%- form 'product', product, id: bundle_form_id, class: 'hdt-product-form-bundle', novalidate: 'novalidate' -%}
+        <div class="hdt-bundle-products">
+          {%- liquid
+          assign available_v = product.variants | where: "available"
+          assign available_v_first = available_v.first
+          assign total_price = selected_variant.price
+          assign total_compare_at_price = selected_variant.compare_at_price | default: total_price
+          assign v_image = selected_variant.image | default: product.featured_image
+          -%}
+          <hdt-bundle-product class="hdt-bundle-product__item is-checked" observes="observe-{{ block.id }}-{% increment index0 %}">
+            <div class="hdt-product__bundle-check hdt-align-self-center">
+              <input autocomplete="off" type="checkbox" checked="checked" id="bundle-ck-{{ block.id }}-{% increment index %}" class="sr-only">
+              <label for="bundle-ck-{{ block.id }}-{% increment index2 %}" class="hdt-pe-none no-js-hidden"><svg class="hdt-icon-checked" width="10" height="10" viewBox="0 0 24 24"><path d="M9 20l-7-7 3-3 4 4L19 4l3 3z"></path></svg></label>
+            </div>
+            <div class="hdt-product__bundle-image">
+              {%- liquid
+                if v_image != blank
+                  echo '<a href="' | append: product.url | append: '">'
+                    echo v_image | image_url: width: image_size | image_tag: srcset: nil, sizes: '83px', update-img: ''
+                  echo '</a>'
+                endif
+              -%}
+            </div>
+            <div class="hdt-product__bundle-infos">
+              <span class="hdt-product__bundle-title hdt-text-base hdt-block"><strong>{{ 'products.product.fbt.this_item' | t }}</strong> {{ product.title }}</span>
+              {%- if product.has_only_default_variant -%}
+                <input data-groups-pr-sl name="items[][id]" data-cpprice="{{ available_v_first.compare_at_price | default: available_v_first.price }}" data-price="{{ available_v_first.price }}" value="{{ available_v_first.id }}" type="hidden">
+              {%- else -%}
+                <div class="hdt-product__bundle-variant hdt-relative hdt-inline-block">
+                  <select name="items[][id]" autocomplete="off" class="hdt-select hdt-s-text" data-cpprice="{{ available_v_first.compare_at_price | default: available_v_first.price }}" data-price="{{ available_v_first.price }}">
+                    {%- for variant in available_v -%}
+                      <option data-img="{{ variant.image | default: product.featured_image | image_url: width: image_size }}" data-cpprice="{{ variant.compare_at_price | default: variant.price }}" data-price="{{ variant.price }}" data-qty="{{ variant.quantity_rule.min }}" value="{{ variant.id }}"{% if forloop.first %} selected="selected"{% endif %}>{{ variant.title | escape }}</option>
+                    {%- endfor -%}
+                  </select>
+                </div>
+              {%- endif -%}
+              <input update-qty value="{{ available_v_first.quantity_rule.min }}" type="hidden" name="items[][quantity]">
+              <div class="hdt-product__bundle-price" update-price>
+                <hdt-compare-at-price class="hdt-compare-at-price" {% unless available_v_first.compare_at_price > available_v_first.price %} hidden{% endunless %}>
+                  <span class="sr-only sr-only--inline">{{ 'products.product.price.regular_price' | t }}</span>
+                  <span class="hdt-money">{{ available_v_first.compare_at_price | money }}</span>
+                </hdt-compare-at-price>
+                <hdt-price class="hdt-price">
+                  <span class="sr-only sr-only--inline">{{ 'products.product.price.sale_price' | t }}</span>
+                  <span class="hdt-money">{{ available_v_first.price | money }}</span>
+                </hdt-price>
+              </div>
+            </div>
+          </hdt-bundle-product>
+
+          {%- for item in complementary_products_available limit: 10 -%}
+            {%- liquid
+            if product.id == item.id
+              continue
+            endif
+            assign available_v = item.variants | where: "available"
+            assign available_v_first = available_v.first
+            assign cu_pr = available_v_first.price
+            assign cp_pr = available_v_first.compare_at_price | default: cu_pr
+            assign total_price = total_price | plus: cu_pr
+            assign total_compare_at_price = total_compare_at_price | plus: cp_pr
+            assign v_image = available_v_first.image | default: item.featured_image
+            -%}
+            <hdt-bundle-product class="hdt-bundle-product__item is-checked" observes="observe-{{ block.id }}-{% increment index0 %}">
+              <div class="hdt-product__bundle-check hdt-align-self-center">
+                <input autocomplete="off" type="checkbox" checked="checked" id="bundle-ck-{{ block.id }}-{% increment index %}" class="sr-only">
+                <label for="bundle-ck-{{ block.id }}-{% increment index2 %}" class="no-js-hidden"><svg class="hdt-icon-checked" width="10" height="10" viewBox="0 0 24 24"><path d="M9 20l-7-7 3-3 4 4L19 4l3 3z"></path></svg></label>
+              </div>
+              <div class="hdt-product__bundle-image hdt-inline-block">
+                {%- liquid
+                  if v_image != blank
+                    echo '<a href="' | append: item.url | append: '">'
+                      echo v_image | image_url: width: image_size | image_tag: srcset: nil, sizes: '83px', update-img: ''
+                    echo '</a>'
+                  endif
+                -%}
+              </div>
+              <div class="hdt-product__bundle-infos">
+                <a href="{{ item.url }}" class="hdt-product__bundle-title hdt-text-base hdt-block">{{ item.title }}</a>
+                {%- if item.has_only_default_variant -%}
+                  <input data-groups-pr-sl name="items[][id]" data-cpprice="{{ available_v_first.compare_at_price | default: available_v_first.price }}" data-price="{{ available_v_first.price }}" value="{{ available_v_first.id }}" type="hidden">
+                {%- else -%}
+                  <div class="hdt-product__bundle-variant hdt-relative hdt-inline-block">
+                    <select name="items[][id]" autocomplete="off" class="hdt-select hdt-s-text" data-cpprice="{{ available_v_first.compare_at_price | default: available_v_first.price }}" data-price="{{ available_v_first.price }}">
+                      {%- for variant in available_v -%}
+                        <option data-img="{{ variant.image | default: item.featured_image | image_url: width: image_size }}" data-cpprice="{{ variant.compare_at_price | default: variant.price }}" data-price="{{ variant.price }}" data-qty="{{ variant.quantity_rule.min }}" value="{{ variant.id }}"{% if forloop.first %} selected="selected"{% endif %}>{{ variant.title | escape }}</option>
+                    {%- endfor -%}
+                    </select>
+                  </div>
+                {%- endif -%}
+                <input update-qty value="{{ available_v_first.quantity_rule.min }}" type="hidden" name="items[][quantity]">
+                <div class="hdt-product__bundle-price" update-price>
+                  <hdt-compare-at-price class="hdt-compare-at-price"{% unless available_v_first.compare_at_price > available_v_first.price %} hidden{% endunless %}>
+                    <span class="sr-only sr-only--inline">{{ 'products.product.price.regular_price' | t }}</span>
+                    <span class="hdt-money">{{ available_v_first.compare_at_price | money }}</span>
+                  </hdt-compare-at-price>
+                  <hdt-price class="hdt-price">
+                    <span class="sr-only sr-only--inline">{{ 'products.product.price.sale_price' | t }}</span>
+                    <span class="hdt-money">{{ available_v_first.price | money }}</span>
+                  </hdt-price>
+                </div>
+              </div>
+            </hdt-bundle-product>
+          {%- endfor -%}
+        </div>
+        <div class="hdt-product__bundle-total-submit" update-total data-cpprice="{{ total_compare_at_price }}" data-price="{{ total_price }}">
+          <div class="hdt-product__bundle-total">
+            <span class="hdt-text-2xl hdt-font-semibold">{{ 'products.product.fbt.tt_price' | t }}</span>
+            <div class="hdt-product__bundle-total-price">
+              <hdt-compare-at-price class="hdt-compare-at-price"{% unless total_compare_at_price > total_price %} hidden{% endunless %}>
+                <span class="sr-only sr-only--inline">{{ 'products.product.price.regular_total_price' | t }}</span>
+                <span class="hdt-money">{{ total_compare_at_price | money }}</span>
+              </hdt-compare-at-price>
+              <hdt-price class="hdt-price">
+                <span class="sr-only sr-only--inline">{{ 'products.product.price.sale_total_price' | t }}</span>
+                <span class="hdt-money">{{ total_price | money }}</span>
+              </hdt-price>
+            </div>
+          </div>
+        </div>
+        <button id="ProductBundleSubmitButton-{{ section_id }}" type="submit" name="add" class="hdt-product__bundle-submit hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-btn hdt-oh hdt-btn-solid hdt-font-semibold hdt-btn-loading__svg">
+          <span class="hdt-btn-atc_text">{{ 'products.product.add_selected_to_cart' | t }}</span>
+          <span class="hdt-loading__spinner hdt-absolute" hidden>
+            <svg width="16" height="16" class="hdt-svg-spinner" focusable="false" role="presentation" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="hdt-path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle></svg>
+          </span>
+        </button>
+      {%- endform -%}
+    </wrapp-hdt-pr-frm-bundle>
+    </div>
+{%- endif -%}
+<style>.hdt-product-form-bundle input[type=checkbox]+label { width: 1.9rem; height: 1.9rem; border: .1rem solid; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--rounded-input); } .hdt-product__bundle-check svg { display: block; color: rgb(var(--color-accent-secondary)); fill: currentColor; transform: scale(0); transition: .25s ease-in-out } .hdt-product-form-bundle input[type=checkbox]:checked+label { background-color: rgb(var(--color-accent)); border-color: rgb(var(--color-accent)) } .hdt-product-form-bundle input[type=checkbox]:checked+label svg { transform: scale(1) } hdt-bundle-product img { width: 8.3rem; min-width:8.3rem; max-width:8.3rem; border-radius:var(--rounded-xs); } :is(hdt-bundle-product, .hdt-observe-bundle-item):not(.is-checked) { opacity: .2 } .hdt-bundle-products-title { margin-bottom: 2.5rem } .hdt-product__bundle-title { margin-bottom: .5rem; transition: color .3s } .hdt-product__bundle-variant { margin-bottom: 1rem } .hdt-product__bundle-variant .hdt-select{ height:4rem; } .hdt-product__bundle-wrap { padding: var(--spacing-1-4); border: .1rem solid rgb(var(--color-line-border)); border-radius: var(--rounded-xs); } .hdt-bundle-product__item { display: flex; gap: 1rem } .hdt-bundle-products>:not(:last-child) { margin-bottom: 1.5rem } .hdt-product__bundle-total { margin: 1.6rem 0 } .hdt-product__bundle-submit.hdt-btn { --hdt-btn-size: var(--text-lg) } .hdt-product__bundle-submit.hdt-btn-solid { width: 100%; --color-button-text: var(--color-accent-secondary); --color-button: var(--color-accent); --hdt-border-color: rgb(var(--color-accent)) } .hdt-product__bundle-price .hdt-compare-at-price { font-size: var(--text-base); font-weight: var(--font-normal); color: rgb(var(--color-pr-price)) } .hdt-product__bundle-price .hdt-price { font-size: var(--text-base); font-weight: var(--font-semibold); letter-spacing: 0 } .hdt-product__bundle-total-price{ flex-direction: row-reverse;display:inline-flex; align-items:center;column-gap: 1rem;flex-wrap: wrap;justify-content: start } .hdt-product__bundle-total .hdt-price { font-size: var(--text-4xl); letter-spacing: 0 } .hdt-product__bundle-total .hdt-compare-at-price { font-size: var(--text-2xl) } @media (min-width:1150px) { .hdt-product__bundle-wrap { padding: var(--spacing-3-4) } .hdt-product__bundle-total .hdt-price { font-size: var(--text-10xl) } .hdt-bundle-product__item { gap: 2rem } } @media (max-width:767px){ hdt-bundle-product img { width: 6rem; min-width:6rem; max-width:6rem; } .hdt-product__bundle-variant .hdt-select{ height:3.6rem; } } @media (-moz-touch-enabled:0), (hover:hover) and (min-width:1150px) { a.hdt-product__bundle-title:hover { color: rgb(var(--color-accent)) } }</style>

@@ -1,0 +1,13 @@
+<script>if (!HTMLScriptElement.supports?.("importmap")) { const importMap = document.createElement('script'); importMap.async = true; importMap.src = "{{ 'importmap.min.js' | asset_url }}"; document.head.appendChild(importMap); }</script>
+<script type="importmap">
+  {
+    "imports": {
+      "vendor": "{{ 'vendor.min.js' | asset_url }}",
+      "global": "{{ 'global.min.js' | asset_url }}",
+      "photoswipe": "{{ 'es-photoswipe.min.js' | asset_url }}",
+      "dayjs": "{{ 'day.min.js' | asset_url }}"
+    }
+  }
+</script>
+<script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
+<script type="module" src="{{ 'global.min.js' | asset_url }}"></script>

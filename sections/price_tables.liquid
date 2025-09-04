@@ -1,0 +1,534 @@
+<!-- Price-table.liquid -->
+{% comment %} {{ 'hdt-card-products.css' | asset_url | stylesheet_tag }} {% endcomment %}
+{{ 'hdt-price-tables.css' | asset_url | stylesheet_tag }}
+{%-liquid
+  
+  assign current_width = settings.page_width | append: 'px'
+  assign current_width_tb = '100vw'
+  assign current_width_mb = '100vw'
+  assign space_item = "30px"
+  assign space_item_tb = "15px"
+  assign space_item_mb = "15px" 
+  assign color_list = 'products.theme_settings.color' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+  assign size_list = 'products.theme_settings.size' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+-%}
+{% capture sizes %}
+  (min-width: 1150px) calc(({{ current_width }} -  {{ space_item }} * {{ section.settings.col_dk | minus: 1 }}) * {{ 1.00 | divided_by: section.settings.col_dk | round: 2 }}) {{- -}}
+  , (min-width: 768px) calc( ({{ current_width_tb }} - {{ space_item_tb }} * {{ section.settings.col_tb | minus: 1 }} ) * {{ 1.00 | divided_by: section.settings.col_tb | round: 2 }})  {{- -}}
+  , calc( ({{ current_width_mb }} - {{ space_item_mb }} * {{ section.settings.col_mb | minus: 1 }} ) * {{ 1.00 | divided_by: section.settings.col_mb | round: 2 }})
+{% endcapture %}
+<div id="{{ section.id }}" class="hdt-section-spacing hdt-s-gradient" color-scheme="{{ section.settings.color_scheme }}" style="--section-pt: {{ section.settings.padding_top }}px; --section-pb: {{ section.settings.padding_bottom }}px; --section-prate:{{ section.settings.padding_rate }};">
+  <div class="hdt-container{%- if section.settings.section_fullwidth -%}-full{% endif %}">
+    <div class="hdt-price-table-heading hdt-text-center" style="--sec-heading-spacing:{{ section.settings.sec_heading_spacing }}px;">
+      {%- if section.settings.top_heading != blank -%}
+        <{{ section.settings.heading_tag }} class="hdt-section-title hdt-title hdt-s-text hdt-{{ section.settings.heading_size }} "> {{ section.settings.top_heading }} </{{ section.settings.heading_tag }}>
+      {%- endif -%} 
+      {%- if section.settings.top_description != blank -%}
+        <div class="hdt-section-des hdt-rte hdt-s-text2 {% if section.settings.design_heading == "2" %} hdt-order-first {% endif %} hdt-text-{{ section.settings.heading_align }} {{ section.settings.subheading_size }}">
+          {{ section.settings.top_description | default: '<p>' }}
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="hdt-main-price-table">
+      <hdt-slider id="Slider-{{ section.id }}" class="hdt-relative hdt-pr-style1 hdt-product-btns hdt-icon-check-{{ section.settings.enable_icon_check }} hdt-slider hdt-slider-parent hdt-slide-spacing-x {% if section.settings.navUI %}hdt-slider-has-nav hdt-nav-btns-default hdt-nav-middle_out{% endif %}{% if section.settings.dotUI %}
+        hdt-slider-has-dots-dk{% endif %} hdt-slider__dots_outline hdt-ratio--{{ section.settings.image_ratio }} {% unless section.settings.image_size %} hdt-ratio--contain{% endunless %} lg:hdt-slides-{{ section.settings.col_dk }} md:hdt-slides-{{ section.settings.col_tb }} hdt-slides-{{ section.settings.col_mb }}" config='{ "id": "Slider-{{ section.id }}", "navUI": {{ section.settings.navUI }}, "dotUI": true, "navUICenter": true}' >
+        <div class="hdt-slider__viewport hdt-relative">
+          <div class="hdt-slider__container">
+            {%- for block in section.blocks -%}
+              {%- assign array_txt = block.settings.content | newline_to_br | split: '<br />' -%}
+              <div class="hdt-price-table-item hdt-slider__slide" color-scheme="{{ block.settings.color_scheme }}" style="--color-custom-badge-label:{{ block.settings.label_cl }}">
+                <div class="hdt-price-table-inner hdt-rounded hdt-oh">
+                  <div class="hdt-price-table-head hdt-card-product">
+                    {%- if block.settings.product != blank -%}
+                      {%- liquid
+                        assign product = block.settings.product
+                        assign product_url = product.url
+                        capture btn_wishlist_code
+                        if settings.wishlist_mode != '0'
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
+                        endif
+                      endcapture
+                      -%}
+                      {% render 'card-product-price-tables', card_product: product, class: "hdt-slider__slide hdt-pr-style1", section_id: block.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: block.settings.show_vendor, pr_card_alignment: section.settings.content_pos %}
+                    {%- else -%}
+                    {%- capture current -%}{%- cycle 1, 2 , 3 -%}{%- endcapture -%}
+                    {%- assign placeholder_image = 'product-apparel-' | append: current -%}
+                    <div class="hdt-price-table-item" color-scheme="{{ block.settings.color_scheme }}" style="--color-custom-badge-label:{{ block.settings.label_cl }}">
+                      <div class="hdt-price-table-inner hdt-rounded hdt-oh">
+                        <div class="hdt-price-table-head hdt-card-product">
+                          {%- render 'card-product-placeholder', image_ratio: section.settings.image_ratio, placeholder_image: placeholder_image, section_id: section.id -%}
+                        </div>
+                      </div>
+                    </div>
+                    {%- endif -%}
+                  </div>
+                  <div class="hdt-price-table-contents">
+                    {%- if block.settings.content != blank -%}
+                      {%- assign item_size = array_txt.size | minus: 1 -%}
+                      <ul class="hdt-price-table-content hdt-flex hdt-flex-col hdt-align-{{ section.settings.content_pos }}">
+                        {%- for i in (0.. item_size) -%}
+                            <li class="hdt-font-medium hdt-text-lg hdt-s-text2"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none"class="hdt-hidden hdt-s-text">
+                              <path d="M4.59503 9.13837C4.48049 9.2536 4.32419 9.31788 4.16186 9.31788C3.99953 9.31788 3.84323 9.2536 3.72869 9.13837L0.26926 5.67837C-0.0897535 5.31935 -0.0897535 4.73718 0.26926 4.37885L0.702432 3.94556C1.06156 3.58655 1.64305 3.58655 2.00206 3.94556L4.16189 6.10548L9.99794 0.269261C10.3571 -0.0897535 10.9391 -0.0897535 11.2976 0.269261L11.7307 0.702547C12.0898 1.06156 12.0898 1.64362 11.7307 2.00206L4.59503 9.13837Z" fill="CurrentColor"/>
+                              </svg>{{ array_txt[i]}}</li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                    {%- if block.settings.btn_label != blank -%}
+                      <div class="hdt-price-table-btn hdt-text-center">
+                        <a href="{{block.settings.product.url }}" 
+                            target="{% if block.settings.target %}_blank{% else %}_self{% endif %}" class="hdt-btn hdt-text-{{ block.settings.btn_size }} hdt-store-btn hdt-oh hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-btn-{{ block.settings.btn_style }} hdt-font-{{ block.settings.btn_fw }}">
+                          {{ block.settings.btn_label }}
+                          {%- if block.settings.btn_icon == "1" -%}
+                            <svg class="hdt-icon hdt-icon-1" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 64 64" fill="currentColor"><path d="M12,56.43,36.48,32,12,7.52,19.53,0,51.61,32,19.53,64Z"/></svg>
+                          {%- elsif block.settings.btn_icon == "2" -%}
+                            <svg class="hdt-icon hdt-icon-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"  viewBox="0 0 64 64" fill="currentColor"><path d="M6.89,64,0,57.11,47.26,9.85H4.92V0H64V59.08H54.15V16.74Z"/></svg>
+                          {%- else -%}
+                          {%- endif -%}
+                        </a>
+                      </div>
+                    {%- endif -%}       
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+        {%- render 'nav_slider', nav_des: section.settings.nav_des -%}
+        <div hdt-slider-dots class="hdt-slider__dots hdt-flex hdt-align-center hdt-justify-center no-js-hidden" aria-controls="Slider-{{ section.id }}"></div>
+      </hdt-slider>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "t:sections.price-tables.name",
+    "class": "hdt-section hdt-price-tables",
+    "disabled_on": {
+      "groups": [
+        "*"
+      ]
+    },
+    "settings": [
+      {
+        "type": "text",
+        "id": "top_heading",
+        "label": "t:sections.accordion.blocks.title.label",
+        "default": "Discovery all new items"
+      },
+      {
+        "type": "select",
+        "id": "heading_tag",
+        "label": "t:sections.title.settings.heading_tag.label",
+        "default": "h3",
+        "options": [
+          {
+            "value": "h2",
+            "label": "t:sections.title.settings.heading_tag.options_2.label"
+          },
+          {
+            "value": "h3",
+            "label": "t:sections.title.settings.heading_tag.options_3.label"
+          },
+          {
+            "value": "h4",
+            "label": "t:sections.title.settings.heading_tag.options_4.label"
+          },
+          {
+            "value": "h5",
+            "label": "t:sections.title.settings.heading_tag.options_5.label"
+          },
+          {
+            "value": "h6",
+            "label": "t:sections.title.settings.heading_tag.options_6.label"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h5",
+            "label": "t:sections.all.heading.heading_size.options.medium"
+          },
+          {
+            "value": "h4",
+            "label": "t:sections.all.heading.heading_size.options.large"
+          }
+        ],
+        "label": "t:sections.all.heading.heading_size.label",
+        "default": "h4"
+      },
+      {
+        "type": "richtext",
+        "id": "top_description",
+        "label": "t:sections.title.settings.top_description.label",
+        "default": "<p>Be the first to know when we launch.</p>"
+      },
+      {
+        "type": "range",
+        "id": "sec_heading_spacing",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.gallery.settings.sec_heading_spacing",
+        "default": 30
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.section_general_options"
+      },
+      {
+        "type":"checkbox",
+        "id":"enable_icon_check",
+        "label":"t:sections.price-tables.settings.enable_icon_check.label",
+        "default":true
+      },
+      {
+        "type":"select",
+        "id":"content_pos",
+        "options":[
+          {
+            "value":"start",
+            "label":"t:sections.price-tables.settings.content_pos.option_1"
+          },
+          {
+            "value":"center",
+            "label":"t:sections.price-tables.settings.content_pos.option_2"
+          }
+        ],
+        "label":"t:sections.price-tables.settings.content_pos.label",
+        "default":"start"
+      },
+      {
+        "type": "select",
+        "id": "image_ratio",
+        "options": [
+          {
+            "value": "adapt_image",
+            "label": "t:sections.all.images.ratio.adapt_image.label"
+          },
+          {
+            "value": "square",
+            "label": "t:sections.all.images.ratio.square.label"
+          },
+          {
+            "value": "portrait",
+            "label": "t:sections.all.images.ratio.portrait.label"
+          },
+          {
+            "value": "asos",
+            "label": "t:sections.all.images.ratio.asos.label"
+          },
+          {
+            "value": "landscape",
+            "label": "t:sections.all.images.ratio.landscape.label"
+          }
+        ],
+        "label": "t:sections.all.images.ratio.label",
+        "default": "adapt_image"
+      },
+      {
+        "type": "checkbox",
+        "id": "image_size",
+        "label": "t:sections.all.images.size.cover",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "col_dk",
+        "label": "t:sections.all.items_row.desktop",
+        "default": "3",
+        "options": [
+          {
+            "label": "2",
+            "value": "2"
+          },
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "col_tb",
+        "label": "t:sections.all.items_row.tablet",
+        "default": "3",
+        "options": [
+          {
+            "label": "1",
+            "value": "1"
+          },
+          {
+            "label": "2",
+            "value": "2"
+          },
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "col_mb",
+        "label": "t:sections.all.items_row.mobile",
+        "default": "1",
+        "options": [
+          {
+            "label": "1",
+            "value": "1"
+          },
+          {
+            "label": "2",
+            "value": "2"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "navUI",
+        "label": "t:sections.all.slider.navUI",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "dotUI",
+        "label": "t:sections.all.slider.dotUI",
+        "default": false
+      },  
+      {
+        "type": "header",
+        "content": "t:sections.all.section_layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "section_fullwidth",
+        "label": "t:sections.all.section_fullwidth",
+        "default": false
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-1"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "padding_rate",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "t:sections.all.padding.padding_rate",
+        "default": 75
+      }
+    ],
+    "blocks":[
+      {
+        "type": "package",
+				"name": "t:sections.price-tables.blocks.name",
+        "settings":[
+          {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "t:sections.all.colors.label",
+            "default": "background-1"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "t:sections.price-tables.blocks.settings.product.label",
+            "info": "t:sections.price-tables.blocks.settings.product.info"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_vendor",
+            "label": "t:sections.collection_products.settings.show_vendor",
+            "default": true
+          },
+          {
+            "type": "color",
+            "id": "label_cl",
+            "label": "t:sections.price-tables.blocks.settings.label_cl.label",
+            "default": "#FF3232"
+          },
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "t:sections.price-tables.blocks.settings.content.label",
+            "info": "t:sections.price-tables.blocks.settings.content.info"
+          },
+          {
+            "type": "text",
+            "id": "btn_label",
+            "label": "t:sections.store_tabs.blocks.store_item.btn_label",
+            "default": "View details"
+          },
+          {
+            "type": "checkbox",
+            "id": "target",
+            "label": "t:sections.all.button.settings.target.label",
+            "default": false
+          },
+          {
+            "type": "select",
+            "id": "btn_size",
+            "label": "t:sections.all.button.settings.font_size.label",
+            "options": [
+              {
+                "value": "xs",
+                "label": "t:sections.all.button.settings.font_size.options.xs"
+              },
+              {
+                "value": "sm",
+                "label": "t:sections.all.button.settings.font_size.options.sm"
+              },
+              {
+                "value": "base",
+                "label": "t:sections.all.button.settings.font_size.options.base"
+              },
+              {
+                "value": "lg",
+                "label": "t:sections.all.button.settings.font_size.options.lg"
+              },
+              {
+                "value": "xl",
+                "label": "t:sections.all.button.settings.font_size.options.xl"
+              }
+            ],
+            "default": "base"
+          },
+          {
+            "type": "select",
+            "id": "btn_style",
+            "label": "t:sections.all.button.settings.style.label",
+            "options": [
+              {
+                "value": "solid",
+                "label": "t:sections.all.button.settings.style.options.option_1"
+              },
+              {
+                "value": "outline",
+                "label": "t:sections.all.button.settings.style.options.option_2"
+              },
+              {
+                "value": "outline-2",
+                "label": "t:sections.all.button.settings.style.options.option_3"
+              },
+              {
+                "value": "link",
+                "label": "t:sections.all.button.settings.style.options.option_4"
+              }
+            ],
+            "default": "solid"
+          },
+          {
+            "type": "select",
+            "id": "btn_fw",
+            "label": "t:sections.all.button.settings.font_weight.label",
+            "options": [
+              {
+                "value": "normal",
+                "label": "t:sections.all.button.settings.font_weight.options.option_1"
+              },
+              {
+                "value": "medium",
+                "label": "t:sections.all.button.settings.font_weight.options.option_2"
+              },
+              {
+                "value": "semibold",
+                "label": "t:sections.all.button.settings.font_weight.options.option_3"
+              },
+              {
+                "value": "bold",
+                "label": "t:sections.all.button.settings.font_weight.options.option_4"
+              }
+            ],
+            "default": "semibold"
+          },
+          {
+            "type": "select",
+            "id": "btn_icon",
+            "label": "t:sections.all.button.settings.icon.label",
+            "options": [
+              {
+                "value": "none",
+                "label": "t:sections.all.button.settings.icon.options.option_0"
+              },
+              {
+                "value": "1",
+                "label": "t:sections.all.button.settings.icon.options.option_1"
+              },
+              {
+                "value": "2",
+                "label": "t:sections.all.button.settings.icon.options.option_2"
+              }
+            ],
+            "default": "none"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.price-tables.name",
+        "blocks":[
+          {
+            "type":"package",
+            "settings":{
+              "content": "Build: Inflatable \nSkill: Beginner-AdvancedUse: All \nAroundWeight: 19.8 lbs \nSizes: 10’6″x32″x6″ \nWarranty : 3-year"
+            }
+          },
+          {
+            "type":"package",
+            "settings":{
+              "content": "Build: Inflatable \nSkill: Beginner-AdvancedUse: All \nAroundWeight: 19.8 lbs \nSizes: 10’6″x32″x6″ \nWarranty : 3-year"
+            }
+          },
+          {
+            "type":"package",
+            "settings":{
+              "content": "Build: Inflatable \nSkill: Beginner-AdvancedUse: All \nAroundWeight: 19.8 lbs \nSizes: 10’6″x32″x6″ \nWarranty : 3-year"
+            }
+          }
+        ]
+        
+      }
+    ]
+  }
+{% endschema %}

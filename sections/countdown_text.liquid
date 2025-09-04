@@ -1,0 +1,384 @@
+<!-- section/countdown_text.liquid -->
+
+{{ 'hdt-countdown.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}#shopify-section-{{section.id}}{--section-pt:{{section.settings.padding_top}}px;--section-pb:{{section.settings.padding_bottom}}px;--section-prate:{{section.settings.padding_rate}}}{%- endstyle -%}
+<div class="hdt-section-inner hdt-s-gradient hdt-section-spacing hdt-container{% if section.settings.full_width %}-full{% endif %}" color-scheme="{{ section.settings.color_scheme }}" hdt-reveal="fade-in">
+  {%- if section.blocks.size > 0 -%}
+    <div class="hdt-container{% if section.settings.full_width == false %}-full{% endif %} hdt-row-flex hdt-flex-cols-1 md:hdt-flex-cols-2 hdt-justify-center hdt-align-center">
+      <div class="hdt-col">
+        <div class="hdt-col-inner hdt-col-content hdt-text-center md:hdt-text-start">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'text' -%}
+                {%- if block.settings.heading != blank -%}
+                  <h4 class="hdt-heading hdt-h4" hdt-reveal="slide-in" timeline>{{ block.settings.heading }}</h4>
+                {%- endif -%}
+              {%- when 'text_2' -%}
+                {%- if block.settings.sub_heading != blank -%}
+                  <p class="hdt-subheading hdt-h6" hdt-reveal="slide-in" timeline>{{ block.settings.sub_heading }}</p>
+                {%- endif -%}
+              {%- when 'button' -%}
+                {%- if block.settings.btn_label != blank -%}
+                  <a hdt-reveal="slide-in" timeline {% if block.settings.btn_link == blank %}
+                    role="link" disabled="true"
+                    {% else %}
+                      href="{{ block.settings.btn_link }}" 
+                    {% endif %} target="{% if block.settings.target %}_blank{% else %}_self{% endif %}"
+                    class="hdt-btn hdt-text-{{ block.settings.btn_size }} hdt-oh hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-btn-{{ block.settings.btn_style }} hdt-font-{{ block.settings.btn_fw }}"><span>{{ block.settings.btn_label }}</span>
+                  {%- if block.settings.btn_icon == "1" -%}
+                    <svg class="hdt-icon hdt-icon-1" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 64 64" fill="currentColor"><path d="M12,56.43,36.48,32,12,7.52,19.53,0,51.61,32,19.53,64Z"/></svg>
+                  {%- elsif block.settings.btn_icon == "2" -%}
+                    <svg class="hdt-icon hdt-icon-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"  viewBox="0 0 64 64" fill="currentColor"><path d="M6.89,64,0,57.11,47.26,9.85H4.92V0H64V59.08H54.15V16.74Z"/></svg>
+                  {%- else -%}
+                  {%- endif -%}
+                  </a>
+                {%- endif -%}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>   
+      </div>
+      <div class="hdt-col">
+        <div class="hdt-col-inner hdt-flex hdt-justify-center md:hdt-justify-end">
+          <hdt-countdown class="hdt-countdown hdt-countdown-outline hdt-uppercase-{{ section.settings.uppercase }}" config='{"month":"{{ section.settings.month }}", "date":"{{ section.settings.day }}, {{ section.settings.year }} {{ section.settings.hour }}:{{ section.settings.minute }}", "hideTimerOnComplete": {{ section.settings.hide_on_complete }}, "hasZero": {{ section.settings.prepend_number }}, "hasTextPlural": true }' hdt-reveal="slide-in" timeline>
+            <div class="hdt-countdown__inner" aria-hidden="true">
+              <div class="hdt-countdown__item hdt-countdown--days" hdt-reveal="slide-in" timeline>
+                <hdt-countdown-amount effect="{{ section.settings.effect_cd }}" class="hdt-countdown__amount" data-days>00</hdt-countdown-amount>
+                <hdt-countdown-text singular="{{ 'sections.countdown_timmer.day' | t | escape }}" class="hdt-countdown__text hdt-grid">{{ 'sections.countdown_timmer.day_plural' | t }}</hdt-countdown-text>
+              </div>
+              <div class="hdt-countdown__item hdt-countdown--hours" hdt-reveal="slide-in" timeline>
+                <hdt-countdown-amount effect="{{ section.settings.effect_cd }}" class="hdt-countdown__amount" data-hours>00</hdt-countdown-amount>
+                <hdt-countdown-text singular="{{ 'sections.countdown_timmer.hr' | t | escape }}" class="hdt-countdown__text hdt-grid">{{ 'sections.countdown_timmer.hr_plural' | t }}</hdt-countdown-text>
+              </div>
+              <div class="hdt-countdown__item hdt-countdown--minutes" hdt-reveal="slide-in" timeline>
+                <hdt-countdown-amount effect="{{ section.settings.effect_cd }}" class="hdt-countdown__amount" data-minutes>00</hdt-countdown-amount>
+                <hdt-countdown-text singular="{{ 'sections.countdown_timmer.min' | t | escape }}" class="hdt-countdown__text hdt-grid">{{ 'sections.countdown_timmer.min_plural' | t }}</hdt-countdown-text>
+              </div>
+              <div class="hdt-countdown__item hdt-countdown--seconds" hdt-reveal="slide-in" timeline>
+                <hdt-countdown-amount effect="{{ section.settings.effect_cd }}" class="hdt-countdown__amount" data-seconds>00</hdt-countdown-amount>
+                <hdt-countdown-text singular="{{ 'sections.countdown_timmer.sec' | t | escape }}" class="hdt-countdown__text hdt-grid">{{ 'sections.countdown_timmer.sec_plural' | t }}</hdt-countdown-text>
+              </div>
+            </div>
+            {%- if section.settings.mess_complete != blank %}<div class="hdt-countdown__message hdt-hidden hdt-s-text">{{ section.settings.mess_complete }}</div>{% endif -%}
+          </hdt-countdown>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "t:sections.countdown_text.label",
+  "class": "hdt-section hdt-countdown-text",
+  "disabled_on": {
+    "groups": [
+      "*"
+    ]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.countdown_text.settings.full_width.label",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "year",
+      "default": 2030,
+      "label": "t:sections.countdown-bar.blocks.countdown.settings.year.label",
+      "info": "t:sections.countdown-bar.blocks.countdown.settings.year.info"
+    },
+    {
+      "type": "range",
+      "id": "month",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.countdown-bar.blocks.countdown.settings.month.label"
+    },
+    {
+      "type": "range",
+      "id": "day",
+      "min": 1,
+      "max": 31,
+      "step": 1,
+      "default": 19,
+      "label": "t:sections.countdown-bar.blocks.countdown.settings.day.label"
+    },
+    {
+      "type": "range",
+      "id": "hour",
+      "min": 0,
+      "max": 23,
+      "step": 1,
+      "default": 12,
+      "label": "t:sections.countdown-bar.blocks.countdown.settings.hour.label"
+    },
+    {
+      "type": "range",
+      "id": "minute",
+      "min": 0,
+      "max": 59,
+      "step": 1,
+      "default": 0,
+      "label": "t:sections.countdown-bar.blocks.countdown.settings.minute.label"
+    },
+    {
+      "type": "select",
+      "id": "effect_cd",
+      "label": "t:sections.countdown-bar.blocks.countdown.settings.animate_num.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.countdown-bar.blocks.countdown.settings.animate_num.options__1.label"
+        },
+        {
+          "value": "move_top",
+          "label": "t:sections.countdown-bar.blocks.countdown.settings.animate_num.options__2.label"
+        },
+        {
+          "value": "move_bottom",
+          "label": "t:sections.countdown-bar.blocks.countdown.settings.animate_num.options__3.label"
+        },
+        {
+          "value": "scale",
+          "label": "t:sections.countdown-bar.blocks.countdown.settings.animate_num.options__4.label"
+        },
+        {
+          "value": "rotate",
+          "label": "t:sections.countdown-bar.blocks.countdown.settings.animate_num.options__5.label"
+        }
+      ],
+      "default": "move_top"
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase",
+      "label": "t:sections.countdown_text.settings.uppercase_text.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "prepend_number",
+      "label": "t:sections.countdown-bar.blocks.countdown.settings.prepend_number.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_complete",
+      "default": false,
+      "label": "t:sections.countdown-bar.blocks.countdown.settings.hide_on_complete.label"
+    },
+    {
+      "type": "text",
+      "id": "mess_complete",
+      "label": "t:sections.countdown-bar.blocks.countdown.settings.mess_complete.label"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:settings_schema.extras.settings.timezone_help.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.countdown_text.settings.color.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 75
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "t:sections.countdown_text.blocks.heading.label",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.countdown_text.blocks.heading.label",
+          "default": "One-Time Only"
+        }
+      ]
+    },
+    {
+      "type": "text_2",
+      "name": "t:sections.countdown_text.blocks.sub_heading.label",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "sub_heading",
+          "label": "t:sections.countdown_text.blocks.sub_heading.label",
+          "default": "Special Offers You Can't Miss: These deals won't last forever!"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.all.button.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "t:sections.all.button.settings.text.label",
+          "default": "Shop now",
+          "info": "t:sections.all.button.settings.text.info"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "t:sections.all.button.settings.url.label",
+          "info": "If blank, use link of product"
+        },
+        {
+          "type": "checkbox",
+          "id": "target",
+          "label": "t:sections.all.button.settings.target.label",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "btn_size",
+          "label": "t:sections.all.button.settings.font_size.label",
+          "options": [
+            {
+              "value": "xs",
+              "label": "t:sections.all.button.settings.font_size.options.xs"
+            },
+            {
+              "value": "sm",
+              "label": "t:sections.all.button.settings.font_size.options.sm"
+            },
+            {
+              "value": "base",
+              "label": "t:sections.all.button.settings.font_size.options.base"
+            },
+            {
+              "value": "lg",
+              "label": "t:sections.all.button.settings.font_size.options.lg"
+            },
+            {
+              "value": "xl",
+              "label": "t:sections.all.button.settings.font_size.options.xl"
+            }
+          ],
+          "default": "base"
+        },
+        {
+          "type": "select",
+          "id": "btn_style",
+          "label": "t:sections.all.button.settings.style.label",
+          "options": [
+            {
+              "value": "solid",
+              "label": "t:sections.all.button.settings.style.options.option_1"
+            },
+            {
+              "value": "outline",
+              "label": "t:sections.all.button.settings.style.options.option_2"
+            },
+            {
+              "value": "outline-2",
+              "label": "t:sections.all.button.settings.style.options.option_3"
+            },
+            {
+              "value": "link",
+              "label": "t:sections.all.button.settings.style.options.option_4"
+            }
+          ],
+          "default": "solid"
+        },
+        {
+          "type": "select",
+          "id": "btn_fw",
+          "label": "t:sections.all.button.settings.font_weight.label",
+          "options": [
+            {
+              "value": "normal",
+              "label": "t:sections.all.button.settings.font_weight.options.option_1"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.all.button.settings.font_weight.options.option_2"
+            },
+            {
+              "value": "semibold",
+              "label": "t:sections.all.button.settings.font_weight.options.option_3"
+            },
+            {
+              "value": "bold",
+              "label": "t:sections.all.button.settings.font_weight.options.option_4"
+            }
+          ],
+          "default": "normal"
+        },
+        {
+          "type": "select",
+          "id": "btn_icon",
+          "label": "t:sections.all.button.settings.icon.label",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.all.button.settings.icon.options.option_0"
+            },
+            {
+              "value": "1",
+              "label": "t:sections.all.button.settings.icon.options.option_1"
+            },
+            {
+              "value": "2",
+              "label": "t:sections.all.button.settings.icon.options.option_2"
+            }
+          ],
+          "default": "1"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.countdown_text.label",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "heading": "One-Time Only"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

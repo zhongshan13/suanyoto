@@ -1,0 +1,666 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breacrumb": {
+      "type": "brc-nav-product",
+      "settings": {
+        "back_next_pr": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "padding_rate": 75
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "3a222052-35a9-4684-a336-6a32a56eb638": {
+          "type": "title",
+          "settings": {}
+        },
+        "83296f29-170d-4d7b-9291-c9b59bb98b32": {
+          "type": "badges",
+          "disabled": true,
+          "settings": {
+            "special": "",
+            "min": 10,
+            "max": 64,
+            "content": "Selling fast! [count] people have  this in their carts.",
+            "icon_svg": "flash",
+            "ani": "hdt-ani-flash"
+          }
+        },
+        "edac686e-a845-4ed7-9b50-51639a11cf56": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_liquid_aHdikr": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "Description\nModel: H61D3(9.8FT); H61D5(16.4FT) ; \n\nAdd a vibrant touch to any room with the Govee Neon Rope Light 2. Shape recognition technology allows for easy customization, while upgraded clips make bending and creating your desired shape easy. Illuminate your space with this versatile and dynamic lighting option.\n\nImproved RGBIC Lighting Effects: Supports shrinking or expanding the lighting in all directions, making more fun lighting effects possible"
+          }
+        },
+        "1248e930-5734-45b4-a1d6-a814910fdb63": {
+          "type": "variant_picker",
+          "settings": {
+            "pick_mode": "first_available",
+            "enable_historystate": true,
+            "hide_sold_out": false,
+            "color_picker_type": "color_rounded",
+            "color_size": "small",
+            "picker_type": "block",
+            "size_chart_source": "page",
+            "size_chart_page": "size-chart",
+            "title": "Variant picker"
+          }
+        },
+        "code_iPetNh": {
+          "type": "code",
+          "settings": {
+            "code_text": "AB25",
+            "title": "25% OFF",
+            "content": "<p>GET EXTRA    <strong> 25% OFF</strong></p>",
+            "end_time": "",
+            "code_color": "#ffffff",
+            "text_color": "#000000",
+            "bg_right_code_color": "#ffffff",
+            "color_strong": "#d9534f",
+            "btn_color": "#007aff",
+            "bg_color": "linear-gradient(46deg, rgba(162, 207, 248, 1) 13%, rgba(219, 238, 255, 1) 83%)",
+            "card_bg_color": "linear-gradient(270deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 97%)"
+          }
+        },
+        "description_LUPjNd": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "des": "2",
+            "short_des": "",
+            "readm": false,
+            "length": 30,
+            "readm_txt": "Read more",
+            "readl_txt": "Read less"
+          }
+        },
+        "4fd6bfca-d3a3-432c-8392-a2d3cab423c4": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "ad820e37-dee5-41f3-9692-bf46d9664103": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "show_price_variant": true,
+            "show_wishlist": true,
+            "show_compare": true
+          }
+        },
+        "8253e974-5acb-4076-9230-03b0f804dcdf": {
+          "type": "back_instock",
+          "disabled": true,
+          "settings": {
+            "only_show_soldout": true
+          }
+        },
+        "113b254d-cc79-43fc-9ed9-4670522082c9": {
+          "type": "extra_link",
+          "disabled": true,
+          "settings": {
+            "show_cp_cl": true,
+            "show_ask": true,
+            "show_phone": true,
+            "show_delivery": true,
+            "page_delivery": "return-policy",
+            "show_share_btn": true
+          }
+        },
+        "9586d18a-306e-45c8-813c-3c4b0cc99315": {
+          "type": "delivery_return",
+          "settings": {
+            "icon_delivery": "ship",
+            "content_devivery": "<p>Estimate delivery times:<strong> 7-20 days</strong> (International)<br/><strong>4-8 days</strong> (United States).</p>",
+            "icon_return": "return_order",
+            "content_return": "<p>Return within <strong>30 days</strong> of purchase. Duties & taxes are non-refundable.</p>"
+          }
+        },
+        "e2b976ce-0ce6-460a-bc64-cea3ec87cb4b": {
+          "type": "img_trust",
+          "settings": {
+            "show_icon": true,
+            "mess": "Guarantee Safe Checkout",
+            "source": "2",
+            "wimg": 350,
+            "svg": "visa,paypal,discover,master,american_express,apple_pay,google_pay,facebook_pay,shopify_pay",
+            "height": 30
+          }
+        }
+      },
+      "block_order": [
+        "3a222052-35a9-4684-a336-6a32a56eb638",
+        "83296f29-170d-4d7b-9291-c9b59bb98b32",
+        "edac686e-a845-4ed7-9b50-51639a11cf56",
+        "custom_liquid_aHdikr",
+        "1248e930-5734-45b4-a1d6-a814910fdb63",
+        "code_iPetNh",
+        "description_LUPjNd",
+        "4fd6bfca-d3a3-432c-8392-a2d3cab423c4",
+        "ad820e37-dee5-41f3-9692-bf46d9664103",
+        "8253e974-5acb-4076-9230-03b0f804dcdf",
+        "113b254d-cc79-43fc-9ed9-4670522082c9",
+        "9586d18a-306e-45c8-813c-3c4b0cc99315",
+        "e2b976ce-0ce6-460a-bc64-cea3ec87cb4b"
+      ],
+      "settings": {
+        "space_content_media": true,
+        "media_width": 50,
+        "desktop_media_layout": "thumbnail_left",
+        "desktop_media_position": "left",
+        "mobile_media_layout": "thumbnails",
+        "show_first_media": false,
+        "use_select_varaint_change_media": true,
+        "enable_media_autoplay": true,
+        "enable_video_looping": true,
+        "enable_thumb_efect": true,
+        "image_ratio": "adapt_image",
+        "image_size": true,
+        "image_zoom": "zoom",
+        "image_zoom_type": "external",
+        "zoom_level": 2,
+        "max_zoom_lightbox": 3,
+        "tabs_design": "tab",
+        "enable_first_tab": false,
+        "sticky_atc": true,
+        "navUI": true,
+        "nav_des": "default",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_rate": 50
+      }
+    },
+    "tabs": {
+      "type": "main-product-tabs",
+      "blocks": {
+        "76effdab-2914-4a34-a303-417cde99ff0a": {
+          "type": "tab_des",
+          "settings": {
+            "title": "Description"
+          }
+        },
+        "tab_liquid_fWAtUC": {
+          "type": "tab_liquid",
+          "settings": {
+            "title": "Specification",
+            "custom_liquid": "<div class=\"product-specs\">\n  <ul class=\"spec-list\">\n    <li><strong>Operating System:</strong> Linux</li>\n    <li><strong>Display Resolution:</strong> 1920 × 535, 1000 nits brightness</li>\n    <li><strong>Processor & Memory:</strong> Dual-core CPU + 8GB ROM</li>\n    <li><strong>Control Method:</strong> Touchscreen & Tesla steering wheel buttons</li>\n    <li><strong>Firmware Update:</strong> OTA (Over-the-Air)</li>\n    <li><strong>Connectivity:</strong> Apple CarPlay, AirPlay, Android Auto, Miracast, Huawei HiCar</li>\n    <li><strong>Audio Output:</strong> Independent speaker or original Tesla sound system</li>\n    <li><strong>Real-Time Driving Data:</strong> Syncs lights, gear, speed, battery level, and more</li>\n    <li><strong>Safety Features:</strong> Seatbelt alert, speed warning, tire pressure alert</li>\n    <li><strong>Language Support:</strong> Multi-language support</li>\n    <li><strong>Front Blind Spot Display:</strong> Optional</li>\n  </ul>\n</div>\n\n<style>\n.product-specs {\n  padding: 20px;\n  background-color: #f9f9f9;\n  border-radius: 12px;\n  font-family: \"Helvetica Neue\", sans-serif;\n  max-width: 600px;\n  margin: 0 auto;\n}\n\n.spec-list {\n  list-style: none;\n  padding-left: 0;\n  margin: 0;\n}\n\n.spec-list li {\n  padding: 16px 0;\n  font-size: 16px;\n  border-bottom: 1px solid #ddd;\n  line-height: 1.8;\n  display: flex;\n  flex-wrap: wrap;\n}\n\n.spec-list li:last-child {\n  border-bottom: none;\n}\n\n.spec-list li strong {\n  color: #333;\n  font-weight: bold;\n  width: 40%;\n  margin-right: 10px;\n}\n\n.spec-list li span {\n  color: #555;\n  width: 60%;\n}\n\n@media (max-width: 600px) {\n  .spec-list li {\n    font-size: 15px;\n    flex-direction: column;\n    align-items: flex-start;\n    padding: 14px 0;\n    line-height: 1.7;\n  }\n\n  .spec-list li strong {\n    width: 100%;\n    margin-bottom: 4px;\n  }\n\n  .spec-list li span {\n    width: 100%;\n  }\n}\n</style>",
+            "content_richtext": ""
+          }
+        },
+        "9866bb5f-03b7-4dc7-9387-4be849a0cbf1": {
+          "type": "tab_add",
+          "settings": {
+            "title": "Additional Information"
+          }
+        },
+        "d0839947-6bc5-42cc-85f7-9e94ce6b3e6c": {
+          "type": "tab_html",
+          "settings": {
+            "title": "Return Policies",
+            "content": "",
+            "page": "privacy-policy"
+          }
+        },
+        "1bc528a7-9da8-48ec-96da-8e48c0e52faf": {
+          "type": "tab_html",
+          "settings": {
+            "title": "Custom tab",
+            "content": "",
+            "page": "wash-care"
+          }
+        }
+      },
+      "block_order": [
+        "76effdab-2914-4a34-a303-417cde99ff0a",
+        "tab_liquid_fWAtUC",
+        "9866bb5f-03b7-4dc7-9387-4be849a0cbf1",
+        "d0839947-6bc5-42cc-85f7-9e94ce6b3e6c",
+        "1bc528a7-9da8-48ec-96da-8e48c0e52faf"
+      ],
+      "settings": {
+        "tabs_design": "accordion",
+        "enable_first_tab": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "padding_rate": 50
+      }
+    },
+    "sidebar": {
+      "type": "sidebar-product",
+      "blocks": {
+        "93375155-f1f0-4598-8fc0-9adcbad23dff": {
+          "type": "iconbox",
+          "settings": {
+            "widget_heading": "Shipping & Delivery",
+            "image_size": false,
+            "icon_svg1": "box",
+            "custom_svg1": "",
+            "iconbox_content1": "Free shipping_Free shipping for all US orders",
+            "link_item1": "",
+            "icon_svg2": "support",
+            "custom_svg2": "",
+            "iconbox_content2": "Premium Support_Support 24 hours a day",
+            "link_item2": "",
+            "icon_svg3": "return",
+            "custom_svg3": "",
+            "iconbox_content3": "30 Days Return_ You have 30 days to return",
+            "link_item3": "",
+            "icon_svg4": "payment",
+            "custom_svg4": "",
+            "iconbox_content4": "",
+            "link_item4": ""
+          }
+        },
+        "4bbef404-afc5-4e3e-90cf-4f07d8a58f71": {
+          "type": "featured_products",
+          "settings": {
+            "widget_heading": "Sale products",
+            "collection": "womens-fashion",
+            "product_list": [],
+            "products_count": 3,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "76c4580d-5d01-4485-b53a-98caea9f4605": {
+          "type": "gallery",
+          "settings": {
+            "widget_heading": "Gallery",
+            "link1": "",
+            "link2": "",
+            "link3": "",
+            "link4": "",
+            "link5": "",
+            "link6": "",
+            "open_link": "_blank"
+          }
+        },
+        "5d4020bf-1c84-4908-9a3d-f9d20d6b2025": {
+          "type": "social",
+          "settings": {
+            "widget_heading": "Follow us",
+            "socials_style": "outline",
+            "socials_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "93375155-f1f0-4598-8fc0-9adcbad23dff",
+        "4bbef404-afc5-4e3e-90cf-4f07d8a58f71",
+        "76c4580d-5d01-4485-b53a-98caea9f4605",
+        "5d4020bf-1c84-4908-9a3d-f9d20d6b2025"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "space": 60
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "People Also Bought",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "heading_gap": 18,
+        "sec_heading_spacing": 50,
+        "limit": 10,
+        "product_des": "1",
+        "image_ratio": "custom-pr",
+        "image_size": true,
+        "show_vendor": false,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "navUI": true,
+        "nav_des": "default",
+        "nav_pos": "middle_in",
+        "dotUI": false,
+        "section_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 72,
+        "padding_rate": 75
+      }
+    },
+    "recently": {
+      "type": "recently-products",
+      "disabled": true,
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "Recently Viewed",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "lg",
+        "heading_reverse": false,
+        "heading_gap": 18,
+        "sec_heading_spacing": 50,
+        "limit": 10,
+        "product_des": "1",
+        "image_ratio": "custom-pr",
+        "image_size": true,
+        "show_vendor": false,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "navUI": true,
+        "nav_des": "default",
+        "nav_pos": "middle_in",
+        "dotUI": false,
+        "section_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_rate": 75
+      }
+    },
+    "1755676814861ebb00": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_DegayG": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_DegayG"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "accordion_ieJzXg": {
+      "type": "accordion",
+      "blocks": {
+        "title_T4rRkx": {
+          "type": "title",
+          "settings": {
+            "title": "Frequently Asked Questions"
+          }
+        },
+        "accordion_item_NUfizg": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q1: Does the product require any wiring or drilling?",
+            "content": "A: No drilling is required. The unit is plug-and-play, and installation can be completed with basic tools. We include an installation guide and video tutorial for easy setup.",
+            "content_richtext": ""
+          }
+        },
+        "accordion_item_hkpKdP": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q2: Will this affect my Tesla warranty?",
+            "content": "A: This product is non-invasive and does not modify your car’s software or core wiring. However, we always recommend checking with your Tesla service center to confirm.",
+            "content_richtext": ""
+          }
+        },
+        "accordion_item_EXdzyN": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q3: Can I still use my Tesla's original touchscreen and controls?",
+            "content": "A: Absolutely. This cluster works as an add-on and does not interfere with your Tesla’s original screen or controls. It simply mirrors and enhances information display.",
+            "content_richtext": ""
+          }
+        },
+        "accordion_item_tDY3mC": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q4: What functions does the built-in camera support?",
+            "content": "A: The optional front camera provides a wide-angle view of your blind spot area and enhances driving safety. It does not record video.",
+            "content_richtext": ""
+          }
+        },
+        "accordion_item_V3CdJ9": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q5: Does this support wireless CarPlay or Android Auto?",
+            "content": "A: Yes! It supports wireless Apple CarPlay, Android Auto, AirPlay, Miracast, and Huawei HiCar for seamless smart connectivity.",
+            "content_richtext": ""
+          }
+        },
+        "accordion_item_QnwTjy": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q6: Is there OTA (over-the-air) update support?",
+            "content": "A: Yes, the device supports OTA updates for firmware and feature improvements.",
+            "content_richtext": ""
+          }
+        },
+        "accordion_item_TCH7eb": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Q7: does it support wirless screencasting?",
+            "content": "A: Yes! our device  support iPhone Airplay, Android Miracast and Huawei Hicar.",
+            "content_richtext": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_T4rRkx",
+        "accordion_item_NUfizg",
+        "accordion_item_hkpKdP",
+        "accordion_item_EXdzyN",
+        "accordion_item_tDY3mC",
+        "accordion_item_V3CdJ9",
+        "accordion_item_QnwTjy",
+        "accordion_item_TCH7eb"
+      ],
+      "settings": {
+        "accordion_position": "start",
+        "accordion_icon": "1",
+        "open_first": false,
+        "enable_link_list": false,
+        "section_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 17,
+        "padding_bottom": 70,
+        "padding_rate": 75
+      }
+    },
+    "tabs_collections_carousel_4gE3Uw": {
+      "type": "tabs-collections-carousel",
+      "blocks": {
+        "tab_item_dg76pN": {
+          "type": "tab_item",
+          "settings": {
+            "title": "",
+            "collection": "all-products",
+            "product_list": []
+          }
+        },
+        "tab_item_wgG7yE": {
+          "type": "tab_item",
+          "settings": {
+            "title": "",
+            "collection": "",
+            "product_list": []
+          }
+        },
+        "tab_item_H6aTPB": {
+          "type": "tab_item",
+          "settings": {
+            "title": "",
+            "collection": "",
+            "product_list": []
+          }
+        }
+      },
+      "block_order": [
+        "tab_item_dg76pN",
+        "tab_item_wgG7yE",
+        "tab_item_H6aTPB"
+      ],
+      "settings": {
+        "tabs_heading": "Recommended for You",
+        "heading_size": "h4",
+        "heading_inline": false,
+        "tabs_head_spacing": 15,
+        "tabs_des": "underline",
+        "tab_item_size": "lg",
+        "tab_item_weight": "medium",
+        "text_transform": false,
+        "border_width": 2,
+        "spacing_items": 30,
+        "product_des": "1",
+        "image_ratio": "adapt_image",
+        "image_size": true,
+        "show_vendor": false,
+        "products_count": 8,
+        "col_dk": "4",
+        "col_tb": "2",
+        "col_mb": "1",
+        "navUI": false,
+        "nav_des": "default",
+        "nav_pos": "middle_in",
+        "dotUI": false,
+        "use_pagination": "none",
+        "paginate_pos": "center",
+        "dis_pagination": 30,
+        "btn_label": "",
+        "btn_style": "solid",
+        "btn_fw": "normal",
+        "section_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 52,
+        "padding_rate": 75
+      }
+    },
+    "icon_box_9pfFpL": {
+      "type": "icon-box",
+      "blocks": {
+        "item_Qa7Pie": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "box",
+            "custom_svg": "",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "<b>Free Shipping</b>",
+            "content": "<p>Free U.S. Shipping</p>",
+            "adding_border": false
+          }
+        },
+        "item_nJYm3F": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "payment",
+            "custom_svg": "",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "<b>100% Payment Secure</b>",
+            "content": "<p>Safe & encrypted multiple payment method</p>",
+            "adding_border": false
+          }
+        },
+        "item_nAqRnG": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "return",
+            "custom_svg": "",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "<b>Easy Return Policy</b>",
+            "content": "<p>30-day money-back guarantee</p>",
+            "adding_border": false
+          }
+        },
+        "item_RadgLe": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "support",
+            "custom_svg": "",
+            "icon_width": 40,
+            "icon_width_mb": 40,
+            "link": "",
+            "open_link": false,
+            "title": "<b>24 / 7 Service Online</b>",
+            "content": "<p>We're here if you need us.</p>",
+            "adding_border": false
+          }
+        }
+      },
+      "block_order": [
+        "item_Qa7Pie",
+        "item_nJYm3F",
+        "item_nAqRnG",
+        "item_RadgLe"
+      ],
+      "settings": {
+        "heading_align": "center",
+        "sec_heading": "",
+        "heading_tag": "h3",
+        "heading_size": "h4",
+        "sec_subheading": "",
+        "subheading_size": "base",
+        "heading_reverse": false,
+        "heading_gap": 40,
+        "sec_heading_spacing": 40,
+        "icon_pos_center": true,
+        "icon_pos_center_mb": true,
+        "icon_circle": true,
+        "space_icon_heading": "medium",
+        "size_heading": "medium",
+        "heading_uppercase": false,
+        "space_heading_content": "small",
+        "col_dk": "4",
+        "col_tb": "2",
+        "col_mb": "1",
+        "carousel_mobile": true,
+        "border_style": "1",
+        "fullwidth": true,
+        "boxed_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 70,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "breacrumb",
+    "main",
+    "tabs",
+    "sidebar",
+    "related",
+    "recently",
+    "1755676814861ebb00",
+    "accordion_ieJzXg",
+    "tabs_collections_carousel_4gE3Uw",
+    "icon_box_9pfFpL"
+  ]
+}
