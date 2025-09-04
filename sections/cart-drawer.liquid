@@ -12,7 +12,13 @@
 {%- if request.page_type != 'cart' -%}
 {{ 'hdt-cart-drawer.css' | asset_url | stylesheet_tag }}
 <hdt-cart-drawer detect-adm-se-evt id="CartDrawer" section-id="{{ section.id }}" initial-focus="false" class="hdt-drawer hdt-mini-cart hdt-hidden hdt-right-0" color-scheme="{{ section.settings.color_scheme }}" effect="right">
-  <h3 slot="header" class="hdt-mini-cart__header-title hdt-text-2xl hdt-font-medium">{{ 'sections.cart.mini_cart.title' | t }}</h3>
+  <div  slot="header" class="hdt-box">
+    <h3 class="hdt-mini-cart__header-title hdt-text-2xl hdt-font-medium">{{ 'sections.cart.mini_cart.title' | t }}</h3>
+  <hdt-code style="--text-color: {{ settings.text_color }}; --code-color: {{ settings.code_color }};">
+    <span>{{ settings.code_title }}</span>
+    <span class="ante-code-only">{{ settings.codes_discount }}</span>
+  </hdt-code>
+  </div>
   {%- if section.settings.show_free_shipping_bar and shipping_amount > -1 -%}
     <div class="hdt-mini-cart__threshold">
       {%- render 'cart-shipping-bar', shipping_amount: shipping_amount -%}

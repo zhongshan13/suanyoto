@@ -49,10 +49,6 @@
             "custom_liquid": "Description\nModel: H61D3(9.8FT); H61D5(16.4FT) ; \n\nAdd a vibrant touch to any room with the Govee Neon Rope Light 2. Shape recognition technology allows for easy customization, while upgraded clips make bending and creating your desired shape easy. Illuminate your space with this versatile and dynamic lighting option.\n\nImproved RGBIC Lighting Effects: Supports shrinking or expanding the lighting in all directions, making more fun lighting effects possible"
           }
         },
-        "payment_terms_MXCXKt": {
-          "type": "payment-terms",
-          "settings": {}
-        },
         "1248e930-5734-45b4-a1d6-a814910fdb63": {
           "type": "variant_picker",
           "settings": {
@@ -65,6 +61,34 @@
             "size_chart_source": "page",
             "size_chart_page": "size-chart",
             "title": "Variant picker"
+          }
+        },
+        "code_iPetNh": {
+          "type": "code",
+          "settings": {
+            "code_text": "Saunyoto",
+            "title": "20% OFF",
+            "content": "<p>GET EXTRA <strong>20% OFF</strong></p>",
+            "end_time": "",
+            "code_color": "#ffffff",
+            "text_color": "#000000",
+            "bg_right_code_color": "#ffffff",
+            "color_strong": "#d9534f",
+            "btn_color": "#007aff",
+            "bg_color": "linear-gradient(46deg, rgba(162, 207, 248, 1) 13%, rgba(219, 238, 255, 1) 83%)",
+            "card_bg_color": "linear-gradient(270deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 97%)"
+          }
+        },
+        "description_LUPjNd": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "des": "2",
+            "short_des": "",
+            "readm": false,
+            "length": 30,
+            "readm_txt": "Read more",
+            "readl_txt": "Read less"
           }
         },
         "4fd6bfca-d3a3-432c-8392-a2d3cab423c4": {
@@ -126,8 +150,9 @@
         "83296f29-170d-4d7b-9291-c9b59bb98b32",
         "edac686e-a845-4ed7-9b50-51639a11cf56",
         "custom_liquid_aHdikr",
-        "payment_terms_MXCXKt",
         "1248e930-5734-45b4-a1d6-a814910fdb63",
+        "code_iPetNh",
+        "description_LUPjNd",
         "4fd6bfca-d3a3-432c-8392-a2d3cab423c4",
         "ad820e37-dee5-41f3-9692-bf46d9664103",
         "8253e974-5acb-4076-9230-03b0f804dcdf",

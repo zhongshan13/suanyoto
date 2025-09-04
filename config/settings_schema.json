@@ -864,7 +864,7 @@
           }
         ],
         "label": "Compare mode",
-        "info":"Max products compare: 6",
+        "info": "Max products compare: 6",
         "default": "1"
       },
       {
@@ -1297,6 +1297,34 @@
         "type": "checkbox",
         "id": "product_inventory_status",
         "label": "t:settings_schema.cart.settings.inventory_status.label"
+      },
+      {
+        "type": "text",
+        "id": "code_title",
+        "label": "Code Title",
+        "default": "20% 0FF Discount"
+      },
+      {
+        "type": "text",
+        "id": "codes_discount",
+        "label": "Code Discount",
+        "default": "SUMMER2024"
+      },
+      {
+        "type": "header",
+        "content": "Code Color"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#f4f4f4"
+      },
+      {
+        "type": "color",
+        "id": "code_color",
+        "label": "Code Color",
+        "default": "#f4f4f4"
       },
       {
         "type": "select",
