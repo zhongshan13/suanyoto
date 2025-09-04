@@ -37,10 +37,6 @@
     "enable_compare_popup": true,
     "show_rating": false,
     "color_event": "hover",
-    "code_title": "20% 0FF Discount：",
-    "codes_discount": "Saunyoto",
-    "text_color": "#000000",
-    "code_color": "#db1215",
     "empty_cart_link": "shopify://collections/all",
     "free_ship_pr": "trouble-iphone-case",
     "gift_wrap_pr": "gift-card",
@@ -418,6 +414,11 @@
         "disabled": false,
         "settings": {}
       },
+      "18140086707358399868": {
+        "type": "shopify://apps/algoshop-announcement-bar/blocks/announcement-bar/dd5a2538-d756-4d66-b654-875f489cd86a",
+        "disabled": false,
+        "settings": {}
+      },
       "4188547153274344210": {
         "type": "shopify://apps/cartmax-upsell-cross-sell/blocks/app/491a753a-7e8b-4c89-a6fb-9028a1df000b",
         "disabled": false,
@@ -447,6 +448,11 @@
         "disabled": false,
         "settings": {}
       },
+      "17368511000352060744": {
+        "type": "shopify://apps/goaffpro-affiliate-marketing/blocks/goaffpro-embedded-pixel/2f4d802b-86c2-47e4-8096-ae1aa3efbab2",
+        "disabled": false,
+        "settings": {}
+      },
       "6174324309569838175": {
         "type": "shopify://apps/smile-io/blocks/smile-shopify-app/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
         "disabled": false,
@@ -457,10 +463,12 @@
         "disabled": false,
         "settings": {}
       },
-      "18140086707358399868": {
-        "type": "shopify://apps/algoshop-announcement-bar/blocks/announcement-bar/dd5a2538-d756-4d66-b654-875f489cd86a",
-        "disabled": true,
-        "settings": {}
+      "14926935257333466880": {
+        "type": "shopify://apps/geos-geolocation/blocks/location-selector-core/3cd5a431-7aea-4ecd-a807-59b3321c525b",
+        "disabled": false,
+        "settings": {
+          "body_font": "sans_serif_n4"
+        }
       }
     },
     "color_schemes": {
@@ -709,26 +717,6 @@
           "text": "#000000",
           "text2": "#545454",
           "background": "#ffffff",
-          "background_gradient": "",
-          "background2": "#f2f2f2",
-          "button": "#000000",
-          "button_label": "#ffffff",
-          "button_border": "#000000",
-          "secondary_button_label": "#000000",
-          "line_border": "#ebebeb",
-          "overlay": "#000000",
-          "pr_text": "#000000",
-          "price": "#000000",
-          "sale_price": "#db1215",
-          "input_primary": "#ffffff",
-          "input_secondary": "#909090"
-        }
-      },
-      "scheme-c88873bf-bc3d-4545-b1e7-8e78db278fad": {
-        "settings": {
-          "text": "#ffffff",
-          "text2": "#545454",
-          "background": "#000000",
           "background_gradient": "",
           "background2": "#f2f2f2",
           "button": "#000000",

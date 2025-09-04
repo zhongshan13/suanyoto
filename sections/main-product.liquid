@@ -28,641 +28,339 @@
   <div class="hdt-container">
     <div class="hdt-row-flex hdt-flex-cols-1 md:hdt-flex-cols-2 hdt-desktop-media-position-{{ section.settings.desktop_media_position }}">
       <div class="hdt-col hdt-product-media-wrapp">
-        {%- render 'product-media',
-          product: product,
-          product_form_id: product_form_id,
-          un_no_pick: un_no_pick,
-          selected_variant: selected_variant
-        -%}
+        {%- render 'product-media', product: product, product_form_id: product_form_id, un_no_pick: un_no_pick, selected_variant: selected_variant -%}
       </div>
       <div class="hdt-col hdt-product-info-wrapp">
         <div id="product-zoom-{{ section.id }}" class="hdt-produc-zoom--wrapp"></div>
-        <div
-          id="product-info-{{ section.id }}"
-          class="hdt-product-info__list{% if section.settings.space_content_media %} hdt-product__info-space{% endif %}"
-        >
-          {%- for block in section.blocks -%}
-            {%- case block.type -%}
-              {%- when '@app' -%}
-                {% render block %}
+        <div id="product-info-{{ section.id }}" class="hdt-product-info__list{% if section.settings.space_content_media %} hdt-product__info-space{% endif %}">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
 
-              {%- when 'title' -%}
-                <div
-                  class="hdt-product-info__item hdt-product__title"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  <h1 class="hdt-product__title hdt-font-normal">{{ product.title | escape }}</h1>
+            {%- when 'title' -%}
+              <div class="hdt-product-info__item hdt-product__title" data-type="{{ block.type }}" {{ block.shopify_attributes }}><h1 class="hdt-product__title hdt-font-normal">{{ product.title | escape }}</h1></div>
+
+            {%- when 'vendor' -%}
+              {%- liquid
+                if product.vendor == blank
+                  continue
+                endif
+              -%}
+              <div class="hdt-product-info__item hdt-product__vendor hdt-s-text" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{{ 'products.product.vendor' | t }} <span class="hdt-font-semibold">{%- render 'vendor' with product.vendor -%}</span></div>
+
+            {%- when 'price' -%}
+              <div class="hdt-product-info__item hdt-product__price" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                {%- render 'price', product: product, use_variant: true, form_id: product_form_id, show_badges: true, only_show_sale: true, show_volume_note: false, un_no_pick: un_no_pick -%}
+              </div>
+            {%- when 'tax' -%}
+              {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
+                <div class="hdt-product__policies hdt-rte hdt-s-text" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                  {%- if cart.taxes_included -%}
+                    {{ 'products.product.include_taxes' | t }}
+                  {%- endif -%}
+                  {%- if shop.shipping_policy.body != blank -%}
+                    {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                  {%- endif -%}
                 </div>
-
-              {%- when 'vendor' -%}
-                {%- liquid
-                  if product.vendor == blank
-                    continue
-                  endif
-                -%}
-                <div
-                  class="hdt-product-info__item hdt-product__vendor hdt-s-text"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {{ 'products.product.vendor' | t }}
-                  <span class="hdt-font-semibold">{%- render 'vendor' with product.vendor -%}</span>
-                </div>
-
-              {%- when 'price' -%}
-                <div
-                  class="hdt-product-info__item hdt-product__price"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {%- render 'price',
-                    product: product,
-                    use_variant: true,
-                    form_id: product_form_id,
-                    show_badges: true,
-                    only_show_sale: true,
-                    show_volume_note: false,
-                    un_no_pick: un_no_pick
-                  -%}
-                </div>
-
-              {%- when 'tax' -%}
-                {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
-                  <div
-                    class="hdt-product__policies hdt-rte hdt-s-text"
-                    data-type="{{ block.type }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    {%- if cart.taxes_included -%}
-                      {{ 'products.product.include_taxes' | t }}
-                    {%- endif -%}
-                    {%- if shop.shipping_policy.body != blank -%}
-                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
-              {%- when 'live_view' -%}
-                <div
-                  class="hdt-product-info__item hdt-product__liveview"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  <div class="hdt-product__liveview-wrap hdt-font-semibold hdt-inline-flex hdt-align-center">
-                    {%- capture count_html -%}
+              {%- endif -%}
+            {%- when 'live_view' -%}
+              <div class="hdt-product-info__item hdt-product__liveview" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                <div class="hdt-product__liveview-wrap hdt-font-semibold hdt-inline-flex hdt-align-center">
+                  {%- capture count_html -%}
                     {%- assign count = 'now' | date: '%S' | at_most: block.settings.min | at_least: block.settings.max -%}
                     <div class="hdt-product__liveview-count hdt-inline-flex hdt-align-center hdt-justify-center">
                       <number-random config='{ "min":{{ block.settings.min }}, "max":{{ block.settings.max }}, "interval":{{ block.settings.time }}000 }'>{{ count }}</number-random>
                     </div>
                   {%- endcapture -%}
-                    {%- if block.settings.content != blank -%}
-                      <div class="hdt-product__liveview-content hdt-s-text">
-                        {{ block.settings.content | replace: '[count]', count_html }}
-                      </div>
+                  {%- if block.settings.content != blank -%}
+                    <div class="hdt-product__liveview-content hdt-s-text">
+                      {{ block.settings.content | replace: "[count]", count_html }}
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- when 'sold' %}
+              {%- unless product.available %}{%- continue -%}{%- endunless -%}
+              {% if block.settings.text == blank %}{% continue %}{% endif -%}
+              <div class="hdt-product-info__item hdt-product__sold-flash" {{ block.shopify_attributes }} {%- unless selected_variant.available %} style="display: none;"{%- endunless %}>
+                <flash-sold id="sold{{ block.id }}" class="hdt-block" time="120000" flash-sold='{ "mins":{{ block.settings.mins }}, "maxs":{{ block.settings.maxs }}, "mint":{{ block.settings.mint }}, "maxt":{{ block.settings.maxt }}, "id":"{{ product.id }}", "time": 120000 }' form="{{ product_form_id }}">
+                  <span class="hdt-product__sold-flash-content hdt-inline-flex hdt-align-center hdt-s-text hdt-font-semibold">
+                    {%- if block.settings.icon_svg != 'none' -%}
+                    {%- assign class = block.settings.ani | append: ' is--infinite hdt-inine-block' -%}
+                      {%- render 'icon_theme_svg', icon_svg: block.settings.icon_svg, class: class -%}
                     {%- endif -%}
-                  </div>
-                </div>
-
-              {% when 'code' %}
-                <div class="hdt-product-info__item hdt-product__code"  data-type="{{ block.type }}" {{ block.shopify_attributes }}>
-                  {% include 'product-code', block: block %}
-                </div>
-              {%- when 'sold' %}
-                {%- unless product.available %}{%- continue -%}{%- endunless -%}
-                {% if block.settings.text == blank %}{% continue %}{% endif -%}
-                <div
-                  class="hdt-product-info__item hdt-product__sold-flash"
-                  {{ block.shopify_attributes }}
-                  {%- unless selected_variant.available %}
-                    style="display: none;"
-                  {%- endunless %}
-                >
-                  <flash-sold
-                    id="sold{{ block.id }}"
-                    class="hdt-block"
-                    time="120000"
-                    flash-sold='{ "mins":{{ block.settings.mins }}, "maxs":{{ block.settings.maxs }}, "mint":{{ block.settings.mint }}, "maxt":{{ block.settings.maxt }}, "id":"{{ product.id }}", "time": 120000 }'
-                    form="{{ product_form_id }}"
-                  >
-                    <span class="hdt-product__sold-flash-content hdt-inline-flex hdt-align-center hdt-s-text hdt-font-semibold">
-                      {%- if block.settings.icon_svg != 'none' -%}
-                        {%- assign class = block.settings.ani | append: ' is--infinite hdt-inine-block' -%}
-                        {%- render 'icon_theme_svg', icon_svg: block.settings.icon_svg, class: class -%}
-                      {%- endif -%}
-                      <span class="hdt-s-text hdt-font-semibold">
-                        {{-
-                          block.settings.text
-                          | replace: '[sold]', '<span data-sold class=""></span>'
-                          | replace: '[hour]', '<span data-hour class=""></span>'
-                        -}}
-                      </span>
-                    </span>
-                  </flash-sold>
-                </div>
-              {%- when 'order' -%}
-                {%- unless product.available %}{%- continue -%}{%- endunless -%}
-                {%- liquid
-                  assign has_pre_order = false
-                  if product.available
-                    if selected_variant.inventory_management == 'shopify' and selected_variant.inventory_policy == 'continue' and selected_variant.inventory_quantity <= 0
-                      assign has_pre_order = true
-                    endif
+                    <span class="hdt-s-text hdt-font-semibold">{{ block.settings.text | replace: '[sold]', '<span data-sold class=""></span>' | replace: '[hour]', '<span data-hour class=""></span>' }}</span>
+                  </span>
+                </flash-sold>
+              </div>
+            {%- when 'order' -%}
+              {%- unless product.available %}{%- continue -%}{%- endunless -%}
+              {%- liquid
+                assign has_pre_order = false
+                if product.available
+                  if selected_variant.inventory_management == "shopify" and selected_variant.inventory_policy == "continue" and selected_variant.inventory_quantity <= 0
+                    assign has_pre_order = true
                   endif
-                -%}
-                {%- capture hourHTML -%}
+                endif
+              -%}
+              {%- capture hourHTML -%}
               <hdt-countdown-simple config='{ "time": {{ block.settings.time | default: "19041994" | json }} }'><template>[hours] {{ 'sections.countdown_timmer.hr_plural' | t | escape }} [mins] {{ 'sections.countdown_timmer.min_plural' | t | escape }}</template></hdt-countdown-simple>
               {%- endcapture -%}
-                <div
-                  class="hdt-product-info__item hdt-product__order"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                  style="{%-unless selected_variant.available-%}display: none;{%-endunless-%}{%- if has_pre_order and block.settings.hide_pre %}display: none;{%- endif -%}"
-                >
-                  <order-delivery
-                    id="delivery{{ block.id }}"
-                    class=""
-                    config='{ "hide_pre": {{ block.settings.hide_pre }}, "timezone":false, "format_day":"{{ block.settings.frm_day }}", "mode":"{{ block.settings.mode }}", "cut_day": {{ block.settings.cut_day | json }}, "off_day": "{{ block.settings.off_days | split: " " | join: "," }}", "estimateStartDate": {{ product.metafields.theme.estimateStartDate | default: block.settings.ds | json }}, "estimateEndDate": {{ product.metafields.theme.estimateEndDate | default: block.settings.de | json }}, "time":{{ block.settings.time | default: "19041994" | json }}, "hideWithPreorder":{{ block.settings.hide_pre }} }'
-                    form="{{ product_form_id }}"
-                  >
-                    <div class="hdt-product__order-content hdt-inline-flex hdt-align-center">
-                      {%- if block.settings.icon_svg != 'none' -%}
-                        {%- assign class = block.settings.ani | append: ' is--infinite hdt-inine-block' -%}
-                        {%- render 'icon_theme_svg', icon_svg: block.settings.icon_svg, class: class -%}
-                      {%- endif -%}
-                      <span class="hdt-s-text">
-                        {{-
-                          block.settings.txt
-                          | replace: '[hour]', hourHTML
-                          | replace: '[date_start]',
-                            '<span data-start-delivery class="hdt-start_delivery hdt-font-semibold"></span>'
-                          | replace: '[date_end]',
-                            '<span data-end-delivery class="hdt-end_delivery hdt-font-semibold"></span>'
-                        -}}
-                      </span>
-                    </div>
-                  </order-delivery>
-                </div>
+              <div class="hdt-product-info__item hdt-product__order" data-type="{{ block.type }}" {{ block.shopify_attributes }} style="{%-unless selected_variant.available-%}display: none;{%-endunless-%}{%- if has_pre_order and block.settings.hide_pre %}display: none;{%- endif -%}">
+                <order-delivery id="delivery{{ block.id }}" class="" config='{ "hide_pre": {{ block.settings.hide_pre }}, "timezone":false, "format_day":"{{ block.settings.frm_day }}", "mode":"{{ block.settings.mode }}", "cut_day": {{ block.settings.cut_day | json }}, "off_day": "{{ block.settings.off_days | split: " " | join: "," }}", "estimateStartDate": {{ product.metafields.theme.estimateStartDate | default: block.settings.ds | json }}, "estimateEndDate": {{ product.metafields.theme.estimateEndDate | default: block.settings.de | json }}, "time":{{ block.settings.time | default: "19041994" | json }}, "hideWithPreorder":{{ block.settings.hide_pre }} }' form="{{ product_form_id }}">
+                  <div class="hdt-product__order-content hdt-inline-flex hdt-align-center">
+                    {%- if block.settings.icon_svg != 'none' -%}
+                    {%- assign class = block.settings.ani | append: ' is--infinite hdt-inine-block' -%}
+                      {%- render 'icon_theme_svg', icon_svg: block.settings.icon_svg, class: class -%}
+                    {%- endif -%}
+                    <span class="hdt-s-text">{{ block.settings.txt | replace: '[hour]', hourHTML | replace: '[date_start]', '<span data-start-delivery class="hdt-start_delivery hdt-font-semibold"></span>' | replace: '[date_end]', '<span data-end-delivery class="hdt-end_delivery hdt-font-semibold"></span>' }}</span>
+                  </div>
+                </order-delivery>
+              </div>
+                
+{% render 'product-specs' %}
 
-                {% render 'product-specs' %}
+            {%- when 'countdown_timer' -%}
+              {%-  liquid
+                unless product.available
+                  continue
+                endunless
+                assign metaobj_theme_countdown = shop.metaobjects.theme_countdown.values | first
+                assign theme_countdown = metaobj_theme_countdown.date_time.value
+                assign product_countdown = theme_countdown| default: product.metafields.theme.countdown.value
+                if product_countdown == blank
+                continue
+                endif
+              -%}
 
-              {%- when 'countdown_timer' -%}
-                {%- liquid
-                  unless product.available
-                    continue
-                  endunless
-                  assign metaobj_theme_countdown = shop.metaobjects.theme_countdown.values | first
-                  assign theme_countdown = metaobj_theme_countdown.date_time.value
-                  assign product_countdown = theme_countdown | default: product.metafields.theme.countdown.value
-                  if product_countdown == blank
-                    continue
-                  endif
-                -%}
-
-                <countdown-timer
-                  class="hdt-product-info__item hdt-product__countdown hdt-block"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                  {%- unless selected_variant.available %}
-                    style="display: none;"
-                  {%- endunless -%}
-                  form="{{ product_form_id }}"
-                >
-                  <hdt-countdown
-                    class="hdt-block"
-                    config='{"month":"{{ product_countdown | date: '%m' | plus: 0 }}", "date":"{{ product_countdown | date: '%d, %Y %H:%M:%S' }}", "hideTimerOnComplete": true, "hasZero": true }'
-                  >
-                    <div class="hdt-product__countdown-wrap hdt-text-center hdt-inline-block">
-                      {%- if block.settings.content != blank -%}
-                        <div class="hdt-product__countdown-title hdt-inline-flex hdt-align-center hdt-s-text hdt-text-xs hdt-font-bold">
-                          {%- if block.settings.icon_svg != 'none' -%}
-                            {%- assign class = block.settings.ani | append: ' is--infinite hdt-inine-block' -%}
-                            {%- render 'icon_theme_svg', icon_svg: block.settings.icon_svg, class: class -%}
-                          {%- endif -%}
-                          <p class="hdt-inline-block">{{ block.settings.content }}</p>
-                        </div>
-                      {%- endif -%}
-                      <div class="hdt-product__countdown-time hdt-font-semibold">
-                        <div
-                          class="hdt-product__countdown-inner hdt-relative hdt-flex hdt-flex-wrap hdt-items-center hdt-justify-center"
-                          aria-hidden="true"
-                        >
-                          <div class="hdt-product__countdown-item">
-                            <hdt-countdown-amount effect="move_top" data-days>00</hdt-countdown-amount>
-                            <hdt-countdown-text singular="{{ 'sections.countdown_timmer.day' | t }}" class="hdt-grid">
-                              {{- 'sections.countdown_timmer.day_plural' | t -}}
-                            </hdt-countdown-text>
-                          </div>
-                          <span>:</span>
-                          <div class="hdt-product__countdown-item">
-                            <hdt-countdown-amount effect="move_top" data-hours>00</hdt-countdown-amount>
-                            <hdt-countdown-text singular="{{ 'sections.countdown_timmer.hr' | t }}" class="hdt-grid">
-                              {{- 'sections.countdown_timmer.hr_plural' | t -}}
-                            </hdt-countdown-text>
-                          </div>
-                          <span>:</span>
-                          <div class="hdt-product__countdown-item">
-                            <hdt-countdown-amount effect="move_top" data-minutes>00</hdt-countdown-amount>
-                            <hdt-countdown-text singular="{{ 'sections.countdown_timmer.min' | t }}" class="hdt-grid">
-                              {{- 'sections.countdown_timmer.min_plural' | t -}}
-                            </hdt-countdown-text>
-                          </div>
-                          <span>:</span>
-                          <div class="hdt-product__countdown-item">
-                            <hdt-countdown-amount effect="move_top" data-seconds>00</hdt-countdown-amount>
-                            <hdt-countdown-text singular="{{ 'sections.countdown_timmer.sec' | t }}" class="hdt-grid">
-                              {{- 'sections.countdown_timmer.sec_plural' | t -}}
-                            </hdt-countdown-text>
-                          </div>
+              <countdown-timer class="hdt-product-info__item hdt-product__countdown hdt-block" data-type="{{ block.type }}" {{ block.shopify_attributes }} {%- unless selected_variant.available %} style="display: none;"{%- endunless -%} form="{{ product_form_id }}">
+                <hdt-countdown class="hdt-block" config='{"month":"{{ product_countdown | date: '%m' | plus: 0 }}", "date":"{{ product_countdown | date: '%d, %Y %H:%M:%S' }}", "hideTimerOnComplete": true, "hasZero": true }'>
+                  <div class="hdt-product__countdown-wrap hdt-text-center hdt-inline-block">
+                    {%- if block.settings.content != blank -%}
+                      <div class="hdt-product__countdown-title hdt-inline-flex hdt-align-center hdt-s-text hdt-text-xs hdt-font-bold">
+                        {%- if block.settings.icon_svg != 'none' -%}
+                          {%- assign class = block.settings.ani | append: ' is--infinite hdt-inine-block' -%}
+                          {%- render 'icon_theme_svg', icon_svg: block.settings.icon_svg, class: class -%}
+                        {%- endif -%}
+                        <p class="hdt-inline-block">{{ block.settings.content }}</p>
+                      </div>
+                    {%- endif -%}
+                    <div class="hdt-product__countdown-time hdt-font-semibold">
+                      <div class="hdt-product__countdown-inner hdt-relative hdt-flex hdt-flex-wrap hdt-items-center hdt-justify-center" aria-hidden="true">
+                        <div class="hdt-product__countdown-item">
+                          <hdt-countdown-amount effect="move_top" data-days>00</hdt-countdown-amount>
+                          <hdt-countdown-text singular="{{ 'sections.countdown_timmer.day' | t }}" class="hdt-grid">{{ 'sections.countdown_timmer.day_plural' | t }}</hdt-countdown-text>
+                        </div><span>:</span>
+                        <div class="hdt-product__countdown-item">
+                          <hdt-countdown-amount effect="move_top" data-hours>00</hdt-countdown-amount>
+                          <hdt-countdown-text singular="{{ 'sections.countdown_timmer.hr' | t }}" class="hdt-grid">{{ 'sections.countdown_timmer.hr_plural' | t }}</hdt-countdown-text>
+                        </div><span>:</span>
+                        <div class="hdt-product__countdown-item">
+                          <hdt-countdown-amount effect="move_top" data-minutes>00</hdt-countdown-amount>
+                          <hdt-countdown-text singular="{{ 'sections.countdown_timmer.min' | t }}" class="hdt-grid">{{ 'sections.countdown_timmer.min_plural' | t }}</hdt-countdown-text>
+                        </div><span>:</span>
+                        <div class="hdt-product__countdown-item">
+                          <hdt-countdown-amount effect="move_top" data-seconds>00</hdt-countdown-amount>
+                          <hdt-countdown-text singular="{{ 'sections.countdown_timmer.sec' | t }}" class="hdt-grid">{{ 'sections.countdown_timmer.sec_plural' | t }}</hdt-countdown-text>
                         </div>
                       </div>
                     </div>
-                  </hdt-countdown>
-                </countdown-timer>
-
-              {%- when 'quantity_selector' -%}
-                {%- liquid
-                  unless product.available
-                    continue
-                  endunless
-                -%}
-                <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
-                  {%- render 'product-qty-selector',
-                    block: block,
-                    selected_variant: selected_variant,
-                    product_form_id: product_form_id,
-                    product: product
-                  -%}
-                </div>
-
-              {%- when 'variant_picker' -%}
-                <div
-                  class="hdt-product-info__item hdt-product__variant-picker"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {%- render 'variant-picker',
-                    product: product,
-                    block: block,
-                    product_form_id: product_form_id,
-                    update_url: update_url,
-                    selected_variant: selected_variant,
-                    un_no_pick: un_no_pick
-                  -%}
-                </div>
-
-              {%- when 'buy_buttons' -%}
-                {%- assign has_form_atc = true -%}
-                <div
-                  class="hdt-product-info__item hdt-product__buy-button"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {%- render 'buy-buttons',
-                    product: product,
-                    block: block,
-                    product_form_id: product_form_id,
-                    use_variant: true,
-                    selected_variant: selected_variant,
-                    un_no_pick: un_no_pick
-                  -%}
-                </div>
-
-              {%- when 'linked_products' -%}
-                {%- if block.settings.option_name != blank and block.settings.product_list != blank -%}
-                  <div
-                    class="hdt-product-info__item  hdt-product__linked_products"
-                    data-type="{{ block.type }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    {%- render 'linked-products', product: product, block: block -%}
                   </div>
-                {%- endif -%}
+                </hdt-countdown>
+              </countdown-timer>
 
-              {%- when 'back_instock' -%}
-                <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
-                  {% render 'back-instock',
-                    product: product,
-                    product_form_id: product_form_id,
-                    section_id: section.id,
-                    toogle_hidden: block.settings.only_show_soldout
-                  %}
+            {%- when 'quantity_selector' -%}
+              {%- liquid
+                unless product.available
+                  continue
+                endunless
+              -%}
+              <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+              {%- render 'product-qty-selector', block: block, selected_variant: selected_variant, product_form_id: product_form_id, product: product -%}
+              </div>
+
+            {%- when 'variant_picker' -%}
+              <div class="hdt-product-info__item hdt-product__variant-picker" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'variant-picker', product: product, block: block, product_form_id: product_form_id, update_url: update_url, selected_variant: selected_variant, un_no_pick: un_no_pick -%}</div>
+
+            {%- when 'buy_buttons' -%}
+              {%- assign has_form_atc = true -%}
+              <div class="hdt-product-info__item hdt-product__buy-button" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'buy-buttons', product: product, block: block, product_form_id: product_form_id, use_variant: true, selected_variant: selected_variant, un_no_pick: un_no_pick -%}</div>
+
+            {%- when 'linked_products' -%}
+              {%- if block.settings.option_name != blank and block.settings.product_list != blank -%}
+              <div class="hdt-product-info__item  hdt-product__linked_products" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'linked-products', product: product, block: block -%}</div>
+              {%- endif -%}
+
+            {%- when 'back_instock' -%}
+              <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{% render 'back-instock', product: product, product_form_id: product_form_id, section_id: section.id, toogle_hidden: block.settings.only_show_soldout %}</div>
+
+            {%- when 'description' -%}
+              {%- liquid
+                assign description_excerpt = block.settings.short_des | default: product.description
+                if description_excerpt == blank
+                  continue 
+                endif 
+              -%}
+              <style>
+                product-description .hdt-product__description{
+                  transition: all .25s ease;
+                }
+                product-description.is--less .hdt-rl-text{
+                  display: block;
+                }
+                product-description.is--less .hdt-rm-text{
+                  display: none;
+                }
+                product-description.is--less .hdt-full-des{
+                  display: block;
+                }
+                product-description.is--less .hdt-short-des{
+                  display: none;
+                }
+              </style>
+              {%- if product.description != blank and block.settings.des == '1' -%}    
+                <div class="hdt-product-info__item hdt-product__description">
+                  <div class="hdt-s-text2 hdt-rte">
+                    {{ product.description }}
+                  </div>
                 </div>
-
-              {%- when 'description' -%}
-                {%- liquid
-                  assign description_excerpt = block.settings.short_des | default: product.description
-                  if description_excerpt == blank
-                    continue
-                  endif
-                -%}
-                <style>
-                  product-description .hdt-product__description {
-                    transition: all 0.25s ease;
-                  }
-                  product-description.is--less .hdt-rl-text {
-                    display: block;
-                  }
-                  product-description.is--less .hdt-rm-text {
-                    display: none;
-                  }
-                  product-description.is--less .hdt-full-des {
-                    display: block;
-                  }
-                  product-description.is--less .hdt-short-des {
-                    display: none;
-                  }
-                </style>
-                {%- if product.description != blank and block.settings.des == '1' -%}
+              {%- elsif description_excerpt != blank -%}
+                
+                {%- if block.settings.readm == false -%}
                   <div class="hdt-product-info__item hdt-product__description">
                     <div class="hdt-s-text2 hdt-rte">
-                      {{ product.description }}
+                      {{ description_excerpt }}
                     </div>
                   </div>
-                {%- elsif description_excerpt != blank -%}
-                  {%- if block.settings.readm == false -%}
-                    <div class="hdt-product-info__item hdt-product__description">
-                      <div class="hdt-s-text2 hdt-rte">
+                {%- else -%}
+                  {%- assign des_size = description_excerpt | strip_html | split: " " | size -%}
+                  {%- assign words_limit = block.settings.length | abs -%}
+                  <product-description class="hdt-block hdt-product-description" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                    <div class="hdt-product-info__item hdt-product__description hdt-relative">
+                      <div class="hdt-s-text2 hdt-rte hdt-full-des hdt-hidden">
                         {{ description_excerpt }}
                       </div>
+                      <div class="hdt-s-text2 hdt-rte hdt-short-des">
+                        {{ description_excerpt | strip_html | truncatewords: words_limit }}
+                      </div>
                     </div>
-                  {%- else -%}
-                    {%- assign des_size = description_excerpt | strip_html | split: ' ' | size -%}
-                    {%- assign words_limit = block.settings.length | abs -%}
-                    <product-description
-                      class="hdt-block hdt-product-description"
-                      data-type="{{ block.type }}"
-                      {{ block.shopify_attributes }}
-                    >
-                      <div class="hdt-product-info__item hdt-product__description hdt-relative">
-                        <div class="hdt-s-text2 hdt-rte hdt-full-des hdt-hidden">
-                          {{ description_excerpt }}
-                        </div>
-                        <div class="hdt-s-text2 hdt-rte hdt-short-des">
-                          {{ description_excerpt | strip_html | truncatewords: words_limit }}
-                        </div>
-                      </div>
-                      {%- if des_size > words_limit -%}
-                        <button class="hdt-product__description_readm hdt-pr-des-rm">
-                          <span class="hdt-rm-text">{{ block.settings.readm_txt }}</span>
-                          <span class="hdt-rl-text hdt-hidden">{{ block.settings.readl_txt }}</span>
-                        </button>
-                      {%- endif -%}
-                    </product-description>
-                  {%- endif -%}
+                    {%- if des_size > words_limit -%}
+                      <button class="hdt-product__description_readm hdt-pr-des-rm">
+                        <span class="hdt-rm-text">{{ block.settings.readm_txt }}</span>
+                        <span class="hdt-rl-text hdt-hidden">{{ block.settings.readl_txt }}</span>
+                      </button>
+                    {%- endif -%}
+                  </product-description>
                 {%- endif -%}
-              {%- when 'extra_link' -%}
-                <div
-                  class="hdt-product-info__item hdt-product__extra-link{% if block.settings.show_share_btn %} hdt-share-buttons{% endif %}"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {%- if block.settings.show_cp_cl -%}
-                    {%- render 'compare-color', product: product, block: block -%}
-                  {%- endif -%}
-                  {%- if block.settings.show_ask -%}
-                    <button
-                      class="hdt-pr-popup__ask hdt-s-text hdt-inline-flex hdt-align-center"
-                      aria-controls="modal-contactFormAsk"
-                    >
-                      <span class="hdt-product__extra-icon">
-                        <svg
-                          class="hdt-inline-block"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M10 20C4.477 20 0 15.523 0 10C0 4.477 4.477 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20ZM10 18C12.1217 18 14.1566 17.1571 15.6569 15.6569C17.1571 14.1566 18 12.1217 18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 12.1217 2.84285 14.1566 4.34315 15.6569C5.84344 17.1571 7.87827 18 10 18ZM9 13H11V15H9V13ZM11 11.355V12H9V10.5C9 10.2348 9.10536 9.98043 9.29289 9.79289C9.48043 9.60536 9.73478 9.5 10 9.5C10.2841 9.49998 10.5623 9.4193 10.8023 9.26733C11.0423 9.11536 11.2343 8.89837 11.3558 8.64158C11.4773 8.3848 11.5234 8.0988 11.4887 7.81684C11.454 7.53489 11.34 7.26858 11.1598 7.04891C10.9797 6.82924 10.7409 6.66523 10.4712 6.57597C10.2015 6.48671 9.91204 6.47587 9.63643 6.54471C9.36081 6.61354 9.11042 6.75923 8.91437 6.96482C8.71832 7.1704 8.58468 7.42743 8.529 7.706L6.567 7.313C6.68863 6.70508 6.96951 6.14037 7.38092 5.67659C7.79233 5.2128 8.31952 4.86658 8.90859 4.67332C9.49766 4.48006 10.1275 4.44669 10.7337 4.57661C11.3399 4.70654 11.9007 4.99511 12.3588 5.41282C12.8169 5.83054 13.1559 6.36241 13.3411 6.95406C13.5263 7.54572 13.5511 8.17594 13.4129 8.78031C13.2747 9.38467 12.9785 9.9415 12.5545 10.3939C12.1306 10.8462 11.5941 11.1779 11 11.355Z"/>
-                        </svg>
-                      </span>
-                      <span class="hdt-product__extra-text hdt-font-semibold">
-                        {{- 'products.product.ask_question' | t -}}
-                      </span>
-                    </button>
-                    <hdt-modal
-                      id="modal-contactFormAsk"
-                      class="hdt-modal-popup__ask hdt-product__modal hdt-modal hdt-hidden"
-                      color-scheme="{{ settings.color_scheme_dialog }}"
-                      config='{"appendToBody": true}'
-                    >
-                      <h3 slot="header" class="hdt-product__modal-title hdt-s-text hdt-font-normal">
-                        {{ 'products.product.ask_question' | t }}
-                      </h3>
-                      {%- assign formId = 'ContactFormAsk' | append: product.id -%}
-                      {%- form 'contact', id: formId -%}
-                        {%- liquid
-                          assign name = 'templates.contact.form.name'
-                          assign phone = 'templates.contact.form.phone'
-                          capture status_ask_mirror
-                            echo '<div class="form-status-mirror-' | append: formId | append: '" style="display: none">'
-                            capture status_ask
-                              render 'form-status', form: form, form_id: formId
-                            endcapture
-                            echo status_ask
-                            echo '</div>'
-                          endcapture
-                          echo status_ask
-                        -%}
+              {%- endif -%}
+            {%- when 'extra_link' -%}
+              <div class="hdt-product-info__item hdt-product__extra-link{% if block.settings.show_share_btn %} hdt-share-buttons{% endif %}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                {%- if block.settings.show_cp_cl -%}
+                  {%- render 'compare-color', product: product, block: block -%}
+                {%- endif -%}
+                {%- if block.settings.show_ask -%}
+                  <button class="hdt-pr-popup__ask hdt-s-text hdt-inline-flex hdt-align-center" aria-controls="modal-contactFormAsk">
+                    <span class="hdt-product__extra-icon"><svg class="hdt-inline-block" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 20C4.477 20 0 15.523 0 10C0 4.477 4.477 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20ZM10 18C12.1217 18 14.1566 17.1571 15.6569 15.6569C17.1571 14.1566 18 12.1217 18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 12.1217 2.84285 14.1566 4.34315 15.6569C5.84344 17.1571 7.87827 18 10 18ZM9 13H11V15H9V13ZM11 11.355V12H9V10.5C9 10.2348 9.10536 9.98043 9.29289 9.79289C9.48043 9.60536 9.73478 9.5 10 9.5C10.2841 9.49998 10.5623 9.4193 10.8023 9.26733C11.0423 9.11536 11.2343 8.89837 11.3558 8.64158C11.4773 8.3848 11.5234 8.0988 11.4887 7.81684C11.454 7.53489 11.34 7.26858 11.1598 7.04891C10.9797 6.82924 10.7409 6.66523 10.4712 6.57597C10.2015 6.48671 9.91204 6.47587 9.63643 6.54471C9.36081 6.61354 9.11042 6.75923 8.91437 6.96482C8.71832 7.1704 8.58468 7.42743 8.529 7.706L6.567 7.313C6.68863 6.70508 6.96951 6.14037 7.38092 5.67659C7.79233 5.2128 8.31952 4.86658 8.90859 4.67332C9.49766 4.48006 10.1275 4.44669 10.7337 4.57661C11.3399 4.70654 11.9007 4.99511 12.3588 5.41282C12.8169 5.83054 13.1559 6.36241 13.3411 6.95406C13.5263 7.54572 13.5511 8.17594 13.4129 8.78031C13.2747 9.38467 12.9785 9.9415 12.5545 10.3939C12.1306 10.8462 11.5941 11.1779 11 11.355Z"/></svg></span> <span class="hdt-product__extra-text hdt-font-semibold">{{ 'products.product.ask_question' | t }}</span>
+                  </button>
+                  <hdt-modal id="modal-contactFormAsk" class="hdt-modal-popup__ask hdt-product__modal hdt-modal hdt-hidden" color-scheme="{{ settings.color_scheme_dialog }}" config='{"appendToBody": true}'>
+                    <h3 slot="header" class="hdt-product__modal-title hdt-s-text hdt-font-normal">{{ 'products.product.ask_question' | t }}</h3>
+                    {%- assign formId = 'ContactFormAsk' | append: product.id -%}
+                    {%- form 'contact', id: formId -%}
+                      {%- liquid
+                        assign name          = 'templates.contact.form.name'
+                        assign phone         = 'templates.contact.form.phone'
+                        capture status_ask_mirror
+                        echo '<div class="form-status-mirror-' | append: formId | append: '" style="display: none">'
+                        capture status_ask
+                        render 'form-status', form: form, form_id: formId
+                        endcapture
+                        echo status_ask
+                        echo '</div>'
+                        endcapture
+                        echo status_ask
+                       -%}
+                      <p>
+                        <label for="{{ formId }}-name" class="hdt-s-text2 hdt-block">{{ 'templates.contact.form.name' | t }}</label>
+                        <input type="text" id="{{ formId }}-name" name="contact[name]" required="required" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                      </p>
+                      <p>
+                        <label for="{{ formId }}-email" class="hdt-s-text2 hdt-block">{{ 'templates.contact.form.email' | t }}</label>
+                        <input type="email" id="{{ formId }}-email" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" aria-required="true" required="required"
+                        {%- if form.errors contains 'email' %} class="input--error" aria-invalid="true" aria-describedby="{{ formId }}-email-error"{%- endif -%}>
+                      </p>
+                      {%- if block.settings.show_phone -%}
                         <p>
-                          <label for="{{ formId }}-name" class="hdt-s-text2 hdt-block">
-                            {{- 'templates.contact.form.name' | t -}}
-                          </label>
-                          <input
-                            type="text"
-                            id="{{ formId }}-name"
-                            name="contact[name]"
-                            required="required"
-                            value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}"
-                          >
+                          <label for="{{ formId }}-phone" class="hdt-s-text2 hdt-block">{{ 'templates.contact.form.phone' | t }}</label>
+                          <input type="tel" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
                         </p>
-                        <p>
-                          <label for="{{ formId }}-email" class="hdt-s-text2 hdt-block">
-                            {{- 'templates.contact.form.email' | t -}}
-                          </label>
-                          <input
-                            type="email"
-                            id="{{ formId }}-email"
-                            name="contact[email]"
-                            autocorrect="off"
-                            autocapitalize="off"
-                            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                            aria-required="true"
-                            required="required"
-                            {%- if form.errors contains 'email' %}
-                              class="input--error" aria-invalid="true" aria-describedby="{{ formId }}-email-error"
-                            {%- endif -%}
-                          >
-                        </p>
-                        {%- if block.settings.show_phone -%}
-                          <p>
-                            <label for="{{ formId }}-phone" class="hdt-s-text2 hdt-block">
-                              {{- 'templates.contact.form.phone' | t -}}
-                            </label>
-                            <input
-                              type="tel"
-                              id="{{ formId }}-phone"
-                              name="contact[phone]"
-                              pattern="[0-9\-]*"
-                              value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-                            >
-                          </p>
-                        {%- endif -%}
-                        <p class="hdt-hidden">
-                          <label for="{{ formId }}-product">Product</label>
-                          <textarea
-                            rows="20"
-                            id="{{ formId }}-product"
-                            name="contact[product]"
-                            required="required"
-                          >{{ product.title }} - {{ request.origin }}{{ product.url }}</textarea>
-                        </p>
-                        <p>
-                          <label for="{{ formId }}-message" class="hdt-s-text2 hdt-block">
-                            {{- 'templates.contact.form.message' | t -}}
-                          </label>
-                          <textarea
-                            rows="9"
-                            id="{{ formId }}-message"
-                            name="contact[body]"
-                            required="required"
-                          >{% if form.body %}{{ form.body }}{% endif %}</textarea>
-                        </p>
-                        <button
-                          type="submit"
-                          class="hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-btn hdt-oh hdt-btn-solid hdt-font-semibold"
-                        >
-                          <span class="hdt-truncate">{{ 'templates.contact.form.send' | t }}</span>
-                        </button>
-                      {%- endform -%}
-                    </hdt-modal>
+                      {%- endif -%}
+                      <p class="hdt-hidden">
+                        <label for="{{ formId }}-product">Product</label>
+                        <textarea rows="20" id="{{ formId }}-product" name="contact[product]" required="required">{{ product.title }} - {{ request.origin }}{{ product.url }}</textarea>
+                      </p>
+                      <p>
+                        <label for="{{ formId }}-message" class="hdt-s-text2 hdt-block">{{ 'templates.contact.form.message' | t }}</label>
+                        <textarea rows="9" id="{{ formId }}-message" name="contact[body]" required="required">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+                      </p>
+                      <button type="submit" class="hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-btn hdt-oh hdt-btn-solid hdt-font-semibold"><span class="hdt-truncate">{{ 'templates.contact.form.send' | t }}</span></button>
+                    {%- endform -%}
+                  </hdt-modal>
+                {%- endif -%}
+                {%- if block.settings.show_delivery and block.settings.page_delivery != blank -%}
+                  <button class="hdt-pr-popup__delivery hdt-s-text hdt-inline-flex hdt-align-center" aria-controls="modal-delivery">
+                    <span class="hdt-product__extra-icon"><svg class="hdt-inline-block" xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18" fill="currentColor"><path d="M21.7872 10.4724C21.7872 9.73685 21.5432 9.00864 21.1002 8.4217L18.7221 5.27043C18.2421 4.63481 17.4804 4.25532 16.684 4.25532H14.9787V2.54885C14.9787 1.14111 13.8334 0 12.4255 0H9.95745V1.69779H12.4255C12.8948 1.69779 13.2766 2.07962 13.2766 2.54885V14.5957H8.15145C7.80021 13.6052 6.85421 12.8936 5.74468 12.8936C4.63515 12.8936 3.68915 13.6052 3.33792 14.5957H2.55319C2.08396 14.5957 1.70213 14.2139 1.70213 13.7447V2.54885C1.70213 2.07962 2.08396 1.69779 2.55319 1.69779H9.95745V0H2.55319C1.14528 0 0 1.14111 0 2.54885V13.7447C0 15.1526 1.14528 16.2979 2.55319 16.2979H3.33792C3.68915 17.2884 4.63515 18 5.74468 18C6.85421 18 7.80021 17.2884 8.15145 16.2979H13.423C13.7742 17.2884 14.7202 18 15.8297 18C16.9393 18 17.8853 17.2884 18.2365 16.2979H21.7872V10.4724ZM16.684 5.95745C16.9494 5.95745 17.2034 6.08396 17.3634 6.29574L19.5166 9.14894H14.9787V5.95745H16.684ZM5.74468 16.2979C5.27545 16.2979 4.89362 15.916 4.89362 15.4468C4.89362 14.9776 5.27545 14.5957 5.74468 14.5957C6.21392 14.5957 6.59575 14.9776 6.59575 15.4468C6.59575 15.916 6.21392 16.2979 5.74468 16.2979ZM15.8298 16.2979C15.3606 16.2979 14.9787 15.916 14.9787 15.4468C14.9787 14.9776 15.3606 14.5957 15.8298 14.5957C16.299 14.5957 16.6809 14.9776 16.6809 15.4468C16.6809 15.916 16.299 16.2979 15.8298 16.2979ZM18.2366 14.5957C17.8853 13.6052 16.9393 12.8936 15.8298 12.8936C15.5398 12.8935 15.252 12.943 14.9787 13.04V10.8511H20.0851V14.5957H18.2366Z"/></svg></span> <span class="hdt-product__extra-text hdt-font-semibold">{{ 'products.product.delivery_return' | t }}</span>
+                  </button>
+                  <hdt-modal id="modal-delivery" class="hdt-modal hdt-modal__delivery hdt-product__modal hdt-hidden" config='{"appendToBody": true}' color-scheme="{{ settings.color_scheme_dialog }}">
+                    <h3 class="hdt-product__modal-title" slot="header">{{ block.settings.page_delivery.title }}</h3>
+                    <div class="hdt-rte">{{ block.settings.page_delivery.content }}</div>
+                  </hdt-modal>
+                {%- endif -%}
+                {%- if block.settings.show_share_btn -%}
+                  {%- assign share_link = product.selected_variant.url | default: product.url | prepend: request.origin -%}
+                  {%- render 'share-buttons', block: block, share_link: share_link, share_image: product.featured_image, share_title: product.title -%}
+                {%- endif -%}
+                {{ status_ask_mirror }}
+              </div>
+            {%- when 'delivery_return' -%}
+              <div class="hdt-product__delivery-return">
+                <div class="hdt-row-grid hdt-grid-cols-1 lg:hdt-grid-cols-2 hdt-inline-block hdt-s-text hdt-text-center">
+                  {%- if block.settings.content_devivery != blank -%}
+                    <div class="hdt-product__delivery">
+                      {%- if block.settings.icon_delivery != 'none' -%}
+                        <div class="hdt-product__delivery-icon">
+                          {%- render 'icon_theme_svg', icon_svg: block.settings.icon_delivery -%}
+                        </div>
+                      {%- endif -%}
+                      <div class="hdt-product__delivery-content">{{ block.settings.content_devivery }}</div>
+                    </div>
                   {%- endif -%}
-                  {%- if block.settings.show_delivery and block.settings.page_delivery != blank -%}
-                    <button
-                      class="hdt-pr-popup__delivery hdt-s-text hdt-inline-flex hdt-align-center"
-                      aria-controls="modal-delivery"
-                    >
-                      <span class="hdt-product__extra-icon">
-                        <svg
-                          class="hdt-inline-block"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="22"
-                          height="18"
-                          viewBox="0 0 22 18"
-                          fill="currentColor"
-                        >
-                          <path d="M21.7872 10.4724C21.7872 9.73685 21.5432 9.00864 21.1002 8.4217L18.7221 5.27043C18.2421 4.63481 17.4804 4.25532 16.684 4.25532H14.9787V2.54885C14.9787 1.14111 13.8334 0 12.4255 0H9.95745V1.69779H12.4255C12.8948 1.69779 13.2766 2.07962 13.2766 2.54885V14.5957H8.15145C7.80021 13.6052 6.85421 12.8936 5.74468 12.8936C4.63515 12.8936 3.68915 13.6052 3.33792 14.5957H2.55319C2.08396 14.5957 1.70213 14.2139 1.70213 13.7447V2.54885C1.70213 2.07962 2.08396 1.69779 2.55319 1.69779H9.95745V0H2.55319C1.14528 0 0 1.14111 0 2.54885V13.7447C0 15.1526 1.14528 16.2979 2.55319 16.2979H3.33792C3.68915 17.2884 4.63515 18 5.74468 18C6.85421 18 7.80021 17.2884 8.15145 16.2979H13.423C13.7742 17.2884 14.7202 18 15.8297 18C16.9393 18 17.8853 17.2884 18.2365 16.2979H21.7872V10.4724ZM16.684 5.95745C16.9494 5.95745 17.2034 6.08396 17.3634 6.29574L19.5166 9.14894H14.9787V5.95745H16.684ZM5.74468 16.2979C5.27545 16.2979 4.89362 15.916 4.89362 15.4468C4.89362 14.9776 5.27545 14.5957 5.74468 14.5957C6.21392 14.5957 6.59575 14.9776 6.59575 15.4468C6.59575 15.916 6.21392 16.2979 5.74468 16.2979ZM15.8298 16.2979C15.3606 16.2979 14.9787 15.916 14.9787 15.4468C14.9787 14.9776 15.3606 14.5957 15.8298 14.5957C16.299 14.5957 16.6809 14.9776 16.6809 15.4468C16.6809 15.916 16.299 16.2979 15.8298 16.2979ZM18.2366 14.5957C17.8853 13.6052 16.9393 12.8936 15.8298 12.8936C15.5398 12.8935 15.252 12.943 14.9787 13.04V10.8511H20.0851V14.5957H18.2366Z"/>
-                        </svg>
-                      </span>
-                      <span class="hdt-product__extra-text hdt-font-semibold">
-                        {{- 'products.product.delivery_return' | t -}}
-                      </span>
-                    </button>
-                    <hdt-modal
-                      id="modal-delivery"
-                      class="hdt-modal hdt-modal__delivery hdt-product__modal hdt-hidden"
-                      config='{"appendToBody": true}'
-                      color-scheme="{{ settings.color_scheme_dialog }}"
-                    >
-                      <h3 class="hdt-product__modal-title" slot="header">{{ block.settings.page_delivery.title }}</h3>
-                      <div class="hdt-rte">{{ block.settings.page_delivery.content }}</div>
-                    </hdt-modal>
+                  {%- if block.settings.content_return != blank -%}
+                    <div class="hdt-product__return">
+                      {%- if block.settings.icon_return != 'none' -%}
+                        {%- render 'icon_theme_svg', icon_svg: block.settings.icon_return -%}
+                      {%- endif -%}
+                      <div class="hdt-product__delivery-content">{{ block.settings.content_return }}</div>
+                    </div>
                   {%- endif -%}
-                  {%- if block.settings.show_share_btn -%}
-                    {%- assign share_link = product.selected_variant.url
-                      | default: product.url
-                      | prepend: request.origin
-                    -%}
-                    {%- render 'share-buttons',
-                      block: block,
-                      share_link: share_link,
-                      share_image: product.featured_image,
-                      share_title: product.title
-                    -%}
-                  {%- endif -%}
-                  {{ status_ask_mirror }}
                 </div>
-              {%- when 'delivery_return' -%}
-                <div class="hdt-product__delivery-return">
-                  <div class="hdt-row-grid hdt-grid-cols-1 lg:hdt-grid-cols-2 hdt-inline-block hdt-s-text hdt-text-center">
-                    {%- if block.settings.content_devivery != blank -%}
-                      <div class="hdt-product__delivery">
-                        {%- if block.settings.icon_delivery != 'none' -%}
-                          <div class="hdt-product__delivery-icon">
-                            {%- render 'icon_theme_svg', icon_svg: block.settings.icon_delivery -%}
-                          </div>
-                        {%- endif -%}
-                        <div class="hdt-product__delivery-content">{{ block.settings.content_devivery }}</div>
-                      </div>
-                    {%- endif -%}
-                    {%- if block.settings.content_return != blank -%}
-                      <div class="hdt-product__return">
-                        {%- if block.settings.icon_return != 'none' -%}
-                          {%- render 'icon_theme_svg', icon_svg: block.settings.icon_return -%}
-                        {%- endif -%}
-                        <div class="hdt-product__delivery-content">{{ block.settings.content_return }}</div>
-                      </div>
-                    {%- endif -%}
-                  </div>
-                </div>
-              {%- when 'payment-terms' -%}
-                <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
-                  {%- render 'payment-terms', product: product, block: block, product_form_id: product_form_id -%}
-                </div>
+              </div>
+            {%- when 'payment-terms' -%}
+              <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'payment-terms', product: product, block: block, product_form_id: product_form_id -%}</div>
 
-              {%- when 'inventory' -%}
-                <div
-                  class="hdt-product-info__item hdt-product__inventory"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {%- render 'inventory',
-                    product: product,
-                    block: block,
-                    product_form_id: product_form_id,
-                    selected_variant: selected_variant
-                  -%}
-                </div>
+            {%- when 'inventory' -%}
+              <div class="hdt-product-info__item hdt-product__inventory" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'inventory', product: product, block: block, product_form_id: product_form_id, selected_variant: selected_variant -%}</div>
 
-              {%- when 'sku' -%}
-                <hdt-variant-live
-                  is="sku"
-                  form="{{ product_form_id }}"
-                  {% if selected_variant.sku == '' %}
-                    hidden
-                  {% endif %}
-                  class="hdt-product-info__item hdt-product__sku hdt-s-text"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {{- 'products.product.sku' | t }}
-                  <span class="hdt-font-semibold" update-value>{{ selected_variant.sku }}</span></hdt-variant-live
-                >
+            {%- when 'sku' -%}
+              <hdt-variant-live is="sku" form="{{ product_form_id }}"{% if selected_variant.sku == '' %} hidden{% endif %} class="hdt-product-info__item hdt-product__sku hdt-s-text" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{{ 'products.product.sku' | t }} <span class="hdt-font-semibold" update-value>{{ selected_variant.sku }}</span></hdt-variant-live>
 
-              {%- when 'barcode' -%}
-                <hdt-variant-live
-                  is="barcode"
-                  form="{{ product_form_id }}"
-                  {% if selected_variant.barcode == '' %}
-                    hidden
-                  {% endif %}
-                  class="hdt-product-info__item hdt-product__barcode hdt-s-text"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {{- 'products.product.barcode' | t }}
-                  <span class="hdt-font-semibold" update-value>{{ selected_variant.barcode }}</span></hdt-variant-live
-                >
+            {%- when 'barcode' -%}
+              <hdt-variant-live is="barcode" form="{{ product_form_id }}"{% if selected_variant.barcode == '' %} hidden{% endif %} class="hdt-product-info__item hdt-product__barcode hdt-s-text" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{{ 'products.product.barcode' | t }} <span class="hdt-font-semibold" update-value>{{ selected_variant.barcode }}</span></hdt-variant-live>
 
-              {%- when 'badges' -%}
-                {%- assign id_hidden = 'badges-' | append: block.id -%}
-                <div
-                  class="hdt-product-info__item hdt-product__badges"
-                  id="{{ id_hidden }}"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {%- capture special -%}
+            {%- when 'badges' -%}
+              {%- assign id_hidden = 'badges-' | append: block.id -%}
+              <div class="hdt-product-info__item hdt-product__badges" id="{{ id_hidden }}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                {%- capture special -%}
                 {%- if block.settings.special.size > 0 -%}
                   <hdt-badge is="available" class="hdt-badge hdt-badge__on-special" form="{{ product_form_id }}">{%- capture special_name -%}{{ block.settings.special | metafield_text }}{%- endcapture -%}{{ special_name }}</hdt-badge>
                   <div class="hdt-product__status-content hdt-inline-flex hdt-align-center" style="vertical-align: middle;">
@@ -681,45 +379,27 @@
                   <style>.hdt-product__status-content {display: none}hdt-badge[is="available"]:not([hidden]) + .hdt-product__status-content {display: inline-flex}</style>
                 {%- endif -%}
                 {%- endcapture -%}
-                  {%- liquid
-                    assign sale_text_t = 'products.product.on_sale_single' | t
-                    assign sale_percent_t = 'products.product.save_percent_single' | t: percent: 'save_1904' | replace_first: 'save_1904', '<span percent>save_1904</span>'
-                    render 'badges', special_badge: special, special_name: special_name, product: product, use_variant: true, form_id: product_form_id, id_hidden: id_hidden, update_hidden: true, sale_text_t: sale_text_t, sale_percent_t: sale_percent_t, use_onsale_badge: false
+                {%- liquid
+                  assign sale_text_t = 'products.product.on_sale_single' | t
+                  assign sale_percent_t = 'products.product.save_percent_single' | t: percent: 'save_1904' | replace_first: 'save_1904', '<span percent>save_1904</span>'
+                  render 'badges', special_badge: special, special_name: special_name, product: product, use_variant: true, form_id: product_form_id, id_hidden: id_hidden, update_hidden: true, sale_text_t: sale_text_t, sale_percent_t: sale_percent_t, use_onsale_badge: false
                   -%}
-                </div>
-              {%- when 'line_item_property' -%}
-                {%- render 'line-item-properties', form_id: product_form_id, block: block -%}
+              </div>
+            {%- when 'line_item_property' -%}
+              {%- render 'line-item-properties', form_id: product_form_id, block: block -%}
 
-              {%- when 'pickup_availability' -%}
-                <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
-                  {%- render 'pickup-availability', form_id: product_form_id -%}
-                </div>
-              {%- when 'img_trust' -%}
-                <div
-                  class="hdt-product-info__item hdt-product__trust-seal hdt-s-text"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {%- if block.settings.mess != blank -%}
-                    <div class="hdt-product__trust-mess hdt-inline-flex hdt-align-center">
-                      {%- if block.settings.show_icon -%}
-                        <div class="hdt-product__trust-icon">
-                          <svg
-                            class="hdt-inline-block"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="21"
-                            height="21"
-                            viewBox="0 0 21 21"
-                            fill="currentColor"
-                          >
-                            <path d="M10.5 0.614258L2.625 3.47813V10.4055C2.62689 11.7575 2.94764 13.0901 3.56122 14.2949C4.17479 15.4997 5.06388 16.5428 6.15628 17.3394L10.5 20.4986L14.8437 17.3394C15.9361 16.5428 16.8252 15.4997 17.4388 14.2949C18.0524 13.0901 18.3731 11.7575 18.375 10.4055V3.47813L10.5 0.614258ZM17.0625 10.4055C17.0607 11.5506 16.789 12.6791 16.2694 13.6994C15.7498 14.7198 14.9969 15.6033 14.072 16.2783L10.5 18.8764L6.92803 16.2783C6.00306 15.6033 5.25023 14.7198 4.73064 13.6994C4.21104 12.6791 3.93931 11.5506 3.9375 10.4055V4.39688L10.5 2.01076L17.0625 4.39688V10.4055Z"/><path d="M7.68184 8.88757L6.75391 9.81551L9.67881 12.7404L14.2443 8.17489L13.3164 7.24695L9.67881 10.8845L7.68184 8.88757Z"/>
-                          </svg>
-                        </div>
-                      {%- endif -%}
-                      <p class="hdt-font-semibold">{{ block.settings.mess }}</p>
-                    </div>
-                  {%- endif -%}
-                  {%- capture html_trust -%}
+            {%- when 'pickup_availability' -%}
+              <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'pickup-availability', form_id: product_form_id, -%}</div>
+            {%- when 'img_trust' -%}
+              <div class="hdt-product-info__item hdt-product__trust-seal hdt-s-text" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                {%- if block.settings.mess != blank -%}
+                  <div class="hdt-product__trust-mess hdt-inline-flex hdt-align-center">
+                    {%- if block.settings.show_icon -%}
+                      <div class="hdt-product__trust-icon"><svg class="hdt-inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="currentColor"><path d="M10.5 0.614258L2.625 3.47813V10.4055C2.62689 11.7575 2.94764 13.0901 3.56122 14.2949C4.17479 15.4997 5.06388 16.5428 6.15628 17.3394L10.5 20.4986L14.8437 17.3394C15.9361 16.5428 16.8252 15.4997 17.4388 14.2949C18.0524 13.0901 18.3731 11.7575 18.375 10.4055V3.47813L10.5 0.614258ZM17.0625 10.4055C17.0607 11.5506 16.789 12.6791 16.2694 13.6994C15.7498 14.7198 14.9969 15.6033 14.072 16.2783L10.5 18.8764L6.92803 16.2783C6.00306 15.6033 5.25023 14.7198 4.73064 13.6994C4.21104 12.6791 3.93931 11.5506 3.9375 10.4055V4.39688L10.5 2.01076L17.0625 4.39688V10.4055Z"/><path d="M7.68184 8.88757L6.75391 9.81551L9.67881 12.7404L14.2443 8.17489L13.3164 7.24695L9.67881 10.8845L7.68184 8.88757Z"/></svg></div>{%- endif -%}
+                    <p class="hdt-font-semibold">{{ block.settings.mess }}</p>
+                  </div>
+                {%- endif -%}
+                {%- capture html_trust -%}
                   {%- if block.settings.source == '1' and block.settings.image != blank -%}
                     {%- assign image_size_2x = block.settings.wimg | times: 2 -%}
                     <div class="hdt-img__trust-image hdt-block lg:hdt-inline-block" style="max-width: min(100%, {{ block.settings.wimg }}px);">
@@ -734,91 +414,63 @@
                     </div>
                   {%- endif -%}
                 {%- endcapture -%}
-                  {{- html_trust -}}
+                {{- html_trust -}}
+              </div>
+            {%- when 'bundle_product' -%}
+              {%- if block.settings.product_list == blank -%}{%- continue -%}{%- endif -%}
+              {%- if block.settings.bundle_prs_inner -%}
+                <div class="hdt-product-info__item hdt-product__bundle hdt-s-text" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                  {%- render 'product-form-bundle', block: block, product: product, section_id: section.id -%}
                 </div>
-              {%- when 'bundle_product' -%}
-                {%- if block.settings.product_list == blank -%}{%- continue -%}{%- endif -%}
-                {%- if block.settings.bundle_prs_inner -%}
-                  <div
-                    class="hdt-product-info__item hdt-product__bundle hdt-s-text"
-                    data-type="{{ block.type }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    {%- render 'product-form-bundle', block: block, product: product, section_id: section.id -%}
-                  </div>
-                {%- else -%}
-                  {%- assign product_list_fbt = block.settings.product_list -%}
-                {%- endif -%}
-              {%- when 'complimentary_products' -%}
-                {%- if product.metafields['shopify--discovery--product_recommendation'].complementary_products.value
-                    == blank
-                -%}
-                  {%- continue -%}
-                {% endif -%}
-                <div
-                  class="hdt-product-info__item hdt-product__complimentary"
-                  data-type="{{ block.type }}"
-                  {{ block.shopify_attributes }}
-                >
-                  <div class="hdt-product__complimentary-wrap">
-                    <h3 class="hdt-text-2xl hdt-font-medium">{{ block.settings.text }}</h3>
-                    <ul class="hdt-product__complimentary-list hdt-ratio--adapt_image">
-                      {%- for product in product.metafields['shopify--discovery--product_recommendation'].complementary_products.value -%}
-                        <li class="hdt-product__complimentary-item">
-                          {%- render 'pr_loop_item',
-                            section_id: block.id,
-                            product: product,
-                            sizes: '84px',
-                            widths: '84, 100, 180, 200'
-                          -%}
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </div>
+              {%- else -%}
+                {%- assign product_list_fbt = block.settings.product_list -%}
+              {%- endif -%}
+            {%- when 'complimentary_products' -%}
+              {%- if product.metafields.shopify--discovery--product_recommendation.complementary_products.value == blank -%}{%- continue -%}{% endif -%}
+              <div class="hdt-product-info__item hdt-product__complimentary" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                <div class="hdt-product__complimentary-wrap">
+                  <h3 class="hdt-text-2xl hdt-font-medium">{{ block.settings.text }}</h3>
+                  <ul class="hdt-product__complimentary-list hdt-ratio--adapt_image">
+                  {%- for product in product.metafields.shopify--discovery--product_recommendation.complementary_products.value -%}
+                    <li class="hdt-product__complimentary-item">
+                      {%- render 'pr_loop_item', section_id: block.id, product: product, sizes: "84px", widths: "84, 100, 180, 200" -%}
+                    </li>
+                  {%- endfor -%}
+                  </ul>
                 </div>
-              {%- when 'incoming_mess' -%}
-                <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
-                  {%- render 'incoming-mess',
-                    product: product,
-                    block: block,
-                    product_form_id: product_form_id,
-                    selected_variant: selected_variant
-                  -%}
-                </div>
-              {%- when 'tab_des', 'tab_review', 'tab_html', 'tab_liquid' -%}
-                {%- if tabCheck %}{% continue %}{% endif -%}
-                {%- assign tabCheck = true -%}
+              </div>
+            {%- when 'incoming_mess' -%}
+              <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{%- render 'incoming-mess', product: product, block: block, product_form_id: product_form_id, selected_variant: selected_variant -%}</div>
+            {%- when 'tab_des' or 'tab_review' or 'tab_html' or 'tab_liquid' -%}
+              {%- if tabCheck %}{% continue %}{% endif -%}
+              {%- assign tabCheck = true -%}
                 {%- render 'product_tabs' -%}
-              {%- when 'custom_liquid' -%}
-                {%- liquid
-                  if block.settings.custom_liquid == blank
-                    continue
-                  endif
-                -%}
-                <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.custom_liquid }}
-                </div>
+            {%- when 'custom_liquid' -%}
+              {%- liquid
+                if block.settings.custom_liquid == blank
+                  continue
+                endif
+              -%}
+              <div class="hdt-product-info__item" data-type="{{ block.type }}" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
             {%- endcase -%}
-          {%- endfor -%}
+        {%- endfor -%}
         </div>
       </div>
     </div>
   </div>
-  {%- liquid
+  {%-liquid
     if product_list_fbt != blank
       render 'product-form-bundle2', product_list: product_list_fbt
     endif
   -%}
 </div>
 {%- unless has_form_atc -%}
-  {%- form 'product', product, id: product_form_id, hidden: '' -%}
-    <input type="hidden" name="id" value="{{ selected_variant.id }}" disabled>
-  {%- endform -%}
+  {%- form 'product', product, id: product_form_id, hidden: '' -%}<input type="hidden" name="id" value="{{ selected_variant.id }}" disabled>{%- endform -%}
 {%- endunless -%}
 {%- if section.settings.sticky_atc and product.available -%}
   {%- liquid
     unless un_no_pick
-      assign selected_variant = product.variants.first
+    assign selected_variant = product.variants.first
     endunless
     assign check_against_inventory = true
     if selected_variant.inventory_management != 'shopify' or selected_variant.inventory_policy == 'continue'
@@ -837,116 +489,62 @@
     assign id_sticky = 'sticky-' | append: section.id
     assign image = selected_variant.featured_image | default: product.featured_image | default: settings.placeholder_img
   -%}
-  {{ 'hdt-sticky-atc.css' | asset_url | stylesheet_tag }}
-  <hdt-sticky-btn-atc
-    form="{{ product_form_id }}"
-    {% if product.has_only_default_variant %}
-      is-pr-default
-    {% endif %}
-    color-scheme="{{ section.settings.color_scheme }}"
-    class="hdt-sticky-btn-atc hdt-sticky_layout_mb--minimal hdt-s-gradient"
-  >
-    <div class="hdt-container">
-      <hdt-height-observer prefix="hdt-sticky-atc" class="hdt-flex hdt-align-center">
-        <div class="hdt-sticky-atc__product hdt-flex hdt-align-center">
-          <div class="hdt-sticky-atc__img hdt-rounded-full hdt-oh hdt-relative">
-            {%- if image != blank -%}
-              {{
-                image
-                | image_url: width: image.width
-                | image_tag: loading: 'lazy', sizes: '80px', widths: '80, 160', data-widths: '[80, 160]', data-v-img: ''
-              }}
+{{ 'hdt-sticky-atc.css' | asset_url | stylesheet_tag }}
+<hdt-sticky-btn-atc form="{{ product_form_id }}" {% if product.has_only_default_variant %}is-pr-default {% endif %} color-scheme="{{ section.settings.color_scheme }}" class="hdt-sticky-btn-atc hdt-sticky_layout_mb--minimal hdt-s-gradient">
+  <div class="hdt-container">
+    <hdt-height-observer prefix="hdt-sticky-atc" class="hdt-flex hdt-align-center">
+      <div class="hdt-sticky-atc__product hdt-flex hdt-align-center">
+        <div class="hdt-sticky-atc__img hdt-rounded-full hdt-oh hdt-relative">
+          {%- if image != blank -%}
+            {{ image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '80px', widths: '80, 160', data-widths: '[80, 160]', data-v-img: '' }}
             {% else %}
               <span class="hdt-sticky-atc__img-placeholder"></span>
-            {%- endif -%}
+          {%- endif -%}
+        </div>
+        <h3 class="hdt-sticky-atc__title hdt-text-lg hdt-font-medium hdt-hidden lg:hdt-block">{{ product.title }}</h3>
+      </div>
+      <div class="hdt-sticky-atc__infos">
+        <wrapp-hdt-pr-frm class="hdt-contents">
+        {%- form 'product', product, id: product_form_id_sticky, class: 'hdt-sticky-atc__form hdt-flex hdt-align-center', data-gift-card-recipient: false -%}
+          <div class="hdt-sticky-atc__variant-price">
+            {%- unless product.has_only_default_variant -%}
+              <select name="id" class="hdt-select hdt-s-text" tag-select>
+                {%- for variant in product.variants -%}
+                  <option data-mdid="{{ variant.featured_media.id }}" {% if variant == selected_variant %}selected="selected"{% endif %}{% if variant.available == false %} disabled {% endif %} value="{{ variant.id }}">
+                    {%- liquid
+                      echo variant.title
+                      unless settings.currency_type == "2"
+                        echo variant.price | money | strip_html | prepend: ' - '
+                      endunless
+                      if variant.available == false
+                        echo 'products.product.sold_out' | t | prepend: ' - '
+                      endif
+                    -%}
+                  </option>
+                {%- endfor -%}
+              </select>
+            {%- else -%}
+              <input type="hidden" name="id" value="{{ selected_variant.id }}">
+              <span class="hdt-sticky-atc__product-monney hdt-money hdt-text-lg">{{ product.price | money }}</span>
+            {%- endunless -%}
           </div>
-          <h3 class="hdt-sticky-atc__title hdt-text-lg hdt-font-medium hdt-hidden lg:hdt-block">{{ product.title }}</h3>
-        </div>
-        <div class="hdt-sticky-atc__infos">
-          <wrapp-hdt-pr-frm class="hdt-contents">
-            {%- form 'product',
-              product,
-              id: product_form_id_sticky,
-              class: 'hdt-sticky-atc__form hdt-flex hdt-align-center',
-              data-gift-card-recipient: false
-            -%}
-              <div class="hdt-sticky-atc__variant-price">
-                {%- unless product.has_only_default_variant -%}
-                  <select name="id" class="hdt-select hdt-s-text" tag-select>
-                    {%- for variant in product.variants -%}
-                      <option
-                        data-mdid="{{ variant.featured_media.id }}"
-                        {% if variant == selected_variant %}
-                          selected="selected"
-                        {% endif -%}
-                        {% if variant.available == false %}
-                          disabled
-                        {% endif %}
-                        value="{{ variant.id }}"
-                      >
-                        {%- liquid
-                          echo variant.title
-                          unless settings.currency_type == '2'
-                            echo variant.price | money | strip_html | prepend: ' - '
-                          endunless
-                          if variant.available == false
-                            echo 'products.product.sold_out' | t | prepend: ' - '
-                          endif
-                        -%}
-                      </option>
-                    {%- endfor -%}
-                  </select>
-                {%- else -%}
-                  <input type="hidden" name="id" value="{{ selected_variant.id }}">
-                  <span class="hdt-sticky-atc__product-monney hdt-money hdt-text-lg">{{ product.price | money }}</span>
-                {%- endunless -%}
-              </div>
-              <div class="hdt-sticky-atc__btns hdt-flex hdt-align-center">
-                <div class="hdt-sticky-atc__qty-selector">
-                  {%- render 'product-qty-selector',
-                    selected_variant: selected_variant,
-                    product_form_id: product_form_id_sticky,
-                    id: id_sticky
-                  -%}
-                </div>
-                <button
-                  type="submit"
-                  name="add"
-                  class="hdt-sticky-atc__submit hdt-btn hdt-oh hdt-btn-solid hdt-font-semibold hdt-relative hdt-truncate hdt-btn-loading__svg"
-                  {% if selected_variant.available == false or quantity_rule_soldout %}
-                    disabled="true"
-                  {% endif %}
-                >
-                  <span class="hdt-btn-atc_text">
-                    {%- if is_pre_order -%}
-                      {{- 'products.product.pre_order' | t -}}
-                    {%- elsif selected_variant.available == false or quantity_rule_soldout -%}
-                      {{- 'products.product.sold_out' | t -}}
-                    {%- else -%}
-                      {{- 'products.product.add_to_cart' | t -}}
-                    {%- endif -%}
-                  </span>
-                  <span class="hdt-loading__spinner hdt-absolute" hidden>
-                    <svg
-                      width="16"
-                      height="16"
-                      class="hdt-svg-spinner"
-                      focusable="false"
-                      role="presentation"
-                      viewBox="0 0 66 66"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle class="hdt-path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                    </svg>
-                  </span>
-                </button>
-              </div>
-            {%- endform -%}
-          </wrapp-hdt-pr-frm>
-        </div>
-      </hdt-height-observer>
-    </div>
-  </hdt-sticky-btn-atc>
+          <div class="hdt-sticky-atc__btns hdt-flex hdt-align-center">
+            <div class="hdt-sticky-atc__qty-selector">
+              {%- render 'product-qty-selector', selected_variant: selected_variant, product_form_id: product_form_id_sticky, id: id_sticky -%}
+            </div>
+            <button type="submit" name="add" class="hdt-sticky-atc__submit hdt-btn hdt-oh hdt-btn-solid hdt-font-semibold hdt-relative hdt-truncate hdt-btn-loading__svg"{% if selected_variant.available == false or quantity_rule_soldout %} disabled="true"{% endif %}>
+              <span class="hdt-btn-atc_text">{% if is_pre_order %}{{ 'products.product.pre_order' | t }}{% elsif selected_variant.available == false or quantity_rule_soldout %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}</span> 
+              <span class="hdt-loading__spinner hdt-absolute" hidden>
+                <svg width="16" height="16" class="hdt-svg-spinner" focusable="false" role="presentation" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="hdt-path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle></svg>
+              </span>
+            </button>
+          </div>
+        {%- endform -%}
+        </wrapp-hdt-pr-frm>
+      </div>
+    </hdt-height-observer>
+  </div>
+</hdt-sticky-btn-atc>
 {%- endif -%}
 {% schema %}
 {
@@ -1187,7 +785,7 @@
       "type": "select",
       "id": "tabs_design",
       "label": "t:sections.main-product-tabs.settings.tabs_design.label",
-      "info": "t:sections.main-product-tabs.settings.tabs_design.info",
+      "info":"t:sections.main-product-tabs.settings.tabs_design.info",
       "default": "tab",
       "options": [
         {
@@ -1310,87 +908,6 @@
       "type": "tax",
       "name": "t:sections.main-product.blocks.tax.name",
       "limit": 1
-    },
-    {
-      "type": "code",
-      "name": "Code",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "code_text",
-          "label": "Code text",
-          "default": "%CODE%",
-          "info": "Use %CODE% to insert code into text"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "25% OFF",
-          "info": "Product code"
-        },
-        {
-          "type": "richtext",
-          "id": "content",
-          "label": "Content",
-          "default": "<p>Content</p>",
-          "info": "Content"
-        },
-        {
-          "type": "text",
-          "id": "end_time",
-          "label": "End time",
-          "default": "2025-12-31T23:59:59",
-          "info": "Format: YYYY-MM-DDTHH:MM:SS"
-        },
-        {
-          "type": "header",
-          "content": "Color"
-        },
-        {
-          "type": "color",
-          "id": "code_color",
-          "label": "Code Color",
-          "default": "#000000"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Text Color",
-          "default": "#000000"
-        },
-        {
-          "type": "color",
-          "id": "bg_right_code_color",
-          "label": "Background Right Code Color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color",
-          "id": "color_strong",
-          "label": "Color Content Strong",
-          "default": "#000000"
-        },
-        {
-          "type": "color",
-          "id": "btn_color",
-          "label": "Button Color",
-          "default": "#000000"
-        },
-        {
-          "type": "color_background",
-          "id": "bg_color",
-          "label": "Background Color",
-          "default": "linear-gradient(#ffffff, #000000)"
-        },
-         {
-          "type": "color_background",
-          "id": "card_bg_color",
-          "label": "Card Background Color",
-          "default": "linear-gradient(#ffffff, #000000)"
-        }
-      ]
     },
     {
       "type": "live_view",
@@ -2033,13 +1550,17 @@
       "type": "sku",
       "name": "t:sections.main-product.blocks.sku.name",
       "limit": 1,
-      "settings": []
+      "settings": [
+
+      ]
     },
     {
       "type": "barcode",
       "name": "t:sections.main-product.blocks.barcode.name",
       "limit": 1,
-      "settings": []
+      "settings": [
+
+      ]
     },
     {
       "type": "badges",
@@ -3338,7 +2859,9 @@
       "type": "vendor",
       "name": "t:sections.main-product.blocks.vendor.name",
       "limit": 1,
-      "settings": []
+      "settings": [
+
+      ]
     },
     {
       "type": "linked_products",
