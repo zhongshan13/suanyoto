@@ -402,6 +402,7 @@
       ],
       "settings": {
         "top_heading": "Best Sellers",
+        "enable_mobile_grid": true,
         "heading_tag": "h3",
         "heading_size": "h4",
         "top_description": "",
@@ -616,6 +617,7 @@
         "image": "shopify://shop_images/A_Balanced_Comparison_Based_on_Real_Driver_Experiences.jpg",
         "style_image": "1",
         "image_effect": "zoom-in",
+        "enable_show_mobile": true,
         "color_scheme": "scheme-2e91b3de-e084-4d07-8c0d-57b80f28390f",
         "full_width": false,
         "boxed_fullwidth": false,
@@ -919,6 +921,7 @@
         "image": "shopify://shop_images/pexels-vladimirsrajber-17345653_0c504449-7d4f-4009-bca7-1677d6711d29.jpg",
         "style_image": "1",
         "image_effect": "zoom-in",
+        "enable_show_mobile": false,
         "color_scheme": "scheme-2e91b3de-e084-4d07-8c0d-57b80f28390f",
         "full_width": false,
         "boxed_fullwidth": false,

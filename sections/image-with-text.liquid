@@ -2,7 +2,7 @@
 {{ 'hdt-image-with-text.css' | asset_url | stylesheet_tag }}
 {{ 'hdt-countdown.css' | asset_url | stylesheet_tag }}
 {%- style -%}#shopify-section-{{section.id}}{--section-pt:{{section.settings.padding_top}}px;--section-pb:{{section.settings.padding_bottom}}px;--section-prate:{{section.settings.padding_rate}}}#shopify-section-{{section.id}}.hdt-image-with_text .hdt-image_wrap.hdt-1_img::after{padding-top:{{100 | divided_by:section.settings.image.aspect_ratio}}%}#shopify-section-{{section.id}}.hdt-image-with_text .hdt-image_wrap.hdt-2_img::after{padding-top:95%}#shopify-section-{{section.id}}.hdt-image-with_text .hdt-image_wrap.hdt-22_img::after{padding-top:68%}#shopify-section-{{section.id}}.hdt-image-with_text .hdt-image_wrap.hdt-3_img::after{padding-top:89%}#shopify-section-{{section.id}}.hdt-image-with_text .hdt-image_wrap.hdt-33_img::after{padding-top:89%}{%- endstyle -%}
-<div class="hdt-section-spacing" color-scheme="{{ section.settings.color_scheme }}"{% if section.index != 1 %} hdt-reveal="fade-in"{% endif %}>
+<div class="hdt-section-spacing {% if section.settings.enable_show_mobile %} hide-mobile {% endif %}" color-scheme="{{ section.settings.color_scheme }}"{% if section.index != 1 %} hdt-reveal="fade-in"{% endif %}>
   <div class="hdt-container{% if section.settings.full_width %}-full{% endif %} {% if section.settings.full_width == true and section.settings.boxed_fullwidth == true %}hdt-px-15 md:hdt-px-30 lg:hdt-px-40{% endif %}">
     <div class="hdt-row-grid hdt-s-gradient hdt-effect-{{ section.settings.image_effect }} hdt-oh hdt-grid-cols-1 md:hdt-grid-cols-1 lg:hdt-grid-cols-2 hdt-rounded hdt-oh hdt-{{ section.settings.style_image }}_img">
       <div class="hdt-image_wrap hdt-{{ section.settings.style_image }}_img hdt-relative hdt-oh">
@@ -229,6 +229,12 @@
         }
       ],
       "default": "lunc"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_show_mobile",
+      "label": "Enable Show Mobile",
+      "default": false
     },
     {
       "type": "color_scheme",

@@ -35,9 +35,49 @@ hdt-cart-drawer .hdt-box hdt-code {
     cursor: pointer;
     font-weight: 600;
 }
-hdt-cart-drawer .hdt-box hdt-code span{
+
+hdt-cart-drawer .hdt-box hdt-code span {
     color: var(--text-color);
 }
-hdt-cart-drawer .hdt-box hdt-code span.ante-code-only{
+
+hdt-cart-drawer .hdt-box hdt-code span.ante-code-only {
     color: var(--code-color);
+}
+
+.hide-mobile {
+    display: none !important;
+}
+
+.hide-pc {
+    display: block !important;
+}
+
+.hide-pc .hdt-slider__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hide-pc .hdt-card-product .hdt-product-btns {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5px;
+}
+
+.hide-pc svg {
+    display: block;
+}
+
+.hide-pc .hdt-ratio {
+    --ratio-percent: calc(100% /(var(--aspect-ratioapt)));
+}
+
+@media (min-width: 768px) {
+    .hide-mobile {
+        display: block !important;
+    }
+
+    .hide-pc {
+        display: none !important;
+    }
 }
