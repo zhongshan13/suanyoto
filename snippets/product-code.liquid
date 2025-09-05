@@ -1,0 +1,210 @@
+<style>
+  .ante-end-time {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 10px;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .ante-product-code {
+    --code-color: {{ block.settings.code_color }};
+    --text-color:{{ block.settings.text_color }};
+    --bg-right-code-color: {{ block.settings.bg_right_code_color }};
+    --color-strong: {{ block.settings.color_strong }};
+    --btn-color: {{ block.settings.btn_color }};
+    --bg-color:{{ block.settings.bg_color }};
+    --card-bg-color: {{ block.settings.card_bg_color }};
+  }
+  .product-code {
+    font-weight: 600;
+  }
+  .ante-btn {
+    cursor: pointer;
+  }
+  .ante-code-box-flex {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* padding: 10px 15px; */
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: stretch;
+    border-radius: 4px;
+    background: var(--bg-color);
+  }
+  .ante-title {
+    height: auto;
+    flex: 1;
+  }
+  .ante-title-box {
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--code-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: var(--card-bg-color );
+  }
+  .grid-box {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 0;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  .ante-code-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .product-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .ante-code-content p strong {
+    margin-left: 10px;
+    color: var(--color-strong);
+  }
+  .ante-code-text .ante-code{
+    background-color: var(--bg-right-code-color);
+    padding: 1px 10px;
+    border-radius: 30px;
+    font-weight: 800;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .ante-btn {
+    color: var(--btn-color);
+    text-decoration: underline;
+  }
+  @media (max-width:1000px) and (min-width: 768px) {
+    .ante-code-box-flex {
+      flex-direction: column;
+    }
+    .ante-title-box span{
+      padding: 20px 0;
+    }
+  }
+   @media (max-width:530px) {
+    .ante-code-box-flex {
+      flex-direction: column;
+    }
+     .ante-title-box span{
+      padding: 20px 0;
+    }
+  }
+</style>
+<ante-code>
+  <div class="ante-product-code">
+    <div class="ante-code-box-flex">
+      <div class="ante-title">
+        <div class="ante-title-box">
+          <span>{{ block.settings.title }}</span>
+        </div>
+      </div>
+      <div class="grid-box">
+        <div class="product-code">
+          <div class="ante-code-box">
+            <div class="ante-code-content">
+              {{ block.settings.content }}
+            </div>
+            <div class="ante-code-text">
+              <span>Code:</span>
+              <span class="ante-code">{{ block.settings.code_text }}</span>
+            </div>
+          </div>
+          <span class="ante-btn">Copy Code</span>
+        </div>
+        <div class="ante-end-time" data-end-time="{{ block.settings.end_time }}">
+          {% if block.settings.end_time != blank %}
+            <div class="ante-d">00</div>
+            <span>:</span>
+            <div class="ante-h">00</div>
+            <span>:</span>
+            <div class="ante-m">00</div>
+            <span>:</span>
+            <div class="ante-s">00</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</ante-code>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    class AnteCode extends HTMLElement {
+      connectedCallback() {
+        this.AnteCode();
+        this.CopyCode();
+      }
+      AnteCode() {
+        const box = this.querySelector('.ante-end-time');
+        const d = box.querySelector('.ante-d');
+        const h = box.querySelector('.ante-h');
+        const m = box.querySelector('.ante-m');
+        const s = box.querySelector('.ante-s');
+        let endTime = new Date(box.dataset.endTime);
+        if (box.dataset.endTime != '' && endTime != NaN) {
+          setInterval(() => {
+            const now = new Date();
+            const diff = endTime - now;
+            const d_date = Math.floor(diff / (1000 * 60 * 60 * 24))
+              .toString()
+              .padStart(2, '0');
+            const h_date = Math.floor((diff / (1000 * 60 * 60)) % 24)
+              .toString()
+              .padStart(2, '0');
+            const m_date = Math.floor((diff / (1000 * 60)) % 60)
+              .toString()
+              .padStart(2, '0');
+            const s_date = Math.floor((diff / 1000) % 60)
+              .toString()
+              .padStart(2, '0');
+            d.textContent = d_date;
+            h.textContent = h_date;
+            m.textContent = m_date;
+            s.textContent = s_date;
+          }, 1000);
+        }
+      }
+      CopyCode() {
+        let isjust = false;
+        const codeText = this.querySelector('.product-code span.ante-code').textContent;
+        const btn = this.querySelector('.product-code span.ante-btn');
+        const clik = this.querySelector(".grid-box");
+        clik.addEventListener('click', () => {
+          if (!isjust) {
+            isjust = true;
+            navigator.clipboard
+              .writeText(codeText)
+              .then(() => {
+                btn.textContent = 'Copied';
+                setTimeout(() => {
+                  btn.textContent = 'Copy Code';
+                  isjust = false;
+                }, 5000);
+              })
+              .catch((err) => {
+                console.error('Failed to copy text: ', err);
+              });
+          }
+        });
+      }
+    }
+
+    if (!window.customElements.get('ante-code')) {
+      window.customElements.define('ante-code', AnteCode);
+    }
+  });
+</script>
