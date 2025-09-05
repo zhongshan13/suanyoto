@@ -124,7 +124,7 @@
               <span class="ante-code">{{ block.settings.code_text }}</span>
             </div>
           </div>
-          <span class="ante-btn">CoPy Code</span>
+          <span class="ante-btn">Copy Code</span>
         </div>
         <div class="ante-end-time" data-end-time="{{ block.settings.end_time }}">
           {% if block.settings.end_time != blank %}
@@ -191,7 +191,7 @@
               .then(() => {
                 btn.textContent = 'Copied';
                 setTimeout(() => {
-                  btn.textContent = 'CoPy Code';
+                  btn.textContent = 'Copy Code';
                   isjust = false;
                 }, 5000);
               })
