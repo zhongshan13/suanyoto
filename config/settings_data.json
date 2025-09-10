@@ -418,11 +418,6 @@
         "disabled": false,
         "settings": {}
       },
-      "4188547153274344210": {
-        "type": "shopify://apps/cartmax-upsell-cross-sell/blocks/app/491a753a-7e8b-4c89-a6fb-9028a1df000b",
-        "disabled": false,
-        "settings": {}
-      },
       "15683396631634586217": {
         "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": false,
@@ -460,6 +455,16 @@
       "18140086707358399868": {
         "type": "shopify://apps/algoshop-announcement-bar/blocks/announcement-bar/dd5a2538-d756-4d66-b654-875f489cd86a",
         "disabled": true,
+        "settings": {}
+      },
+      "15539626159989124859": {
+        "type": "shopify://apps/maxbundle-product-bundles/blocks/app-embed/469560a3-d600-4f5e-a767-2a4cdaceacca",
+        "disabled": false,
+        "settings": {}
+      },
+      "286197278318599166": {
+        "type": "shopify://apps/bitlogin-social-login/blocks/app-block/9099a221-3716-4376-9c77-be195a34de99",
+        "disabled": false,
         "settings": {}
       }
     },

@@ -95,7 +95,7 @@
             "url": "",
             "banner_target": false,
             "color_scheme": "scheme-7421d028-053c-4901-aa66-836c33f11566",
-            "sub_heading": "LABOR DAY SALE 20% OFF",
+            "sub_heading": "Hot Summer Sale 20% OFF",
             "sub_heading_fs": "h3",
             "sub_heading_fw": "bold",
             "sub_heading_bg": true,
@@ -949,8 +949,8 @@
             "icon_width_mb": 30,
             "link": "",
             "open_link": false,
-            "title": "<b>Free Shipping</b>",
-            "content": "<p>Free U.S. Shipping</p>",
+            "title": "Free Shipping",
+            "content": "<p>Free Worldwide Shipping</p>",
             "adding_border": false
           }
         },
@@ -963,7 +963,7 @@
             "icon_width_mb": 40,
             "link": "",
             "open_link": false,
-            "title": "<b>100% Payment Secure</b>",
+            "title": "100% Payment Secure",
             "content": "<p>Safe & encrypted multiple payment method</p>",
             "adding_border": false
           }
