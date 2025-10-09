@@ -418,32 +418,8 @@
         "disabled": false,
         "settings": {}
       },
-      "4188547153274344210": {
-        "type": "shopify://apps/cartmax-upsell-cross-sell/blocks/app/491a753a-7e8b-4c89-a6fb-9028a1df000b",
-        "disabled": false,
-        "settings": {}
-      },
-      "15683396631634586217": {
-        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
-        "disabled": false,
-        "settings": {
-          "button_color": "#000000",
-          "secondary_color": "#FFFFFF",
-          "ternary_color": "#6A6A6A",
-          "button_icon": "chat_bubble",
-          "button_text": "chat_with_us",
-          "button_horizontal_position": "bottom_right",
-          "button_vertical_position": "higher",
-          "greeting_message": ""
-        }
-      },
       "14060646107696862457": {
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
-        "settings": {}
-      },
-      "12657775114333427046": {
-        "type": "shopify://apps/countdown-timer-essential/blocks/app_embed/722378e8-5a70-4eae-aa89-9e44e8e9f6de",
         "disabled": false,
         "settings": {}
       },
@@ -452,15 +428,29 @@
         "disabled": false,
         "settings": {}
       },
-      "8208493610395315515": {
-        "type": "shopify://apps/dondy-whatsapp-chat-marketing/blocks/app-block/7f5a70cb-e171-4cc7-ac02-e2220203abd6",
+      "15539626159989124859": {
+        "type": "shopify://apps/maxbundle-product-bundles/blocks/app-embed/469560a3-d600-4f5e-a767-2a4cdaceacca",
         "disabled": false,
         "settings": {}
       },
-      "18140086707358399868": {
-        "type": "shopify://apps/algoshop-announcement-bar/blocks/announcement-bar/dd5a2538-d756-4d66-b654-875f489cd86a",
-        "disabled": true,
+      "286197278318599166": {
+        "type": "shopify://apps/bitlogin-social-login/blocks/app-block/9099a221-3716-4376-9c77-be195a34de99",
+        "disabled": false,
         "settings": {}
+      },
+      "15683396631634586217": {
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": false,
+        "settings": {
+          "button_color": "#000000",
+          "secondary_color": "#ffffff",
+          "ternary_color": "#6a6a6a",
+          "button_icon": "chat_bubble",
+          "button_text": "chat_with_us",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "higher",
+          "greeting_message": "👋 Hi, message us with any questions. We're happy to help!\nAt Saunyoto, we're here to make sure you have a wonderful experience!"
+        }
       }
     },
     "color_schemes": {

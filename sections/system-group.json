@@ -163,7 +163,7 @@
         "text_Kh7ijP": {
           "type": "text",
           "settings": {
-            "text": "We’re excited to have you with us! As a warm welcome, here’s an exclusive 20% discount just for you.Use code MD521 at checkout and save big on your first purchase.But hurry — this offer won’t last forever!",
+            "text": "We’re excited to have you with us! As a warm welcome, here’s an exclusive 20% discount just for you. Use code Saunyoto at checkout and save big on your first purchase. But hurry — this offer won’t last forever!",
             "text_size": "base",
             "mgb": 26
           }
@@ -178,7 +178,7 @@
           "type": "button",
           "settings": {
             "btn_label": "Grap the discount",
-            "btn_link": "shopify://collections",
+            "btn_link": "shopify://collections/all-products",
             "target": true,
             "btn_size": "base",
             "btn_style": "solid",
@@ -206,8 +206,8 @@
         "color_scheme": "scheme-2e91b3de-e084-4d07-8c0d-57b80f28390f",
         "heading": "Recommended Products",
         "image": "shopify://shop_images/arthur-hinton-GZalPMlPGks-unsplash.jpg",
-        "collections": "frontpage",
-        "product_list": [],
+        "collections": "all-products",
+        "product_list": "{{ section.settings.collections.products }}",
         "limit": 5,
         "image_ratio": "adapt_image",
         "after": "move_cursor",

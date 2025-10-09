@@ -49,6 +49,10 @@
             "custom_liquid": "Description\nModel: H61D3(9.8FT); H61D5(16.4FT) ; \n\nAdd a vibrant touch to any room with the Govee Neon Rope Light 2. Shape recognition technology allows for easy customization, while upgraded clips make bending and creating your desired shape easy. Illuminate your space with this versatile and dynamic lighting option.\n\nImproved RGBIC Lighting Effects: Supports shrinking or expanding the lighting in all directions, making more fun lighting effects possible"
           }
         },
+        "payment_terms_X8V7B6": {
+          "type": "payment-terms",
+          "settings": {}
+        },
         "1248e930-5734-45b4-a1d6-a814910fdb63": {
           "type": "variant_picker",
           "settings": {
@@ -122,6 +126,7 @@
         "83296f29-170d-4d7b-9291-c9b59bb98b32",
         "edac686e-a845-4ed7-9b50-51639a11cf56",
         "custom_liquid_aHdikr",
+        "payment_terms_X8V7B6",
         "1248e930-5734-45b4-a1d6-a814910fdb63",
         "4fd6bfca-d3a3-432c-8392-a2d3cab423c4",
         "ad820e37-dee5-41f3-9692-bf46d9664103",
@@ -186,7 +191,7 @@
           "settings": {
             "title": "Return Policies",
             "content": "",
-            "page": "privacy-policy"
+            "page": "return-policy"
           }
         },
         "1bc528a7-9da8-48ec-96da-8e48c0e52faf": {
@@ -347,6 +352,24 @@
         "padding_top": 0,
         "padding_bottom": 100,
         "padding_rate": 75
+      }
+    },
+    "1755165897a5e0154c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_dqcMdf": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_dqcMdf"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "accordion_BnnUWy": {
@@ -576,24 +599,6 @@
         "padding_top": 50,
         "padding_bottom": 70,
         "padding_rate": 75
-      }
-    },
-    "1755165897a5e0154c": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_dqcMdf": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_dqcMdf"
-      ],
-      "settings": {
-        "include_margins": true
       }
     }
   },

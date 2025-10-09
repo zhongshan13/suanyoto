@@ -91,16 +91,17 @@
         "f9c358af-fd75-4020-9ffc-ceb457ecde45": {
           "type": "slide_label",
           "settings": {
-            "image": "shopify://shop_images/bannner_b5a4c30b-9256-40f4-9f75-9ab3188e6e0e.jpg",
+            "image": "shopify://shop_images/S11_Touch_Screen_Instrument_Cluster_for_Model_Y_JuniperModel_3_HighlandModel_3Y_2.jpg",
+            "image_mb": "shopify://shop_images/S11.jpg",
             "url": "",
             "banner_target": false,
             "color_scheme": "scheme-7421d028-053c-4901-aa66-836c33f11566",
-            "sub_heading": "LABOR DAY SALE 20% OFF",
+            "sub_heading": "Autumn Sale 20% OFF",
             "sub_heading_fs": "h3",
             "sub_heading_fw": "bold",
             "sub_heading_bg": true,
-            "heading": "Use Code SAUNYOTO",
-            "heading_fs": "h3",
+            "heading": "Use the code Saunyoto",
+            "heading_fs": "h4",
             "heading_fw": "normal",
             "btn_label": "",
             "btn_link": "",
@@ -113,14 +114,14 @@
             "btn2_link": "shopify://collections/all-products",
             "target2": false,
             "btn2_size": "lg",
-            "btn2_style": "solid",
+            "btn2_style": "link",
             "btn2_fw": "medium",
-            "btn2_icon": "1",
+            "btn2_icon": "none",
             "content_bg": false,
-            "content_position": "end-start",
-            "alignment": "left",
+            "content_position": "start-end",
+            "alignment": "center",
             "hide_subtext_mb": false,
-            "content_position_mb": "center",
+            "content_position_mb": "start-end",
             "alignment_mb": "center"
           }
         }
@@ -131,7 +132,8 @@
         "f9c358af-fd75-4020-9ffc-ceb457ecde45"
       ],
       "custom_css": [
-        "@media (min-width: 1150px) {.slide-item_label .hdt-btn {--hdt-btn-size: var(--text-xl); }}"
+        "@media (min-width: 1150px) {.slide-item_label .hdt-btn {--hdt-btn-size: var(--text-xl); }}",
+        ".hdt-slider__slide,.hdt-slide_inner {height: 100%;}"
       ],
       "settings": {
         "full_width": true,
@@ -652,10 +654,10 @@
           "type": "quote",
           "settings": {
             "heading": "",
-            "content": "<p><br/>I like that they are thinking of a wider screen.<br/><br/></p><p></p><p></p><p></p><p></p><p></p>",
-            "author": "Brent K.",
+            "content": "<p>I was worried it might feel like an aftermarket add-on, but it blends perfectly with the Tesla interior. Bright, responsive, and the size is just right. Highly recommend for anyone who wants more visibility while driving.<br/><br/></p><p></p>",
+            "author": "Sophia L",
             "pos": "",
-            "enable_verify": false,
+            "enable_verify": true,
             "product": "",
             "rating": 5
           }
@@ -664,10 +666,10 @@
           "type": "quote",
           "settings": {
             "heading": "",
-            "content": "<p>Its really not functional to see a road on the aftermarket display if it isnt showing the other cars around you. But this one is improved over the various previous versions if these type of displays visually with the interface.</p>",
-            "author": "Derek Riley",
+            "content": "<p>Had issues in after install. Support is fantastic amd was able to help me fix my issue. The bigger vent in the buttom really helped with keeping me cool with the AC. Also updates can be through wifi just like Tesla. You can connect to your home wifi while parked and update MCU.<br/><br/></p>",
+            "author": "Sammie ",
             "pos": "",
-            "enable_verify": false,
+            "enable_verify": true,
             "product": "",
             "rating": 5
           }
@@ -676,10 +678,10 @@
           "type": "quote",
           "settings": {
             "heading": "",
-            "content": "<p>I live in the Middle East, where temperatures range from 40 to 50 degrees Celsius. Airflow from the air conditioner is very important to me.</p>",
-            "author": "Sultan Ahmed",
+            "content": "<p>Une mise à niveau parfaite pour mon Model Y ! Le support pivotant est robuste et facilite grandement le réglage de l'écran en conduisant. Ça vaut vraiment le coup.<br/><br/></p>",
+            "author": "Julien Moreau",
             "pos": "",
-            "enable_verify": false,
+            "enable_verify": true,
             "product": "",
             "rating": 5
           }
@@ -688,10 +690,10 @@
           "type": "quote",
           "settings": {
             "heading": "",
-            "content": "<p>This screen transforms the driving experience. Linux system runs smoothly, UI is clean, and real-time sync with car data is accurate. I’m a tech guy and appreciate the attention to detail. OTA updates are a big plus.<br/></p>",
-            "author": "Jessica M.",
+            "content": "<p>The Tesla Model 3/Y Rear Seat Android Touchscreen is amazing! My kids can watch Netflix, play YouTube, and even adjust the AC by themselves. It makes long drives so much more enjoyable. Highly recommended!<br/><br/></p>",
+            "author": "Alex Wilson",
             "pos": "",
-            "enable_verify": false,
+            "enable_verify": true,
             "product": "",
             "rating": 5
           }
@@ -949,8 +951,8 @@
             "icon_width_mb": 30,
             "link": "",
             "open_link": false,
-            "title": "<b>Free Shipping</b>",
-            "content": "<p>Free U.S. Shipping</p>",
+            "title": "Free Shipping",
+            "content": "<p>Free Worldwide Shipping</p>",
             "adding_border": false
           }
         },
@@ -963,7 +965,7 @@
             "icon_width_mb": 40,
             "link": "",
             "open_link": false,
-            "title": "<b>100% Payment Secure</b>",
+            "title": "100% Payment Secure",
             "content": "<p>Safe & encrypted multiple payment method</p>",
             "adding_border": false
           }

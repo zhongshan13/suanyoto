@@ -2,7 +2,12 @@ hdt-cart-drawer,
 .hdt-sticky-btn-atc {
     z-index: 9999 !important;
 }
-
+.shopify-payment-button,
+hdt-compare.hdt-product-form__btn-compare,
+hdt-wishlist.hdt-product-form__btn-wishlist,
+button.hdt-product-form__submit{
+    order: -1;
+}
 #smile-ui-lite-container,
 .sca_aff_customer_refer_container {
     z-index: 999 !important;
@@ -31,7 +36,6 @@ hdt-cart-drawer .hdt-box {
     justify-content: start;
     gap: 10px;
 }
-
 hdt-cart-drawer .hdt-box hdt-code {
     cursor: pointer;
     font-weight: 600;
