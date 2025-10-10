@@ -158,10 +158,6 @@
           <div class="drawer__discount">
             <div class="js-cart-discount-accordion-container discount-accordion">
               <div class="js-accordion-item">
-                <button class="js-accordion-control accordion-control">
-                  <span class="accordion-title">Discount</span>
-                  <span class="accordion-arrow">▸</span>
-                </button>
                 <div class="js-accordion-content accordion-content">
                   <!-- 错误提示 -->
                   <div class="js-cart-discount-error error-message hidden">
@@ -230,15 +226,6 @@
               transform: rotate(90deg);
             }
 
-            .accordion-content {
-              max-height: 0;
-              overflow: hidden;
-              transition: max-height 0.25s ease;
-            }
-
-            .js-accordion-item.active .accordion-content {
-              max-height: 200px;
-            }
 
             /* 错误提示 */
             .error-message {
@@ -311,7 +298,7 @@
             }
           </style>
 
-          <script>
+          {% comment %} <script>
             // Accordion 展开逻辑
             document.querySelectorAll('.js-accordion-control').forEach((btn) => {
               btn.addEventListener('click', () => {
@@ -330,7 +317,7 @@
                 }
               });
             });
-          </script>
+          </script> {% endcomment %}
           <div class="hdt-mini-cart__bottom-wrap">
             {%- for block in section.blocks -%}
               {%- case block.type -%}

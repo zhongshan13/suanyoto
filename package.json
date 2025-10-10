@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "push": "shopify theme push",
+        "pull": "shopify theme pull",
+        "logout": "shopify auth logout",
+        "login": "shopify theme login -s cjakbb-ut",
+        "dev": "shopify theme dev -s cjakbb-ut -t 149596111011"
+    }
+}

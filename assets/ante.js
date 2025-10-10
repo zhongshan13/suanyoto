@@ -8,17 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function loading() {
-        document.querySelectorAll('.js-accordion-item').forEach((item, index) => {
-            const content = item.querySelector('.accordion-content');
-            if (item.classList.contains('active')) {
-                content.style.maxHeight = content.scrollHeight + 'px';
-            } else {
-                content.style.maxHeight = '0';
-            }
-        });
+    // function loading() {
+    //     document.querySelectorAll('.js-accordion-item').forEach((item, index) => {
+    //         const content = item.querySelector('.accordion-content');
+    //         if (item.classList.contains('active')) {
+    //             content.style.maxHeight = content.scrollHeight + 'px';
+    //         } else {
+    //             content.style.maxHeight = '0';
+    //         }
+    //     });
 
-    }
+    // }
 
     function restoreAccordionState() {
         document.querySelectorAll('.js-accordion-item').forEach((item, index) => {
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         }))
                 }
                 showDiscountError('discount_code')
-                restoreAccordionState()
+                // restoreAccordionState()
                 return;
             }
 
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             items: cart.items,  // 保证 CartDrawer 能找到 items
                         }
                     }))
-                restoreAccordionState()
+                // restoreAccordionState()
             }
 
         } catch (err) {
@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                             items: newcart.items,  // 保证 CartDrawer 能找到 items
                                         }
                                     }))
-                                restoreAccordionState()
+                                // restoreAccordionState()
                             }
                         } catch (err) {
                             console.error('删除折扣码失败', err);
@@ -283,8 +283,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     pillsContainer.querySelectorAll('.discount-pill').forEach(el => el.classList.add('loaded'));
                 });
 
-                restoreAccordionState();
-                loading();
+                // restoreAccordionState();
+                // loading();
             })
             .catch(err => console.error('更新折扣码失败:', err));
     }
