@@ -12,23 +12,16 @@
     "heading": {
       "type": "heading-collection",
       "blocks": {
-        "9a1347b4-da62-490d-9fd4-427a03686ac2": {
-          "type": "heading",
-          "settings": {
-            "heading": ""
-          }
-        },
         "6df762d7-beda-4452-bcf6-1242b294077c": {
           "type": "description",
           "settings": {
-            "description": "",
+            "description": "<h5>All Products</h5>",
             "short_des": false,
             "limit_words": 15
           }
         }
       },
       "block_order": [
-        "9a1347b4-da62-490d-9fd4-427a03686ac2",
         "6df762d7-beda-4452-bcf6-1242b294077c"
       ],
       "settings": {
