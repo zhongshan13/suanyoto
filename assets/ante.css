@@ -94,7 +94,6 @@ hdt-cart-drawer .hdt-box hdt-code span.ante-code-only {
     }
     #smile-ui-lite-container #smile-ui-lite-launcher-frame-container{
         bottom: 75px !important;
-        left: unset;
     }
     .sca_aff_customer_refer_container[data-web-position*=bottom]{
         bottom: 87px !important;
@@ -105,7 +104,7 @@ hdt-cart-drawer .hdt-box hdt-code span.ante-code-only {
     #ShopifyChat{
         /* left: 120px !important;
         right: unset !important; */
-        bottom: 180px !important;
+        bottom: 75px !important;
     }
     .hdt-back-to-top{
         bottom: calc(var(--backtop-bottom,55px) + 50px) !important;
