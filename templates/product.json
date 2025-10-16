@@ -183,7 +183,7 @@
           "settings": {
             "title": "Return Policies",
             "content": "",
-            "page": "privacy-policy"
+            "page": "return-policy"
           }
         },
         "1bc528a7-9da8-48ec-96da-8e48c0e52faf": {
@@ -217,6 +217,8 @@
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget",
             "max_width": 1200
           }
         }
@@ -375,32 +377,40 @@
         "accordion_item_NUfizg": {
           "type": "accordion_item",
           "settings": {
-            "title": "Pellentesque habitant morbi tristique senectus et netus?",
-            "content": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "title": "Will installing this ambient light affect my Tesla's FSD (Full Self-Driving) capability?",
+            "content": "Not at all. Our product is an independent accessory that does not interfere with any of your Tesla’s built-in functions, including FSD. It operates separately and will not impact your vehicle’s software or performance.",
             "content_richtext": ""
           }
         },
         "accordion_item_hkpKdP": {
           "type": "accordion_item",
           "settings": {
-            "title": "Pellentesque habitant morbi tristique senectus et netus?",
-            "content": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "title": "Will this void my Tesla’s warranty?",
+            "content": "No. Since our product is plug-and-play and does not modify original wiring or software, it should not affect your vehicle’s warranty. Always refer to Tesla’s warranty policy for specific concerns.",
             "content_richtext": ""
           }
         },
         "accordion_item_EXdzyN": {
           "type": "accordion_item",
           "settings": {
-            "title": "Pellentesque habitant morbi tristique senectus et netus?",
-            "content": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "title": "Is the Saunyoto ambient light compatible with all Tesla Model 3/Y versions, including Highland and Juniper?",
+            "content": "Absolutely. This product is specially designed to be compatible with all Tesla Model 3 and Model Y versions, including the latest Highland and Juniper up.",
+            "content_richtext": ""
+          }
+        },
+        "accordion_item_wfrApz": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Is the installation process complicated? Do I need professional help?",
+            "content": "The kit is designed for easy DIY installation with detailed instructions and all necessary tools included. However, if you prefer professional assistance, we recommend consulting a certified technician.",
             "content_richtext": ""
           }
         },
         "accordion_item_tDY3mC": {
           "type": "accordion_item",
           "settings": {
-            "title": "Pellentesque habitant morbi tristique senectus et netus?",
-            "content": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "title": "",
+            "content": "",
             "content_richtext": ""
           }
         }
@@ -410,6 +420,7 @@
         "accordion_item_NUfizg",
         "accordion_item_hkpKdP",
         "accordion_item_EXdzyN",
+        "accordion_item_wfrApz",
         "accordion_item_tDY3mC"
       ],
       "name": "t:sections.accordion.name",
