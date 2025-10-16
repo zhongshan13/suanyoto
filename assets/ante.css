@@ -92,6 +92,10 @@ hdt-cart-drawer .hdt-box hdt-code span.ante-code-only {
         right: 0 !important;
         left: unset !important;
     }
+    #smile-ui-lite-container #smile-ui-lite-launcher-frame-container{
+        bottom: 250px !important;
+        left: unset;
+    }
     .sca_aff_customer_refer_container[data-web-position*=bottom]{
         bottom: 87px !important;
     }
@@ -101,7 +105,7 @@ hdt-cart-drawer .hdt-box hdt-code span.ante-code-only {
     #ShopifyChat{
         /* left: 120px !important;
         right: unset !important; */
-        bottom: 168px !important;
+        bottom: 180px !important;
     }
     .hdt-back-to-top{
         bottom: calc(var(--backtop-bottom,55px) + 50px) !important;
