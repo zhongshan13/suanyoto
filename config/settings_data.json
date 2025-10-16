@@ -55,7 +55,6 @@
     "social_tumblr_link": "",
     "social_vimeo_link": "",
     "social_snapchat_link": "",
-    "social_whatsapp_link": "https://wa.me/message/VU73YEC65KBJF1",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": true,
@@ -452,11 +451,6 @@
           "button_vertical_position": "higher",
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!\nAt Saunyoto, we're here to make sure you have a wonderful experience!"
         }
-      },
-      "7924418359578431505": {
-        "type": "shopify://apps/seoant-ai-seo/blocks/seoant-core/8e57283b-dcb0-4f7b-a947-fb5c57a0d59d",
-        "disabled": false,
-        "settings": {}
       }
     },
     "color_schemes": {

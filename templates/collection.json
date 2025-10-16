@@ -12,31 +12,24 @@
     "heading": {
       "type": "heading-collection",
       "blocks": {
-        "9a1347b4-da62-490d-9fd4-427a03686ac2": {
-          "type": "heading",
-          "settings": {
-            "heading": ""
-          }
-        },
         "6df762d7-beda-4452-bcf6-1242b294077c": {
           "type": "description",
           "settings": {
-            "description": "",
+            "description": "<h6>All Products</h6>",
             "short_des": false,
             "limit_words": 15
           }
         }
       },
       "block_order": [
-        "9a1347b4-da62-490d-9fd4-427a03686ac2",
         "6df762d7-beda-4452-bcf6-1242b294077c"
       ],
       "settings": {
         "spacing_hd": 10,
         "image": "shopify://shop_images/4545343.webp",
         "color_scheme": "",
-        "padding_top": 65,
-        "padding_bottom": 65,
+        "padding_top": 20,
+        "padding_bottom": 15,
         "padding_rate": 75
       }
     },

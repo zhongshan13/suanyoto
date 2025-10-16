@@ -118,7 +118,7 @@
             "btn2_fw": "medium",
             "btn2_icon": "none",
             "content_bg": false,
-            "content_position": "start-center",
+            "content_position": "start-end",
             "alignment": "center",
             "hide_subtext_mb": false,
             "content_position_mb": "start-end",
